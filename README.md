@@ -6,8 +6,13 @@
 
 [Лекционные материалы](https://drive.google.com/folderview?id=0B7AOfG5ohMyAbE00WTFmaE12V0k&usp=sharing)
 
-[Лабораторные работы](https://drive.google.com/drive/folders/0B7AOfG5ohMyARkdVZ2ZOM0dKZEE?usp=sharing)
+[Лабораторные работы](https://drive.google.com/drive/folders/0B7AOfG5ohMyARkdVZ2ZOM0dKZEE?usp=sharing) - задания оцениваемые преподавателем.
 
-[Практические работы](https://drive.google.com/drive/folders/0B7AOfG5ohMyAeUt1RUo2R25WVG8)
+[Практические работы](https://drive.google.com/drive/folders/0B7AOfG5ohMyAeUt1RUo2R25WVG8) - задания, которые необходимо выполнить перед выполнением лабораторной работы для того, чтобы освоить тему.
+
+Лабораторные работы 1 и 2 выпоняются в указанных в тексте работ программных средствах, отчет выполняется в соответствии с инструкциями в тексте работ. Отчет высылается на antongovorov@gmail.com.
+
+Остальные работы сдаются средствами создания Pull Request запросов в папку students в этом репозитории.
+Как сделать Pull Request описано [тут](https://rustycrate.ru/%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0/2016/03/07/contributing.html).
 
 
