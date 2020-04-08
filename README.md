@@ -51,9 +51,12 @@
 
 Создание базы в PostgreSQL
 
-[Практикум 1](https://drive.google.com/open?id=1sMH6KeCcWxo7_kce2T-GNfrJ967JxNHR) - создание базы в PostgreSQL средствами PGAdmin
-[Практикум 2](https://drive.google.com/open?id=1opDVtVlLjIAbhBF1VQX0POLqq0cV6MIP) - Работа с базой в PGAdmin
+[Практикум 1](https://drive.google.com/open?id=1sMH6KeCcWxo7_kce2T-GNfrJ967JxNHR) - создание базы в PostgreSQL средствами PGAdmin.
+
+[Практикум 2](https://drive.google.com/open?id=1opDVtVlLjIAbhBF1VQX0POLqq0cV6MIP) - Работа с базой в PGAdmin.
+
 Задача: создать базу данных в соответствии с моделью данных из второй лабы. В четверг с 18 00 до 23 00 допроверяю непроверенные лабораторные работы.
+
 Пока ждете проверки, можете выполнить практикумы.
 
 ### Сдача работы №4
