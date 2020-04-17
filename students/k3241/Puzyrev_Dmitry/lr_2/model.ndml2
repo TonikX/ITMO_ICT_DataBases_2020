@@ -19,13 +19,23 @@
         "tables": [
           {
             "objectType": "Table_LOGICAL",
-            "name": "RoomType",
+            "name": "Manager",
+            "comment": "",
+            "oldName": "",
+            "fields": [],
+            "foreignKeys": [],
+            "indexes": [],
+            "uniques": []
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "Servant",
             "comment": "",
             "oldName": "",
             "fields": [
               {
                 "objectType": "TableField_LOGICAL",
-                "name": "ID",
+                "name": "ServantID",
                 "type": "INTEGER",
                 "length": 0,
                 "decimals": 0,
@@ -33,7 +43,412 @@
                 "defaultType": "None",
                 "defaultValue": "",
                 "comment": "",
-                "oldName": "ID"
+                "oldName": "ServantID"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "FirstName",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "FirstName"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "MiddleName",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "MiddleName"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "LastName",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "LastName"
+              }
+            ],
+            "foreignKeys": [],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "ServantID"
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "CleaningSchedule",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ScheduleID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ScheduleID"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "FloorID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "FloorID"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "Weekday",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "Weekday"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ServantID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ServantID"
+              }
+            ],
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_CleaningSchedule_Servant_1",
+                "fields": [
+                  "ServantID"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Servant",
+                "referencedFields": [],
+                "sourceCardinality": "OneOrManyRelationship",
+                "targetCardinality": "NoneRelationship",
+                "comment": "",
+                "oldName": ""
+              },
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_CleaningSchedule_Floor_1",
+                "fields": [
+                  "FloorID"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Floor",
+                "referencedFields": [
+                  "FloorID"
+                ],
+                "sourceCardinality": "NoneRelationship",
+                "targetCardinality": "NoneRelationship",
+                "comment": "",
+                "oldName": ""
+              }
+            ],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "ScheduleID",
+                ""
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "CleaningLogs",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "LogID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "LogID"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "Date",
+                "type": "DATE",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "Date"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "FloorID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "FloorID"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ServantID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ServantID"
+              }
+            ],
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_CleaningLogs_Servant_1",
+                "fields": [
+                  "ServantID"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Servant",
+                "referencedFields": [],
+                "sourceCardinality": "OneOrManyRelationship",
+                "targetCardinality": "NoneRelationship",
+                "comment": "",
+                "oldName": ""
+              },
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_CleaningLogs_Floor_1",
+                "fields": [
+                  "FloorID"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Floor",
+                "referencedFields": [
+                  "FloorID"
+                ],
+                "sourceCardinality": "NoneRelationship",
+                "targetCardinality": "NoneRelationship",
+                "comment": "",
+                "oldName": ""
+              }
+            ],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "LogID"
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "Floor",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "FloorID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "FloorID"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "Floor number",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "Floor number"
+              }
+            ],
+            "foreignKeys": [],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "FloorID"
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "Room",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "RoomID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "RoomID"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "FloorID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "FloorID"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "DailyPrice",
+                "type": "DECIMAL",
+                "length": 10,
+                "decimals": 2,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "DailyPrice"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "RoomTypeID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "RoomTypeID"
+              }
+            ],
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_Room_RoomType_1",
+                "fields": [
+                  "RoomTypeID"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "RoomType",
+                "referencedFields": [],
+                "sourceCardinality": "OneOrManyRelationship",
+                "targetCardinality": "NoneRelationship",
+                "comment": "",
+                "oldName": ""
+              },
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_Room_Floor_1",
+                "fields": [
+                  "FloorID"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Floor",
+                "referencedFields": [
+                  "FloorID"
+                ],
+                "sourceCardinality": "NoneRelationship",
+                "targetCardinality": "NoneRelationship",
+                "comment": "",
+                "oldName": ""
+              }
+            ],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "RoomID"
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "RoomType",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "TypeID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "TypeID"
               },
               {
                 "objectType": "TableField_LOGICAL",
@@ -55,7 +470,74 @@
               "objectType": "PrimaryKey_LOGICAL",
               "name": "",
               "fields": [
-                "ID"
+                "TypeID"
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "Administrator",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "AdministratorID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "AdministratorID"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "FirstName",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "FirstName"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "MiddleName",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "MiddleName"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "LastName",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "LastName"
+              }
+            ],
+            "foreignKeys": [],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "AdministratorID"
               ],
               "oldName": ""
             }
@@ -68,7 +550,7 @@
             "fields": [
               {
                 "objectType": "TableField_LOGICAL",
-                "name": "ID",
+                "name": "AccomodationID",
                 "type": "INTEGER",
                 "length": 0,
                 "decimals": 0,
@@ -76,7 +558,7 @@
                 "defaultType": "None",
                 "defaultValue": "",
                 "comment": "",
-                "oldName": "ID"
+                "oldName": "AccomodationID"
               },
               {
                 "objectType": "TableField_LOGICAL",
@@ -144,8 +626,7 @@
                 "objectType": "ForeignKey_LOGICAL",
                 "name": "fk_Accomodation_Administrator_1",
                 "fields": [
-                  "AdministratorID",
-                  "ID"
+                  "AdministratorID"
                 ],
                 "referencedSchema": "Default",
                 "referencedTable": "Administrator",
@@ -159,8 +640,7 @@
                 "objectType": "ForeignKey_LOGICAL",
                 "name": "fk_Accomodation_Customer_1",
                 "fields": [
-                  "CustomerID",
-                  "ID"
+                  "CustomerID"
                 ],
                 "referencedSchema": "Default",
                 "referencedTable": "Customer",
@@ -175,7 +655,7 @@
                 "name": "fk_Accomodation_Room_1",
                 "fields": [
                   "RoomID",
-                  "ID"
+                  "AccomodationID"
                 ],
                 "referencedSchema": "Default",
                 "referencedTable": "Room",
@@ -192,235 +672,7 @@
               "objectType": "PrimaryKey_LOGICAL",
               "name": "",
               "fields": [
-                "ID"
-              ],
-              "oldName": ""
-            }
-          },
-          {
-            "objectType": "Table_LOGICAL",
-            "name": "Manager",
-            "comment": "",
-            "oldName": "",
-            "fields": [],
-            "foreignKeys": [],
-            "indexes": [],
-            "uniques": []
-          },
-          {
-            "objectType": "Table_LOGICAL",
-            "name": "Administrator",
-            "comment": "",
-            "oldName": "",
-            "fields": [
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "ID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "ID"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "FirstName",
-                "type": "CHAR VARYING",
-                "length": 255,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "FirstName"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "MiddleName",
-                "type": "CHAR VARYING",
-                "length": 255,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "MiddleName"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "LastName",
-                "type": "CHAR VARYING",
-                "length": 255,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "LastName"
-              }
-            ],
-            "foreignKeys": [],
-            "indexes": [],
-            "uniques": [],
-            "primaryKey": {
-              "objectType": "PrimaryKey_LOGICAL",
-              "name": "",
-              "fields": [
-                "ID"
-              ],
-              "oldName": ""
-            }
-          },
-          {
-            "objectType": "Table_LOGICAL",
-            "name": "Servant",
-            "comment": "",
-            "oldName": "",
-            "fields": [
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "ID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "ID"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "FirstName",
-                "type": "CHAR VARYING",
-                "length": 255,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "FirstName"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "MiddleName",
-                "type": "CHAR VARYING",
-                "length": 255,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "MiddleName"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "LastName",
-                "type": "CHAR VARYING",
-                "length": 255,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "LastName"
-              }
-            ],
-            "foreignKeys": [],
-            "indexes": [],
-            "uniques": [],
-            "primaryKey": {
-              "objectType": "PrimaryKey_LOGICAL",
-              "name": "",
-              "fields": [
-                "ID"
-              ],
-              "oldName": ""
-            }
-          },
-          {
-            "objectType": "Table_LOGICAL",
-            "name": "CleaningSchedule",
-            "comment": "",
-            "oldName": "",
-            "fields": [
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "ID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "ID"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "Floor",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "Floor"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "Weekday",
-                "type": "CHAR VARYING",
-                "length": 255,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "Weekday"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "ServantID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "ServantID"
-              }
-            ],
-            "foreignKeys": [
-              {
-                "objectType": "ForeignKey_LOGICAL",
-                "name": "fk_CleaningSchedule_Servant_1",
-                "fields": [
-                  "ServantID",
-                  "ID"
-                ],
-                "referencedSchema": "Default",
-                "referencedTable": "Servant",
-                "referencedFields": [],
-                "sourceCardinality": "OneOrManyRelationship",
-                "targetCardinality": "NoneRelationship",
-                "comment": "",
-                "oldName": ""
-              }
-            ],
-            "indexes": [],
-            "uniques": [],
-            "primaryKey": {
-              "objectType": "PrimaryKey_LOGICAL",
-              "name": "",
-              "fields": [
-                "ID",
-                ""
+                "AccomodationID"
               ],
               "oldName": ""
             }
@@ -433,7 +685,7 @@
             "fields": [
               {
                 "objectType": "TableField_LOGICAL",
-                "name": "ID",
+                "name": "CustomerID",
                 "type": "INTEGER",
                 "length": 0,
                 "decimals": 0,
@@ -441,7 +693,7 @@
                 "defaultType": "None",
                 "defaultValue": "",
                 "comment": "",
-                "oldName": "ID"
+                "oldName": "CustomerID"
               },
               {
                 "objectType": "TableField_LOGICAL",
@@ -511,248 +763,7 @@
               "objectType": "PrimaryKey_LOGICAL",
               "name": "",
               "fields": [
-                "ID"
-              ],
-              "oldName": ""
-            }
-          },
-          {
-            "objectType": "Table_LOGICAL",
-            "name": "Floor",
-            "comment": "",
-            "oldName": "",
-            "fields": [
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "ID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "ID"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "Floor number",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "Floor number"
-              }
-            ],
-            "foreignKeys": [],
-            "indexes": [],
-            "uniques": [],
-            "primaryKey": {
-              "objectType": "PrimaryKey_LOGICAL",
-              "name": "",
-              "fields": [
-                "ID"
-              ],
-              "oldName": ""
-            }
-          },
-          {
-            "objectType": "Table_LOGICAL",
-            "name": "CleaningLogs",
-            "comment": "",
-            "oldName": "",
-            "fields": [
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "ID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "ID"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "Date",
-                "type": "DATE",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "Date"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "FloorID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "FloorID"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "ServantID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "ServantID"
-              }
-            ],
-            "foreignKeys": [
-              {
-                "objectType": "ForeignKey_LOGICAL",
-                "name": "fk_CleaningLogs_Servant_1",
-                "fields": [
-                  "ServantID",
-                  "ID"
-                ],
-                "referencedSchema": "Default",
-                "referencedTable": "Servant",
-                "referencedFields": [],
-                "sourceCardinality": "OneOrManyRelationship",
-                "targetCardinality": "NoneRelationship",
-                "comment": "",
-                "oldName": ""
-              },
-              {
-                "objectType": "ForeignKey_LOGICAL",
-                "name": "fk_CleaningLogs_Floor_1",
-                "fields": [
-                  "FloorID"
-                ],
-                "referencedSchema": "Default",
-                "referencedTable": "Floor",
-                "referencedFields": [
-                  "ID"
-                ],
-                "sourceCardinality": "NoneRelationship",
-                "targetCardinality": "NoneRelationship",
-                "comment": "",
-                "oldName": ""
-              }
-            ],
-            "indexes": [],
-            "uniques": [],
-            "primaryKey": {
-              "objectType": "PrimaryKey_LOGICAL",
-              "name": "",
-              "fields": [
-                "ID"
-              ],
-              "oldName": ""
-            }
-          },
-          {
-            "objectType": "Table_LOGICAL",
-            "name": "Room",
-            "comment": "",
-            "oldName": "",
-            "fields": [
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "ID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "ID"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "FloorID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "FloorID"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "DailyPrice",
-                "type": "DECIMAL",
-                "length": 10,
-                "decimals": 2,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "DailyPrice"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "RoomTypeID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "RoomTypeID"
-              }
-            ],
-            "foreignKeys": [
-              {
-                "objectType": "ForeignKey_LOGICAL",
-                "name": "fk_Room_RoomType_1",
-                "fields": [
-                  "RoomTypeID",
-                  "ID"
-                ],
-                "referencedSchema": "Default",
-                "referencedTable": "RoomType",
-                "referencedFields": [],
-                "sourceCardinality": "OneOrManyRelationship",
-                "targetCardinality": "NoneRelationship",
-                "comment": "",
-                "oldName": ""
-              },
-              {
-                "objectType": "ForeignKey_LOGICAL",
-                "name": "fk_Room_Floor_1",
-                "fields": [
-                  "FloorID"
-                ],
-                "referencedSchema": "Default",
-                "referencedTable": "Floor",
-                "referencedFields": [
-                  "ID"
-                ],
-                "sourceCardinality": "NoneRelationship",
-                "targetCardinality": "NoneRelationship",
-                "comment": "",
-                "oldName": ""
-              }
-            ],
-            "indexes": [],
-            "uniques": [],
-            "primaryKey": {
-              "objectType": "PrimaryKey_LOGICAL",
-              "name": "",
-              "fields": [
-                "ID"
+                "CustomerID"
               ],
               "oldName": ""
             }
@@ -859,8 +870,8 @@
           "type": "table",
           "schemaName": "Default",
           "tableName": "Servant",
-          "x": 477,
-          "y": 503,
+          "x": 529,
+          "y": 685,
           "width": 150,
           "height": 129,
           "isBold": false,
@@ -875,8 +886,8 @@
           "type": "table",
           "schemaName": "Default",
           "tableName": "CleaningSchedule",
-          "x": 683,
-          "y": 541,
+          "x": 255,
+          "y": 714,
           "width": 150,
           "height": 135,
           "isBold": false,
@@ -1066,17 +1077,17 @@
           "visible": true,
           "vertices": [
             {
-              "x": 668,
-              "y": 651
+              "x": 420,
+              "y": 823
             },
             {
-              "x": 642,
-              "y": 550
+              "x": 514,
+              "y": 734
             }
           ],
           "label": {
-            "x": 678,
-            "y": 612,
+            "x": 410,
+            "y": 784,
             "width": 210,
             "height": 31,
             "fontName": "Arial Unicode MS",
@@ -1104,8 +1115,8 @@
               "y": 663
             },
             {
-              "x": 462,
-              "y": 549
+              "x": 514,
+              "y": 731
             }
           ],
           "label": {
@@ -1173,13 +1184,51 @@
             },
             {
               "x": 46,
-              "y": 651
+              "y": 641
             }
           ],
           "label": {
             "x": 61,
             "y": 468,
             "width": 117,
+            "height": 31,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "fk_CleaningSchedule_Floor_1",
+          "sourceTableName": "CleaningSchedule",
+          "sourceSchemaName": "Default",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 240,
+              "y": 781
+            },
+            {
+              "x": 46,
+              "y": 781
+            },
+            {
+              "x": 46,
+              "y": 654
+            }
+          ],
+          "label": {
+            "x": 56,
+            "y": 742,
+            "width": 194,
             "height": 31,
             "fontName": "Arial Unicode MS",
             "fontSize": 14,
