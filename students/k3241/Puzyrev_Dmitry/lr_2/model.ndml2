@@ -19,89 +19,6 @@
         "tables": [
           {
             "objectType": "Table_LOGICAL",
-            "name": "Room",
-            "comment": "",
-            "oldName": "",
-            "fields": [
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "ID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "ID"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "Floor",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "Floor"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "DailyPrice",
-                "type": "DECIMAL",
-                "length": 10,
-                "decimals": 2,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "DailyPrice"
-              },
-              {
-                "objectType": "TableField_LOGICAL",
-                "name": "RoomTypeID",
-                "type": "INTEGER",
-                "length": 0,
-                "decimals": 0,
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "comment": "",
-                "oldName": "RoomTypeID"
-              }
-            ],
-            "foreignKeys": [
-              {
-                "objectType": "ForeignKey_LOGICAL",
-                "name": "fk_Room_RoomType_1",
-                "fields": [
-                  "RoomTypeID",
-                  "ID"
-                ],
-                "referencedSchema": "Default",
-                "referencedTable": "RoomType",
-                "referencedFields": [],
-                "sourceCardinality": "OneOrManyRelationship",
-                "targetCardinality": "NoneRelationship",
-                "comment": "",
-                "oldName": ""
-              }
-            ],
-            "indexes": [],
-            "uniques": [],
-            "primaryKey": {
-              "objectType": "PrimaryKey_LOGICAL",
-              "name": "",
-              "fields": [
-                "ID"
-              ],
-              "oldName": ""
-            }
-          },
-          {
-            "objectType": "Table_LOGICAL",
             "name": "RoomType",
             "comment": "",
             "oldName": "",
@@ -601,6 +518,49 @@
           },
           {
             "objectType": "Table_LOGICAL",
+            "name": "Floor",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "Floor number",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "Floor number"
+              }
+            ],
+            "foreignKeys": [],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "ID"
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
             "name": "CleaningLogs",
             "comment": "",
             "oldName": "",
@@ -631,7 +591,7 @@
               },
               {
                 "objectType": "TableField_LOGICAL",
-                "name": "Floor",
+                "name": "FloorID",
                 "type": "INTEGER",
                 "length": 0,
                 "decimals": 0,
@@ -639,7 +599,7 @@
                 "defaultType": "None",
                 "defaultValue": "",
                 "comment": "",
-                "oldName": "Floor"
+                "oldName": "FloorID"
               },
               {
                 "objectType": "TableField_LOGICAL",
@@ -666,6 +626,121 @@
                 "referencedTable": "Servant",
                 "referencedFields": [],
                 "sourceCardinality": "OneOrManyRelationship",
+                "targetCardinality": "NoneRelationship",
+                "comment": "",
+                "oldName": ""
+              },
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_CleaningLogs_Floor_1",
+                "fields": [
+                  "FloorID"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Floor",
+                "referencedFields": [
+                  "ID"
+                ],
+                "sourceCardinality": "NoneRelationship",
+                "targetCardinality": "NoneRelationship",
+                "comment": "",
+                "oldName": ""
+              }
+            ],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "ID"
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "Room",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "FloorID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "FloorID"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "DailyPrice",
+                "type": "DECIMAL",
+                "length": 10,
+                "decimals": 2,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "DailyPrice"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "RoomTypeID",
+                "type": "INTEGER",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "RoomTypeID"
+              }
+            ],
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_Room_RoomType_1",
+                "fields": [
+                  "RoomTypeID",
+                  "ID"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "RoomType",
+                "referencedFields": [],
+                "sourceCardinality": "OneOrManyRelationship",
+                "targetCardinality": "NoneRelationship",
+                "comment": "",
+                "oldName": ""
+              },
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_Room_Floor_1",
+                "fields": [
+                  "FloorID"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Floor",
+                "referencedFields": [
+                  "ID"
+                ],
+                "sourceCardinality": "NoneRelationship",
                 "targetCardinality": "NoneRelationship",
                 "comment": "",
                 "oldName": ""
@@ -704,8 +779,8 @@
           "type": "table",
           "schemaName": "Default",
           "tableName": "Room",
-          "x": 40,
-          "y": 17,
+          "x": 60,
+          "y": 398,
           "width": 150,
           "height": 139,
           "isBold": false,
@@ -720,8 +795,8 @@
           "type": "table",
           "schemaName": "Default",
           "tableName": "RoomType",
-          "x": 312,
-          "y": 18,
+          "x": 379,
+          "y": 346,
           "width": 150,
           "height": 93,
           "isBold": false,
@@ -736,8 +811,8 @@
           "type": "table",
           "schemaName": "Default",
           "tableName": "Customer",
-          "x": 132,
-          "y": 195,
+          "x": 59,
+          "y": 110,
           "width": 150,
           "height": 181,
           "isBold": false,
@@ -752,8 +827,8 @@
           "type": "table",
           "schemaName": "Default",
           "tableName": "Accomodation",
-          "x": 365,
-          "y": 283,
+          "x": 390,
+          "y": 101,
           "width": 156,
           "height": 175,
           "isBold": false,
@@ -784,8 +859,8 @@
           "type": "table",
           "schemaName": "Default",
           "tableName": "Servant",
-          "x": 372,
-          "y": 505,
+          "x": 477,
+          "y": 503,
           "width": 150,
           "height": 129,
           "isBold": false,
@@ -800,8 +875,8 @@
           "type": "table",
           "schemaName": "Default",
           "tableName": "CleaningSchedule",
-          "x": 591,
-          "y": 552,
+          "x": 683,
+          "y": 541,
           "width": 150,
           "height": 135,
           "isBold": false,
@@ -816,10 +891,26 @@
           "type": "table",
           "schemaName": "Default",
           "tableName": "CleaningLogs",
-          "x": 148,
-          "y": 552,
+          "x": 257,
+          "y": 553,
           "width": 150,
           "height": 132,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "Default",
+          "tableName": "Floor",
+          "x": 61,
+          "y": 604,
+          "width": 150,
+          "height": 83,
           "isBold": false,
           "titleColor": {
             "r": 55,
@@ -839,17 +930,17 @@
           "visible": true,
           "vertices": [
             {
-              "x": 205,
-              "y": 127
+              "x": 225,
+              "y": 508
             },
             {
-              "x": 297,
-              "y": 64
+              "x": 364,
+              "y": 392
             }
           ],
           "label": {
-            "x": 195,
-            "y": 88,
+            "x": 220,
+            "y": 469,
             "width": 154,
             "height": 31,
             "fontName": "Arial Unicode MS",
@@ -873,8 +964,8 @@
           "visible": true,
           "vertices": [
             {
-              "x": 536,
-              "y": 393
+              "x": 561,
+              "y": 211
             },
             {
               "x": 622,
@@ -882,8 +973,8 @@
             }
           ],
           "label": {
-            "x": 526,
-            "y": 354,
+            "x": 551,
+            "y": 172,
             "width": 219,
             "height": 31,
             "fontName": "Arial Unicode MS",
@@ -907,17 +998,17 @@
           "visible": true,
           "vertices": [
             {
-              "x": 350,
-              "y": 411
+              "x": 375,
+              "y": 229
             },
             {
-              "x": 297,
-              "y": 240
+              "x": 224,
+              "y": 155
             }
           ],
           "label": {
-            "x": 360,
-            "y": 372,
+            "x": 385,
+            "y": 190,
             "width": 198,
             "height": 31,
             "fontName": "Arial Unicode MS",
@@ -941,21 +1032,17 @@
           "visible": true,
           "vertices": [
             {
-              "x": 350,
-              "y": 434
+              "x": 375,
+              "y": 252
             },
             {
-              "x": 25,
-              "y": 434
-            },
-            {
-              "x": 25,
-              "y": 65
+              "x": 225,
+              "y": 446
             }
           ],
           "label": {
-            "x": 186,
-            "y": 395,
+            "x": 211,
+            "y": 213,
             "width": 174,
             "height": 31,
             "fontName": "Arial Unicode MS",
@@ -979,17 +1066,17 @@
           "visible": true,
           "vertices": [
             {
-              "x": 576,
-              "y": 662
+              "x": 668,
+              "y": 651
             },
             {
-              "x": 537,
-              "y": 552
+              "x": 642,
+              "y": 550
             }
           ],
           "label": {
-            "x": 586,
-            "y": 623,
+            "x": 678,
+            "y": 612,
             "width": 210,
             "height": 31,
             "fontName": "Arial Unicode MS",
@@ -1013,18 +1100,86 @@
           "visible": true,
           "vertices": [
             {
-              "x": 313,
-              "y": 662
+              "x": 422,
+              "y": 663
             },
             {
-              "x": 357,
-              "y": 551
+              "x": 462,
+              "y": 549
             }
           ],
           "label": {
-            "x": 303,
-            "y": 623,
+            "x": 412,
+            "y": 624,
             "width": 182,
+            "height": 31,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "fk_CleaningLogs_Floor_1",
+          "sourceTableName": "CleaningLogs",
+          "sourceSchemaName": "Default",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 242,
+              "y": 642
+            },
+            {
+              "x": 226,
+              "y": 642
+            }
+          ],
+          "label": {
+            "x": 86,
+            "y": 603,
+            "width": 166,
+            "height": 31,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "fk_Room_Floor_1",
+          "sourceTableName": "Room",
+          "sourceSchemaName": "Default",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 45,
+              "y": 466
+            },
+            {
+              "x": 46,
+              "y": 651
+            }
+          ],
+          "label": {
+            "x": 61,
+            "y": 468,
+            "width": 117,
             "height": 31,
             "fontName": "Arial Unicode MS",
             "fontSize": 14,
