@@ -1,0 +1,116 @@
+CREATE SCHEMA public;
+
+-- Создание таблицы книг
+CREATE TABLE public."Book" (
+    id integer NOT NULL,
+    name text NOT NULL,
+    publisher text,
+    publishing_date date,
+    author text NOT NULL
+);
+
+
+-- Создание таблицы посетителей
+CREATE TABLE public."Customer" (
+    id integer NOT NULL,
+    name text NOT NULL,
+    passport character varying(11) NOT NULL,
+    phone character varying(12) NOT NULL,
+    date_of_birth date NOT NULL,
+    education text,
+    "science_degree " boolean
+);
+
+
+-- Создание таблицы залов
+CREATE TABLE public."Hall" (
+    id integer NOT NULL,
+    capacity integer NOT NULL,
+    name text
+);
+
+-- Создание таблицы взятых книг
+CREATE TABLE public."Taken_books" (
+    book_id integer NOT NULL,
+    customer_id integer NOT NULL,
+    date_of_taking date NOT NULL
+);
+
+-- Создание таблицы количества книг
+CREATE TABLE public.number_of_books (
+    book_id integer NOT NULL,
+    hall_id integer NOT NULL,
+    amount integer NOT NULL
+);
+
+-- Заполнение книг
+INSERT INTO public."Book" VALUES (1, 'Bible', 'Saint Man', '20012-06-18', 'Jesus');
+INSERT INTO public."Book" VALUES (2, 'War or Peace', 'Sova', '2008-12-12', 'Tolstoy');
+INSERT INTO public."Book" VALUES (3, 'minecraft', 'Brah', '20011-10-10', 'Jesus');
+INSERT INTO public."Book" VALUES (4, 'CoD', 'Blizzard', '2000-05-05', 'Activision');
+INSERT INTO public."Book" VALUES (5, 'KOD', 'Dreamville', '2008-01-01', 'Jcole');
+
+
+
+-- Заполнение посетителей
+INSERT INTO public."Customer" VALUES (1, 'Jesus', '3312324560', '88005553535', '0001-01-01', 'Brah', true);
+INSERT INTO public."Customer" VALUES (2, 'DaBaby', '1312324560', '88012553535', '2000-10-01', 'Indeed', false);
+INSERT INTO public."Customer" VALUES (3, 'JCole', '3313324560', '88005453535', '2004-02-01', 'Street', false);
+INSERT INTO public."Customer" VALUES (4, 'Evelone', '3312374560', '88005552135', '2001-03-01', 'Brah', true);
+INSERT INTO public."Customer" VALUES (5, 'Christ', '3312524560', '88005553135', '2003-01-04', 'Brah', true);
+
+
+-- Заполнение залов
+INSERT INTO public."Hall" VALUES (1, 20, NULL);
+INSERT INTO public."Hall" VALUES (2, 20, 'bras');
+INSERT INTO public."Hall" VALUES (3, 10, 'Kiddo');
+
+
+-- Заполнение взятых книг
+INSERT INTO public."Taken_books" VALUES (1, 1, '2009-01-21');
+INSERT INTO public."Taken_books" VALUES (1, 2, '2011-01-12');
+INSERT INTO public."Taken_books" VALUES (3, 1, '2019-02-03');
+INSERT INTO public."Taken_books" VALUES (4, 5, '2012-01-24');
+INSERT INTO public."Taken_books" VALUES (2, 3, '2009-05-12');
+
+
+-- Заполнение количества книг
+INSERT INTO public.number_of_books VALUES (1, 1, 3);
+INSERT INTO public.number_of_books VALUES (5, 2, 3);
+INSERT INTO public.number_of_books VALUES (3, 2, 4);
+INSERT INTO public.number_of_books VALUES (4, 3, 3);
+INSERT INTO public.number_of_books VALUES (2, 1, 5);
+
+-- Создание Primary Key по id книг
+ALTER TABLE ONLY public."Book"
+    ADD CONSTRAINT "Book_pkey" PRIMARY KEY (id);
+
+
+-- Создание Primary Key по id посетителей
+ALTER TABLE ONLY public."Customer"
+    ADD CONSTRAINT "Customer_pkey" PRIMARY KEY (id);
+
+
+-- Создание Primary Key по id залов
+ALTER TABLE ONLY public."Hall"
+    ADD CONSTRAINT "Hall_pkey" PRIMARY KEY (id);
+
+
+-- Создание FOREIGN KEY book_id для таблицы взятых книг
+ALTER TABLE ONLY public."Taken_books"
+    ADD CONSTRAINT book_fk FOREIGN KEY (book_id) REFERENCES public."Book"(id) NOT VALID;
+
+
+-- Создание FOREIGN KEY book_id для таблицы количества книг
+ALTER TABLE ONLY public.number_of_books
+    ADD CONSTRAINT book_fkh FOREIGN KEY (book_id) REFERENCES public."Book"(id) NOT VALID;
+
+
+-- Создание FOREIGN KEY customer_id для таблицы взятых книг
+ALTER TABLE ONLY public."Taken_books"
+    ADD CONSTRAINT customer_fk FOREIGN KEY (customer_id) REFERENCES public."Customer"(id) NOT VALID;
+
+
+-- Создание FOREIGN KEY hall_id для таблицы количества книг
+ALTER TABLE ONLY public.number_of_books
+    ADD CONSTRAINT hall_fk FOREIGN KEY (hall_id) REFERENCES public."Hall"(id) NOT VALID;
