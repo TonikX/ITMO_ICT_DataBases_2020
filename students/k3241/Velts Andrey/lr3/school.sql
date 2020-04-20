@@ -1,13 +1,16 @@
+-- Таблица "Предмет"
 CREATE TABLE "Subject" (
   "id_Subject" SERIAL PRIMARY KEY NOT NULL,
   "name" varchar NOT NULL
 );
 
+-- Таблица "Кабинет"
 CREATE TABLE "Cabinet" (
   "id_Cabinet" int PRIMARY KEY NOT NULL,
   "floor" int NOT NULL
 );
 
+-- Таблица "Учитель"
 CREATE TABLE "Teacher" (
   "id_Teacher" SERIAL PRIMARY KEY NOT NULL,
   "id_Cabinet" int,
@@ -15,6 +18,7 @@ CREATE TABLE "Teacher" (
   "last_name" varchar NOT NULL
 );
 
+-- Ассоциативная Таблица "Дисциплина"
 CREATE TABLE "Discipline" (
   "id_Discipline" SERIAL PRIMARY KEY NOT NULL,
   "id_Teacher" int NOT NULL,
@@ -22,6 +26,7 @@ CREATE TABLE "Discipline" (
   "type" varchar
 );
 
+-- Таблица "Класс"
 CREATE TABLE "Class" (
   "id_Class" SERIAL PRIMARY KEY NOT NULL,
   "id_Teacher" int,
@@ -30,6 +35,7 @@ CREATE TABLE "Class" (
   "end_education" date
 );
 
+-- Таблица "Ученик"
 CREATE TABLE "Student" (
   "id_Student" SERIAL PRIMARY KEY NOT NULL,
   "id_Class" int,
@@ -38,6 +44,7 @@ CREATE TABLE "Student" (
   "sex" varchar
 );
 
+-- Таблица "Журнал"
 CREATE TABLE "Journal" (
   "id_Journal" SERIAL PRIMARY KEY NOT NULL,
   "id_Class" int,
@@ -46,6 +53,7 @@ CREATE TABLE "Journal" (
   "quarter" int
 );
 
+-- Таблица "Расписание"
 CREATE TABLE "Schedule" (
   "id_Schedule" SERIAL PRIMARY KEY NOT NULL,
   "id_Class" int,
@@ -56,6 +64,7 @@ CREATE TABLE "Schedule" (
 );
 
 
+-- Связи между таблицами
 ALTER TABLE "Teacher" ADD FOREIGN KEY ("id_Cabinet") REFERENCES "Cabinet" ("id_Cabinet") ON DELETE SET NULL;
 
 ALTER TABLE "Discipline" ADD FOREIGN KEY ("id_Subject") REFERENCES "Subject" ("id_Subject") ON DELETE CASCADE;
@@ -76,6 +85,7 @@ ALTER TABLE "Journal" ADD FOREIGN KEY ("id_Class") REFERENCES "Class" ("id_Class
 
 ALTER TABLE "Journal" ADD FOREIGN KEY ("id_Discipline") REFERENCES "Discipline" ("id_Discipline") ON DELETE CASCADE;
 
+-- Тестовые данные для таблиц
 INSERT INTO "Subject"(id_Subject, name)
 	VALUES 
 	(DEFAULT, 'Математика'),
