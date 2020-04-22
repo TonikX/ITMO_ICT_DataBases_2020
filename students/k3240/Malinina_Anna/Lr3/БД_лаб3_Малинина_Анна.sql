@@ -17,6 +17,7 @@ COMMENT ON DATABASE "Climbing Club"
 -- Table: public."Club"
 
 -- DROP TABLE public."Club";
+--Таблица Клуб. Содержит информацию об альпинистских клубах
 
 CREATE TABLE public."Club"
 (
@@ -40,6 +41,7 @@ COMMENT ON TABLE public."Club"
     IS 'Содержит информацию об альпинистских клубах';
 
 -- Table: public.members
+--Таблица Участники. Содержит информацию об участниках
 
 -- DROP TABLE public.members;
 
@@ -69,6 +71,7 @@ COMMENT ON TABLE public.members
 
 
 -- Table: public."Group"
+-- Таблица Группа. Содержит информацию о группе альпинистов
 
 -- DROP TABLE public."Group";
 
@@ -90,6 +93,7 @@ COMMENT ON TABLE public."Group"
     IS 'Содержит информацию о группе альпинистов';
 
 -- Table: public."Group_member"
+-- Ассоциативная сущность группа_участники, содержит информацию об участниках, входящий в группу
 
 -- DROP TABLE public."Group_member";
 
@@ -121,6 +125,7 @@ COMMENT ON TABLE public."Group_member"
 
 
 -- Table: public.mountain
+--Таблица гора. Содержит информацию о горах
 
 -- DROP TABLE public.mountain;
 
@@ -145,6 +150,7 @@ COMMENT ON TABLE public.mountain
     IS 'Содержит информацию о горах';
 
 -- Table: public."Route"
+--Таблица маршрут. Таблица содержит информацию о доступных маршрутах
 
 -- DROP TABLE public."Route";
 
@@ -173,6 +179,7 @@ COMMENT ON TABLE public."Route"
 
 
 -- Table: public."Climbing"
+--Таблица восхождение. Содержит информацию о восхождениях
 
 -- DROP TABLE public."Climbing";
 
@@ -210,6 +217,7 @@ COMMENT ON TABLE public."Climbing"
 
 
 -- Table: public."Accident"
+-- Таблица происшествие. Содержит данные о происшествиях участников во время восхождения, ассоциативная сущность
 
 -- DROP TABLE public."Accident";
 
@@ -242,8 +250,8 @@ COMMENT ON TABLE public."Accident"
 
 
 
-
-
+--Заполнение данными
+--таблица Гора
 INSERT INTO public.mountain(
 	id, name, country, district, height)
 	VALUES (0, 'Эверест', 'Непал', 'Гималаи', 8848);
@@ -264,6 +272,7 @@ INSERT INTO public.mountain(
 	id, name, country, district, height)
 	VALUES (4, 'Сток-Кангри', 'Индия', 'Гималаи', 6137);
 
+--таблица Маршрут
 INSERT INTO public."Route"(
 	id, id_mountain, description, difficulty, duration_hours)
 	VALUES (0, 0, 'Самый опасный путь', 'высокая', '145');
@@ -284,6 +293,7 @@ INSERT INTO public."Route"(
 	id, id_mountain, description, difficulty, duration_hours)
 	VALUES (4, 4, 'Для тех, кому страшно на Эверест, но рядом побыть хочется', 'высокая', '152');
 
+--таблица Клуб
 INSERT INTO public."Club"(
 	id, name, country, city, email, phone_number, contact_person)
 	VALUES (0, 'Ромашка', 'Россия', 'Саранск', 'aaa@mail.ru', '88005553535', 'Васильев А.В.');
@@ -304,6 +314,7 @@ INSERT INTO public."Club"(
 	id, name, country, city, email, phone_number, contact_person)
 	VALUES (4, 'Любители проверенных лаб', 'Другая планета', 'Санкт-Питер', 'eee@mail.ru', '11111111111', 'Лаврентьева В.Л.');
 
+--таблица Участники
 INSERT INTO public.members(
 	id, name, phone_number, address, id_club)
 	VALUES (0, 'Колотушкин А.У.', '88005553535', 'ул. Пушкина 1', 4);
@@ -324,6 +335,7 @@ INSERT INTO public.members(
 	id, name, phone_number, address, id_club)
 	VALUES (4, 'Задротов А.Р.', '46545645645', 'Кухонная площадь 5', 4);
 
+--таблица Группа
 INSERT INTO public."Group"(
 	id, climbing_detail, climbing_status)
 	VALUES (0, 'без происшествий', 'успешно');
@@ -344,6 +356,7 @@ INSERT INTO public."Group"(
 	id, climbing_detail, climbing_status)
 	VALUES (4, '', 'планируется');
 
+-- таблица группа-участники
 INSERT INTO public."Group_member"(
 	id, id_group, id_member, status)
 	VALUES (0, 0, 0, 'без происшествий');
@@ -364,6 +377,7 @@ INSERT INTO public."Group_member"(
 	id, id_group, id_member, status)
 	VALUES (4, 1, 4, '');
 
+--таблица восхождение
 INSERT INTO public."Climbing"(
 	id, climbing_start, climbing_end_theory, id_route, id_group)
 	VALUES (0, '2020-04-15', '2020-04-20', 0, 0);
@@ -384,6 +398,7 @@ INSERT INTO public."Climbing"(
 	id, climbing_start, climbing_end_real, climbing_end_theory, id_route, id_group)
 	VALUES (4, '2018-12-12', '2018-12-15', '2018-12-15', 4, 0);
 
+--таблица происшествие
 INSERT INTO public."Accident"(
 	id, id_member, id_climbing, date, description)
 	VALUES 
