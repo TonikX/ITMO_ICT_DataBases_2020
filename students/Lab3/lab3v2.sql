@@ -26,7 +26,8 @@ SET default_table_access_method = heap;
 -- TOC entry 206 (class 1259 OID 16678)
 -- Name: Distribution; Type: TABLE; Schema: public; Owner: postgres
 --
-
+--'Таблица распределения хранит в себе соответствующего ID_Тиража, ID_Почты и количество газет, которое отправлено в то или иное отделение'
+-- 
 CREATE TABLE public."Distribution" (
     "ID_Distribution" integer NOT NULL,
     "ID_Post" integer,
@@ -65,7 +66,8 @@ ALTER TABLE public."Distribution" ALTER COLUMN "ID_Distribution" ADD GENERATED A
 -- TOC entry 204 (class 1259 OID 16634)
 -- Name: Edition; Type: TABLE; Schema: public; Owner: postgres
 --
-
+--Таблица хранения Тиража газеты, хранит ID_Газеты, Номер издания, Необходимое количество на печать, и цену за единичный экземпляр'
+--
 CREATE TABLE public."Edition" (
     "ID_Edition" integer NOT NULL,
     "ID_Newspaper" integer NOT NULL,
@@ -105,7 +107,8 @@ ALTER TABLE public."Edition" ALTER COLUMN "ID_Edition" ADD GENERATED ALWAYS AS I
 -- TOC entry 202 (class 1259 OID 16604)
 -- Name: Newspaper; Type: TABLE; Schema: public; Owner: postgres
 --
-
+--'Таблица газет, где хранится Имя, Индекс внутри почтовой системы и Имя главреда'
+--
 CREATE TABLE public."Newspaper" (
     "ID_Newspaper" integer NOT NULL,
     "Naming" text,
@@ -144,7 +147,8 @@ ALTER TABLE public."Newspaper" ALTER COLUMN "ID_Newspaper" ADD GENERATED ALWAYS 
 -- TOC entry 207 (class 1259 OID 16727)
 -- Name: Postoffice; Type: TABLE; Schema: public; Owner: postgres
 --
-
+--'Таблица почтовых отделений, хранящая в себе номер отделения и адрес отделения'
+--
 CREATE TABLE public."Postoffice" (
     "ID_Post" integer NOT NULL,
     "Branch_number" integer,
@@ -182,7 +186,8 @@ ALTER TABLE public."Postoffice" ALTER COLUMN "ID_Post" ADD GENERATED ALWAYS AS I
 -- TOC entry 205 (class 1259 OID 16673)
 -- Name: Print; Type: TABLE; Schema: public; Owner: postgres
 --
-
+--'Таблица хранения Печати, хранит ID_Тиража, Напечатанное количество в той или иной типографии и ID_Типографии'
+--
 CREATE TABLE public."Print" (
     "ID_Print" integer NOT NULL,
     "ID_Edition" integer,
@@ -221,7 +226,8 @@ ALTER TABLE public."Print" ALTER COLUMN "ID_Print" ADD GENERATED ALWAYS AS IDENT
 -- TOC entry 203 (class 1259 OID 16614)
 -- Name: Tipography; Type: TABLE; Schema: public; Owner: postgres
 --
-
+--'Таблица хранения данных о Типографиях, её Имя и Адрес типографии'
+--
 CREATE TABLE public."Tipography" (
     "ID_Tipography" integer NOT NULL,
     "Tipography_name" text,
