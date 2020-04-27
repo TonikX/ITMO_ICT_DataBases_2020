@@ -59,6 +59,15 @@ SET default_table_access_method = heap;
 -- Name: delivery; Type: TABLE; Schema: public; Owner: postgres
 --
 
+--Таблица описывает сущность доставки газеты
+--до почтового отделения
+--Имеет поля:
+--	Номер почтового отеделния
+--	Номер доставки
+--	Номер издания
+--	Название газеты
+--	Кол-во доставляемых экземляров издания
+
 CREATE TABLE public.delivery (
     post_office_number integer NOT NULL,
     delivery_number integer NOT NULL,
@@ -84,6 +93,14 @@ COMMENT ON TABLE public.delivery IS 'Таблица описывает дост�
 -- Name: edition; Type: TABLE; Schema: public; Owner: postgres
 --
 
+--Таблица описывает сущность издания
+--какой-либо газеты
+--Имеет поля:
+--	Номер тиража газеты
+--	Название газеты
+--	Цена экземляра
+--	Кол-во экземляров
+
 CREATE TABLE public.edition (
     edition_number integer NOT NULL,
     newspaper_name text NOT NULL,
@@ -107,6 +124,13 @@ COMMENT ON TABLE public.edition IS 'Таблица описывает выпус
 -- TOC entry 202 (class 1259 OID 16394)
 -- Name: newspaper; Type: TABLE; Schema: public; Owner: postgres
 --
+
+--Таблица описывает сущность газеты
+--Имеет поля:
+--	Название Газеты
+--	Имя редактора
+--	Фамилия редактора
+--	Отчество редактора
 
 CREATE TABLE public.newspaper (
     newspaper_name text NOT NULL,
@@ -133,6 +157,11 @@ COMMENT ON TABLE public.newspaper IS 'Таблица описывает газе
 -- Name: post_office; Type: TABLE; Schema: public; Owner: postgres
 --
 
+--Таблица описывает сущность почтового отделения
+--Имеет поля:
+--	Номер почтового отеделния
+--	Адрес
+
 CREATE TABLE public.post_office (
     post_office_number integer NOT NULL,
     adres text NOT NULL
@@ -155,6 +184,11 @@ COMMENT ON TABLE public.post_office IS 'Таблица описывает поч
 -- Name: printing_office; Type: TABLE; Schema: public; Owner: postgres
 --
 
+--Таблица описывает сущность типографии
+--Имеет поля:
+--	Название типографии
+--	Адрес типографии
+
 CREATE TABLE public.printing_office (
     printing_office_name text NOT NULL,
     adres text NOT NULL
@@ -176,6 +210,15 @@ COMMENT ON TABLE public.printing_office IS 'Таблица описывает т
 -- TOC entry 206 (class 1259 OID 16583)
 -- Name: printing_order; Type: TABLE; Schema: public; Owner: postgres
 --
+
+--Таблица описывает сущность заказа на печать
+--издания в типографии
+--Имеет поля:
+--	Номер заказа
+--	Номер издания
+--	Название типографии
+--	Название газеты
+--	Кол-во экземляров издания для печати
 
 CREATE TABLE public.printing_order (
     order_number integer NOT NULL,
