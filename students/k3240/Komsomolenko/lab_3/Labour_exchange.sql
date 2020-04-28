@@ -276,7 +276,42 @@ TABLESPACE pg_default;
 ALTER TABLE "Labour exchange"."Job_openings"
     OWNER to postgres;
 
+--Создание таблицы учебный центр
+-- Table: "Labour exchange"."Training_center"
 
+-- DROP TABLE "Labour exchange"."Training_center";
+
+CREATE TABLE "Labour exchange"."Training_center"
+(
+    "ID_training_center" integer NOT NULL,
+    "Address" "char"[],
+    "FCS_applicant" "char"[] NOT NULL,
+    "ID_course" integer NOT NULL,
+    "ID_applicant" integer[] NOT NULL,
+    CONSTRAINT "Training_center_pkey" PRIMARY KEY ("ID_training_center"),
+    CONSTRAINT "Training_center_FCS_applicant_fkey" FOREIGN KEY ("FCS_applicant")
+        REFERENCES "Labour exchange"."Applicant" ("FCS_applicant") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT "Training_center_ID_applicant_fkey" FOREIGN KEY ("ID_applicant")
+        REFERENCES "Labour exchange"."Applicant" ("ID_applicant") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT "Training_center_ID_course_fkey" FOREIGN KEY ("ID_course")
+        REFERENCES "Labour exchange"."Course" ("ID_course") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE "Labour exchange"."Training_center"
+    OWNER to postgres;
 
 
 -- Заполнение таблиц
@@ -400,3 +435,22 @@ INSERT INTO "Labour exchange"."Bureau"(
 INSERT INTO "Labour exchange"."Bureau"(
 	"ID__bureau", "Organization_name", "Address", "ID_job_openings", "FCS_employer", "ID_directory", "ID_course", "ID_employer")
 	VALUES (5, 'Топовое бюро', 'Красноармейская 10-я, 11', 5, 5, 5, 5, 5);
+
+
+--Таблица учебный центр
+INSERT INTO "Labour exchange"."Training_center"(
+	"ID_training_center", "Address", "FCS_applicant", "ID_course", "ID_applicant")
+	VALUES (1, 'Якубовича, 22', 'В.А. Попов', 1, 1);
+INSERT INTO "Labour exchange"."Training_center"(
+	"ID_trainin''_center", "Address", "FCS_applicant", "ID_course", "ID_applicant")
+	VALUES (2, 'Галерная, 14', 'П.К. Сидоров', 2, 2);
+INSERT INTO "Labour exchange"."Training_center"(
+	"ID_training_center", "Address", "FCS_applicant", "ID_course", "ID_applicant")
+	VALUES (3, '​Набережная реки Мойки, 93​Большая Морская, 48', 'К.К. Иванов', 3, 3);
+INSERT INTO "Labour exchange"."Training_center"(
+	"ID_training_center", "Address", "FCS_applicant", "ID_course", "ID_applicant")
+	VALUES (4, '​Английский проспект, 5​Рабочий переулок, 1', 'Н.У. Лебедев', 4, 4);
+INSERT INTO "Labour exchange"."Training_center"(
+	"ID_training_center", "Address", "FCS_applicant", "ID_course", "ID_applicant")
+	VALUES (5, 'Союза Печатников, 10', 'Л.С. Желтова', 5, 5);
+
