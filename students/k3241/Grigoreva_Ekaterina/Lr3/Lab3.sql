@@ -1,4 +1,4 @@
--- Создаем таблицу спонсоров
+-- Создаем таблицу с информацией о спонсорах
 CREATE TABLE show."Sponsors"
 (
     "Organisation_name" text COLLATE pg_catalog."default" NOT NULL,
@@ -19,7 +19,7 @@ INSERT INTO show."Sponsors" ("Organisation_name", "Occupation") VALUES
 ('Bushe', 'Bakery’),
 ('Pedigree', 'Dog food');
 
--- Создаем таблицу рингов
+-- Создаем таблицу с информациях о рингах
 CREATE TABLE show."Arena"
 (
     "Arena_number" integer NOT NULL,
@@ -40,7 +40,7 @@ INSERT INTO show."Arena"("Arena_number", "Arena_name") VALUES
 (4, 'Nova Arena’),
 (5, 'Yubileiniy');
 
--- Создаем таблицу упражнений
+-- Создаем таблицу упражнений, которые необходимо выполнить участникам (3 записи по условию)
 CREATE TABLE show."Exercises"
 (
     "Exercise_number" integer NOT NULL,
@@ -59,7 +59,7 @@ INSERT INTO show."Exercises" ("Exercise_number", "Exercise_name") VALUES
 (2, 'Commands’),
 (3, 'Showing');
 
--- Создаем таблицу пород
+-- Создаем таблицу с информацией о породах собак
 CREATE TABLE show."Breed"
 (
     "Breed_name" text COLLATE pg_catalog."default" NOT NULL,
@@ -92,7 +92,7 @@ INSERT INTO show."Breed"("Arena_number", "Breed_name") VALUES
 (4, 'Spitz’),
 (5, 'Pudel');
 
--- Создаем таблицу владельцев
+-- Создаем таблицу владельцев собак
 CREATE TABLE show."Owner"
 (
     "Owner_passport" text COLLATE pg_catalog."default" NOT NULL,
@@ -105,7 +105,7 @@ TABLESPACE pg_default;
 ALTER TABLE show."Owner"
     OWNER to postgres;
 
--- Заполняем таблицу владельцев
+-- Заполняем таблицу владельцев собак
 INSERT INTO show."Owner"("Owner_passport", "Owner_name") VALUES 
 (126745, 'Ivan'),
 (673849, 'Anna'),
@@ -113,7 +113,7 @@ INSERT INTO show."Owner"("Owner_passport", "Owner_name") VALUES
 (209483, 'Igor'),
 (673948, 'Andry');
 
--- Создаем таблицу экспертов
+-- Создаем таблицу экспертов, которые будут оценивать выступления
 CREATE TABLE show."Expert"
 (
     "Expert_name" text COLLATE pg_catalog."default" NOT NULL,
@@ -154,7 +154,7 @@ INSERT INTO show."Expert"("Expert_name", "Club", "Arena_number") VALUES
 ('Vladimir', 'Cornuel', 4),
 ('Jorsh', 'Friends', 5);
 
--- Создаем таблицу собак-участников
+-- Создаем таблицу собак-участников, связывающую собаку с ее породой и хозяином
 CREATE TABLE show."Dog_participant"
 (
     "Dog_document_number" integer NOT NULL,
@@ -210,7 +210,7 @@ INSERT INTO show."Dog_participant"("Dog_document_number", "Breed_name", "Dog_nam
 	(189304, 'Spitz', 'Molly', 6, 'Cornuel', '6', 'Rosie', 'Milo', '03/17/2020', 'TRUE', 346829),
 	(289473, 'Pudel', 'Buddy', 8, 'Polo', '8', 'Daisy', 'Jack', '02/20/2020', 'TRUE', 209483);
 
--- Создаем таблицу выставок
+-- Создаем таблицу выставок, которые должны проводиться
 CREATE TABLE show."Show"
 (
     "ID_show" integer NOT NULL,
@@ -248,7 +248,7 @@ INSERT INTO show."Show"("ID_show", "Organisation_name", "Show_name", "Location",
 	(4, 'Alpari', 'Champion', 'Moscow', '04/19/2020'),
 	(5, 'Pedigree', 'Rumor', 'Saint Petersburg', '04/12/2020');
 
--- Создаем таблицу регистраций
+-- Создаем таблицу регистраций, связывающую собаку-участника и выставку, в которой она принимает участие
 CREATE TABLE show."Registration"
 (
     "ID_of_contract" integer NOT NULL,
@@ -316,7 +316,7 @@ INSERT INTO show."Registration"("ID_of_contract", "Dog_document_number", "Arena_
 	(4, 189304, 4, 5),
 	(5, 289473, 5, 2);
 
--- Создаем таблицу медосмотров
+-- Создаем таблицу медосмотров, в которой показано медицинское заключение осмотра собаки-участника для конкретной выставки
 CREATE TABLE show."Medical_check"
 (
     "ID_medical_check" integer NOT NULL,
@@ -366,7 +366,7 @@ INSERT INTO show."Medical_check"("ID_medical_check", "Dog_document_number", "ID_
 	(4, 183940, 5, 'Allowed'),
 	(5, 189304, 5, 'Allowed');
 
--- Создаем таблицу протоколов выступлений
+-- Создаем таблицу протоколов выступлений, которая показывает оценку эксперта за выполнение собакой-участником упражнения на выставке
 CREATE TABLE show."Сompetition_protocol"
 (
     "ID_note" integer NOT NULL,
