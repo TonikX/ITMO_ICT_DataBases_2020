@@ -79,9 +79,25 @@ GROUP BY client.contact_pers, client.phone_num, client.mail HAVING SUM(service_p
 
 
 --использование предикатов EXISTS, ALL, SOME и ANY - от 2 баллов;
+-- Вывод данных о клиентах и заявках, которые они не оплатили;
+				 
+SELECT c.client_id, c.contact_pers, c.phone_num, request.request_id 
+FROM clients.client AS c
+  INNER JOIN clients.request
+  ON c.client_id = request.req_cl_id
+WHERE EXISTS
+(SELECT req_cl_id 
+ FROM clients.request AS z
+ WHERE c.client_id = z.req_cl_id
+ AND status = 'not paid');
 
 
 -- Использование запросов с операциями реляционной алгебры (объединение, пересечение и т.д.) - от 2 баллов;
+-- Выводит смежную таблицу заявок и рабочих групп, включая те заявки, в которых рабочая группа не указана;
+
+SELECT * FROM clients.request
+  LEFT JOIN clients.work_group
+  ON request.request_id = work_group.wg_req_id;
 
 
 -- Использование объединений запросов (inner join и т.д.) - от 2 баллов.
@@ -93,4 +109,3 @@ UNION
 SELECT 'executor', exe_name, exe_ph
 FROM clients.executor
 ORDER BY person;
-	
