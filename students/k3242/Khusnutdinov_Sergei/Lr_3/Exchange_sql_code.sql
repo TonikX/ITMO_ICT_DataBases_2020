@@ -62,7 +62,8 @@ CREATE TABLE "Exchange"."Contract_to_buy" (
     "Buy_date" date NOT NULL,
     "Amount_of_bought_product" integer NOT NULL,
     "Buying_price" money NOT NULL,
-    "Terms_of_purchase" text NOT NULL
+    "Terms_of_purchase" text NOT NULL,
+    "FK_ID_deal" integer NOT NULL
 );
 
 ALTER TABLE "Exchange"."Contract_to_buy" OWNER TO postgres;
@@ -75,7 +76,8 @@ CREATE TABLE "Exchange"."Contract_to_sell" (
     "Sale_date" date NOT NULL,
     "Amount_of_sold_product" integer NOT NULL,
     "Selling_price" money NOT NULL,
-    "Terms_of_sale" text NOT NULL
+    "Terms_of_sale" text NOT NULL,
+    "FK_ID_deal" integer NOT NULL
 );
 
 ALTER TABLE "Exchange"."Contract_to_sell" OWNER TO postgres;
@@ -149,21 +151,21 @@ COPY "Exchange"."Client" ("ID_client", "Client_name", "Account") FROM stdin;
 \.
 
 
-COPY "Exchange"."Contract_to_buy" ("ID_contract_to_purchase", "FK_ID_broker", "FK_ID_client", "Buy_date", "Amount_of_bought_product", "Buying_price", "Terms_of_purchase") FROM stdin;
-1	4	1	2010-09-20	115	$10,000.00	Prepayment
-2	2	4	2019-12-17	998	$30,023.00	No_prepayment
-3	3	5	2020-03-22	10	$1,042.00	Prepayment
-4	1	3	2018-07-07	150000	$20,000,000.00	No_prepayment
-5	2	2	2017-01-14	5002	$1,004,352.00	No_prepayment
+COPY "Exchange"."Contract_to_buy" ("ID_contract_to_purchase", "FK_ID_broker", "FK_ID_client", "Buy_date", "Amount_of_bought_product", "Buying_price", "Terms_of_purchase", "FK_ID_deal") FROM stdin;
+1   4   1   2010-09-20  115 $10,000.00  Prepayment  1
+2   2   4   2019-12-17  998 $30,023.00  No_prepayment   2
+3   3   5   2020-03-22  10  $1,042.00   Prepayment  3
+4   1   3   2018-07-07  150000  $20,000,000.00  No_prepayment   4
+5   2   2   2017-01-14  5002    $1,004,352.00   No_prepayment   5
 \.
 
 
-COPY "Exchange"."Contract_to_sell" ("ID_contract_to_sale", "FK_ID_broker", "FK_ID_client", "Sale_date", "Amount_of_sold_product", "Selling_price", "Terms_of_sale") FROM stdin;
-1	4	1	2020-04-20	100	$9,999.00	No_prepayment
-2	2	4	2020-04-17	400	$10,210.00	Prepayment
-3	3	5	2020-04-12	10	$600.00	Prepayment
-4	1	3	2020-04-07	25000	$10,000,000.00	No_prepayment
-5	2	2	2020-04-14	5002	$1,004,353.00	No_prepayment
+COPY "Exchange"."Contract_to_sell" ("ID_contract_to_sale", "FK_ID_broker", "FK_ID_client", "Sale_date", "Amount_of_sold_product", "Selling_price", "Terms_of_sale", "FK_ID_deal") FROM stdin;
+1   4   1   2020-04-20  100 $9,999.00   No_prepayment   1
+2   2   4   2020-04-17  400 $10,210.00  Prepayment  2
+3   3   5   2020-04-12  10  $600.00 Prepayment  3
+4   1   3   2020-04-07  25000   $10,000,000.00  No_prepayment   4
+5   2   2   2020-04-14  5002    $1,004,353.00   No_prepayment   5
 \.
 
 
@@ -257,6 +259,12 @@ ALTER TABLE ONLY "Exchange"."Contract_to_sell"
 
 ALTER TABLE ONLY "Exchange"."Contract_to_buy"
     ADD CONSTRAINT "FK_ID_client" FOREIGN KEY ("FK_ID_client") REFERENCES "Exchange"."Client"("ID_client") ON UPDATE RESTRICT ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED;
+
+ALTER TABLE ONLY "Exchange"."Contract_to_buy"
+    ADD CONSTRAINT "FK_ID_deal" FOREIGN KEY ("FK_ID_deal") REFERENCES "Exchange"."Deal"("ID_deal") ON UPDATE RESTRICT ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED;
+
+ALTER TABLE ONLY "Exchange"."Contract_to_sell"
+    ADD CONSTRAINT "FK_ID_deal" FOREIGN KEY ("FK_ID_deal") REFERENCES "Exchange"."Deal"("ID_deal") ON UPDATE RESTRICT ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE ONLY "Exchange"."Product"
     ADD CONSTRAINT "FK_ID_firm" FOREIGN KEY ("FK_ID_firm") REFERENCES "Exchange"."Manufacturing_firm"("ID_firm") ON UPDATE RESTRICT ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED;
