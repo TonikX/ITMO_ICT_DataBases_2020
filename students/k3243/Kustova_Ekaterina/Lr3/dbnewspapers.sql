@@ -54,6 +54,10 @@ SET default_with_oids = false;
 -- Name: distribution_report; Type: TABLE; Schema: newspapers; Owner: postgres
 --
 
+--
+-- создание таблицы "distribution_report" - "отчёт о распределении"
+--
+
 CREATE TABLE newspapers.distribution_report (
     "report№" integer NOT NULL,
     party_number integer NOT NULL,
@@ -77,6 +81,10 @@ COMMENT ON TABLE newspapers.distribution_report IS 'таблица "distribution
 --
 -- TOC entry 202 (class 1259 OID 16552)
 -- Name: newspaper; Type: TABLE; Schema: newspapers; Owner: postgres
+--
+
+--
+-- создание таблицы "newspaper" - "газета"
 --
 
 CREATE TABLE newspapers.newspaper (
@@ -105,6 +113,10 @@ COMMENT ON TABLE newspapers.newspaper IS 'таблица "newspaper" - "газе
 -- Name: newspapers_party; Type: TABLE; Schema: newspapers; Owner: postgres
 --
 
+--
+-- создание таблицы "newspapers_part" - партия газет"
+--
+
 CREATE TABLE newspapers.newspapers_party (
     party_number integer NOT NULL,
     amount_of_copies integer NOT NULL,
@@ -128,6 +140,10 @@ COMMENT ON TABLE newspapers.newspapers_party IS 'таблица "newspapers_part
 -- Name: post_office; Type: TABLE; Schema: newspapers; Owner: postgres
 --
 
+--
+-- создание таблицы "post_office" - "почтовое отделение"
+--
+
 CREATE TABLE newspapers.post_office (
     "office№" integer NOT NULL,
     office_address text NOT NULL
@@ -148,6 +164,10 @@ COMMENT ON TABLE newspapers.post_office IS 'таблица "post_office" - "от
 --
 -- TOC entry 199 (class 1259 OID 16419)
 -- Name: print; Type: TABLE; Schema: newspapers; Owner: postgres
+--
+
+--
+-- создание таблицы "print" - "печать"
 --
 
 CREATE TABLE newspapers.print (
@@ -174,6 +194,10 @@ COMMENT ON TABLE newspapers.print IS 'таблица "print" - "печать"';
 -- Name: printery; Type: TABLE; Schema: newspapers; Owner: postgres
 --
 
+--
+-- создание таблицы "printery" - "типография"
+--
+
 CREATE TABLE newspapers.printery (
     printery_name text NOT NULL,
     printery_address text NOT NULL,
@@ -198,6 +222,10 @@ COMMENT ON TABLE newspapers.printery IS 'таблица "printery" - "типог
 -- Name: post_office; Type: TABLE; Schema: public; Owner: postgres
 --
 
+--
+-- создание таблицы "post_office" - "почтовое отделение"
+--
+
 CREATE TABLE public.post_office (
     "office№" integer NOT NULL,
     office_address text
@@ -210,6 +238,10 @@ ALTER TABLE public.post_office OWNER TO postgres;
 -- TOC entry 2843 (class 0 OID 16532)
 -- Dependencies: 201
 -- Data for Name: distribution_report; Type: TABLE DATA; Schema: newspapers; Owner: postgres
+--
+
+--
+-- заполнение таблиц данными
 --
 
 COPY newspapers.distribution_report ("report№", party_number, "office№", print_amount) FROM stdin;
