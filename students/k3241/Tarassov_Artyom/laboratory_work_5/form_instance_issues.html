@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instance Issues</title>
+</head>
+
+
+<?php
+
+$data = null;
+$status = "";
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $dbuser = 'postgres';
+        $dbpassword = 'admin';
+        $host = 'localhost';
+        $dbname = 'library';
+        try {
+            $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser , $dbpassword );
+            if (isset($_POST["find"])) {
+                $sql = 'SELECT * from public."Instance_issues" where id_reader = :id_reader LIMIT 1'; 
+                $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                $sth->execute(array(':id_reader' => $_POST["id_reader"]));
+                $data = $sth->fetchAll();
+                    if(count($data) > 0){
+                    $status = "Запись найдена";
+                }else{
+                    $status = "Запись не найдена";
+                }
+            }
+
+            if (isset($_POST["delete"])) {
+                $sql = 'delete from public."Instance_issues" where id_reader = :id_reader';
+                $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                $sth->execute(array(':id_reader' => $_POST["id_reader"]));
+                $data = $sth->fetchAll();
+                print_r ($sth->errorInfo()[2]);
+                $status = "Запись удалена";
+                $data = null;
+            }
+
+            if (isset($_POST["edit"])) {
+                if($_POST["id_reader"] != ""){
+                    $sql = 'SELECT * from public."Instance_issues" where id_reader = :id_reader LIMIT 1';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(':id_reader' => intval($_POST["id_reader"])));
+                    $data = $sth->fetchAll();
+                }
+                /*if($_POST["id_reader"] != "" && count($data) > 0){
+                    $sql = 'UPDATE public."Instance_issues" SET id_reader= :id_reader, id_instance= :id_instance,
+					date_of_issue= :date_of_issue, return_date= :return_date
+					where id_reader = :id_reader LIMIT 1';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(
+                    ':id_reader' => $_POST["id_reader"],
+                    ':id_instance' => $_POST["id_instance"],
+                    ':date_of_issue' => $_POST["date_of_issue"],
+                    ':return_date' => $_POST["return_date"]
+                    ));
+                    $data = $sth->fetchAll();
+                    print_r ($sth->errorInfo()[2]);
+                    $status = "Запись изменина";
+                    $data = null;
+
+                }else{*/
+                    $sql = 'INSERT INTO public."Instance_issues"(id_reader, id_instance, date_of_issue, return_date)
+                    VALUES
+                    (:id_reader, :id_instance, :date_of_issue, :return_date)';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(':id_reader' => $_POST["id_reader"],
+                                        ':id_instance' => $_POST["id_instance"],
+                                        ':date_of_issue' => $_POST["date_of_issue"],
+                                        ':return_date' => $_POST["return_date"]
+                                        ));
+                    $data = $sth->fetchAll();
+                    print_r ($sth->errorInfo()[2]);
+                    $status = "Запись добавлена";
+                    $data = null;
+                //}
+            }
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
+
+}
+?>
+
+
+
+<body>
+<form action="" method="post">
+    <input name="id_reader" placeholder="id_reader..." value="<?php echo '' ?>">
+    <button type="submit" name="find">Найти</button>
+    <button type="submit" name="delete">Удалить</button>
+</form>
+<?php echo $status ?>
+</br>
+<form action="" method="post">
+    <input name="id_reader" size="40" placeholder="id_reader..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['id_reader']?>"> - id читателя</br>
+    <input name="id_instance" size="40" placeholder="id_instance..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['id_instance']?>"> - id экземпляра</br>
+    <input name="date_of_issue" size="40" placeholder="date_of_issue..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['date_of_issue']?>"> - дата выдачи</br>
+    <input name="return_date" size="40" placeholder="return_date..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['return_date']?>"> - дата возврата</br>
+    <button type="submit" name="edit">Добавить</button>
+</form>
+</body>
+</html>
+
+
