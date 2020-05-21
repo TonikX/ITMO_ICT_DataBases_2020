@@ -168,6 +168,7 @@ COMMENT ON TABLE public.work
 
 CREATE TABLE public.work_list
 (
+    id integer NOT NULL,
     id_work integer NOT NULL,
     id_request integer NOT NULL,
     CONSTRAINT id_work FOREIGN KEY (id_work)
@@ -177,7 +178,8 @@ CREATE TABLE public.work_list
     CONSTRAINT id_request FOREIGN KEY (id_request)
         REFERENCES public.request (id) MATCH SIMPLE
         ON UPDATE NO ACTION
-        ON DELETE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT work_list_pkey PRIMARY KEY (id)
 
 )
 WITH (
@@ -221,6 +223,7 @@ COMMENT ON TABLE public.worker
 
 CREATE TABLE public.worker_list
 (
+    id integer NOT NULL,
     id_work integer NOT NULL,
     id_worker integer NOT NULL,
     CONSTRAINT id_work FOREIGN KEY (id_work)
@@ -230,8 +233,8 @@ CREATE TABLE public.worker_list
     CONSTRAINT id_worker FOREIGN KEY (id_worker)
         REFERENCES public.worker (id) MATCH SIMPLE
         ON UPDATE NO ACTION
-        ON DELETE CASCADE
-
+        ON DELETE CASCADE,
+    CONSTRAINT worker_list_pkey PRIMARY KEY (id)
 )
 WITH (
     OIDS = FALSE
@@ -274,6 +277,7 @@ COMMENT ON TABLE public.service
 
 CREATE TABLE public.price_list
 (
+    id integer NOT NULL,
     id_service integer NOT NULL,
     id_advertising_agency integer NOT NULL,
     CONSTRAINT id_service FOREIGN KEY (id_service)
@@ -283,7 +287,8 @@ CREATE TABLE public.price_list
     CONSTRAINT id_advertising_agency FOREIGN KEY (id_advertising_agency)
         REFERENCES public.advertising_agency (id) MATCH SIMPLE
         ON UPDATE NO ACTION
-        ON DELETE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT price_list_pkey PRIMARY KEY (id)
 
 )
 WITH (
@@ -348,13 +353,13 @@ INSERT INTO public.work (
 
 -- Таблица список работ
 INSERT INTO public.work_list (
-	id_work, id_request) 
+	id, id_work, id_request) 
 	VALUES
-	(0, 1),
-	(1, 2),
-	(2, 3),
-	(3, 4),
-	(4, 0);
+	(0, 0, 1),
+	(1, 1, 2),
+	(2, 2, 3),
+	(3, 3, 4),
+	(4, 4, 0);
 
 -- Таблица сотрудник агенства
 INSERT INTO public.worker (
@@ -368,13 +373,13 @@ INSERT INTO public.worker (
 
 -- Таблица список сотрудников
 INSERT INTO public.worker_list (
-	id_work, id_worker) 
+	id, id_work, id_worker) 
 	VALUES
-	(0, 1),
-	(1, 2),
-	(2, 3),
-	(3, 4),
-	(4, 0);
+	(0, 0, 1),
+	(1, 1, 2),
+	(2, 2, 3),
+	(3, 3, 4),
+	(4, 4, 0);
 
 -- Таблица рекламная услуга
 INSERT INTO public.service (
@@ -388,11 +393,11 @@ INSERT INTO public.service (
 
 -- Таблица прайс лист
 INSERT INTO public.price_list (
-	id_service, id_advertising_agency) 
+	id, id_service, id_advertising_agency) 
 	VALUES
-	(0, 0),
-	(1, 0),
-	(2, 0),
-	(3, 0),
-	(4, 0);
+	(0, 0, 0),
+	(1, 1, 0),
+	(2, 2, 0),
+	(3, 3, 0),
+	(4, 4, 0);
 
