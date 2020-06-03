@@ -4,11 +4,11 @@
 
 [Учебный журнал](https://docs.google.com/spreadsheets/d/1YqBm75zexHiby1QsHfU7afW9WTZwwtPkc5AMwUp86vA/edit?usp=sharing) по дисциплине. Тут доступна информация о сроках сдачи работ, о текущей успеваемости студентов и описаны все материалы необходимые для реализации курса.
 
-[Лекционные материалы](https://drive.google.com/folderview?id=0B7AOfG5ohMyAbE00WTFmaE12V0k&usp=sharing)
+[Лекционные материалы](https://drive.google.com/drive/folders/1-xtMz1V1sXno7OQmVdRXnx1N_Ru-Lrze?usp=sharing)
 
-[Лабораторные работы](https://drive.google.com/drive/folders/0B7AOfG5ohMyARkdVZ2ZOM0dKZEE?usp=sharing) - задания оцениваемые преподавателем.
+[Лабораторные работы](https://drive.google.com/drive/folders/1zO3aYV7JdHZWYlV0c6o3JEPvuPTmyj61?usp=sharing) - задания оцениваемые преподавателем.
 
-[Практические работы](https://drive.google.com/drive/folders/0B7AOfG5ohMyAeUt1RUo2R25WVG8) - задания, которые необходимо выполнить перед выполнением лабораторной работы для того, чтобы освоить тему.
+[Практические работы](hhttps://drive.google.com/drive/folders/1QMBcsbtw898pYxl9f4losZHFCWhSQ-UA?usp=sharing) - задания, которые необходимо выполнить перед выполнением лабораторной работы для того, чтобы освоить тему.
 
 ## Лабораторная работа №1
 
