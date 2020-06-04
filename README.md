@@ -8,7 +8,7 @@
 
 [Лабораторные работы](https://drive.google.com/drive/folders/1zO3aYV7JdHZWYlV0c6o3JEPvuPTmyj61?usp=sharing) - задания оцениваемые преподавателем.
 
-[Практические работы](https://drive.google.com/drive/folders/1QMBcsbtw898pYxl9f4losZHFCWhSQ-UA?usp=sharing) - задания, которые необходимо выполнить перед выполнением лабораторной работы для того, чтобы освоить тему.
+[Практические работы](https://drive.google.com/drive/folders/1-3aTFWuXmNzJa2e90lXYdU8fLEfo-FZU?usp=sharing) - задания, которые необходимо выполнить перед выполнением лабораторной работы для того, чтобы освоить тему.
 
 ## Лабораторная работа №1
 
