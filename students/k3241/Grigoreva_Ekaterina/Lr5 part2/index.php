@@ -66,8 +66,6 @@
 		}
 		echo "\n";
 		echo "\n";
-		
-		echo $NumFields, "\n";
 	}
 	
 	
