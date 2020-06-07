@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		if($_POST["ID_Print"] != ""){
 			$sql = 'SELECT * from public."Print" where "ID_Print" = :ID_Print';
 			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-			$sth->execute(array(':ID_Print' => intval($_POST["ID_Print"])));
+			$sth->execute(array(':ID_Print' => ($_POST["ID_Print"])));
 			$data = $sth->fetchAll();
 		}
 		elseif($_POST["ID_Print"] != "" && count($data) > 0){

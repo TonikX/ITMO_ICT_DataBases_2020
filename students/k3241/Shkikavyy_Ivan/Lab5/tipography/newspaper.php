@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		if($_POST["ID_Newspaper"] != ""){
 			$sql = 'SELECT * from public."Newspaper" where "ID_Newspaper" = :ID_Newspaper';
 			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-			$sth->execute(array(':ID_Newspaper' => intval($_POST["ID_Newspaper"])));
+			$sth->execute(array(':ID_Newspaper' => ($_POST["ID_Newspaper"])));
 			$data = $sth->fetchAll();
 		}
 		elseif($_POST["ID_Newspaper"] != "" && count($data) > 0){

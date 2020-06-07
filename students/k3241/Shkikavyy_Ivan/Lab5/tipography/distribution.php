@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		if($_POST["ID_Distribution"] != ""){
 			$sql = 'SELECT * from public."Distribution" where "ID_Distribution" = :ID_Distribution';
 			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-			$sth->execute(array(':ID_Distribution' => intval($_POST["ID_Distribution"])));
+			$sth->execute(array(':ID_Distribution' => ($_POST["ID_Distribution"])));
 			$data = $sth->fetchAll();
 		}
 		elseif($_POST["ID_Distribution"] != "" && count($data) > 0){
@@ -36,7 +36,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 			$sth->execute(array(':ID_Distribution' => $_POST["ID_Distribution"],':ID_Post' => $_POST["ID_Post"],':ID_Edition' => $_POST["ID_Edition"], ':Full_quantity_newspaper' => $_POST["Full_quantity_newspaper"]));
 			$data = $sth->fetchAll();
-			print_r ($sth->errorInfo()[2]);
 			$status = "Изменено";
 			$data = null;
 		}else{
