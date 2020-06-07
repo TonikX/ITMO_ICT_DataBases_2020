@@ -28,12 +28,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 	elseif(isset($_POST["edit"])) {
 		if($_POST["ID_Edition"] != ""){
-			$sql = 'SELECT * from public."Edition" where "ID_Edition" = :ID_Edition';
-			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-			$sth->execute(array(':ID_Edition' => intval($_POST["ID_Edition"])));
-			$data = $sth->fetchAll();
-		}
-		elseif($_POST["ID_Edition"] != "" && count($data) > 0){
 			$sql = 'UPDATE public."Edition" SET "ID_Newspaper"= :ID_Newspaper, "Publication_number"= :Publication_number, "Newspaper_amount"= :Newspaper_amount, "Price"= :Price where "ID_Edition" = :ID_Edition';
 			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 			$sth->execute(array(':ID_Edition' => $_POST["ID_Edition"],':ID_Newspaper' => $_POST["ID_Newspaper"],':Publication_number' => $_POST["Publication_number"], ':Newspaper_amount' => $_POST["Newspaper_amount"], ':Price' => $_POST["Price"]));
@@ -66,7 +60,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <button type="submit" name="find">Поиск</button>
     <button type="submit" name="delete">Удаление</button>
 </form>
-</br>
 <?php echo $status ?>
 </br>
 <form action="" method="post">

@@ -26,12 +26,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 	elseif(isset($_POST["edit"])) {
 		if($_POST["ID_Tipography"] != ""){
-			$sql = 'SELECT * from public."Tipography" where "ID_Tipography" = :ID_Tipography';
-			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-			$sth->execute(array(':ID_Tipography' => ($_POST["ID_Tipography"])));
-			$data = $sth->fetchAll();
-		}
-		elseif($_POST["ID_Tipography"] != "" && count($data) > 0){
 			$sql = 'UPDATE public."Tipography" SET "Tipography_name"= :Tipography_name, "Tipography_adress"= :Tipography_adress where "ID_Tipography" = :ID_Tipography';
 			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 			$sth->execute(array(':ID_Tipography' => $_POST["ID_Tipography"],':Tipography_name' => $_POST["Tipography_name"],':Tipography_adress' => $_POST["Tipography_adress"]));

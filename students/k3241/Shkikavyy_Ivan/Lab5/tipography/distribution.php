@@ -26,26 +26,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 	elseif(isset($_POST["edit"])) {
 		if($_POST["ID_Distribution"] != ""){
-			$sql = 'SELECT * from public."Distribution" where "ID_Distribution" = :ID_Distribution';
-			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-			$sth->execute(array(':ID_Distribution' => ($_POST["ID_Distribution"])));
-			$data = $sth->fetchAll();
-		}
-		elseif($_POST["ID_Distribution"] != "" && count($data) > 0){
 			$sql = 'UPDATE public."Distribution" SET "ID_Post"= :ID_Post, "ID_Edition"= :ID_Edition, "Full_quantity_newspaper"= :Full_quantity_newspaper where "ID_Distribution" = :ID_Distribution';
 			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 			$sth->execute(array(':ID_Distribution' => $_POST["ID_Distribution"],':ID_Post' => $_POST["ID_Post"],':ID_Edition' => $_POST["ID_Edition"], ':Full_quantity_newspaper' => $_POST["Full_quantity_newspaper"]));
 			$data = $sth->fetchAll();
 			$status = "Изменено";
 			$data = null;
-		}else{
-		$sql = 'INSERT INTO public."Distribution"("ID_Post", "ID_Edition", "Full_quantity_newspaper") VALUES (:ID_Post, :ID_Edition,  Full_quantity_newspaper)';
-		$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-		$sth->execute(array(':ID_Post' => $_POST["ID_Post"],':ID_Edition' => $_POST["ID_Edition"], ':Full_quantity_newspaper' => $_POST["Full_quantity_newspaper"]));
-		$data = $sth->fetchAll();
-		 $status = "Добавлено";
-		 $data = null;
-        }
+		}
     }
 	elseif(isset($_POST["insert"])){
 		$sql = 'INSERT INTO public."Distribution"("ID_Post", "ID_Edition", "Full_quantity_newspaper") VALUES (:ID_Post, :ID_Edition,  Full_quantity_newspaper)';

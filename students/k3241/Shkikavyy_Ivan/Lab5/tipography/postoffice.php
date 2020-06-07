@@ -26,12 +26,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 	elseif(isset($_POST["edit"])) {
 		if($_POST["ID_Post"] != ""){
-			$sql = 'SELECT * from public."Postoffice" where "ID_Post" = :ID_Post';
-			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-			$sth->execute(array(':ID_Post' => intval($_POST["ID_Post"])));
-			$data = $sth->fetchAll();
-		}
-		elseif($_POST["ID_Post"] != "" && count($data) > 0){
 			$sql = 'UPDATE public."Postoffice" SET "Branch_number"= :Branch_number, "Post_adress"= :Post_adress where "ID_Post" = :ID_Post';
 			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 			$sth->execute(array(':ID_Post' => $_POST["ID_Post"],':Branch_number' => $_POST["Branch_number"],':Post_adress' => $_POST["Post_adress"]));

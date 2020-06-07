@@ -26,12 +26,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 	elseif(isset($_POST["edit"])) {
 		if($_POST["ID_Print"] != ""){
-			$sql = 'SELECT * from public."Print" where "ID_Print" = :ID_Print';
-			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-			$sth->execute(array(':ID_Print' => ($_POST["ID_Print"])));
-			$data = $sth->fetchAll();
-		}
-		elseif($_POST["ID_Print"] != "" && count($data) > 0){
 			$sql = 'UPDATE public."Print" SET "ID_Edition"= :ID_Edition, "ID_Tipography"= :ID_Tipography, "Printed_quantity"= :Printed_quantity where "ID_Print" = :ID_Print';
 			$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 			$sth->execute(array(':ID_Print' => $_POST["ID_Print"],':ID_Edition' => $_POST["ID_Edition"],':ID_Tipography' => $_POST["ID_Tipography"], ':Printed_quantity' => $_POST["Printed_quantity"]));
