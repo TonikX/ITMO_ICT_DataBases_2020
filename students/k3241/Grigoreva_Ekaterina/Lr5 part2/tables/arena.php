@@ -88,6 +88,7 @@
                     where "Arena_number" = :arena_num';
                     $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
                     $sth->execute(array(':arena_num' => $_POST["arena_num"], ':arena_name' => $_POST["arena_name"]));
+
                     $sql = 'SELECT * from show."Arena" where "Arena_number" = :arena_num';
                     $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
                     $sth->execute(array(':arena_num' => intval($_POST["arena_num"])));
@@ -98,6 +99,7 @@
                     $sql = 'INSERT INTO show."Arena"("Arena_number", "Arena_name") VALUES (:arena_num, :arena_name)';
                     $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
                     $sth->execute(array(':arena_num' => $_POST["arena_num"], ':arena_name' => $_POST["arena_name"]));
+
                     $sql = 'SELECT * from show."Arena" where "Arena_number" = :arena_num';
                     $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
                     $sth->execute(array(':arena_num' => intval($_POST["arena_num"])));

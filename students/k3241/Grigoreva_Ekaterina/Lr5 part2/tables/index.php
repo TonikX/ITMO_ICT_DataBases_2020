@@ -55,6 +55,9 @@
 <div class="layer1" align="left">
     <a href='show.php'>Show</a>
 </div>
+<div class="layer1" align="left">
+    <a href='queries.php'>Запросы</a>
+</div>
 
 </body>
 </html>
