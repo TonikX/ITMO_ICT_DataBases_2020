@@ -16,10 +16,18 @@ $sql4= 'Select * from public."Books" where name Like \'%7%\' union
   Select * from public."Books" where debit_date is not NULL';
 $sql5= 'Select * from public."Books" where POSITION(btrim(LOWER(\'Узник     \')) in LOWER(name)) > 0 or POSITION(btrim(LOWER(\'   Джон  \')) in LOWER(author)) > 0';
 $reqs = array($sql1, $sql2, $sql3, $sql4, $sql5);
+$i = 0;
 foreach ($reqs as $value) {
-    foreach ($pdo->query($value) as $row) {
-        print_r($row);
+	$i++;
+	echo $i, " запрос:" ;
+	echo "</br>";
+	
+	$temp = $pdo->query($value);
+    foreach ($temp as $row) {
+		echo implode(", ", $row);
+		echo "</br>";
     }
+	
     echo "</br>";
     echo "</br>";
 }
