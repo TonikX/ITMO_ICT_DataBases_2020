@@ -74,7 +74,57 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <button type="submit" name="insert">Добавление</button>
 	<button type="submit" name="edit">Редактирование</button>
 	<br><a href="index.php">"Назад"</a><br/>
-</form>
+			
+</form>	
+	<div>
+    <table class="table" style="margin: 0px">
+        <tbody>
+        <tr>
+            <th>ID_Newspaper</th>
+            <th>Naming</th>
+            <th>Index</th>
+            <th>Reductor</th>
+         </tr>
+		
+		<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) {
+			$ID_Newspaper = $data[0]['ID_Newspaper'];
+            $Naming = $data[0]['Naming'];
+            $Index = $data[0]['Index'];
+            $Reductor = $data[0]['Reductor'];
+			echo "<tr>
+                    <td>$ID_Newspaper</td>
+                    <td>$Naming</td>
+                    <td>$Index</td>
+                    <td>$Reductor</td>
+				</tr>";
+		}else {
+			$dbuser = 'postgres';
+			$dbpassword = '1234';
+			$host = 'localhost';
+			$dbname = 'lab3';
+			$pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser , $dbpassword );
+			$sql = 'SELECT * from public."Newspaper"';
+            $sth = $pdo->query($sql);
+            $data = $sth->fetchAll();
+
+            for($i=0; $i<count($data); $i++) {
+                $ID_Newspaper = $data[$i]['ID_Newspaper'];
+                $Naming =  $data[$i]['Naming'];
+                $Index = $data[$i]['Index'];
+                $Reductor = $data[$i]['Reductor'];
+                echo "<tr>
+                   <td>$ID_Newspaper</td>
+                    <td>$Naming</td>
+                    <td>$Index</td>
+                    <td>$Reductor</td>
+                 </tr>";
+			}
+            }
+?>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>
 

@@ -72,4 +72,47 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	<button type="submit" name="edit">Редактирование</button>
 	<br><a href="index.php">"Назад"</a><br/>
 </form>
+<div>
+    <table class="table" style="margin: 0px">
+        <tbody>
+        <tr>
+            <th>ID_Tipography</th>
+            <th>Tipography_name</th>
+            <th>Tipography_adress</th>
+         </tr>
+		
+		<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) {
+			$ID_Tipography = $data[0]['ID_Tipography'];
+            $Tipography_name = $data[0]['Tipography_name'];
+            $Tipography_adress = $data[0]['Tipography_adress'];
+			echo "<tr>
+                    <td>$ID_Tipography</td>
+                    <td>$Tipography_name</td>
+                    <td>$Tipography_adress</td>
+				</tr>";
+		}else {
+			$dbuser = 'postgres';
+			$dbpassword = '1234';
+			$host = 'localhost';
+			$dbname = 'lab3';
+			$pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser , $dbpassword );
+			$sql = 'SELECT * from public."Tipography"';
+            $sth = $pdo->query($sql);
+            $data = $sth->fetchAll();
+            for($i=0; $i<count($data); $i++) {
+                $ID_Tipography = $data[$i]['ID_Tipography'];
+                $Tipography_name =  $data[$i]['Tipography_name'];
+                $Tipography_adress = $data[$i]['Tipography_adress'];
+                echo "<tr>
+                   <td>$ID_Tipography</td>
+                    <td>$Tipography_name</td>
+                    <td>$Tipography_adress</td>>
+                 </tr>";
+			}
+            }
+?>
+        </tbody>
+    </table>
+</div>
+
 </body>

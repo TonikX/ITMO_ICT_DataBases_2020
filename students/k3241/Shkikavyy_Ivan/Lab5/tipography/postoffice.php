@@ -72,4 +72,47 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	<button type="submit" name="edit">Редактирование</button>
 	<br><a href="index.php">"Назад"</a><br/>
 </form>
+<div>
+    <table class="table" style="margin: 0px">
+        <tbody>
+        <tr>
+            <th>ID_Post</th>
+            <th>Branch_number</th>
+            <th>Post_adress</th>
+         </tr>
+		
+		<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) {
+			$ID_Post = $data[0]['ID_Post'];
+            $Branch_number = $data[0]['Branch_number'];
+            $Post_adress = $data[0]['Post_adress'];
+			echo "<tr>
+                    <td>$ID_Post</td>
+                    <td>$Branch_number</td>
+                    <td>$Post_adress</td>
+				</tr>";
+		}else {
+			$dbuser = 'postgres';
+			$dbpassword = '1234';
+			$host = 'localhost';
+			$dbname = 'lab3';
+			$pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser , $dbpassword );
+			$sql = 'SELECT * from public."Postoffice"';
+            $sth = $pdo->query($sql);
+            $data = $sth->fetchAll();
+            for($i=0; $i<count($data); $i++) {
+                $ID_Post = $data[$i]['ID_Post'];
+                $Branch_number =  $data[$i]['Branch_number'];
+                $Post_adress = $data[$i]['Post_adress'];
+                echo "<tr>
+                   <td>$ID_Post</td>
+                    <td>$Branch_number</td>
+                    <td>$Post_adress</td>
+                 </tr>";
+			}
+            }
+?>
+        </tbody>
+    </table>
+</div>
+
 </body>
