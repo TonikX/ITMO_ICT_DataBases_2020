@@ -318,19 +318,19 @@ ALTER TABLE "Labour exchange"."Training_center"
 --Таблица соискатель
 INSERT INTO "Labour exchange"."Applicant"(
 	"ID_applicant", "FCS_applicant", "Age", "Sex", "Contacts", "Last_salary", "Start_receiving_benefits", "End_benefit_receipt")
-	VALUES (1, 'В.А. Попов', 19, M, '44-44-44', 30000, '2018-01-01', '2019-01-01');
+	VALUES (1, 'В.А. Попов', 19, 'M', '44-44-44', 30000, '2018-01-01', '2019-01-01');
 INSERT INTO "Labour exchange"."Applicant"(
 	"ID_applicant", "FCS_applicant", "Age", "Sex", "Contacts", "Last_salary", "Start_receiving_benefits", "End_benefit_receipt")
-	VALUES (2, 'П.К. Сидоров', 34, M, '12-12-12', 32000, '2019-03-01', '2020-01-05');
+	VALUES (2, 'П.К. Сидоров', 34, 'M', '12-12-12', 32000, '2019-03-01', '2020-01-05');
 INSERT INTO "Labour exchange"."Applicant"(
 	"ID_applicant", "FCS_applicant", "Age", "Sex", "Contacts", "Last_salary", "Start_receiving_benefits", "End_benefit_receipt")
-	VALUES (3, 'К.К. Иванов', 23, M, '23-23-23', 12000, '2018-10-01', '2018-11-01');
+	VALUES (3, 'К.К. Иванов', 23, 'M', '23-23-23', 12000, '2018-10-01', '2018-11-01');
 INSERT INTO "Labour exchange"."Applicant"(
 	"ID_applicant", "FCS_applicant", "Age", "Sex", "Contacts", "Last_salary", "Start_receiving_benefits", "End_benefit_receipt")
-	VALUES (4, 'Н.У. Лебедев', 32, M, '34-34-34', 21000, '2010-01-01', '2019-11-11');
+	VALUES (4, 'Н.У. Лебедев', 32, 'M', '34-34-34', 21000, '2010-01-01', '2019-11-11');
 INSERT INTO "Labour exchange"."Applicant"(
 	"ID_applicant", "FCS_applicant", "Age", "Sex", "Contacts", "Last_salary", "Start_receiving_benefits", "End_benefit_receipt")
-	VALUES (5, 'Л.С. Желтова', 44, F, '57-32-65', 29000, '2014-07-01', '2019-05-05');
+	VALUES (5, 'Л.С. Желтова', 44, 'F', '57-32-65', 29000, '2014-07-01', '2019-05-05');
 
 --Таблица резюме
 INSERT INTO "Labour exchange"."CV"(
@@ -352,19 +352,19 @@ INSERT INTO "Labour exchange"."CV"(
 --Таблица курсы
 INSERT INTO "Labour exchange"."Course"(
 	"ID_course", "New_discharge", "Duration", "Price", "Group_number", "Students_list")
-	VALUES (1, 'Красить', 14:05:06, 3000, 'K3240', 'В.А. Попов, Л.С. Желтова, К.К. Иванов, Н.У. Лебедев');
+	VALUES (1, 'Красить', 1'4:05:06,' 3000, 'K3240', 'В.А. Попов, Л.С. Желтова, К.К. Иванов, Н.У. Лебедев');
 INSERT INTO "Labour exchange"."Course"(
 	"ID_course", "New_discharge", "Duration", "Price", "Group_number", "Students_list")
-	VALUES (2, 'Пилить', 05:10:56, 4000, 'K3340', 'В.А. Попов, К.К. Иванов');
+	VALUES (2, 'Пилить', '05:10:56', 4000, 'K3340', 'В.А. Попов, К.К. Иванов');
 INSERT INTO "Labour exchange"."Course"(
 	"ID_course", "New_discharge", "Duration", "Price", "Group_number", "Students_list")
-	VALUES (3, 'Резать', 01:05:45, 1000, 'K2144', 'В.А. Попов, Л.С. Желтова, Н.У. Лебедев');
+	VALUES (3, 'Резать', '01:05:45', 1000, 'K2144', 'В.А. Попов, Л.С. Желтова, Н.У. Лебедев');
 INSERT INTO "Labour exchange"."Course"(
 	"ID_course", "New_discharge", "Duration", "Price", "Group_number", "Students_list")
-	VALUES (4, 'Программировать', 56:05:22, 7000, 'K2320', 'В.А. Попов, Л.С. Желтова, Н.У. Лебедев');
+	VALUES (4, 'Программировать', '56:05:22', 7000, 'K2320', 'В.А. Попов, Л.С. Желтова, Н.У. Лебедев');
 INSERT INTO "Labour exchange"."Course"(
 	"ID_course", "New_discharge", "Duration", "Price", "Group_number", "Students_list")
-	VALUES (5, 'Быстро ездить', 39:45:22, 6000, 'K4441', 'В.А. Попов, К.К. Иванов');
+	VALUES (5, 'Быстро ездить', '39:45:22', 6000, 'K4441', 'В.А. Попов, К.К. Иванов');
 
 --Таблица справочник профессий
 INSERT INTO "Labour exchange"."Directory_professions"(
@@ -407,16 +407,16 @@ INSERT INTO "Labour exchange"."Job_openings"(
 	VALUES (1, 10000, 'Junior', '', 'Открытая', '2020-02-11', 'Плохие', 'Актуальна', '1 год', 'Высший', 1, 'А.О. Попов', 1, 1);
 INSERT INTO "Labour exchange"."Job_openings"(
 	"ID_job_openings", "Salary", "Qualification", "Details", "Type_job", "Date_publication", "Working_conditions", "Job_status", "Work_experience", "Discharge", "ID_employer", "FCS_employer", "ID_course", "ID_directory")
-	VALUES (2, 20000, 'Junior', 'Есть кофе', 'Открытая', '2020-01-12', 'Отличные', 'Актуальна', '10 лет', 'Средний', 2, 2, 'Е.Ф. Сидоров', 2, 2);
+	VALUES (2, 20000, 'Junior', 'Есть кофе', 'Открытая', '2020-01-12', 'Отличные', 'Актуальна', '10 лет', 'Средний', 2, 'Е.Ф. Сидоров', 2, 2);
 INSERT INTO "Labour exchange"."Job_openings"(
 	"ID_job_openings", "Salary", "Qualifica''ion", "Details", "Type_job", "Date_publication", "Working_conditions", "Job_status", "Work_experience", "Discharge", "ID_employer", "FCS_employer", "ID_course", "ID_directory")
-	VALUES (3, 30000, 'Midle', 'Бьют палкой', 'Открытая', '2020-04-05', 'Плохие', 'Актуальна', '4 года', 'Средний', 3, 3, 'С.В. Иванов', 3, 3);
+	VALUES (3, 30000, 'Midle', 'Бьют палкой', 'Открытая', '2020-04-05', 'Плохие', 'Актуальна', '4 года', 'Средний', 3, 'С.В. Иванов', 3, 3);
 INSERT INTO "Labour exchange"."Job_openings"(
 	"ID_job_openings", "Salary", "Qualification", "Details", "Type_job", "Date_publication", "Working_conditions", "Job_status", "Work_experience", "Discharge", "ID_employer", "FCS_employer", "ID_course", "ID_directory")
-	VALUES (4, 40000, 'Midle', 'Нужна машина', 'Открытая', '2020-05-08', 'Хорошие', 'Актуальна', 'Отсутствует', 'Низкий', 4, 4, 'Л.Т. Лебедев', 4, 4);
+	VALUES (4, 40000, 'Midle', 'Нужна машина', 'Открытая', '2020-05-08', 'Хорошие', 'Актуальна', 'Отсутствует', 'Низкий', 4, 'Л.Т. Лебедев', 4, 4);
 INSERT INTO "Labour exchange"."Job_openings"(
 	"ID_job_openings", "Salary", "Qualification", "Details", "Type_job", "Date_publication", "Working_conditions", "Job_status", "Work_experience", "Discharge", "ID_employer", "FCS_employer", "ID_course", "ID_directory")
-	VALUES (5, 50000, 'Senior', 'Свой кабинет', 'Закрытая', '2020-01-10', 'Отличные', 'Актуальна', '5 лет', 'Высший', 5, 5, 'О.Н. Желтова', 5, 5);
+	VALUES (5, 50000, 'Senior', 'Свой кабинет', 'Закрытая', '2020-01-10', 'Отличные', 'Актуальна', '5 лет', 'Высший', 5, 'О.Н. Желтова', 5, 5);
 
 
 --Таблица бюро
