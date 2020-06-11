@@ -1,0 +1,117 @@
+[{
+"date_priem": "03/04/2009",
+"time_priem": "10:00",
+"state": "normal",
+"recommendations": "stay home",
+"priem_cost":{
+	"priem_cost": 2000,
+	"title": "spravka prava",
+	"description": "no description given"
+},
+"medical_records": {
+	"contacts": "+79893456077",
+	"birthday": "04/05/2003",
+	"name": "Sofia Morgunova"
+	"patient_diagnosis": {
+		"date": "06/04/2020"
+		"diagnosis": {
+			"title": "flu",
+			"description": "runny or stuffy nose"
+		}
+
+	}
+},
+{
+"date_priem": "01/01/2010",
+"time_priem": "9:00",
+"state": "normal",
+"recommendations": "no recommendations given",
+"priem_cost":{
+	"priem_cost": 300,
+	"title": "osmotr",
+	"description": "no description given"
+},
+"medical_records": {
+	"contacts": "+79893456123",
+	"birthday": "01/05/2010",
+	"name": "Michail Petrov"
+	"patient_diagnosis": {
+		"date": "05/04/2020"
+		"diagnosis": {
+			"title": "corona",
+			"description": "no contacts"
+		}
+
+	}
+},
+{
+"date_priem": "01/02/2020",
+"time_priem": "13:00",
+"state": "bad",
+"recommendations": "stay home",
+"priem_cost":{
+	"priem_cost": 4000,
+	"title": "analiz krovi",
+	"description": "without any extra surcharges"
+},
+"medical_records": {
+	"contacts": "+79893456033",
+	"birthday": "04/06/2020",
+	"name": "Sasha Ivanov"
+	"patient_diagnosis": {
+		"date": "01/07/2020"
+		"diagnosis": {
+			"title": "corona",
+			"description": "isolation"
+		}
+
+	}
+},
+{
+"date_priem": "02/01/2019",
+"time_priem": "15:00",
+"state": "good",
+"recommendations": "no recommendations given",
+"priem_cost":{
+	"priem_cost": 900,
+	"title": "analiz",
+	"description": "no description given"
+},
+"medical_records": {
+	"contacts": "+79893455566",
+	"birthday": "04/05/2003",
+	"name": "Sofia Morgunova"
+	"patient_diagnosis": {
+		"date": "06/04/2020"
+		"diagnosis": {
+			"title": "flu",
+			"description": "runny or stuffy nose"
+		}
+
+	}
+},
+{
+"date_priem": "03/03/2020",
+"time_priem": "16:00",
+"state": "good",
+"recommendations": "stay home",
+"priem_cost":{
+	"priem_cost": 800,
+	"title": "spravka v school",
+	"description": "no description given"
+},
+"medical_records": {
+	"contacts": "+79893456044",
+	"birthday": "04/10/1999",
+	"name": "Sofia Morgunova"
+	"patient_diagnosis": {
+		"date": "04/04/2020"
+		"diagnosis": {
+			"title": "cold",
+			"description": "strong cough"
+		}
+
+	}
+},
+
+]
