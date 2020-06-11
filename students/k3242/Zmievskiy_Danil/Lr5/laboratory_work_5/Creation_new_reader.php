@@ -32,9 +32,13 @@
 		<p><input type="number" name="ID_reader" required placeholder="ID читателя(обязательно)">
 		<input type="number" name="ID_room" required placeholder="ID зала(обязательно)">
 		<input type="submit" name="Delete" value="Удалить"></P>
-		<p><input type="date" name="Date_of_creation" placeholder="Дата записи">
-		<input type="date" name="Date_of_re-registration" placeholder="Дата перерегестрации">
-		<input type="date" name="Date_of_exclusion" placeholder="Дата исключения"></p>
+		<p><table><tr>
+					<td><label>Дата записи</label></td>
+					<td><label>Дата перерегестрации</label></td>
+					<td><label>Дата исключения</label></td></tr>
+		<tr><td><input type="date" name="Date_of_creation" placeholder="Дата записи"></td>
+		<td><input type="date" name="Date_of_re-registration" placeholder="Дата перерегестрации"></td>
+		<td><input type="date" name="Date_of_exclusion" placeholder="Дата исключения"></td></tr></table></p>
 		<p><input type="submit" name="Add" value="Добавить">
 			<input type="submit" name="Edit" value="Редактировать"></p>
 	</form>

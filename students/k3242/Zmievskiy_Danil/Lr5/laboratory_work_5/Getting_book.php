@@ -32,8 +32,10 @@
 		<p><input type="number" name="ID_reader" required placeholder="ID читателя(обязательно)">
 		<input type="number" name="ID_instance" required placeholder="ID экземпляра(обязательно)">
 		<input type="submit" name="Delete" value="Удалить"></P>
-		<p><input type="date" name="Date_of_receiving" placeholder="Дата выдачи">
-		<input type="date" name="Date_of_return" placeholder="Дата возврата">
+		<p><table><tr><td><label>Дата выдачи</label>
+						<td><label>Дата возврата</label></td></tr>
+		<tr><td><input type="date" name="Date_of_receiving" placeholder="Дата выдачи"></td>
+		<td><input type="date" name="Date_of_return" placeholder="Дата возврата"></td></tr></table>
 		<p><input type="submit" name="Add" value="Добавить">
 			<input type="submit" name="Edit" value="Редактировать"></p>
 	</form>
