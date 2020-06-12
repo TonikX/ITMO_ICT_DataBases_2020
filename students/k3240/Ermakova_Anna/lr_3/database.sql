@@ -160,9 +160,31 @@ ALTER TABLE public.work
 COMMENT ON TABLE public.work
     IS 'Содержит информацию о работах';
 
+-- Table: public.service
+-- Таблица Рекламная услуга. Содержит информацию о рекламной услуге
 
+-- DROP TABLE public.service;
+
+CREATE TABLE public.service
+(
+    id integer NOT NULL,
+    name text COLLATE pg_catalog."default" NOT NULL,
+    cost integer NOT NULL,
+    CONSTRAINT service_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.service
+    OWNER to postgres;
+COMMENT ON TABLE public.service
+    IS 'Содержит информацию о рекламной услуге';
+    
+    
 -- Table: public.work_list
--- Таблица Список работ. Содержит информацию о списах работ
+-- Таблица Список работ. Содержит информацию о списках работ
 
 -- DROP TABLE public.work_list;
 
@@ -170,13 +192,13 @@ CREATE TABLE public.work_list
 (
     id integer NOT NULL,
     id_work integer NOT NULL,
-    id_request integer NOT NULL,
+    id_service integer NOT NULL,
     CONSTRAINT id_work FOREIGN KEY (id_work)
         REFERENCES public.work (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE CASCADE,
-    CONSTRAINT id_request FOREIGN KEY (id_request)
-        REFERENCES public.request (id) MATCH SIMPLE
+    CONSTRAINT id_service FOREIGN KEY (id_service)
+        REFERENCES public.service (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE CASCADE,
     CONSTRAINT work_list_pkey PRIMARY KEY (id)
@@ -247,29 +269,6 @@ COMMENT ON TABLE public.worker_list
     IS 'Содержит информацию о списках сотрудников';
 
 
--- Table: public.service
--- Таблица Рекламная услуга. Содержит информацию о рекламной услуге
-
--- DROP TABLE public.service;
-
-CREATE TABLE public.service
-(
-    id integer NOT NULL,
-    name text COLLATE pg_catalog."default" NOT NULL,
-    cost integer NOT NULL,
-    CONSTRAINT service_pkey PRIMARY KEY (id)
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
-
-ALTER TABLE public.service
-    OWNER to postgres;
-COMMENT ON TABLE public.service
-    IS 'Содержит информацию о рекламной услуге';
-
-
 -- Table: public.price_list
 -- Таблица Прайс-лист. Содержит информацию о прайс листе
 
@@ -279,13 +278,13 @@ CREATE TABLE public.price_list
 (
     id integer NOT NULL,
     id_service integer NOT NULL,
-    id_advertising_agency integer NOT NULL,
+    id_request integer NOT NULL,
     CONSTRAINT id_service FOREIGN KEY (id_service)
         REFERENCES public.service (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE CASCADE,
-    CONSTRAINT id_advertising_agency FOREIGN KEY (id_advertising_agency)
-        REFERENCES public.advertising_agency (id) MATCH SIMPLE
+    CONSTRAINT id_request FOREIGN KEY (id_request)
+        REFERENCES public.request (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE CASCADE,
     CONSTRAINT price_list_pkey PRIMARY KEY (id)
@@ -310,6 +309,16 @@ INSERT INTO public.advertising_agency(
 	id, name, address)
 	VALUES 
 	(0, 'Фиалка', 'улица Борова 7');
+	
+-- Таблица рекламная услуга
+INSERT INTO public.service (
+	id, name, cost) 
+	VALUES
+	(0, 'монтаж', 7000),
+	(1, 'съемка', 20000),
+	(2, 'дополнительная подсъемка', 13000),
+	(3, 'написание сценария', 17000),
+	(4, 'дополнительные спецэфферты', 30000);
 
 -- Таблица рекламодатель
 INSERT INTO public.advertiser (
@@ -353,7 +362,7 @@ INSERT INTO public.work (
 
 -- Таблица список работ
 INSERT INTO public.work_list (
-	id, id_work, id_request) 
+	id, id_work, id_service) 
 	VALUES
 	(0, 0, 1),
 	(1, 1, 2),
@@ -381,23 +390,13 @@ INSERT INTO public.worker_list (
 	(3, 3, 4),
 	(4, 4, 0);
 
--- Таблица рекламная услуга
-INSERT INTO public.service (
-	id, name, cost) 
-	VALUES
-	(0, 'монтаж', 7000),
-	(1, 'съемка', 20000),
-	(2, 'дополнительная подсъемка', 13000),
-	(3, 'написание сценария', 17000),
-	(4, 'дополнительные спецэфферты', 30000);
-
 -- Таблица прайс лист
 INSERT INTO public.price_list (
-	id, id_service, id_advertising_agency) 
+	id, id_service, id_request) 
 	VALUES
-	(0, 0, 0),
-	(1, 1, 0),
-	(2, 2, 0),
-	(3, 3, 0),
+	(0, 0, 1),
+	(1, 1, 2),
+	(2, 2, 3),
+	(3, 3, 4),
 	(4, 4, 0);
 
