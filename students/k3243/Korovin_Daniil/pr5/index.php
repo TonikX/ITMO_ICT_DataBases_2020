@@ -124,14 +124,6 @@ echo "<br/>" . 'та же переменная, но тут навалили do-
 
 echo '<br>======================================================<br><br>';
 
-echo '<HTML>
-     <HEAD>
-     <META HTTP-EQUIV="Refresh" CONTENT="15; URL=fecalfunny.php">
-     <TITLE>это я</TITLE>
-     </HEAD>
-     <BODY>
-     <h2>!групповое перенаправление начнется через 15 секунд!<h2>
-     </BODY>
-     </HTML>';
+echo '<a href = 'index.php'>Домой</a>'
 ?>
 
