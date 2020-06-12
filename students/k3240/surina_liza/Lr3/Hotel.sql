@@ -73,7 +73,7 @@ CREATE TABLE hotel."reserv"
     "id_client" integer NOT NULL,
     "input" integer NOT NULL,
     "output" character(40) COLLATE pg_catalog."default" NOT NULL,
-    "number_code" character(40) COLLATE pg_catalog."default" NOT NULL,
+    "number_code" integer NOT NULL,
     CONSTRAINT "reserv_pkey" PRIMARY KEY ("code_reservation"),
     CONSTRAINT "CODEnumber" FOREIGN KEY ("number_code")
         REFERENCES hotel."number" ("number_code") MATCH SIMPLE
