@@ -116,7 +116,7 @@ CREATE TABLE public.payment_order
 (
     id integer NOT NULL,
     id_request integer NOT NULL,
-    data_order data NOT NULL,
+    data_order date NOT NULL,
     state text COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT payment_order_pkey PRIMARY KEY (id),
     CONSTRAINT id_request FOREIGN KEY (id_request)
@@ -143,8 +143,8 @@ COMMENT ON TABLE public.payment_order
 CREATE TABLE public.work
 (
     id integer NOT NULL,
-    data_of_creation data NOT NULL,
-    data_of_completion data,   
+    data_of_creation date NOT NULL,
+    data_of_completion date,   
     cost integer NOT NULL,
     volume text COLLATE pg_catalog."default" NOT NULL,
     materials text COLLATE pg_catalog."default" NOT NULL,
