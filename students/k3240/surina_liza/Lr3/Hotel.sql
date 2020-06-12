@@ -71,7 +71,7 @@ CREATE TABLE hotel."reserv"
 (
     "code_reservation" integer NOT NULL,
     "id_client" integer NOT NULL,
-    "input" integer NOT NULL,
+    "input" character(40) COLLATE pg_catalog."default" NOT NULL,
     "output" character(40) COLLATE pg_catalog."default" NOT NULL,
     "number_code" integer NOT NULL,
     CONSTRAINT "reserv_pkey" PRIMARY KEY ("code_reservation"),
@@ -135,11 +135,11 @@ INSERT INTO hotel."type" VALUES (567, 36738);
 
 --заполняем таблицу расписания персонала
 
-INSERT INTO hotel."timetable" VALUES (10001, 1234456, 23, 'mondey');
-INSERT INTO hotel."timetable" VALUES (20002, 4893201, 12, 'friday');
-INSERT INTO hotel."timetable" VALUES (30003, 0985843, 34, 'wednesday');
-INSERT INTO hotel."timetable" VALUES (40004, 1453112, 53, 'saturday');
-INSERT INTO hotel."timetable" VALUES (50005, 3894584, 32, 'monday');
+INSERT INTO hotel."timetable" VALUES (10001, 34543, 23, 'mondey');
+INSERT INTO hotel."timetable" VALUES (20002, 12344, 12, 'friday');
+INSERT INTO hotel."timetable" VALUES (30003, 54351, 34, 'wednesday');
+INSERT INTO hotel."timetable" VALUES (40004, 64215, 53, 'saturday');
+INSERT INTO hotel."timetable" VALUES (50005, 15109, 32, 'monday');
 
 --заполняем таблицу заказов гостиницы
 
@@ -183,8 +183,8 @@ INSERT INTO hotel."service" VALUES (32, 'Hope Miklson');
 
 --заполняем таблицу о работе администратора
 
-INSERT INTO hotel."admin" VALUES (101, 10001, 12342098, 3454);
-INSERT INTO hotel."admin" VALUES (102, 20002, 34728938, 1234);
-INSERT INTO hotel."admin" VALUES (103, 30003, 84902984, 5435);
-INSERT INTO hotel."admin" VALUES (104, 40004, 63648928, 6421);
-INSERT INTO hotel."admin" VALUES (105, 50005, 49748821, 5109);
+INSERT INTO hotel."admin" VALUES (101, 10001, 1234456, 3454);
+INSERT INTO hotel."admin" VALUES (102, 20002, 4893201, 1234);
+INSERT INTO hotel."admin" VALUES (103, 30003, 0985843, 5435);
+INSERT INTO hotel."admin" VALUES (104, 40004, 1453112, 6421);
+INSERT INTO hotel."admin" VALUES (105, 50005, 3894584, 5109);
