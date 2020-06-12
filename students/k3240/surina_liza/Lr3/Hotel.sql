@@ -111,7 +111,7 @@ CREATE TABLE hotel."timetable"
     CONSTRAINT "IDservice" FOREIGN KEY ("id_service")
         REFERENCES hotel."service" ("id_service") MATCH SIMPLE
         ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
+        ON DELETE NO ACTION
     
 );
 
