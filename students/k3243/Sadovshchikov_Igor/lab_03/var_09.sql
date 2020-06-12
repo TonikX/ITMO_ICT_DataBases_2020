@@ -541,4 +541,3 @@ ALTER TABLE ONLY public.incident
 --
 -- PostgreSQL database dump complete
 --
-
