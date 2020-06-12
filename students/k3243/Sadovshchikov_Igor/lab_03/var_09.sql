@@ -47,7 +47,7 @@ SET row_security = off;
 -- Name: DATABASE bus_park; Type: COMMENT; Schema: -; Owner: postgres
 --
 
-COMMENT ON DATABASE bus_park IS 'База данных диспетчера автобусного парка';
+COMMENT ON DATABASE bus_park IS 'Р‘Р°Р·Р° РґР°РЅРЅС‹С… РґРёСЃРїРµС‚С‡РµСЂР° Р°РІС‚РѕР±СѓСЃРЅРѕРіРѕ РїР°СЂРєР°';
 
 
 SET default_tablespace = '';
@@ -76,13 +76,13 @@ ALTER TABLE public.bus OWNER TO postgres;
 -- Name: TABLE bus; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.bus IS 'Таблица описывает автобусы в собственности автопарка
+COMMENT ON TABLE public.bus IS 'РўР°Р±Р»РёС†Р° РѕРїРёСЃС‹РІР°РµС‚ Р°РІС‚РѕР±СѓСЃС‹ РІ СЃРѕР±СЃС‚РІРµРЅРЅРѕСЃС‚Рё Р°РІС‚РѕРїР°СЂРєР°
 
-gos_nomer - государственный номер автобуса
-model_name - название модели автобуса
-fuel_type - тип топлива (бензин, дизель, электричество)
-color - цвет автобуса
-status - статус автобуса (в эксплуатации, в ремонте)';
+gos_nomer - РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅС‹Р№ РЅРѕРјРµСЂ Р°РІС‚РѕР±СѓСЃР°
+model_name - РЅР°Р·РІР°РЅРёРµ РјРѕРґРµР»Рё Р°РІС‚РѕР±СѓСЃР°
+fuel_type - С‚РёРї С‚РѕРїР»РёРІР° (Р±РµРЅР·РёРЅ, РґРёР·РµР»СЊ, СЌР»РµРєС‚СЂРёС‡РµСЃС‚РІРѕ)
+color - С†РІРµС‚ Р°РІС‚РѕР±СѓСЃР°
+status - СЃС‚Р°С‚СѓСЃ Р°РІС‚РѕР±СѓСЃР° (РІ СЌРєСЃРїР»СѓР°С‚Р°С†РёРё, РІ СЂРµРјРѕРЅС‚Рµ)';
 
 
 --
@@ -104,10 +104,10 @@ ALTER TABLE public.bus_model OWNER TO postgres;
 -- Name: TABLE bus_model; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.bus_model IS 'Таблица описывает модели автобусов
+COMMENT ON TABLE public.bus_model IS 'РўР°Р±Р»РёС†Р° РѕРїРёСЃС‹РІР°РµС‚ РјРѕРґРµР»Рё Р°РІС‚РѕР±СѓСЃРѕРІ
 
-model_name - название модели
-capacity - вместимость';
+model_name - РЅР°Р·РІР°РЅРёРµ РјРѕРґРµР»Рё
+capacity - РІРјРµСЃС‚РёРјРѕСЃС‚СЊ';
 
 
 --
@@ -134,15 +134,15 @@ ALTER TABLE public.departure OWNER TO postgres;
 -- Name: TABLE departure; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.departure IS 'Таблица описывает выезды водителей на автобусах по маршрутам
+COMMENT ON TABLE public.departure IS 'РўР°Р±Р»РёС†Р° РѕРїРёСЃС‹РІР°РµС‚ РІС‹РµР·РґС‹ РІРѕРґРёС‚РµР»РµР№ РЅР° Р°РІС‚РѕР±СѓСЃР°С… РїРѕ РјР°СЂС€СЂСѓС‚Р°Рј
 
-departure_num - идентификатор выезда
-serial_num - серия и номер паспорта водителя
-route_num - номер маршрута
-gos_nomer - госудаственный номер автобуса
-departure_date - дата выезда
-status - статус выезда (совершается, завершен)
-tariff - стоимость проезда в рублях';
+departure_num - РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІС‹РµР·РґР°
+serial_num - СЃРµСЂРёСЏ Рё РЅРѕРјРµСЂ РїР°СЃРїРѕСЂС‚Р° РІРѕРґРёС‚РµР»СЏ
+route_num - РЅРѕРјРµСЂ РјР°СЂС€СЂСѓС‚Р°
+gos_nomer - РіРѕСЃСѓРґР°СЃС‚РІРµРЅРЅС‹Р№ РЅРѕРјРµСЂ Р°РІС‚РѕР±СѓСЃР°
+departure_date - РґР°С‚Р° РІС‹РµР·РґР°
+status - СЃС‚Р°С‚СѓСЃ РІС‹РµР·РґР° (СЃРѕРІРµСЂС€Р°РµС‚СЃСЏ, Р·Р°РІРµСЂС€РµРЅ)
+tariff - СЃС‚РѕРёРјРѕСЃС‚СЊ РїСЂРѕРµР·РґР° РІ СЂСѓР±Р»СЏС…';
 
 
 --
@@ -167,13 +167,13 @@ ALTER TABLE public.driver OWNER TO postgres;
 -- Name: TABLE driver; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.driver IS 'Таблица описывает водителей автобусного парка
+COMMENT ON TABLE public.driver IS 'РўР°Р±Р»РёС†Р° РѕРїРёСЃС‹РІР°РµС‚ РІРѕРґРёС‚РµР»РµР№ Р°РІС‚РѕР±СѓСЃРЅРѕРіРѕ РїР°СЂРєР°
 
-serial_num - серия и номер паспорта водителя слитно
-schedule_num - график по которому работает водитель
-experience - стаж работы водителя в месяцах
-category - категория водителя (1 сорт - профессионал, 2 сорт - начинающий)
-salary - зарплата водителя в рублях
+serial_num - СЃРµСЂРёСЏ Рё РЅРѕРјРµСЂ РїР°СЃРїРѕСЂС‚Р° РІРѕРґРёС‚РµР»СЏ СЃР»РёС‚РЅРѕ
+schedule_num - РіСЂР°С„РёРє РїРѕ РєРѕС‚РѕСЂРѕРјСѓ СЂР°Р±РѕС‚Р°РµС‚ РІРѕРґРёС‚РµР»СЊ
+experience - СЃС‚Р°Р¶ СЂР°Р±РѕС‚С‹ РІРѕРґРёС‚РµР»СЏ РІ РјРµСЃСЏС†Р°С…
+category - РєР°С‚РµРіРѕСЂРёСЏ РІРѕРґРёС‚РµР»СЏ (1 СЃРѕСЂС‚ - РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р», 2 СЃРѕСЂС‚ - РЅР°С‡РёРЅР°СЋС‰РёР№)
+salary - Р·Р°СЂРїР»Р°С‚Р° РІРѕРґРёС‚РµР»СЏ РІ СЂСѓР±Р»СЏС…
 ';
 
 
@@ -197,11 +197,11 @@ ALTER TABLE public.incident OWNER TO postgres;
 -- Name: TABLE incident; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.incident IS 'Таблица описывает проишествия, случившиеся во время выезда
+COMMENT ON TABLE public.incident IS 'РўР°Р±Р»РёС†Р° РѕРїРёСЃС‹РІР°РµС‚ РїСЂРѕРёС€РµСЃС‚РІРёСЏ, СЃР»СѓС‡РёРІС€РёРµСЃСЏ РІРѕ РІСЂРµРјСЏ РІС‹РµР·РґР°
 
-incident_num - идентификатор проишествия
-departure_num - номер выезда
-description - описание проишествия';
+incident_num - РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїСЂРѕРёС€РµСЃС‚РІРёСЏ
+departure_num - РЅРѕРјРµСЂ РІС‹РµР·РґР°
+description - РѕРїРёСЃР°РЅРёРµ РїСЂРѕРёС€РµСЃС‚РІРёСЏ';
 
 
 --
@@ -228,13 +228,13 @@ ALTER TABLE public.passport OWNER TO postgres;
 -- Name: TABLE passport; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.passport IS 'Таблица описывает паспортные данные сотрудников (водителей) автобусного парка.
+COMMENT ON TABLE public.passport IS 'РўР°Р±Р»РёС†Р° РѕРїРёСЃС‹РІР°РµС‚ РїР°СЃРїРѕСЂС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ (РІРѕРґРёС‚РµР»РµР№) Р°РІС‚РѕР±СѓСЃРЅРѕРіРѕ РїР°СЂРєР°.
 
-first_name - имя сотрудника
-last_name - фамилия сотрудника
-birthday - дата рождения сотрудника
-date_issued - дата выдачи паспорта
-issued_by - орган, выдавший паспорт';
+first_name - РёРјСЏ СЃРѕС‚СЂСѓРґРЅРёРєР°
+last_name - С„Р°РјРёР»РёСЏ СЃРѕС‚СЂСѓРґРЅРёРєР°
+birthday - РґР°С‚Р° СЂРѕР¶РґРµРЅРёСЏ СЃРѕС‚СЂСѓРґРЅРёРєР°
+date_issued - РґР°С‚Р° РІС‹РґР°С‡Рё РїР°СЃРїРѕСЂС‚Р°
+issued_by - РѕСЂРіР°РЅ, РІС‹РґР°РІС€РёР№ РїР°СЃРїРѕСЂС‚';
 
 
 --
@@ -261,15 +261,15 @@ ALTER TABLE public.route OWNER TO postgres;
 -- Name: TABLE route; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.route IS 'Таблица описывает маршруты, обслуживаемые автобусным парком
+COMMENT ON TABLE public.route IS 'РўР°Р±Р»РёС†Р° РѕРїРёСЃС‹РІР°РµС‚ РјР°СЂС€СЂСѓС‚С‹, РѕР±СЃР»СѓР¶РёРІР°РµРјС‹Рµ Р°РІС‚РѕР±СѓСЃРЅС‹Рј РїР°СЂРєРѕРј
 
-route_num - идентификатор маршрута
-start_point - начальный пункт
-end_point - конечный пункт
-start_time - время начала движения автобусов
-end_time - время окончания движения автобусов
-time_between - предположительный интервал движения
-route_length - длина маршрута в минутах';
+route_num - РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РјР°СЂС€СЂСѓС‚Р°
+start_point - РЅР°С‡Р°Р»СЊРЅС‹Р№ РїСѓРЅРєС‚
+end_point - РєРѕРЅРµС‡РЅС‹Р№ РїСѓРЅРєС‚
+start_time - РІСЂРµРјСЏ РЅР°С‡Р°Р»Р° РґРІРёР¶РµРЅРёСЏ Р°РІС‚РѕР±СѓСЃРѕРІ
+end_time - РІСЂРµРјСЏ РѕРєРѕРЅС‡Р°РЅРёСЏ РґРІРёР¶РµРЅРёСЏ Р°РІС‚РѕР±СѓСЃРѕРІ
+time_between - РїСЂРµРґРїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Р№ РёРЅС‚РµСЂРІР°Р» РґРІРёР¶РµРЅРёСЏ
+route_length - РґР»РёРЅР° РјР°СЂС€СЂСѓС‚Р° РІ РјРёРЅСѓС‚Р°С…';
 
 
 --
@@ -292,11 +292,11 @@ ALTER TABLE public.schedule OWNER TO postgres;
 -- Name: TABLE schedule; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON TABLE public.schedule IS 'Таблица описывает графики работы водителей.
+COMMENT ON TABLE public.schedule IS 'РўР°Р±Р»РёС†Р° РѕРїРёСЃС‹РІР°РµС‚ РіСЂР°С„РёРєРё СЂР°Р±РѕС‚С‹ РІРѕРґРёС‚РµР»РµР№.
 
-schedule_num - идентификатор графика
-smena_start - время начала смены
-smena_end - время окончания смены';
+schedule_num - РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РіСЂР°С„РёРєР°
+smena_start - РІСЂРµРјСЏ РЅР°С‡Р°Р»Р° СЃРјРµРЅС‹
+smena_end - РІСЂРµРјСЏ РѕРєРѕРЅС‡Р°РЅРёСЏ СЃРјРµРЅС‹';
 
 
 --
@@ -305,11 +305,11 @@ smena_end - время окончания смены';
 -- Data for Name: bus; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.bus VALUES ('А777АА78', 'НефАЗ-5299', 'бензин', 'белый', 'в эксплуатации');
-INSERT INTO public.bus VALUES ('А228УЕ78', 'ПАЗ-3204', 'дизель', 'белый', 'в ремонте');
-INSERT INTO public.bus VALUES ('А329ВТ78', 'ПАЗ-3204', 'бензин', 'белый', 'в эксплуатации');
-INSERT INTO public.bus VALUES ('М482НВ78', 'ПАЗ-3205', 'дизель', 'белый', 'в эксплуатации');
-INSERT INTO public.bus VALUES ('А983УВ78', 'ПАЗ-3205', 'дизель', 'белый', 'в ремонте');
+INSERT INTO public.bus VALUES ('Рђ777РђРђ78', 'РќРµС„РђР—-5299', 'Р±РµРЅР·РёРЅ', 'Р±РµР»С‹Р№', 'РІ СЌРєСЃРїР»СѓР°С‚Р°С†РёРё');
+INSERT INTO public.bus VALUES ('Рђ228РЈР•78', 'РџРђР—-3204', 'РґРёР·РµР»СЊ', 'Р±РµР»С‹Р№', 'РІ СЂРµРјРѕРЅС‚Рµ');
+INSERT INTO public.bus VALUES ('Рђ329Р’Рў78', 'РџРђР—-3204', 'Р±РµРЅР·РёРЅ', 'Р±РµР»С‹Р№', 'РІ СЌРєСЃРїР»СѓР°С‚Р°С†РёРё');
+INSERT INTO public.bus VALUES ('Рњ482РќР’78', 'РџРђР—-3205', 'РґРёР·РµР»СЊ', 'Р±РµР»С‹Р№', 'РІ СЌРєСЃРїР»СѓР°С‚Р°С†РёРё');
+INSERT INTO public.bus VALUES ('Рђ983РЈР’78', 'РџРђР—-3205', 'РґРёР·РµР»СЊ', 'Р±РµР»С‹Р№', 'РІ СЂРµРјРѕРЅС‚Рµ');
 
 
 --
@@ -318,10 +318,10 @@ INSERT INTO public.bus VALUES ('А983УВ78', 'ПАЗ-3205', 'дизель', 'белый', 'в рем
 -- Data for Name: bus_model; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.bus_model VALUES ('ПАЗ-3205', 23);
-INSERT INTO public.bus_model VALUES ('ПАЗ-3204', 23);
-INSERT INTO public.bus_model VALUES ('НефАЗ-5299', 25);
-INSERT INTO public.bus_model VALUES ('МАЗ-203', 28);
+INSERT INTO public.bus_model VALUES ('РџРђР—-3205', 23);
+INSERT INTO public.bus_model VALUES ('РџРђР—-3204', 23);
+INSERT INTO public.bus_model VALUES ('РќРµС„РђР—-5299', 25);
+INSERT INTO public.bus_model VALUES ('РњРђР—-203', 28);
 INSERT INTO public.bus_model VALUES ('Ikarus 280', 100);
 
 
@@ -331,11 +331,11 @@ INSERT INTO public.bus_model VALUES ('Ikarus 280', 100);
 -- Data for Name: departure; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.departure VALUES (1, '0901482765', 101, 'А329ВТ78', '2020-02-12', 'завершен', 50);
-INSERT INTO public.departure VALUES (2, '0703564365', 101, 'М482НВ78', '2020-03-22', 'завершен', 50);
-INSERT INTO public.departure VALUES (3, '0505865371', 176, 'А228УЕ78', '2020-05-07', 'завершен', 50);
-INSERT INTO public.departure VALUES (4, '0209756142', 39, 'А777АА78', '2020-06-11', 'совершается', 50);
-INSERT INTO public.departure VALUES (5, '0901482765', 101, 'А329ВТ78', '2020-06-11', 'совершается', 50);
+INSERT INTO public.departure VALUES (1, '0901482765', 101, 'Рђ329Р’Рў78', '2020-02-12', 'Р·Р°РІРµСЂС€РµРЅ', 50);
+INSERT INTO public.departure VALUES (2, '0703564365', 101, 'Рњ482РќР’78', '2020-03-22', 'Р·Р°РІРµСЂС€РµРЅ', 50);
+INSERT INTO public.departure VALUES (3, '0505865371', 176, 'Рђ228РЈР•78', '2020-05-07', 'Р·Р°РІРµСЂС€РµРЅ', 50);
+INSERT INTO public.departure VALUES (4, '0209756142', 39, 'Рђ777РђРђ78', '2020-06-11', 'СЃРѕРІРµСЂС€Р°РµС‚СЃСЏ', 50);
+INSERT INTO public.departure VALUES (5, '0901482765', 101, 'Рђ329Р’Рў78', '2020-06-11', 'СЃРѕРІРµСЂС€Р°РµС‚СЃСЏ', 50);
 
 
 --
@@ -344,11 +344,11 @@ INSERT INTO public.departure VALUES (5, '0901482765', 101, 'А329ВТ78', '2020-06-
 -- Data for Name: driver; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.driver VALUES ('0901482765', 2, 11, '1 сорт', 100000);
-INSERT INTO public.driver VALUES ('0505865371', 3, 2, '2 сорт', 10000);
-INSERT INTO public.driver VALUES ('0209756142', 3, 3, '2 сорт', 10000);
-INSERT INTO public.driver VALUES ('0503875463', 2, 6, '2 сорт', 10000);
-INSERT INTO public.driver VALUES ('0703564365', 7, 20, '1 сорт', 100000);
+INSERT INTO public.driver VALUES ('0901482765', 2, 11, '1 СЃРѕСЂС‚', 100000);
+INSERT INTO public.driver VALUES ('0505865371', 3, 2, '2 СЃРѕСЂС‚', 10000);
+INSERT INTO public.driver VALUES ('0209756142', 3, 3, '2 СЃРѕСЂС‚', 10000);
+INSERT INTO public.driver VALUES ('0503875463', 2, 6, '2 СЃРѕСЂС‚', 10000);
+INSERT INTO public.driver VALUES ('0703564365', 7, 20, '1 СЃРѕСЂС‚', 100000);
 
 
 --
@@ -357,7 +357,7 @@ INSERT INTO public.driver VALUES ('0703564365', 7, 20, '1 сорт', 100000);
 -- Data for Name: incident; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.incident VALUES (1, 3, 'ДТП на проспекте Мечникова');
+INSERT INTO public.incident VALUES (1, 3, 'Р”РўРџ РЅР° РїСЂРѕСЃРїРµРєС‚Рµ РњРµС‡РЅРёРєРѕРІР°');
 
 
 --
@@ -366,11 +366,11 @@ INSERT INTO public.incident VALUES (1, 3, 'ДТП на проспекте Мечникова');
 -- Data for Name: passport; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.passport VALUES ('0901482765', 'Василий', 'Пупкин', '1978-01-22', '2007-02-08', 'ТП №1 ОТДЕЛА УФМС РОССИИ ПО САНКТ-ПЕТЕРБУРГУ И ЛЕНИНГРАДСКОЙ ОБЛ. В АДМИРАЛТЕЙСКОМ Р-НЕ Г. САНКТ-ПЕТЕРБУРГА', 'Ростов-на-Дону');
-INSERT INTO public.passport VALUES ('0505865371', 'Анатолий', 'Старых', '1985-05-15', '2008-06-21', 'ТП №69 ОТДЕЛА УФМС РОССИИ ПО САНКТ-ПЕТЕРБУРГУ И ЛЕНИНГРАДСКОЙ ОБЛ. В ПРИМОРСКОМ Р-НЕ Г. САНКТ-ПЕТЕРБУРГА', 'Тюмень');
-INSERT INTO public.passport VALUES ('0209756142', 'Владимир', 'Новых', '1982-03-10', '2005-04-04', 'ОТДЕЛ УФМС РОССИИ ПО САНКТ-ПЕТЕРБУРГУ И ЛЕНИНГРАДСКОЙ ОБЛАСТИ В ПЕТРОГРАДСКОМ РАЙОНЕ Г. САНКТ-ПЕТЕРБУРГА', 'Тюмень');
-INSERT INTO public.passport VALUES ('0503875463', 'Дмитрий', 'Пучков', '1965-06-02', '2012-07-14', 'ОТДЕЛ УФМС РОССИИ ПО САНКТ-ПЕТЕРБУРГУ И ЛЕНИНГРАДСКОЙ ОБЛАСТИ В НЕВСКОМ РАЙОНЕ Г. САНКТ-ПЕТЕРБУРГА', 'Санкт-Петербург');
-INSERT INTO public.passport VALUES ('0703564365', 'Ашот', 'Арутюнян', '1975-08-11', '2015-08-25', 'ОТДЕЛ УФМС РОССИИ ПО САНКТ-ПЕТЕРБУРГУ И ЛЕНИНГРАДСКОЙ ОБЛАСТИ В ПЕТРОГРАДСКОМ РАЙОНЕ Г. САНКТ-ПЕТЕРБУРГА', 'Грозный');
+INSERT INTO public.passport VALUES ('0901482765', 'Р’Р°СЃРёР»РёР№', 'РџСѓРїРєРёРЅ', '1978-01-22', '2007-02-08', 'РўРџ в„–1 РћРўР”Р•Р›Рђ РЈР¤РњРЎ Р РћРЎРЎРР РџРћ РЎРђРќРљРў-РџР•РўР•Р Р‘РЈР Р“РЈ Р Р›Р•РќРРќР“Р РђР”РЎРљРћР™ РћР‘Р›. Р’ РђР”РњРР РђР›РўР•Р™РЎРљРћРњ Р -РќР• Р“. РЎРђРќРљРў-РџР•РўР•Р Р‘РЈР Р“Рђ', 'Р РѕСЃС‚РѕРІ-РЅР°-Р”РѕРЅСѓ');
+INSERT INTO public.passport VALUES ('0505865371', 'РђРЅР°С‚РѕР»РёР№', 'РЎС‚Р°СЂС‹С…', '1985-05-15', '2008-06-21', 'РўРџ в„–69 РћРўР”Р•Р›Рђ РЈР¤РњРЎ Р РћРЎРЎРР РџРћ РЎРђРќРљРў-РџР•РўР•Р Р‘РЈР Р“РЈ Р Р›Р•РќРРќР“Р РђР”РЎРљРћР™ РћР‘Р›. Р’ РџР РРњРћР РЎРљРћРњ Р -РќР• Р“. РЎРђРќРљРў-РџР•РўР•Р Р‘РЈР Р“Рђ', 'РўСЋРјРµРЅСЊ');
+INSERT INTO public.passport VALUES ('0209756142', 'Р’Р»Р°РґРёРјРёСЂ', 'РќРѕРІС‹С…', '1982-03-10', '2005-04-04', 'РћРўР”Р•Р› РЈР¤РњРЎ Р РћРЎРЎРР РџРћ РЎРђРќРљРў-РџР•РўР•Р Р‘РЈР Р“РЈ Р Р›Р•РќРРќР“Р РђР”РЎРљРћР™ РћР‘Р›РђРЎРўР Р’ РџР•РўР РћР“Р РђР”РЎРљРћРњ Р РђР™РћРќР• Р“. РЎРђРќРљРў-РџР•РўР•Р Р‘РЈР Р“Рђ', 'РўСЋРјРµРЅСЊ');
+INSERT INTO public.passport VALUES ('0503875463', 'Р”РјРёС‚СЂРёР№', 'РџСѓС‡РєРѕРІ', '1965-06-02', '2012-07-14', 'РћРўР”Р•Р› РЈР¤РњРЎ Р РћРЎРЎРР РџРћ РЎРђРќРљРў-РџР•РўР•Р Р‘РЈР Р“РЈ Р Р›Р•РќРРќР“Р РђР”РЎРљРћР™ РћР‘Р›РђРЎРўР Р’ РќР•Р’РЎРљРћРњ Р РђР™РћРќР• Р“. РЎРђРќРљРў-РџР•РўР•Р Р‘РЈР Р“Рђ', 'РЎР°РЅРєС‚-РџРµС‚РµСЂР±СѓСЂРі');
+INSERT INTO public.passport VALUES ('0703564365', 'РђС€РѕС‚', 'РђСЂСѓС‚СЋРЅСЏРЅ', '1975-08-11', '2015-08-25', 'РћРўР”Р•Р› РЈР¤РњРЎ Р РћРЎРЎРР РџРћ РЎРђРќРљРў-РџР•РўР•Р Р‘РЈР Р“РЈ Р Р›Р•РќРРќР“Р РђР”РЎРљРћР™ РћР‘Р›РђРЎРўР Р’ РџР•РўР РћР“Р РђР”РЎРљРћРњ Р РђР™РћРќР• Р“. РЎРђРќРљРў-РџР•РўР•Р Р‘РЈР Р“Рђ', 'Р“СЂРѕР·РЅС‹Р№');
 
 
 --
@@ -379,11 +379,11 @@ INSERT INTO public.passport VALUES ('0703564365', 'Ашот', 'Арутюнян', '1975-08-1
 -- Data for Name: route; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.route VALUES (18, 'ул. Стойкости', 'ул. Корабельная', '06:00:00', '22:00:00', 17, 55);
-INSERT INTO public.route VALUES (176, 'Светлановский', 'ст. Ручьи', '05:50:00', '23:00:00', 14, 50);
-INSERT INTO public.route VALUES (476, 'м. Ломоносовская', 'пос. имени Свердлова', '08:00:00', '20:00:00', 17, 80);
-INSERT INTO public.route VALUES (101, 'м. Старая Деревня', 'Кронштадт', '08:00:00', '20:00:00', 20, 70);
-INSERT INTO public.route VALUES (39, 'ул. Костюшко', 'Аэропорт Пулково', '06:00:00', '23:00:00', 10, 80);
+INSERT INTO public.route VALUES (18, 'СѓР». РЎС‚РѕР№РєРѕСЃС‚Рё', 'СѓР». РљРѕСЂР°Р±РµР»СЊРЅР°СЏ', '06:00:00', '22:00:00', 17, 55);
+INSERT INTO public.route VALUES (176, 'РЎРІРµС‚Р»Р°РЅРѕРІСЃРєРёР№', 'СЃС‚. Р СѓС‡СЊРё', '05:50:00', '23:00:00', 14, 50);
+INSERT INTO public.route VALUES (476, 'Рј. Р›РѕРјРѕРЅРѕСЃРѕРІСЃРєР°СЏ', 'РїРѕСЃ. РёРјРµРЅРё РЎРІРµСЂРґР»РѕРІР°', '08:00:00', '20:00:00', 17, 80);
+INSERT INTO public.route VALUES (101, 'Рј. РЎС‚Р°СЂР°СЏ Р”РµСЂРµРІРЅСЏ', 'РљСЂРѕРЅС€С‚Р°РґС‚', '08:00:00', '20:00:00', 20, 70);
+INSERT INTO public.route VALUES (39, 'СѓР». РљРѕСЃС‚СЋС€РєРѕ', 'РђСЌСЂРѕРїРѕСЂС‚ РџСѓР»РєРѕРІРѕ', '06:00:00', '23:00:00', 10, 80);
 
 
 --
