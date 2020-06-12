@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Колотушкин А.У.",
+    "route": {
+      "mountain": {
+        "name": "Эверест",
+        "country": "Непал",
+        "district": "Гималаи",
+        "height": 8848
+      },
+      "difficulty": "высокая"
+    },
+    "club": {
+      "name": "Ромашка",
+      "country": "Россия"
+    }
+  },
+  {
+    "name": "Мушкин Т.В.",
+    "route": {
+      "mountain": {
+        "name": "Монте-Роза",
+        "country": "Швейцария",
+        "district": "Пеннинские Альпы",
+        "height": 4634
+      },
+      "difficulty": "низкая"
+    },
+    "club": {
+      "name": "Ромашка",
+      "country": "Россия"
+    }
+  },
+  {
+    "name": "Абрамов Рубен",
+    "route": {
+      "mountain": {
+        "name": "Айленд Пик",
+        "country": "Непал",
+        "district": "Гималаи",
+        "height": 6130
+      },
+      "difficulty": "средняя"
+    },
+    "club": {
+      "name": "Василек",
+      "country": "Швейцария"
+    }
+  },
+  {
+    "name": "Костин Мечислав",
+    "route": {
+      "mountain": {
+        "name": "Сток-Кангри",
+        "country": "Индия",
+        "district": "Гималаи",
+        "height": 6137
+      },
+      "difficulty": "высокая"
+    },
+    "club": {
+      "name": "Хризантема",
+      "country": "Украина"
+    }
+  }
+]
