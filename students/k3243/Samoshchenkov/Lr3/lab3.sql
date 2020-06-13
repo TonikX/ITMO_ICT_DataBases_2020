@@ -62,6 +62,7 @@ ALTER TABLE "Clinic"."Diagnoses" OWNER TO postgres;
 
 CREATE TABLE "Clinic"."Medical_book" (
     ID_med_book integer NOT NULL,
+	FK_ID_Diagnose integer NOT NULL,
     Owner_name text NOT NULL,
     Owner_sex text NOT NULL,
     Owner_date_of_birth text NOT NULL,
@@ -135,6 +136,7 @@ ALTER TABLE "Clinic"."Room" OWNER TO postgres;
 
 CREATE TABLE "Clinic"."Reception" (
     ID_reception integer NOT NULL,
+	FK_ID_Price integer NOT NULL,
     FK_ID_room integer NOT NULL,
     FK_ID_med_book integer NOT NULL,
     FK_ID_Doctor integer NOT NULL,
@@ -180,11 +182,11 @@ INSERT INTO "Clinic"."Diagnoses" (ID_Diagnose, Diagnose_name) VALUES (105, 'Ци
 -- Заполнение таблицы "Medical_book"
 --
 
-INSERT INTO "Clinic"."Medical_book" (ID_med_book, Owner_name, Owner_sex, Owner_date_of_birth, Owner_telephone, Receptions, FK_ID_patient) VALUES (1, 'Alexander Gelevich Dugin', 'male', 07-01-1962, 891565789740, 101, 1);
-INSERT INTO "Clinic"."Medical_book" (ID_med_book, Owner_name, Owner_sex, Owner_date_of_birth, Owner_telephone, Receptions, FK_ID_patient) VALUES (2, 'Ivanov Ivan Ivanovich', 'male', 25-03-1974, 89624748965, 102, 2);
-INSERT INTO "Clinic"."Medical_book" (ID_med_book, Owner_name, Owner_sex, Owner_date_of_birth, Owner_telephone, Receptions, FK_ID_patient) VALUES (3, 'Ann Ahmatova', 'female', 23-06-1989, 89549637485, 103, 3);
-INSERT INTO "Clinic"."Medical_book" (ID_med_book, Owner_name, Owner_sex, Owner_date_of_birth, Owner_telephone, Receptions, FK_ID_patient) VALUES (4, 'Lev Nikolaevich Tolstoy', 'male', 09-09-1928, 89106589685, 104, 4);
-INSERT INTO "Clinic"."Medical_book" (ID_med_book, Owner_name, Owner_sex, Owner_date_of_birth, Owner_telephone, Receptions, FK_ID_patient) VALUES (5, 'Fedor Mikhailowitch Dostoevskiy', 'male', 11-11-1921, 89157891425, 105, 5);
+INSERT INTO "Clinic"."Medical_book" (ID_med_book, FK_ID_Diagnose, Owner_name, Owner_sex, Owner_date_of_birth, Owner_telephone, Receptions, FK_ID_patient) VALUES (1, 101, 'Alexander Gelevich Dugin', 'male', 07-01-1962, 891565789740, 101, 1);
+INSERT INTO "Clinic"."Medical_book" (ID_med_book, FK_ID_Diagnose, Owner_name, Owner_sex, Owner_date_of_birth, Owner_telephone, Receptions, FK_ID_patient) VALUES (2, 103, 'Ivanov Ivan Ivanovich', 'male', 25-03-1974, 89624748965, 102, 2);
+INSERT INTO "Clinic"."Medical_book" (ID_med_book, FK_ID_Diagnose, Owner_name, Owner_sex, Owner_date_of_birth, Owner_telephone, Receptions, FK_ID_patient) VALUES (3, 105, 'Ann Ahmatova', 'female', 23-06-1989, 89549637485, 103, 3);
+INSERT INTO "Clinic"."Medical_book" (ID_med_book, FK_ID_Diagnose, Owner_name, Owner_sex, Owner_date_of_birth, Owner_telephone, Receptions, FK_ID_patient) VALUES (4, 102, 'Lev Nikolaevich Tolstoy', 'male', 09-09-1928, 89106589685, 104, 4);
+INSERT INTO "Clinic"."Medical_book" (ID_med_book, FK_ID_Diagnose, Owner_name, Owner_sex, Owner_date_of_birth, Owner_telephone, Receptions, FK_ID_patient) VALUES (5, 104, 'Fedor Mikhailowitch Dostoevskiy', 'male', 11-11-1921, 89157891425, 105, 5);
 
 --
 -- Заполнение таблицы "Specialization"
@@ -243,11 +245,11 @@ INSERT INTO "Clinic"."Room" (ID_room, Room_num, Room_working_time, Responsible_n
 -- Заполнение таблицы "Reception"
 --
 
-INSERT INTO "Clinic"."Reception" (ID_reception, FK_ID_room, FK_ID_med_book, FK_ID_Doctor, Reception_Date_Time) VALUES (1, 1, 1, 2, '12:00 monday');
-INSERT INTO "Clinic"."Reception" (ID_reception, FK_ID_room, FK_ID_med_book, FK_ID_Doctor, Reception_Date_Time) VALUES (2, 3, 2, 5, '19;00 wednesday');
-INSERT INTO "Clinic"."Reception" (ID_reception, FK_ID_room, FK_ID_med_book, FK_ID_Doctor, Reception_Date_Time) VALUES (3, 3, 3, 1, '17:00 wednesday');
-INSERT INTO "Clinic"."Reception" (ID_reception, FK_ID_room, FK_ID_med_book, FK_ID_Doctor, Reception_Date_Time) VALUES (4, 1, 4, 3, '10:00 monday');
-INSERT INTO "Clinic"."Reception" (ID_reception, FK_ID_room, FK_ID_med_book, FK_ID_Doctor, Reception_Date_Time) VALUES (5, 5, 5, 4, '08:00 friday');
+INSERT INTO "Clinic"."Reception" (ID_reception, FK_ID_Price, FK_ID_room, FK_ID_med_book, FK_ID_Doctor, Reception_Date_Time) VALUES (1, 1, 1, 1, 2, '12:00 monday');
+INSERT INTO "Clinic"."Reception" (ID_reception, FK_ID_Price, FK_ID_room, FK_ID_med_book, FK_ID_Doctor, Reception_Date_Time) VALUES (2, 1, 3, 2, 5, '19;00 wednesday');
+INSERT INTO "Clinic"."Reception" (ID_reception, FK_ID_Price, FK_ID_room, FK_ID_med_book, FK_ID_Doctor, Reception_Date_Time) VALUES (3, 1, 3, 3, 1, '17:00 wednesday');
+INSERT INTO "Clinic"."Reception" (ID_reception, FK_ID_Price, FK_ID_room, FK_ID_med_book, FK_ID_Doctor, Reception_Date_Time) VALUES (4, 2, 1, 4, 3, '10:00 monday');
+INSERT INTO "Clinic"."Reception" (ID_reception, FK_ID_Price, FK_ID_room, FK_ID_med_book, FK_ID_Doctor, Reception_Date_Time) VALUES (5, 2, 5, 5, 4, '08:00 friday');
 
 
 --
@@ -295,16 +297,23 @@ ALTER TABLE ONLY "Clinic"."Reception"
 
 ALTER TABLE ONLY "Clinic"."Payment"
     ADD CONSTRAINT "Payment_pkey" PRIMARY KEY (FK_ID_reception);
+	
 
 
 ALTER TABLE ONLY "Clinic"."Medical_book"
     ADD CONSTRAINT "FK_ID_patient" FOREIGN KEY (FK_ID_patient) REFERENCES "Clinic"."Patient"(ID_patient) ON UPDATE RESTRICT ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED;
+
+ALTER TABLE ONLY "Clinic"."Medical_book"
+    ADD CONSTRAINT "FK_ID_Diagnose" FOREIGN KEY (FK_ID_Diagnose) REFERENCES "Clinic"."Diagnoses"(ID_Diagnose) ON UPDATE RESTRICT ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE ONLY "Clinic"."Doctor"
     ADD CONSTRAINT "FK_ID_Specialization" FOREIGN KEY (FK_ID_Specialization) REFERENCES "Clinic"."Specialization"(ID_Specialization) ON UPDATE RESTRICT ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE ONLY "Clinic"."Schedule"
     ADD CONSTRAINT "FK_ID_Doctor" FOREIGN KEY (FK_ID_Doctor) REFERENCES "Clinic"."Doctor"(ID_doctor) ON UPDATE RESTRICT ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED;
+
+ALTER TABLE ONLY "Clinic"."Reception"
+    ADD CONSTRAINT "FK_ID_Price" FOREIGN KEY (FK_ID_Price) REFERENCES "Clinic"."Pricelist"(ID_price) ON UPDATE RESTRICT ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE ONLY "Clinic"."Reception"
     ADD CONSTRAINT "FK_ID_room" FOREIGN KEY (FK_ID_room) REFERENCES "Clinic"."Room"(ID_room) ON UPDATE RESTRICT ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED;
