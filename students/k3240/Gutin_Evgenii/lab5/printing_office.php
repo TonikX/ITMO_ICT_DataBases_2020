@@ -47,6 +47,9 @@ if (isset($_POST['printing_office_name'])){
       <li class="nav-item">
         <a class="nav-link" href="index.php">Newspaper</a>
       </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="query.php"><b>QUERY</b></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="edition.php">Edition</a>
       </li>
