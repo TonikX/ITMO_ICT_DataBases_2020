@@ -1,0 +1,282 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.13
+-- Dumped by pg_dump version 10.13
+
+-- Started on 2020-05-24 19:01:05
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--Таблица приёмы
+
+CREATE TABLE public.appointments (
+    id_appointment integer NOT NULL,
+    id_doctor integer NOT NULL,
+    id_pacient integer NOT NULL,
+    id_service integer NOT NULL,
+    date_and_time text NOT NULL,
+    current_state text NOT NULL,
+    diagnosis text NOT NULL,
+    doctors_recommendation text NOT NULL,
+    payment text NOT NULL
+);
+
+
+ALTER TABLE public.appointments OWNER TO postgres;
+
+
+--Таблица кабинеты
+CREATE TABLE public.cabinet (
+    id_cabinet integer NOT NULL,
+    telephone integer NOT NULL,
+    governing_doctor text NOT NULL,
+    operating_mode text NOT NULL
+);
+
+
+ALTER TABLE public.cabinet OWNER TO postgres;
+
+
+--Таблица врачи
+CREATE TABLE public.doctors (
+    id_doctor integer NOT NULL,
+    "FIO" text NOT NULL,
+    date_of_birth date NOT NULL,
+    specialization text NOT NULL,
+    "gender " text NOT NULL,
+    time_working_in_clinics text NOT NULL,
+    information_about_the_employment_contract text NOT NULL,
+    education text NOT NULL
+);
+
+
+ALTER TABLE public.doctors OWNER TO postgres;
+
+
+--Таблица графика работы врача
+CREATE TABLE public.doctors_work_schedule (
+    id_schedule integer NOT NULL,
+    start_of_work_time text NOT NULL,
+    end_of_work_time text NOT NULL,
+    weekday text NOT NULL,
+    id_doctor integer NOT NULL,
+    id_cabinet integer NOT NULL
+);
+
+
+ALTER TABLE public.doctors_work_schedule OWNER TO postgres;
+
+
+--Таблица мед.карты
+CREATE TABLE public.med_card (
+    id_card integer NOT NULL,
+    id_pacient integer NOT NULL,
+    id_appointment integer NOT NULL,
+    id_doctor integer NOT NULL,
+    the_history_of_diseases text NOT NULL
+);
+
+
+ALTER TABLE public.med_card OWNER TO postgres;
+
+
+--Таблица услуги врачей
+CREATE TABLE public.medical_services (
+    id_service integer NOT NULL,
+    service_cost integer NOT NULL,
+    the_name_of_the_service text NOT NULL
+);
+
+
+ALTER TABLE public.medical_services OWNER TO postgres;
+
+
+--Таблица пациенты
+CREATE TABLE public.pacients (
+    id_pacient integer NOT NULL,
+    "FIO" text NOT NULL,
+    "Contacts" integer NOT NULL,
+    "Date_of_birth" date NOT NULL
+);
+
+
+ALTER TABLE public.pacients OWNER TO postgres;
+
+
+--Заполнение таблицы приёмы
+
+
+INSERT INTO public.appointments VALUES (1, 5, 3, 1, '12.09.2019 11.00', 'rapid weight loss, increased fatigue and general weakness', 'diabetes', 'optimal compensation for diabetes, blood pressure control, kidney function, normal blood cholesterol, Smoking cessation', 'yes');
+INSERT INTO public.appointments VALUES (2, 2, 4, 3, '26.10.2019 10.00', 'heart pain, dizziness', 'rheumatic heart disease', 'diclofenac (dicloran, voltaren, diclobene) (oral 100 mg / day, in tablets of 50 and retard capsules of 100 mg rectally-100 mg/day, in candles of 50 and 100 mg)', 'yes');
+INSERT INTO public.appointments VALUES (3, 3, 1, 5, '18.11.2019 10.30', 'pain in the upper abdomen', 'gastritis', 'make the aluminium phosphate gel, Trihopol', 'yes');
+INSERT INTO public.appointments VALUES (4, 1, 2, 4, '15.08.2019 10.00', 'the cut is still healing', 'acute traumatic wound', 'washing the wound every day, smear the wound with Levomekol', 'no');
+INSERT INTO public.appointments VALUES (5, 4, 5, 2, '04.08.2019 13.00', 'the appearance of a new benign formation on the upper eyelid', 'papilloma', 'you should do the dressing once a day (if necessary). For some time after the operation, you can not take a bath, go to the bath or sauna, or stay in the open sun', 'yes');
+
+
+--Заполнение таблицы кабинеты 
+
+
+INSERT INTO public.cabinet VALUES (1, 101, 'Sergeeva Anna Vladimirovna', '10.00-16.00');
+INSERT INTO public.cabinet VALUES (2, 102, 'Potashev Pavel Alreksandrovich', '10.00-17.00');
+INSERT INTO public.cabinet VALUES (3, 103, 'Chernikov Nikolay Olegovich', '9.00-16.00');
+INSERT INTO public.cabinet VALUES (4, 104, 'Semenova Nadezhda Konstantinovna', '10.00-15.00');
+INSERT INTO public.cabinet VALUES (5, 105, 'Gonchar Dmitriy Valentinovich', '9.00-17.00');
+
+
+--Заполнение таблицы врачи
+
+
+INSERT INTO public.doctors VALUES (1, 'Chernikov Nikolay Olegovich', '1978-12-26', 'surgeon', 'male', '1 year', 'documents', 'Pavlov University
+');
+INSERT INTO public.doctors VALUES (2, 'Semenova Nadezhda Konstantinovna', '1965-06-08', 'cardiologist', 'female', '3 years', 'documents', 'North-Western State Medical University named after I.I. Mechnikov');
+INSERT INTO public.doctors VALUES (3, 'Sergeeva Anna Vladimirovna', '1982-09-18', 'gastroenterologist', 'female', '5 months', 'documents', 'Saint-Petersburg Medico-Social Institute');
+INSERT INTO public.doctors VALUES (4, 'Gonchar Dmitriy Valentinovich', '1967-02-10', 'ophthalmologist', 'male', '2 years', 'documents', 'Saint-Petersburg Medico-Social Institute');
+INSERT INTO public.doctors VALUES (5, 'Potashev Pavel Aleksandrovich', '1979-12-30', 'endocrinologist', 'male', '9 month', 'documents', 'St. Petersburg State Paediatric Medical University');
+
+
+--Заполнение таблицы график работы врачей
+
+INSERT INTO public.doctors_work_schedule VALUES (1, '9.00', '15.30', 'Mon, Wed, Fri', 1, 3);
+INSERT INTO public.doctors_work_schedule VALUES (2, '9.00', '16.30', 'Mon, Tue, Wed, Thu, Fri', 4, 5);
+INSERT INTO public.doctors_work_schedule VALUES (3, '10.00', '15.30', 'Mon, Wed, Thu, Fri', 3, 1);
+INSERT INTO public.doctors_work_schedule VALUES (4, '10.00', '16.30', 'Mon, Tue, Thu, Fri', 5, 2);
+INSERT INTO public.doctors_work_schedule VALUES (5, '10.00', '14.30', 'Tue, Thu, Sat', 2, 4);
+
+
+--Заполнение таблицы мед.карты
+
+
+INSERT INTO public.med_card VALUES (1, 1, 3, 3, '1. complaints of frequent bloating. 2. conducting analyses. 3. gastritis.');
+INSERT INTO public.med_card VALUES (2, 2, 4, 1, '1. a visit to the therapist. 2. angina. 3. a visit to the surgeon.the wound on the hand');
+INSERT INTO public.med_card VALUES (3, 3, 1, 5, '1. consultation with an endocrinologist. 2. passing tests. 3. repeat visit to the endocrinologist. diabetes. treatment is scheduled');
+INSERT INTO public.med_card VALUES (4, 4, 2, 2, '1. a visit to the therapist. cold. 2. repeat visit to the therapist. 3. a visit to the cardiologist. rheumatic heart disease.');
+INSERT INTO public.med_card VALUES (5, 5, 5, 4, '1. visit an ophthalmologist. myopia. 2. removal of papilloma on the right eye. 3. a re-visit. new papilloma on the left eye.');
+
+
+--Заполнение таблицы услуги врачей 
+
+
+INSERT INTO public.medical_services VALUES (1, 1700, 'doctors consultation');
+INSERT INTO public.medical_services VALUES (2, 2500, 'Laser removal (vaporization) of benign lesions of the skin and mucous membranes of the eyelids');
+INSERT INTO public.medical_services VALUES (3, 2600, 'Echocardiography (Echocardiography, ultrasound of the heart)');
+INSERT INTO public.medical_services VALUES (4, 400, 'Dressing in outpatient clinics (small, medium)');
+INSERT INTO public.medical_services VALUES (5, 370, 'Blood sampling from a vein');
+
+
+--Заполнение таблицы пациенты
+
+
+INSERT INTO public.pacients VALUES (1, 'Kuzmichov Kirill Maksimovich', 967893, '2000-04-11');
+INSERT INTO public.pacients VALUES (2, 'Zmievskiy Danil Aleksandrovich', 367821, '2000-12-22');
+INSERT INTO public.pacients VALUES (3, 'Borisova Veronika Vitalevna', 578237, '1995-10-23');
+INSERT INTO public.pacients VALUES (4, 'Evgrafova Margarita Dmitrievna', 507129, '1972-05-01');
+INSERT INTO public.pacients VALUES (5, 'Miroshnichenko Vladimir Nikolaevich', 834907, '2005-09-03');
+
+
+--Установка первичных ключей 
+
+
+ALTER TABLE ONLY public.appointments
+    ADD CONSTRAINT appointments_pkey PRIMARY KEY (id_appointment);
+
+
+
+ALTER TABLE ONLY public.cabinet
+    ADD CONSTRAINT cabinet_pkey PRIMARY KEY (id_cabinet);
+
+
+
+ALTER TABLE ONLY public.doctors_work_schedule
+    ADD CONSTRAINT "doctors work schedule_pkey" PRIMARY KEY (id_schedule);
+
+
+
+ALTER TABLE ONLY public.doctors
+    ADD CONSTRAINT doctors_pkey PRIMARY KEY (id_doctor);
+
+
+
+ALTER TABLE ONLY public.med_card
+    ADD CONSTRAINT med_card_pkey PRIMARY KEY (id_card);
+
+
+
+ALTER TABLE ONLY public.medical_services
+    ADD CONSTRAINT medical_services_pkey PRIMARY KEY (id_service);
+
+
+
+ALTER TABLE ONLY public.pacients
+    ADD CONSTRAINT pacients_pkey PRIMARY KEY (id_pacient);
+
+
+
+--Создание внешних ключей
+
+ALTER TABLE ONLY public.med_card
+    ADD CONSTRAINT fk_appointment FOREIGN KEY (id_appointment) REFERENCES public.appointments(id_appointment) NOT VALID;
+
+
+
+ALTER TABLE ONLY public.doctors_work_schedule
+    ADD CONSTRAINT fk_cabinet FOREIGN KEY (id_schedule) REFERENCES public.cabinet(id_cabinet) NOT VALID;
+
+
+
+ALTER TABLE ONLY public.doctors_work_schedule
+    ADD CONSTRAINT fk_doctor FOREIGN KEY (id_schedule) REFERENCES public.doctors(id_doctor) NOT VALID;
+
+
+
+ALTER TABLE ONLY public.appointments
+    ADD CONSTRAINT fk_doctor FOREIGN KEY (id_appointment) REFERENCES public.doctors(id_doctor) NOT VALID;
+
+
+
+ALTER TABLE ONLY public.med_card
+    ADD CONSTRAINT fk_doctor FOREIGN KEY (id_doctor) REFERENCES public.doctors(id_doctor) NOT VALID;
+
+
+
+ALTER TABLE ONLY public.appointments
+    ADD CONSTRAINT fk_pacient FOREIGN KEY (id_appointment) REFERENCES public.pacients(id_pacient) NOT VALID;
+
+
+
+ALTER TABLE ONLY public.med_card
+    ADD CONSTRAINT fk_pacient FOREIGN KEY (id_pacient) REFERENCES public.pacients(id_pacient) NOT VALID;
+
+
+
+ALTER TABLE ONLY public.appointments
+    ADD CONSTRAINT fk_service FOREIGN KEY (id_appointment) REFERENCES public.medical_services(id_service) NOT VALID;
+
+
+-- Completed on 2020-05-24 19:01:06
+
+--
+-- PostgreSQL database dump complete
+--
+
