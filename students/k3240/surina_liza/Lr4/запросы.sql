@@ -1,19 +1,19 @@
---01.запрос отображающий имена служащих, работающих по вторникам и отсортированных по ФИО
+--01.Г§Г ГЇГ°Г®Г± Г®ГІГ®ГЎГ°Г Г¦Г ГѕГ№ГЁГ© ГЁГ¬ГҐГ­Г  Г±Г«ГіГ¦Г Г№ГЁГµ, Г°Г ГЎГ®ГІГ ГѕГ№ГЁГµ ГЇГ® ГўГІГ®Г°Г­ГЁГЄГ Г¬ ГЁ Г®ГІГ±Г®Г°ГІГЁГ°Г®ГўГ Г­Г­Г»Гµ ГЇГ® Г”Г€ГЋ
 SELECT DISTINCT service.full_name
 FROM hotel.timetable, hotel.service
 WHERE timetable.weekday = 'tuesday' AND service.id_service = timetable.id_service ORDER BY full_name
 
---02.запрос выводит код и цену номера, стоимость которых превышает 20000р. и отсортированных по цене
+--02.Г§Г ГЇГ°Г®Г± ГўГ»ГўГ®Г¤ГЁГІ ГЄГ®Г¤ ГЁ Г¶ГҐГ­Гі Г­Г®Г¬ГҐГ°Г , Г±ГІГ®ГЁГ¬Г®Г±ГІГј ГЄГ®ГІГ®Г°Г»Гµ ГЇГ°ГҐГўГ»ГёГ ГҐГІ 20000Г°. ГЁ Г®ГІГ±Г®Г°ГІГЁГ°Г®ГўГ Г­Г­Г»Гµ ГЇГ® Г¶ГҐГ­ГҐ
 ELECT DISTINCT number.number_code, type.price
 FROM hotel.number, hotel.type
 WHERE type.price > 20000 AND number.type_number = type.type_number ORDER BY price
 
---03.запрос показывает кол-во клиентов прибывших из Москвы в 2020
+--03.Г§Г ГЇГ°Г®Г± ГЇГ®ГЄГ Г§Г»ГўГ ГҐГІ ГЄГ®Г«-ГўГ® ГЄГ«ГЁГҐГ­ГІГ®Гў ГЇГ°ГЁГЎГ»ГўГёГЁГµ ГЁГ§ ГЊГ®Г±ГЄГўГ» Гў 2020
 SELECT COUNT(DISTINCT(full_name)) 
 FROM hotel.client, hotel.reserv
 WHERE city = 'Moscow' AND Right(reserv.input, 4) = '2020'
 
---04.запрос выводит ID служащих, которые работают на 12 этаже, но при этом не работают в воскресенье
+--04.Г§Г ГЇГ°Г®Г± ГўГ»ГўГ®Г¤ГЁГІ ID Г±Г«ГіГ¦Г Г№ГЁГµ, ГЄГ®ГІГ®Г°Г»ГҐ Г°Г ГЎГ®ГІГ ГѕГІ Г­Г  12 ГЅГІГ Г¦ГҐ, Г­Г® ГЇГ°ГЁ ГЅГІГ®Г¬ Г­ГҐ Г°Г ГЎГ®ГІГ ГѕГІ Гў ГўГ®Г±ГЄГ°ГҐГ±ГҐГ­ГјГҐ
 SELECT timetable.id_service 
 FROM hotel.timetable, hotel.number
 WHERE number.floor = 12
@@ -23,35 +23,35 @@ SELECT timetable.id_service
 FROM hotel.timetable, hotel.number
 WHERE weekday='sunday')
 
---05.показывает ФИО и номер в отеле
+--05.ГЇГ®ГЄГ Г§Г»ГўГ ГҐГІ Г”Г€ГЋ ГЁ Г­Г®Г¬ГҐГ° Гў Г®ГІГҐГ«ГҐ
 SELECT client.full_name, reserv.code_number
 FROM hotel.reserv INNER JOIN hotel.client
 ON client.id_client = reserv.id_client
 
---06.считает сумму полученную с номеров на 3 и 4 этаже
+--06.Г±Г·ГЁГІГ ГҐГІ Г±ГіГ¬Г¬Гі ГЇГ®Г«ГіГ·ГҐГ­Г­ГіГѕ Г± Г­Г®Г¬ГҐГ°Г®Гў Г­Г  3 ГЁ 4 ГЅГІГ Г¦ГҐ
 SELECT SUM(total) AS SUM_floor
 FROM hotel.report, hotel.number
 WHERE report.number_code = number.number_code AND (floor = 4 OR floor = 3)
 
---07.выводит цену и номер, у которых общая цена больше цены всех номеров и отсортированных по цене 
+--07.ГўГ»ГўГ®Г¤ГЁГІ Г¶ГҐГ­Гі ГЁ Г­Г®Г¬ГҐГ°, Гі ГЄГ®ГІГ®Г°Г»Гµ Г®ГЎГ№Г Гї Г¶ГҐГ­Г  ГЎГ®Г«ГјГёГҐ Г¶ГҐГ­Г» ГўГ±ГҐГµ Г­Г®Г¬ГҐГ°Г®Гў ГЁ Г®ГІГ±Г®Г°ГІГЁГ°Г®ГўГ Г­Г­Г»Гµ ГЇГ® Г¶ГҐГ­ГҐ 
 SELECT DISTINCT number_code, total
 FROM hotel.report, hotel.type
 WHERE total > ALL(
 SELECT price
 FROM hotel.type) ORDER BY total
 
---08.выводит всех клиентов по имени Рита из Москвы, сортировка по имени
+--08.ГўГ»ГўГ®Г¤ГЁГІ ГўГ±ГҐГµ ГЄГ«ГЁГҐГ­ГІГ®Гў ГЇГ® ГЁГ¬ГҐГ­ГЁ ГђГЁГІГ  ГЁГ§ ГЊГ®Г±ГЄГўГ», Г±Г®Г°ГІГЁГ°Г®ГўГЄГ  ГЇГ® ГЁГ¬ГҐГ­ГЁ
 SELECT full_name, city
 FROM hotel.client
 WHERE (full_name LIKE 'Rita%') AND city = 'Moscow'
  
---09.выводит кол-во людей выселившихся в июне 2020 года
+--09.ГўГ»ГўГ®Г¤ГЁГІ ГЄГ®Г«-ГўГ® Г«ГѕГ¤ГҐГ© ГўГ»Г±ГҐГ«ГЁГўГёГЁГµГ±Гї Гў ГЁГѕГ­ГҐ 2020 ГЈГ®Г¤Г 
 SELECT COUNT(DISTINCT(full_name))
 FROM hotel.client, hotel.reserv
 WHERE client.id_client = reserv.id_client
 AND left(reserv.output, 5) LIKE '%.06' AND right(reserv.output, 4) = '2020'
 
---10.выводит ID регистрации, ФИО клиентов не из Москвы, их паспортные данные
+--10.ГўГ»ГўГ®Г¤ГЁГІ ID Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГЁ, Г”Г€ГЋ ГЄГ«ГЁГҐГ­ГІГ®Гў Г­ГҐ ГЁГ§ ГЊГ®Г±ГЄГўГ», ГЁГµ ГЇГ Г±ГЇГ®Г°ГІГ­Г»ГҐ Г¤Г Г­Г­Г»ГҐ
 SELECT code_reservation, full_name AS name, passport_number AS passport
 FROM hotel.client INNER JOIN hotel.reserv 
 ON client.id_client = reserv.id_client 
