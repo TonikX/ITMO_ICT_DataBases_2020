@@ -1,6 +1,0 @@
-"id_patient","reception_name","reception_price"
-1,"checkup","1000"
-2,"dieting","1500"
-3,"medical inspection","3575"
-4,"pressure measurement","1000"
-5,"therapy session","4500"
