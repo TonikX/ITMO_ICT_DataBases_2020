@@ -1,0 +1,49 @@
+1. Показать имена участников клуба, название клуба, страну клуба, отсортировав по именам участников.
+db.ClimbingClub.find(null, {name: 1, "club.name": 1, "club.country": 1, _id: 0}).sort({name: 1})
+
+{ "name" : "Абрамов Рубен", "club" : { "name" : "Василек", "country" : "Швейцария" } }
+{ "name" : "Колотушкин А.У.", "club" : { "name" : "Ромашка", "country" : "Россия" } }
+{ "name" : "Костин Мечислав", "club" : { "name" : "Хризантема", "country" : "Украина" } }
+{ "name" : "Мушкин Т.В.", "club" : { "name" : "Ромашка", "country" : "Россия" } }
+ 
+2. Показать название горы, сложность маршрута, проходящего через эту гору, высоту горы, отсортировав по названию горы.	
+db.ClimbingClub.find(null, {_id: 0, "route.mountain.name": 1, "route.difficulty": 1, "route.mountain.height": 1}).sort({"route.mountain.height":1})
+
+{ "route" : { "mountain" : { "name" : "Монте-Роза", "height" : 4634 }, "difficulty" : "низкая" } }
+{ "route" : { "mountain" : { "name" : "Айленд Пик", "height" : 6130 }, "difficulty" : "средняя" } }
+{ "route" : { "mountain" : { "name" : "Сток-Кангри", "height" : 6137 }, "difficulty" : "высокая" } }
+{ "route" : { "mountain" : { "name" : "Эверест", "height" : 8848 }, "difficulty" : "высокая" } }
+ 
+3. Показать название горы и страну, где район горы – Гималаи и высота меньше 8000.
+db.ClimbingClub.find({"route.mountain.district":"Гималаи", "route.mountain.height":{$lt: 8000}}, {"route.mountain.name":1, "route.mountain.country":1, _id:0}) 
+ 
+{ "route" : { "mountain" : { "name" : "Айленд Пик", "country" : "Непал" } } }
+{ "route" : { "mountain" : { "name" : "Сток-Кангри", "country" : "Индия" } } }
+
+4. Показать участников клуба «Ромашка»
+db.ClimbingClub.find({"club.name":"Ромашка"}, {name:1, _id:0})
+
+{ "name" : "Колотушкин А.У." }
+{ "name" : "Мушкин Т.В." }
+ 
+5. Показать гору с минимальной высотой
+db.ClimbingClub.find(null, {"route.mountain.name":1, "route.mountain.height":1, _id:0}).sort({"route.mountain.height":1}).limit(1)
+ 
+{ "route" : { "mountain" : { "name" : "Монте-Роза", "height" : 4634 } } }
+
+6. Вывести названия гор и их высоты, где высота ниже 6135м
+db.ClimbingClub.find({"route.mountain.height":{$lt: 6135}}, {"route.mountain.name":1, "route.mountain.height":1, _id:0})
+ 
+{ "route" : { "mountain" : { "name" : "Монте-Роза", "height" : 4634 } } }
+{ "route" : { "mountain" : { "name" : "Айленд Пик", "height" : 6130 } } }
+
+7. Вывести названия гор и их высоты, где район начинается с “Г”, а высота больше 6135
+db.ClimbingClub.find({"route.mountain.height":{$gte: 6135}, "route.mountain.district":{$regex:"^Г"}}, {"route.mountain.name":1, "route.mountain.height":1, _id:0})
+ 
+{ "route" : { "mountain" : { "name" : "Эверест", "height" : 8848 } } }
+{ "route" : { "mountain" : { "name" : "Сток-Кангри", "height" : 6137 } } }
+
+8. Выбрать участников, восходивших на Эверест.
+db.ClimbingClub.find({"route.mountain.name":"Эверест"}, {name:1, _id:0})
+
+{ "name" : "Колотушкин А.У." }
