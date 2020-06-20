@@ -1,0 +1,148 @@
+[{
+	"airplane": {
+ 		"type": "Boing 737MAX",
+ 		"number_of_seats": 145,
+ 		"velocity": 999,
+ 		"airline_company": "AEROFLOT",
+	},
+	"route": {
+		"airport_start": {
+			"name": "Международный аэропорт Пекин Столичный",
+			"country": "Китай"
+		},
+		"airport_finish": {
+			"name": "Международный аэропорт Дубай",
+			"country": "ОАЭ"
+		},
+		"distance": 2134
+	},
+	"staff": [
+		{
+			"full_name": "Иванов Иван Иванович",
+			"age": 35,
+			"airline": "AEROFLOT",
+			"job": "Капитан",
+			"education": "Высшее",
+			"work_experience": "11 years 1 mon",
+			"passport_data": "1111 111111",
+		},
+		{
+			"full_name": "Иванов Пётр Иванович",
+			"age": 27,
+			"airline": "AEROFLOT",
+			"job": "Штурман",
+			"education": "Высшее",
+			"work_experience": "9 years 2 mons",
+			"passport_data": "1010 101010",
+		},
+		{
+			"full_name": "Иванов Олег Иванович",
+			"age": 44,
+			"airline": "AEROFLOT",
+			"job": "Второй пилот",
+			"education": "Высшее",
+			"work_experience": "23 years 5 mons",
+			"passport_data": "3333 333333",
+		},
+		{
+			"full_name": "Иванова Анна Ивановна",
+			"age": 25,
+			"airline": "AEROFLOT",
+			"job": "Стюардесса",
+			"education": "Высшее",
+			"work_experience": "5 years 1 mon",
+			"passport_data": "2222 222222",
+		},
+	],
+	"landings": [
+		{
+			"airport_landing": {
+				"name": "Международный аэропорт Хартсфилд-Джексон Атланта",
+				"country": "США"
+			},
+			"time_of_arrival_landing": "2012-06-18T14:34:09+0400",
+			"time_of_departure_landing": "2012-06-18T14:54:09+0400"
+		},
+	],
+	"time_of_departure": "2012-06-18T10:34:09+0400",
+	"time_of_arrival": "2012-06-18T17:34:09+0400",
+	"tickets_sold": 76
+},
+{
+	"airplane": {
+ 		"type": "Boing 737MAX",
+ 		"number_of_seats": 140,
+ 		"velocity": 1000,
+ 		"airline_company": "S7 Airlines",
+	},
+	"route": {
+		"airport_start": {
+			"name": "Международный аэропорт Хартсфилд-Джексон Атланта",
+			"country": "США"
+		},
+		"airport_finish": {
+			"name": "Международный аэропорт Пекин Столичный",
+			"country": "Китай"
+		},
+		"distance": 1234
+	},
+	"staff": [
+		{
+			"full_name": "Петров Пётр Петрович",
+			"age": 32,
+			"airline": "S7 Airlines",
+			"job": "Капитан",
+			"education": "Высшее",
+			"work_experience": "11 years 9 mon",
+			"passport_data": "4444 444444",
+		},
+		{
+			"full_name": "Петров Иван Петрович",
+			"age": 25,
+			"airline": "S7 Airlines",
+			"job": "Штурман",
+			"education": "Высшее",
+			"work_experience": "3 years 8 mons",
+			"passport_data": "1212 121212",
+		},
+		{
+			"full_name": "Петров Олег Петрович",
+			"age": 53,
+			"airline": "S7 Airlines",
+			"job": "Второй пилот",
+			"education": "Высшее",
+			"work_experience": "32 years 3 mons",
+			"passport_data": "6666 666666",
+		},
+		{
+			"full_name": "Петрова Екатерина Петровна",
+			"age": 21,
+			"airline": "S7 Airlines",
+			"job": "Стюардесса",
+			"education": "Среднее общее",
+			"work_experience": "1 year 9 mons",
+			"passport_data": "5555 555555",
+		},
+	],
+	"landings": [
+		{
+			"airport_landing": {
+				"name": "Международный аэропорт Дубай",
+				"country": "ОАЭ"
+			},
+			"time_of_arrival_landing": "2012-06-26T12:34:09+0400",
+			"time_of_departure_landing": "2012-06-26T12:54:09+0400"
+		},
+		{
+			"airport_landing": {
+				"name": "Лондонский аэропорт Хитроу",
+				"country": "Великобритания"
+			},
+			"time_of_arrival_landing": "2012-06-26T13:34:09+0400",
+			"time_of_departure_landing": "2012-06-26T13:54:09+0400"
+		},
+	],
+	"time_of_departure": "2012-06-26T10:34:09+0400",
+	"time_of_arrival": "2012-06-26T15:34:09+0400",
+	"tickets_sold": 35
+}]

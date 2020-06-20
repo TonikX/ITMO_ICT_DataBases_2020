@@ -1,0 +1,31 @@
+db.flight.find({"staff": {$all: [{$elemMatch: {"airline": "AEROFLOT"}}]}}, {"_id":0, "staff": 0, "route": 0, "landings": 0}).pretty()
+{
+        "airplane" : {
+                "type" : "Boing 737MAX",
+                "number_of_seats" : 145,
+                "velocity" : 999,
+                "airline_company" : "AEROFLOT"
+        },
+        "time_of_departure" : "2012-06-18T10:34:09+0400",
+        "time_of_arrival" : "2012-06-18T17:34:09+0400",
+        "tickets_sold" : 76
+}
+db.flight.find({"tickets_sold": {$gt: 30, $lte: 75}}, {"_id":0, "staff": 0, "route": 0, "landings": 0}).pretty()
+{
+        "airplane" : {
+                "type" : "Boing 737MAX",
+                "number_of_seats" : 140,
+                "velocity" : 1000,
+                "airline_company" : "S7 Airlines"
+        },
+        "time_of_departure" : "2012-06-26T10:34:09+0400",
+        "time_of_arrival" : "2012-06-26T15:34:09+0400",
+        "tickets_sold" : 35
+}
+db.flight.distinct("airplane.airline_company")
+[ "AEROFLOT", "S7 Airlines" ]
+db.flight.aggregate( [ {$unwind: "$staff"}, {$unwind: "$staff.full_name"}, {$match: {"staff.full_name": {$regex: "Иванов"} } }, {$group: { "_id": "$staff.full_name"}}])
+{ "_id" : "Иванов Пётр Иванович" }
+{ "_id" : "Иванов Олег Иванович" }
+{ "_id" : "Иванов Иван Иванович" }
+{ "_id" : "Иванова Анна Ивановна" }
