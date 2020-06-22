@@ -1,0 +1,117 @@
+db.LabourExchange.insertMany([
+	{
+		"Organization_name": "Работа с нами",
+		"Address": "​Гороховая, 1​Адмиралтейский проспект, 8",
+		"CV":{
+			"ID_CV": 1,
+			"Applicant":{
+				"FCS_applicant": "В.А. Попов",
+	    		"Age": 19,
+	    		"Sex": "M",
+	    		"Contacts": "44-44-44",
+	    		"Last_salary": 30000,
+	    		"Start_receiving_benefits": "2018-01-01",
+	    		"End_benefit_receipt": "2019-01-01"
+			}
+		},
+		"Course":{
+			"New_discharge": "Красить",
+	    	"Duration": "4:05:06",
+	    	"Price": 3000,
+	    	"Group_number": "K3240", 
+	    	"Students_list": "В.А. Попов, Л.С. Желтова, К.К. Иванов, Н.У. Лебедев"
+		}
+	},
+	{
+		"Organization_name": "Поиск работы",
+		"Address": "Гражданская, 5",
+		"CV":{
+			"ID_CV": 2,
+			"Applicant":{
+				"FCS_applicant": "П.К. Сидоров",
+	    		"Age": 34,
+	    		"Sex": "M",
+	    		"Contacts": "12-12-12",
+	    		"Last_salary": 32000,
+	    		"Start_receiving_benefits": "2019-03-01",
+	    		"End_benefit_receipt": "2020-01-05"
+			}
+		},
+		"Course":{
+			"New_discharge": "Пилить",
+	    	"Duration": "05:10:56",
+	    	"Price": 4000,
+	    	"Group_number": "K3340", 
+	    	"Students_list": "В.А. Попов, К.К. Иванов"
+		}
+	},
+	{
+		"Organization_name": "Работа-дома",
+		"Address": "​Пирогова переулок, 19​Прачечный переулок, 5",
+		"CV":{
+			"ID_CV": 3,
+			"Applicant":{
+				"FCS_applicant": "К.К. Иванов",
+	    		"Age": 23,
+	    		"Sex": "M",
+	    		"Contacts": "23-23-23",
+	    		"Last_salary": 12000,
+	    		"Start_receiving_benefits": "2018-10-01",
+	    		"End_benefit_receipt": "2018-11-01"
+			}
+		},
+		"Course":{
+			"New_discharge": "Резать",
+	    	"Duration": "01:05:45",
+	    	"Price": 1000,
+	    	"Group_number": "K2144", 
+	    	"Students_list": "В.А. Попов, Л.С. Желтова, Н.У. Лебедев"
+		}
+	},
+	{
+		"Organization_name": "Работа везде",
+		"Address": "Вознесенский проспект, 51",
+		"CV":{
+			"ID_CV": 4,
+			"Applicant":{
+				"FCS_applicant": "Н.У. Лебедев",
+	    		"Age": 32,
+	    		"Sex": "M",
+	    		"Contacts": "34-34-34",
+	    		"Last_salary": 21000,
+	    		"Start_receiving_benefits": "2010-01-01",
+	    		"End_benefit_receipt": "2019-11-11"
+			}
+		},
+		"Course":{
+			"New_discharge": "Программировать",
+	    	"Duration": "56:05:22",
+	    	"Price": 7000,
+	    	"Group_number": "K2320", 
+	    	"Students_list": "В.А. Попов, Л.С. Желтова, Н.У. Лебедев"
+		}
+	},	{
+		"Organization_name": "Топовое бюро",
+		"Address": "Красноармейская 10-я, 11",
+		"CV":{
+			"ID_CV": 5,
+			"Applicant":{
+				"FCS_applicant": "Л.С. Желтова",
+	    		"Age": 44,
+	    		"Sex": "F",
+	    		"Contacts": "57-32-65",
+	    		"Last_salary": 29000,
+	    		"Start_receiving_benefits": "2014-07-01",
+	    		"End_benefit_receipt": "2019-05-05"
+			}
+		},
+		"Course":{
+			"New_discharge": "Быстро ездить",
+	    	"Duration": "39:45:22",
+	    	"Price": 6000,
+	    	"Group_number": "K4441", 
+	    	"Students_list": "В.А. Попов, К.К. Иванов"
+		}
+	}
+]
+)
