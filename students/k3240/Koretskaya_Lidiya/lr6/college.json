@@ -1,0 +1,172 @@
+db.college.insertMany([
+{
+    "surname": "Ivanov",
+    "year_of_receipt":1998,
+    "attendance":65,
+    "academic_performance":78,
+    "timetable":
+    {
+    	"class_data": new Date("2020-12-15"),
+    	"number_of_discipline": 3,
+    	"class_time": new Date("2000-01-01T07:00:00Z"),
+    	"classroom": 134,
+    	"teacher":
+    	{
+    		"surname":"Ivanova",
+    		"work_experience":"3 years",
+    		"education":"MGU"
+    	},
+    	"discipline":
+    	{
+    		"title":"math",
+    		"credit_units":8,
+    		"academic_plan":"09.06.90"
+    	},
+    },
+    "group":
+	{
+		"number_of_students":30,
+		"course":3,
+		"specialization":"bio",
+		"faculty":"ICT",
+		"average_performance":65,
+	},
+},
+
+{
+    "surname": "Berg",
+    "year_of_receipt":1999,
+    "attendance":70,
+    "academic_performance":90,
+    "timetable":
+    {
+    	"class_data": new Date("2020-08-26"),
+    	"number_of_discipline": 2,
+    	"class_time": new Date("2000-01-01T07:30:00Z"),
+    	"classroom": 255,
+    	"teacher":
+    	{
+    		"surname":"Filipov",
+    		"work_experience":"15 years",
+    		"education":"KrasGU"
+    	},
+    	"discipline":
+    	{
+    		"title":"db",
+    		"credit_units":6,
+    		"academic_plan":"09.06.80"
+    	},
+    },
+    "group":
+	{
+		"number_of_students":15,
+		"course":3,
+		"specialization":"proga",
+		"faculty":"ICT",
+		"average_performance":50,
+	},
+},
+
+{
+    "surname": "Kravets",
+    "year_of_receipt":2005,
+    "attendance":98,
+    "academic_performance":64,
+    "timetable":
+    {
+    	"class_data": new Date("2020-07-14"),
+    	"number_of_discipline": 2,
+    	"class_time": new Date("2000-01-01T06:00:00Z"),
+    	"classroom": 300,
+    	"teacher":
+    	{
+    		"surname":"Utkina",
+    		"work_experience":"7 years",
+    		"education":"MPHTY"
+    	},
+    	"discipline":
+    	{
+    		"title":"vizualization",
+    		"credit_units":4,
+    		"academic_plan":"09.06.80"
+    	},
+    },
+    "group":
+	{
+		"number_of_students":25,
+		"course":4,
+		"specialization":"pharmacy",
+		"faculty":"THR",
+		"average_performance":57,
+	},
+},
+
+{
+    "surname": "Hitman",
+    "year_of_receipt":2004,
+    "attendance":87,
+    "academic_performance":75,
+    "timetable":
+    {
+    	"class_data": new Date("2020-09-10"),
+    	"number_of_discipline": 4,
+    	"class_time": new Date("2000-01-01T07:30:00Z"),
+    	"classroom": 120,
+    	"teacher":
+    	{
+    		"surname":"Lapina",
+    		"work_experience":"5 months",
+    		"education":"Gertsena"
+    	},
+    	"discipline":
+    	{
+    		"title":"proga",
+    		"credit_units":6,
+    		"academic_plan":"09.06.60"
+    	},
+    },
+    "group":
+	{
+		"number_of_students":14,
+		"course":1,
+		"specialization":"sport",
+		"faculty":"UFC",
+		"average_performance":75,
+	},
+},
+
+{
+    "surname": "Tess",
+    "year_of_receipt":2010,
+    "attendance":45,
+    "academic_performance":30,
+    "timetable":
+    {
+    	"class_data": new Date("2020-12-17"),
+    	"number_of_discipline": 1,
+    	"class_time": new Date("2000-01-01T08:30:00Z"),
+    	"classroom": 456,
+    	"teacher":
+    	{
+    		"surname":"Larin",
+    		"work_experience":"1 month",
+    		"education":"ITMO"
+    	},
+    	"discipline":
+    	{
+    		"title":"russian",
+    		"credit_units":3,
+    		"academic_plan":"09.06.80"
+    	},
+    },
+    "group":
+	{
+		"number_of_students":19,
+		"course":2,
+		"specialization":"art",
+		"faculty":"OKL",
+		"average_performance":75,
+	},
+},
+
+])
