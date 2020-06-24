@@ -1,0 +1,104 @@
+// 1. Заполнение MongoDB.Exchange данными
+
+db.Deal.insert({
+	ID_deal: 1,
+	Broker: {
+	ID_broker: 1,
+	Office: "TradeHistory",
+	Sales_price: 10230,
+	Amount_of_deals: 10
+	},
+	Lot: {
+	ID_lot: 1,
+	Price: 540,
+	Condition: "Good",
+	Product: "Wood"
+	},
+	deal_date: "2020-01-11"
+});
+db.Deal.insert({
+	ID_deal: 2,
+	Broker: {
+	ID_broker: 2,
+	Office: "MegaBank",
+	Sales_price: 9920,
+	Amount_of_deals: 8
+	},
+	Lot: {
+	ID_lot: 2,
+	Price: 7643,
+	Condition: "Excellent",
+	Product: "Metal"
+	},
+	deal_date: "2013-03-24"
+});
+db.Deal.insert({
+	ID_deal: 3,
+	Broker: {
+	ID_broker: 3,
+	Office: "AlphaTrade",
+	Sales_price: 320000,
+	Amount_of_deals: 321
+	},
+	Lot: {
+	ID_lot: 3,
+	Price: 12000,
+	Condition: "Bad",
+	Product: "Rock"
+	},
+	deal_date: "2017-09-13"
+});
+db.Deal.insert({
+	ID_deal: 4,
+	Broker: {
+	ID_broker: 4,
+	Office: "Hesoyam",
+	Sales_price: 110,
+	Amount_of_deals: 2
+	},
+	Lot: {
+	ID_lot: 4,
+	Price: 10,
+	Condition: "Good",
+	Product: "Plastic"
+	},
+	deal_date: "2020-06-20"
+});
+
+db.Deal.insert({
+	ID_deal: 5,
+
+	Broker: {
+	ID_broker: 4,
+	Office: "Hesoyam",
+	Sales_price: 110,
+	Amount_of_deals: 2
+	},
+
+	Lot: {
+	ID_lot: 5,
+	Price: 100,
+	Condition: "Excellent",
+	Product: "Wood"
+	},
+
+	deal_date: "2020-06-21"
+});
+
+
+// 2. Запросы к MongoDB.exchange
+
+1) Информация о сделке с ID_deal = 4.
+db.Deal.find({"ID_deal" : 4})
+
+2) Вывести только информацию о брокерах
+db.Deal.find({}, {"Broker" : 1})
+
+3) Информация о партии, состояние которой оценивается как хорошее
+db.Deal.find({"Lot.Condition":"Good"}, {"Lot":1}) 
+
+4) Вся информация о сделках, брокеры которых не работают в офисе Hesoyam, а цена сделки превышает 1000$
+db.Deal.find({"Broker.Office":{$ne:"Hesoyam"}, "Lot.Price":{$gt:1000}})
+
+5) Вывод ID брокера, его суммы продаж, количество сделок которого больше 2, но меньше 10
+db.Deal.find({"Broker.Amount_of_deals":{$gt:2, $lt:10}}, {"Broker.ID_broker":1,"Broker.Sales_price":1,"Broker.Amount_of_deals":1})
