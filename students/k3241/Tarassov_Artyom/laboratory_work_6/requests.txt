@@ -15,3 +15,23 @@ db.library.find( { "instance.book.author": "Дж. К. Роулинг" }, {"_id" 
 "reader": 0
  } )
 { "instance" : { "book" : { "author" : "Дж. К. Роулинг", "name" : "Гарри Поттер и узник Азкабана", "year_of_pub " : "2017/10/12", "section" : "Зарубежное фэнтези", "pressmark" : "3455", "debit_date" : "NULL" } } }
+
+
+
+var mapFunction1 = function() {
+   emit(this.reader.full_name, this.reader.full_name);
+};
+var reduceFunction1 = function(value) {
+   return value + " !!!";
+};
+db.library.mapReduce(
+   mapFunction1,
+   reduceFunction1,
+   { out: "map_reduce_example" }
+)
+
+db.map_reduce_example.find().sort( { _id: 1 } )
+
+{ "_id" : "Василенко Михаил Алексеевич", "value" : "Василенко Михаил Алексеевич !!!" }
+{ "_id" : "Фомин Николай Григорьевич", "value" : "Фомин Николай Григорьевич !!!" }
+
