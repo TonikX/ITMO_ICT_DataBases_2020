@@ -1,0 +1,10 @@
+select * from public."abiturient" inner join public."EGE_sertificat" on public."EGE_sertificat".abiturient_id_fk = public."abiturient".abiturient_id where public."EGE_sertificat".discipline_1_grade>88;
+select spciality_name from public."speciality" inner join public."faculty" on public."faculty".faculty_id = public."speciality".faculty_id_fk where faculty_id<4 order by spciality_name ASC;
+select * from public."abiturient" where position(btrim(lower('Дубина ')) in lower(fio))>0 and (current_date - birthday)/365 <20;
+select avg(discipline_1_grade), max(discipline_2_grade) from public."EGE_sertificat" where public."EGE_sertificat".abiturient_id_fk not in(3, 4);
+select speciality_id, lower(spciality_name), max_stud_amount from public."speciality" group by speciality_id having max_stud_amount<220;
+select fio, (current_date - birthday)/365 as age from public."abiturient" where abiturient_id = any (select abiturient_id_fk from public."Application" where secretary_id_fk>2);
+select faculty_name from "faculty" where faculty_id = any(select faculty_id from "faculty" intersect select faculty_id_fk from "abiturient");
+select lower(fio) from "abiturient" inner join "Application" on "abiturient".abiturient_id = "Application".abiturient_id_fk where (current_date - application_date)<4;
+select secretary_contacts, lower(fio) from public."secretary" group by secretary_id having work_experience _years>2;
+select avg(prof_discipline_1) from "9_grade_certificat" inner join "abiturient" on "9_grade_certificat".abiturient_id_fk = "abiturient".abiturient_id where silver_medal = true;
