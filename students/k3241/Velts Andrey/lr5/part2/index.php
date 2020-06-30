@@ -239,7 +239,7 @@ function UpdateObject($pdo, $table, $id, $id_title, $data) {
 			if (!$id_cabinet || !$id_subject || !$first_name || !$last_name) {
 				return False;
 			} else {
-				$sql = "UPDATE public.".strtolower($table)." SET name = :name WHERE ".$id_title." = :id";
+				$sql = "UPDATE public.".strtolower($table)." SET id_cabinet = :id_cabinet, id_subject = :id_subject, first_name = :first_name, last_name = :last_name  WHERE ".$id_title." = :id";
         		$sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 				$sth->execute(array(
 					':id_cabinet' => $id_cabinet,
@@ -284,7 +284,7 @@ function AddObject($pdo, $table, $data) {
 			$id_teacher = isset($data['id_teacher']) ? $data['id_teacher'] : null;
 			$name = isset($data['name']) ? $data['name'] : null;
 			$begining_education = isset($data['begining_education']) ? $data['begining_education'] : null;
-			$end_education = isset($data['end_education']) ? $data['begining_education'] : null;
+			$end_education = isset($data['end_education']) ? $data['end_education'] : null;
 
 			if (!$id_class || !$id_teacher || !$name || !$begining_education || !$end_education) {
 				return False;
