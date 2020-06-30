@@ -1,0 +1,49 @@
+// заполнение коллекции newspapers_party
+db.newspapers_party.insert({newspapers_party: 1, newspapers_name: 'News', amount_of_copies: 1000, editors_surname: 'Eddison', editors_name: 'Mark', price: 4});
+db.newspapers_party.insert({newspapers_party: 2, newspapers_name: 'Herald', amount_of_copies: 3000, editors_surname: 'Huddson', editors_name: 'Finn', price: 3});
+db.newspapers_party.insert({newspapers_party: 3, newspapers_name: 'Whistler', amount_of_copies: 1000, editors_surname: 'Hummel', editors_name: 'Kurt', price: 4});
+db.newspapers_party.insert({newspapers_party: 4, newspapers_name: 'MusicNews', amount_of_copies: 2000, editors_surname: 'Roberts', editors_name: 'Agata', price: 5});
+db.newspapers_party.insert({newspapers_party: 5, newspapers_name: 'ScienceNews', amount_of_copies: 2000, editors_surname: 'Mangold', editors_name: 'Maya', price: 5});
+
+// заполнение коллекции print
+db.print.insert({printery_name: "Jamesons", party_id: ObjectId("5ef4d315d87a2b2f7fa34745"), print_amount: 500, printery_address: "OxfordStreet1"});
+db.print.insert({printery_name: "Story", party_id: ObjectId("5ef4d40cd87a2b2f7fa34746"), print_amount: 1000, printery_address: "CalmStreet3"});
+db.print.insert({printery_name: "Hicksons", party_id: ObjectId("5ef4d4d6d87a2b2f7fa34747"), print_amount: 500, printery_address: "NottingtonStreet5"});
+db.print.insert({printery_name: "Story", party_id: ObjectId("5ef4d5b2d87a2b2f7fa34748"), print_amount: 2000, printery_address: "FallsStreet2"});
+db.print.insert({printery_name: "Jamesons", party_id: ObjectId("5ef4d702d87a2b2f7fa34749"), print_amount: 2000, printery_address: "OxfordStreet1"});
+
+// заполнение коллекции distribution_report
+db.distribution_report.insert({party_number: ObjectId("5ef4d315d87a2b2f7fa34745"), office_number: 1, print_amount: 200, office_address: "HallamStreet1"});
+db.distribution_report.insert({party_number: ObjectId("5ef4d315d87a2b2f7fa34745"), office_number: 2, print_amount: 800, office_address: "RoseberyAvenue2"});
+db.distribution_report.insert({party_number: ObjectId("5ef4d40cd87a2b2f7fa34746"), office_number: 1, print_amount: 500, office_address: "HallamStreet1"});
+db.distribution_report.insert({party_number: ObjectId("5ef4d40cd87a2b2f7fa34746"), office_number: 2, print_amount: 500, office_address: "RoseberyAvenue2"});
+db.distribution_report.insert({party_number: ObjectId("5ef4d40cd87a2b2f7fa34746"), office_number: 3, print_amount: 500, office_address: "DevonshireStreet3"});
+db.distribution_report.insert({party_number: ObjectId("5ef4d40cd87a2b2f7fa34746"), office_number: 4, print_amount: 500, office_address: "TobbeyStreet4"});
+db.distribution_report.insert({party_number: ObjectId("5ef4d40cd87a2b2f7fa34746"), office_number: 5, print_amount: 1000, office_address: "NottingtonStreet5"});
+db.distribution_report.insert({party_number: ObjectId("5ef4d4d6d87a2b2f7fa34747"), office_number: 1, print_amount: 500, office_address: "HallamStreet1"});
+db.distribution_report.insert({party_number: ObjectId("5ef4d4d6d87a2b2f7fa34747"), office_number: 2, print_amount: 500, office_address: "RoseberyAvenue2"});
+db.distribution_report.insert({party_number: ObjectId("5ef4d5b2d87a2b2f7fa34748"), office_number: 3, print_amount: 1000, office_address: "DevonshireStreet3"});
+db.distribution_report.insert({party_number: ObjectId("5ef4d5b2d87a2b2f7fa34748"), office_number: 4, print_amount: 1000, office_address: "TobbeyStreet4"});
+db.distribution_report.insert({party_number: ObjectId("5ef4d702d87a2b2f7fa34749"), office_number: 4, print_amount: 1000, office_address: "TobbeyStreet4"});
+db.distribution_report.insert({party_number: ObjectId("5ef4d702d87a2b2f7fa34749"), office_number: 5, print_amount: 1000, office_address: "NottingtonStreet5"});
+
+//выполнение команд
+//Вывести все адреса, где печатаются газеты партиями 500 экземпляров:
+db.print.find({print amount: 500}, {printery_address: 1});
+
+//Вся информация о партиях газет, сортировка по названиям газет:
+db.newspapers_party.find().sort({newspapers_name :1});
+
+//Узнаем названия газет и цены на них, стоимость которых превышает 3:
+db.newspapers_party.find({price : {$gt : 3}}, {newspapers_name : 1, price : 1});
+
+//Сколько партий газет было доставлено в каждое отделение:
+db.distribution_report.aggregate([{$unwind : “$office_number”}, {$group : {_id : “$office_number”, count : { $sum : 1}}}]);
+
+//Какова средняя цена газеты в каждой партии:
+
+	const map = function(){emit(this.newspapers_name, this.price)}
+	const reduce = function(key, values) {return(Array.sum(values) / values.length);}
+	db.newspapers_party.mapReduce(map, reduce, “result”)
+	db.result.find()
+
