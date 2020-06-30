@@ -1,0 +1,257 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.12
+-- Dumped by pg_dump version 10.12
+
+-- Started on 2020-05-08 14:42:50
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+
+-- Таблица книги
+CREATE TABLE public."Book" (
+    "ID_book" integer NOT NULL,
+    "Name" text NOT NULL,
+    "Author" text NOT NULL,
+    "Publishing_house" text NOT NULL,
+    "Year_of_publishing" date NOT NULL,
+    "Section" text NOT NULL,
+    "Cipher" integer NOT NULL
+);
+
+
+ALTER TABLE public."Book" OWNER TO postgres;
+
+COMMENT ON TABLE public."Book" IS 'Information about a book';
+
+
+-- Таблица экземпляра книги
+CREATE TABLE public."Book_instance" (
+    "ID_instance" integer NOT NULL,
+    "ID_book" integer NOT NULL
+);
+
+
+ALTER TABLE public."Book_instance" OWNER TO postgres;
+
+
+-- Таблица записи нового читателя
+CREATE TABLE public."Creation_new_reader" (
+    "ID_reader" integer NOT NULL,
+    "ID_room" integer NOT NULL,
+    "Date_of_creation" date NOT NULL,
+    "Date_of_re-registration" date,
+    "Date_of_exclusion" date
+);
+
+
+ALTER TABLE public."Creation_new_reader" OWNER TO postgres;
+
+
+COMMENT ON TABLE public."Creation_new_reader" IS 'Creation of a new reader';
+
+
+-- Таблица выдачи книги
+CREATE TABLE public."Getting_book" (
+    "ID_reader" integer NOT NULL,
+    "ID_instance" integer NOT NULL,
+    "Date_of_receiving" date NOT NULL,
+    "Date_of_return" date
+);
+
+
+ALTER TABLE public."Getting_book" OWNER TO postgres;
+
+
+-- Таблица количества экземпляров в ч/з
+CREATE TABLE public."Number_of_instances_in_r/r" (
+    "ID_book" integer NOT NULL,
+    "ID_room" integer NOT NULL,
+    "Number_of_instances" integer NOT NULL
+);
+
+
+ALTER TABLE public."Number_of_instances_in_r/r" OWNER TO postgres;
+
+
+COMMENT ON TABLE public."Number_of_instances_in_r/r" IS 'Number of instances in each reading room';
+
+
+-- Таблица читателя
+CREATE TABLE public."Reader" (
+    "ID_reader" integer NOT NULL,
+    "Name" text NOT NULL,
+    "Passport_number" integer NOT NULL,
+    "Reader_card_number" integer NOT NULL,
+    "Date_of_birth" date NOT NULL,
+    "Address" text NOT NULL,
+    "Phone_number" integer NOT NULL,
+    "Education" text NOT NULL,
+    "Academic_degree" boolean NOT NULL
+);
+
+
+ALTER TABLE public."Reader" OWNER TO postgres;
+
+
+COMMENT ON TABLE public."Reader" IS 'Information about a reader';
+
+
+-- Таблица читательского зала
+CREATE TABLE public."Reading_room" (
+    "ID_room" integer NOT NULL,
+    "Number" integer NOT NULL,
+    "Name" text NOT NULL,
+    "Capacity" integer NOT NULL
+);
+
+
+ALTER TABLE public."Reading_room" OWNER TO postgres;
+
+
+COMMENT ON TABLE public."Reading_room" IS 'Information about a reading room';
+
+
+-- Зполнение таблицы книги
+
+INSERT INTO public."Book" VALUES (1, 'Гарри Поттер', 'Джоан Роулинг', 'Росмэн', '2007-10-12', 'Фэнтази', 23324554);
+INSERT INTO public."Book" VALUES (2, 'Анна Каренина', 'Л.Н. Толстой', 'АСТ', '2015-05-02', 'Русская классика', 34434554);
+INSERT INTO public."Book" VALUES (3, 'Война и мир', 'Л.Н. Толстой', 'Эксмо', '2018-06-03', 'Русская классика', 12212332);
+INSERT INTO public."Book" VALUES (4, 'Мертвые души', 'Н.В. Гоголь', 'АСТ', '2015-07-04', 'Русская классика', 45545665);
+INSERT INTO public."Book" VALUES (5, 'Гордость и предубеждение', 'Джейн Остин', 'АСТ', '2015-08-05', 'Зарубежная классика', 56656776);
+
+
+-- Заполнение таблицы экземпляра книги
+
+INSERT INTO public."Book_instance" VALUES (1, 4);
+INSERT INTO public."Book_instance" VALUES (2, 2);
+INSERT INTO public."Book_instance" VALUES (3, 2);
+INSERT INTO public."Book_instance" VALUES (4, 3);
+INSERT INTO public."Book_instance" VALUES (5, 3);
+
+
+-- Заполнение таблицы записи нового пользователя 
+
+INSERT INTO public."Creation_new_reader" VALUES (6, 2, '2018-03-04', NULL, NULL);
+INSERT INTO public."Creation_new_reader" VALUES (7, 1, '2017-04-05', NULL, NULL);
+INSERT INTO public."Creation_new_reader" VALUES (8, 3, '2016-05-06', NULL, NULL);
+INSERT INTO public."Creation_new_reader" VALUES (9, 3, '2018-06-07', NULL, NULL);
+INSERT INTO public."Creation_new_reader" VALUES (10, 4, '2018-07-08', NULL, NULL);
+
+
+-- Заполнение таблицы выдачи книги
+
+
+INSERT INTO public."Getting_book" VALUES (6, 1, '2018-03-04', NULL);
+INSERT INTO public."Getting_book" VALUES (7, 2, '2017-04-05', NULL);
+INSERT INTO public."Getting_book" VALUES (8, 3, '2016-05-06', NULL);
+INSERT INTO public."Getting_book" VALUES (9, 4, '2018-06-07', NULL);
+INSERT INTO public."Getting_book" VALUES (10, 5, '2018-07-08', NULL);
+
+
+-- Заполнение таблицы количества экземпляров в ч/з
+
+INSERT INTO public."Number_of_instances_in_r/r" VALUES (1, 2, 10);
+INSERT INTO public."Number_of_instances_in_r/r" VALUES (2, 3, 17);
+INSERT INTO public."Number_of_instances_in_r/r" VALUES (3, 1, 20);
+INSERT INTO public."Number_of_instances_in_r/r" VALUES (4, 3, 11);
+INSERT INTO public."Number_of_instances_in_r/r" VALUES (5, 1, 10);
+
+
+-- Заполнение таблицы читателя
+
+INSERT INTO public."Reader" VALUES (6, 'Петрова Наталья Александровна', 231232, 10, '1970-10-12', 'СПБ', 891123, 'Высшее', true);
+INSERT INTO public."Reader" VALUES (7, 'Никишин Влад Максимович', 763594, 11, '1985-02-02', 'СПБ', 891187, 'Высшее', false);
+INSERT INTO public."Reader" VALUES (8, 'Бабушкина Наталья Владимировна', 231247, 12, '1993-10-12', 'СПБ', 891154, 'Высшее', false);
+INSERT INTO public."Reader" VALUES (9, 'Сержанин Илья Денисович', 93746, 13, '1991-10-12', 'СПБ', 891109, 'Высшее', false);
+INSERT INTO public."Reader" VALUES (10, 'Гузовский Роман Олешович', 873674, 14, '1991-10-12', 'СПБ', 891102, 'Высшее', false);
+
+
+-- Заполнение таблицы читательского зала
+
+INSERT INTO public."Reading_room" VALUES (1, 1, 'Гланвый', 50);
+INSERT INTO public."Reading_room" VALUES (2, 2, 'Зарубежная литература', 20);
+INSERT INTO public."Reading_room" VALUES (3, 3, 'Русская литература', 30);
+INSERT INTO public."Reading_room" VALUES (4, 4, 'Научная литература', 15);
+INSERT INTO public."Reading_room" VALUES (5, 5, 'Справочная литература', 10);
+
+
+
+-- Установка первичных ключей
+
+ALTER TABLE ONLY public."Book_instance"
+    ADD CONSTRAINT "Book_instance_pkey" PRIMARY KEY ("ID_instance");
+
+
+ALTER TABLE ONLY public."Book"
+    ADD CONSTRAINT "Book_pkey" PRIMARY KEY ("ID_book");
+
+
+ALTER TABLE ONLY public."Reader"
+    ADD CONSTRAINT "Reader_pkey" PRIMARY KEY ("ID_reader");
+
+
+ALTER TABLE ONLY public."Reading_room"
+    ADD CONSTRAINT "Reading_room_pkey" PRIMARY KEY ("ID_room");
+
+
+-- Устанока внешних ключей
+
+ALTER TABLE ONLY public."Number_of_instances_in_r/r"
+    ADD CONSTRAINT "ID_book" FOREIGN KEY ("ID_book") REFERENCES public."Book"("ID_book") NOT VALID;
+
+
+ALTER TABLE ONLY public."Book_instance"
+    ADD CONSTRAINT "ID_book(FK)" FOREIGN KEY ("ID_book") REFERENCES public."Book"("ID_book") NOT VALID;
+
+
+ALTER TABLE ONLY public."Getting_book"
+    ADD CONSTRAINT "ID_instance" FOREIGN KEY ("ID_instance") REFERENCES public."Book_instance"("ID_instance") NOT VALID;
+
+
+ALTER TABLE ONLY public."Creation_new_reader"
+    ADD CONSTRAINT "ID_reader" FOREIGN KEY ("ID_reader") REFERENCES public."Reader"("ID_reader") NOT VALID;
+
+
+ALTER TABLE ONLY public."Getting_book"
+    ADD CONSTRAINT "ID_reader" FOREIGN KEY ("ID_reader") REFERENCES public."Reader"("ID_reader") NOT VALID;
+
+
+
+ALTER TABLE ONLY public."Number_of_instances_in_r/r"
+    ADD CONSTRAINT "ID_room" FOREIGN KEY ("ID_room") REFERENCES public."Reading_room"("ID_room") NOT VALID;
+
+
+
+ALTER TABLE ONLY public."Creation_new_reader"
+    ADD CONSTRAINT "ID_room" FOREIGN KEY ("ID_room") REFERENCES public."Reading_room"("ID_room") NOT VALID;
+
+
+-- Completed on 2020-05-08 14:42:50
+
+--
+-- PostgreSQL database dump complete
+--
+

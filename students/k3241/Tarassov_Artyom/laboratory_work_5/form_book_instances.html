@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Instances</title>
+</head>
+
+
+<?php
+
+$data = null;
+$status = "";
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $dbuser = 'postgres';
+        $dbpassword = 'admin';
+        $host = 'localhost';
+        $dbname = 'library';
+        try {
+            $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser , $dbpassword );
+            if (isset($_POST["find"])) {
+                $sql = 'SELECT * from public."Book_instances" where id = :id';
+                $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                $sth->execute(array(':id' => $_POST["id"]));
+                $data = $sth->fetchAll();
+                    if(count($data) > 0){
+                    $status = "Запись найдена";
+                }else{
+                    $status = "Запись не найдена";
+                }
+            }
+
+            if (isset($_POST["delete"])) {
+                $sql = 'delete from public."Book_instances" where id = :id';
+                $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                $sth->execute(array(':id' => $_POST["id"]));
+                $data = $sth->fetchAll();
+                print_r ($sth->errorInfo()[2]);
+                $status = "Запись удалена";
+                $data = null;
+            }
+
+            if (isset($_POST["edit"])) {
+                if($_POST["id"] != ""){
+                    $sql = 'SELECT * from public."Book_instances" where id = :id';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(':id' => intval($_POST["id"])));
+                    $data = $sth->fetchAll();
+                }
+                if($_POST["id"] != "" && count($data) > 0){
+                    $sql = 'UPDATE public."Book_instances" SET status= :status, id_book= :id_book where id = :id';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(
+                    ':id' => $_POST["id"],
+                    ':status' => $_POST["status"],
+                    ':id_book' => $_POST["id_book"]
+                    ));
+                    $data = $sth->fetchAll();
+                    print_r ($sth->errorInfo()[2]);
+                    $status = "Запись изменина";
+                    $data = null;
+
+                }else{
+                    $sql = 'INSERT INTO public."Book_instances"(status, id_book)
+                    VALUES
+                    (:status, :id_book)';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(':status' => $_POST["status"],
+                                        ':id_book' => $_POST["id_book"]
+                                        ));
+                    $data = $sth->fetchAll();
+                    print_r ($sth->errorInfo()[2]);
+                    $status = "Запись добавлена";
+                    $data = null;
+                }
+            }
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
+
+}
+?>
+
+
+
+<body>
+<form action="" method="post">
+    <input name="id" placeholder="id..." value="<?php echo '' ?>">
+    <button type="submit" name="find">Найти</button>
+    <button type="submit" name="delete">Удалить</button>
+</form>
+<?php echo $status ?>
+</br>
+<form action="" method="post">
+    <input name="id" size="40" placeholder="id..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['id']?>"> - id</br>
+    <input name="status" size="40" placeholder="status..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['status']?>"> - Статус книги</br>
+    <input name="id_book" size="40" placeholder="id_book..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['id_book']?>"> - id Книги</br>
+    <button type="submit" name="edit">Добавить/Редактировать</button>
+</form>
+</body>
+</html>
+
+

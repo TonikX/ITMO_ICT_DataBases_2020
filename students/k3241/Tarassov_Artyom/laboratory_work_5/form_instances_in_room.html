@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instances in room</title>
+</head>
+
+
+<?php
+
+$data = null;
+$status = "";
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $dbuser = 'postgres';
+        $dbpassword = 'admin';
+        $host = 'localhost';
+        $dbname = 'library';
+        try {
+            $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser , $dbpassword );
+            if (isset($_POST["find"])) {
+                $sql = 'SELECT * from public."Instances_in_room" where id_instance = :id_instance LIMIT 1'; 
+                $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                $sth->execute(array(':id_instance' => $_POST["id_instance"]));
+                $data = $sth->fetchAll();
+                    if(count($data) > 0){
+                    $status = "Запись найдена";
+                }else{
+                    $status = "Запись не найдена";
+                }
+            }
+
+            if (isset($_POST["delete"])) {
+                $sql = 'delete from public."Instances_in_room" where id_instance = :id_instance';
+                $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                $sth->execute(array(':id_instance' => $_POST["id_instance"]));
+                $data = $sth->fetchAll();
+                print_r ($sth->errorInfo()[2]);
+                $status = "Запись удалена";
+                $data = null;
+            }
+
+            if (isset($_POST["edit"])) {
+                if($_POST["id_instance"] != ""){
+                    $sql = 'SELECT * from public."Instances_in_room" where id_instance = :id_instance LIMIT 1';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(':id_instance' => intval($_POST["id_instance"])));
+                    $data = $sth->fetchAll();
+                }
+                /*if($_POST["id_reader"] != "" && count($data) > 0){
+                    $sql = 'UPDATE public."Instances_in_room" SET id_reader= :id_reader, id_instance= :id_instance,
+					date_of_issue= :date_of_issue, return_date= :return_date
+					where id_reader = :id_reader LIMIT 1';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(
+                    ':id_reader' => $_POST["id_reader"],
+                    ':id_instance' => $_POST["id_instance"],
+                    ':date_of_issue' => $_POST["date_of_issue"],
+                    ':return_date' => $_POST["return_date"]
+                    ));
+                    $data = $sth->fetchAll();
+                    print_r ($sth->errorInfo()[2]);
+                    $status = "Запись изменина";
+                    $data = null;
+
+                }else{*/
+                    $sql = 'INSERT INTO public."Instances_in_room"(id_rooms, id_instance, value)
+                    VALUES
+                    (:id_rooms, :id_instance, :value)';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(':id_rooms' => $_POST["id_rooms"],
+                                        ':id_instance' => $_POST["id_instance"],
+                                        ':value' => $_POST["value"],
+                                        ));
+                    $data = $sth->fetchAll();
+                    print_r ($sth->errorInfo()[2]);
+                    $status = "Запись добавлена";
+                    $data = null;
+                //}
+            }
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
+
+}
+?>
+
+
+
+<body>
+<form action="" method="post">
+    <input name="id_instance" placeholder="id_instance..." value="<?php echo '' ?>">
+    <button type="submit" name="find">Найти</button>
+    <button type="submit" name="delete">Удалить</button>
+</form>
+<?php echo $status ?>
+</br>
+<form action="" method="post">
+    <input name="id_instance" size="40" placeholder="id_instance..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['id_instance']?>"> - id экземпляра</br>
+    <input name="id_rooms" size="40" placeholder="id_rooms..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['id_rooms']?>"> - id зала</br>
+    <input name="value" size="40" placeholder="value..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['value']?>"> - кол-во</br>
+    <button type="submit" name="edit">Добавить</button>
+</form>
+</body>
+</html>
+
+
