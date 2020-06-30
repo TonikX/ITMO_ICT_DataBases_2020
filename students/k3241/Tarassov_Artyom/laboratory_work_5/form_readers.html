@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Readers</title>
+</head>
+
+
+<?php
+
+$data = null;
+$status = "";
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $dbuser = 'postgres';
+        $dbpassword = 'admin';
+        $host = 'localhost';
+        $dbname = 'library';
+        try {
+            $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser , $dbpassword );
+            if (isset($_POST["find"])) {
+                $sql = 'SELECT * from public."Readers" where id = :id';
+                $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                $sth->execute(array(':id' => $_POST["id"]));
+                $data = $sth->fetchAll();
+                    if(count($data) > 0){
+                    $status = "Запись найдена";
+                }else{
+                    $status = "Запись не найдена";
+                }
+
+
+            }
+
+            if (isset($_POST["delete"])) {
+                $sql = 'delete from public."Readers" where id = :id';
+                $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                $sth->execute(array(':id' => $_POST["id"]));
+                $data = $sth->fetchAll();
+                print_r ($sth->errorInfo()[2]);
+                $status = "Запись удалена";
+                $data = null;
+            }
+
+            if (isset($_POST["edit"])) {
+                if($_POST["id"] != ""){
+                    $sql = 'SELECT * from public."Readers" where id = :id';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(':id' => intval($_POST["id"])));
+                    $data = $sth->fetchAll();
+                }
+                if($_POST["id"] != "" && count($data) > 0){
+                    $sql = 'UPDATE public."Readers" SET 
+					number_of_card= :number_of_card, 
+					full_name= :full_name, 
+					passport_number = :passport_number,
+                    data_of_birthday = :data_of_birthday,
+                    address = :address,
+                    call_number = :call_number,
+                    graduation = :graduation,
+                    graduate_degree = :graduate_degree
+                    where id = :id';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(
+                    ':id' => $_POST["id"],
+                    ':number_of_card' => $_POST["number_of_card"],
+                    ':full_name' => $_POST["full_name"],
+                    ':passport_number' => $_POST["passport_number"],
+                    ':data_of_birthday' => $_POST["data_of_birthday"],
+                    ':address' => $_POST["address"],
+                    ':call_number' => $_POST["call_number"],
+                    ':graduation' => $_POST["graduation"],
+                    ':graduate_degree' => $_POST["graduate_degree"]
+                    ));
+                    $data = $sth->fetchAll();
+                    print_r ($sth->errorInfo()[2]);
+                    $status = "Запись изменина";
+                    $data = null;
+
+                }else{
+                    $sql = 'INSERT INTO public."Readers"(
+					number_of_card, 
+					full_name, 
+					passport_number, 
+					data_of_birthday, 
+					address, 
+					call_number,
+					graduation,
+					graduate_degree
+					)
+                    VALUES
+                    (:number_of_card, :full_name, :passport_number, :data_of_birthday, :address, :call_number, :graduation, :graduate_degree)';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(':number_of_card' => $_POST["number_of_card"],
+                                        ':full_name' => $_POST["full_name"],
+                                        ':passport_number' => $_POST["passport_number"],
+                                        ':data_of_birthday' => $_POST["data_of_birthday"],
+                                        ':address' => $_POST["address"],
+                                        ':graduation' => $_POST["graduation"],
+                                        ':graduate_degree' => $_POST["graduate_degree"],
+                                        ':call_number' => $_POST["call_number"]
+                                        ));
+                    $data = $sth->fetchAll();
+                    print_r ($sth->errorInfo()[2]);
+                    $status = "Запись добавлена";
+                    $data = null;
+                }
+            }
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
+
+}
+?>
+
+
+
+<body>
+<form action="" method="post">
+    <input name="id" placeholder="id..." value="<?php echo '' ?>">
+    <button type="submit" name="find">Найти</button>
+    <button type="submit" name="delete">Удалить</button>
+</form>
+<?php echo $status ?>
+</br>
+<form action="" method="post">
+    <input name="id" size="40" placeholder="id..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['id']?>"> - id</br>
+    <input name="number_of_card" size="40" placeholder="number_of_card..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['number_of_card']?>"> - номер билета</br>
+    <input name="full_name" size="40" placeholder="full_name..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['full_name']?>"> - full_name</br>
+    <input name="passport_number" size="40" placeholder="passport_number..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['passport_number']?>"> - номер паспорта</br>
+    <input name="data_of_birthday" size="40" placeholder="data_of_birthday..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['data_of_birthday']?>"> - дата рождения</br>
+    <input name="address" size="40" placeholder="address..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['address']?>"> - адрес</br>
+    <input name="call_number" size="40" placeholder="call_number..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['call_number']?>"> - номер телефона</br>
+    <input name="graduation" size="40" placeholder="graduation..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['graduation']?>"> - образование</br>
+    <input name="graduate_degree" size="40" placeholder="graduate_degree (0 - False /1 - True)" value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['graduate_degree']?>"> - наличие учёной степени</br>
+    <button type="submit" name="edit">Добавить/Редактировать</button>
+</form>
+</body>
+</html>
+
+
