@@ -1,4 +1,4 @@
-01. запрос показывает информацию о клиентах отеля, сортировка по имени:
+01. Р·Р°РїСЂРѕСЃ РїРѕРєР°Р·С‹РІР°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РєР»РёРµРЅС‚Р°С… РѕС‚РµР»СЏ, СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РёРјРµРЅРё:
 db.Hotel.find(null, {"reserv.client": 1, _id: 0}).sort({"reserv.client.full_name": 1})
 
 { "reserv" : { "client" : { "full_name" : "Alex Scopot", "city" : "Moscow", "passport" : 3523 } } }
@@ -7,7 +7,7 @@ db.Hotel.find(null, {"reserv.client": 1, _id: 0}).sort({"reserv.client.full_name
 { "reserv" : { "client" : { "full_name" : "Kostya Klimov", "city" : "Omsk", "passport" : 9843 } } }
 { "reserv" : { "client" : { "full_name" : "Valery Ushkov", "city" : "Moscow", "passport" : 7093 } } }
 
-02. запрос  показывает цену номера выше 20000, сортировка по цене:
+02. Р·Р°РїСЂРѕСЃ  РїРѕРєР°Р·С‹РІР°РµС‚ С†РµРЅСѓ РЅРѕРјРµСЂР° РІС‹С€Рµ 20000, СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ С†РµРЅРµ:
 db.Hotel.find({"reserv.room.type_room.cost": {$gte:20000}}, {"reserv.room.type_room.cost": 1, _id: 0}).sort({"reserv.room.type_room.cost": 1})
 
 { "reserv" : { "room" : { "type_room" : { "cost" : 34522 } } } }
@@ -15,22 +15,22 @@ db.Hotel.find({"reserv.room.type_room.cost": {$gte:20000}}, {"reserv.room.type_r
 { "reserv" : { "room" : { "type_room" : { "cost" : 40008 } } } }
 { "reserv" : { "room" : { "type_room" : { "cost" : 46728 } } } }
 
-03. запрос показывает кол-во клиентов прибывших из Москвы в 2019 году:
+03. Р·Р°РїСЂРѕСЃ РїРѕРєР°Р·С‹РІР°РµС‚ РєРѕР»-РІРѕ РєР»РёРµРЅС‚РѕРІ РїСЂРёР±С‹РІС€РёС… РёР· РњРѕСЃРєРІС‹ РІ 2019 РіРѕРґСѓ:
 db.Hotel.count({"reserv.client.city": "Moscow", "reserv.date_in": {$regex: "2019"}})
 
 3
 
-04. запрос показывает кол-во людей выселившихся в июне:
+04. Р·Р°РїСЂРѕСЃ РїРѕРєР°Р·С‹РІР°РµС‚ РєРѕР»-РІРѕ Р»СЋРґРµР№ РІС‹СЃРµР»РёРІС€РёС…СЃСЏ РІ РёСЋРЅРµ:
 db.Hotel.count({"reserv.date_out": {$regex: ".06."}})
 
 3
 
-05.запрос показывает всех клиентов по имени Алекс из Москвы, сортировка по имени:
+05.Р·Р°РїСЂРѕСЃ РїРѕРєР°Р·С‹РІР°РµС‚ РІСЃРµС… РєР»РёРµРЅС‚РѕРІ РїРѕ РёРјРµРЅРё РђР»РµРєСЃ РёР· РњРѕСЃРєРІС‹, СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РёРјРµРЅРё:
 db.Hotel.find({"reserv.client.city": "Moscow", "reserv.client.full_name": {$regex: "Alex"}}, {"reserv.client.full_name": 1, _id: 0}).sort({"reserv.client.full_name": 1})
 
 { "reserv" : { "client" : { "full_name" : "Alex Scopot" } } }
 
-06. запрос показывает цену на самый дорогой номер в отеле:
+06. Р·Р°РїСЂРѕСЃ РїРѕРєР°Р·С‹РІР°РµС‚ С†РµРЅСѓ РЅР° СЃР°РјС‹Р№ РґРѕСЂРѕРіРѕР№ РЅРѕРјРµСЂ РІ РѕС‚РµР»Рµ:
 db.Hotel.find(null, {"reserv.room.type_room.cost": 1, _id:0}).sort({"reserv.room.type_room.cost":-1}).limit(1)
 
 { "reserv" : { "room" : { "type_room" : { "cost" : 46728 } } } }
