@@ -1,7 +1,7 @@
 <?php
 
  	$dbuser = 'postgres';
-    $dbpass = 'Bargi20012';
+    $dbpass = '*****';
     $host = 'localhost';
     $dbname = 'headteacher';
  	$table = '"school"."class"';
