@@ -1,0 +1,70 @@
+[{
+  "_id": {
+    "$oid": "5eef9f82cc49de1f689f71f7"
+  },
+  "newspaper": {
+    "editor": "А.С. Пушкин",
+    "newspaper_name": "Газета 1",
+    "edition": {
+      "delivery": {
+        "delivery_number": 1,
+        "post_office": {
+          "id": 196240,
+          "adress": "дом пушкина, улица колотушкина 11"
+        },
+        "delivery_amount": 30000
+      },
+      "cost": 300,
+      "printing": {
+        "printing_office": 192131,
+        "adress": "Дом пушкина улица колотушкина 22"
+      }
+    }
+  }
+},{
+  "_id": {
+    "$oid": "5eef9fd2cc49de1f689f71f8"
+  },
+  "newspaper": {
+    "editor": "A.П. Чехов",
+    "newspaper_name": "Газета 2",
+    "edition": {
+      "delivery": {
+        "delivery_number": 3221,
+        "post_office": {
+          "id": 196220,
+          "adress": "дом Чехова, улица колотушкина 11"
+        },
+        "delivery_amount": 3213210
+      },
+      "cost": 5500,
+      "printing": {
+        "printing_office": 192131213,
+        "adress": "Дом Чехова улица колотушкина 22"
+      }
+    }
+  }
+},{
+  "_id": {
+    "$oid": "5eefa013cc49de1f689f71f9"
+  },
+  "newspaper": {
+    "editor": "В.В. Маяковский",
+    "newspaper_name": "Газета 3",
+    "edition": {
+      "delivery": {
+        "delivery_number": 1,
+        "post_office": {
+          "id": 19621240,
+          "adress": "дом Маяковского, улица колотушкина 11"
+        },
+        "delivery_amount": 3011000
+      },
+      "cost": 1230,
+      "printing": {
+        "printing_office": 19213311,
+        "adress": "Дом Маяковского улица колотушкина 22"
+      }
+    }
+  }
+}]
