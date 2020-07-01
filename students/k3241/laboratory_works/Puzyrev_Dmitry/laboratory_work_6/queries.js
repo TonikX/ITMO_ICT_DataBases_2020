@@ -1,3 +1,5 @@
+// Заполнение БД
+
 f1 = ({number: 1})
 f2 = ({number: 2})
 f3 = ({number: 3})
@@ -39,9 +41,11 @@ db.administrators.save(a3)
 c1 = ({firstName: "Александр", middleName: "Васильевич", lastName: "Прохоров", passportNumber: "AC 259411", city: "Москва"})
 c2 = ({firstName: "Андрей", middleName: "Михайлович", lastName: "Пингвинин", passportNumber: "BE 544108", city: "Санкт-Петербург"})
 c3 = ({firstName: "Анна", middleName: "Михайловна", lastName: "Полякова", passportNumber: "AC 531266", city: "Екатеринбург"})
+c4 = ({firstName: "Евгения", middleName: "Михайловна", lastName: "Братонюк", passportNumber: "AC 423422", city: "Санкт-Петербург"})
 db.customers.save(c1)
 db.customers.save(c2)
 db.customers.save(c3)
+db.customers.save(c4)
 
 db.rooms.insert([
   {
@@ -92,3 +96,54 @@ db.rooms.insert([
     ]
   }, 
 ])
+
+
+// Queries
+
+// Имена клиентов, проживавших в номере с number = 201, начиная с 12 июня 2020 года:
+cursor = db.rooms.findOne({number: 201}, {"livingLogs": 1});
+  cursor.livingLogs.forEach(function(log) {
+  if (log.startDate >= ISODate('2020-06-11')) {
+    print(log.customer.firstName)
+  }
+})
+
+
+// Количество клиентов по городам:
+db.customers.find({city: "Москва"}).count()
+
+db.customers.mapReduce(
+  function() { emit(this.city, this.firstName); },
+  function(key, values) { return values.length; },
+  {
+    query: { city: {$exists: true} },
+    out: "customer_cities"
+  }
+)
+
+db.customer_cities.find()
+
+Array.count(values)
+
+
+// Кто из служащих убирал номер клиента с passportNumber = ‘BE 544108’ 15 июня 2020 года:
+cursor = db.rooms.findOne(
+{
+  "livingLogs.customer.passportNumber": 'BE 544108',
+  "livingLogs.startDate": {$lte: ISODate('2020-06-15')},
+  $or: [
+    {"livingLogs.endDate": null},
+    {"livingLogs.endDate": {$gte: ISODate('2020-06-15')}},
+  ]
+},
+{
+  floor: 1,
+})
+db.servants.findOne({"schedule.monday": cursor.floor})
+
+
+// Количество свободных номеров в гостинице:
+db.rooms.find({"livingLogs.endDate": null}).count()
+
+
+
