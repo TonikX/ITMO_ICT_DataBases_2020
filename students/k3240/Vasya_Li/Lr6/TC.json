@@ -1,0 +1,139 @@
+[{
+  "_id": {
+    "$oid": "5efaed9f346d93bfdadbd788"
+  },
+  "id_company": 1,
+  "name_company": "apple",
+  "store": [
+    {
+      "ID_store": 1,
+      "name": "DNS",
+      "averageRevenue": 343232
+    },
+    {
+      "ID_store": 2,
+      "name": "Влазер",
+      "averageRevenue": 93123
+    },
+    {
+      "ID_store": 3,
+      "name": "Технопоинт",
+      "averageRevenue": 100232
+    }
+  ],
+  "Phone": [
+    {
+      "modele": "iphone SE",
+      "prise": 500
+    },
+    {
+      "modele": "iphone 6",
+      "prise": 600
+    },
+    {
+      "modele": "SE",
+      "prise": 500
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "5efaeda4346d93bfdadbd789"
+  },
+  "id_company": 2,
+  "name_company": "Samsung",
+  "store": [
+    {
+      "ID_store": 1,
+      "name": "DNS",
+      "averageRevenue": 233449
+    },
+    {
+      "ID_store": 2,
+      "name": "Влазер",
+      "averageRevenue": 43428
+    }
+  ],
+  "Phone": [
+    {
+      "modele": "VedrouidMax",
+      "prise": 100
+    },
+    {
+      "modele": "VedroidBomj",
+      "prise": 20
+    },
+    {
+      "modele": "Vedroid",
+      "prise": 50
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "5efaedab346d93bfdadbd78a"
+  },
+  "id_company": 3,
+  "name_company": "Meizu",
+  "store": [
+    {
+      "ID_store": 1,
+      "name": "DNS",
+      "averageRevenue": 331419
+    },
+    {
+      "ID_store": 2,
+      "name": "Влазер",
+      "averageRevenue": 111419
+    },
+    {
+      "ID_store": 3,
+      "name": "Технопоинт",
+      "averageRevenue": 231419
+    },
+    {
+      "ID_store": 4,
+      "name": "megafon",
+      "averageRevenue": 15419
+    }
+  ],
+  "Phone": [
+    {
+      "modele": "betterThanVedrouidMax",
+      "prise": 80
+    },
+    {
+      "modele": "betterThanVedroidBomj",
+      "prise": 30
+    },
+    {
+      "modele": "betterThanVedroid",
+      "prise": 55
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "5efaedba346d93bfdadbd78b"
+  },
+  "id_company": 4,
+  "name_company": "Xiaomi",
+  "store": [
+    {
+      "ID_store": 1,
+      "name": "DNS",
+      "averageRevenue": 121419
+    }
+  ],
+  "Phone": [
+    {
+      "modele": "noNameMax",
+      "prise": 60
+    },
+    {
+      "modele": "noNameBomj",
+      "prise": 40
+    },
+    {
+      "modele": "noNameJast",
+      "prise": 55
+    }
+  ]
+}]

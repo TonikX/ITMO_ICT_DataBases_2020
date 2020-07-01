@@ -1,0 +1,12 @@
+
+1)	Информация о компании с id 3 
+db.company.find({"id_company" : 3})
+
+2)	Вывести только информацию о телефонах 
+db.company.find({}, {"Phone" : 1})
+
+3)	Вся информация о телефонах дороже 90
+db.company.aggregate({"$unwind":"$Phone"}, {"$match":{"Phone.prise":{$gt:90}}}, {"$project":{"Phone":1}}).pretty()db.company.aggregate({"$unwind":"$Phone"}, {"$match":{"Phone.prise":{$gt:90}}}, {"$project":{"Phone":1}}).pretty()
+
+4)	Вывод максимальной выручки из магазинов сотрудничающих с компанией.
+db.company.aggregate([   { "$project": {"$store.name": { "$max": "$store.averageRevenue" } }} ])
