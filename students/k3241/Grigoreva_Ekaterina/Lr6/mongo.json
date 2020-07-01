@@ -1,0 +1,117 @@
+[
+  {
+    "_id": ObjectId(
+    "5ede190c46920bb001a5ba72"
+    ),
+    "score": 25,
+    "registration": {
+      "reg_number": 1,
+      "ring": 3,
+      "show": {
+        "Name": "Champion",
+        "Place": "Saint Petersburg",
+        "Date": "04/28/2020"
+      },
+      "dog": {
+        "Document_num": 129588,
+        "Name": "Bella",
+        "Dog_age": 7,
+        "Breed": "Spaniel",
+        "Club": "Friend",
+        "Owner_name": "Igor"
+      }
+    }
+  }
+  {
+    "_id": ObjectId(
+    "5ede190c46920bb001a5ba73"
+    ),
+    "score": 18,
+    "registration": {
+      "reg_number": 2,
+      "ring": 1,
+      "show": {
+        "Name": "Champion",
+        "Place": "Saint Petersburg",
+        "Date": "04/28/2020"
+      },
+      "dog": {
+        "Document_num": 938726,
+        "Name": "Scooby",
+        "Dog_age": 8,
+        "Breed": "Pudel",
+        "Club": "Cornuel",
+        "Owner_name": "Elena"
+      }
+    }
+  }
+  {
+    "_id": ObjectId(
+    "5ede190c46920bb001a5ba74"
+    ),
+    "score": 24,
+    "registration": {
+      "reg_number": 3,
+      "ring": 2,
+      "show": {
+        "Name": "Champion",
+        "Place": "Saint Petersburg",
+        "Date": "04/28/2020"
+      },
+      "dog": {
+        "Document_num": 209483,
+        "Name": "Molly",
+        "Dog_age": 7,
+        "Breed": "Dalmatian",
+        "Club": "Friend",
+        "Owner_name": "Sergei"
+      }
+    }
+  }
+  {
+    "_id": ObjectId(
+    "5ede190c46920bb001a5ba75"
+    ),
+    "score": 15,
+    "registration": {
+      "reg_number": 4,
+      "ring": 3,
+      "show": {
+        "Name": "Fantom",
+        "Place": "Saint Petersburg",
+        "Date": "12/28/2020"
+      },
+      "dog": {
+        "Document_num": 839420,
+        "Name": "Lacky",
+        "Dog_age": 7,
+        "Breed": "Spaniel",
+        "Club": "Friend",
+        "Owner_name": "Sofia"
+      }
+    }
+  }
+  {
+    "_id": ObjectId(
+    "5ede190c46920bb001a5ba76"
+    ),
+    "score": 15,
+    "registration": {
+      "reg_number": 5,
+      "ring": 2,
+      "show": {
+        "Name": "Fantom",
+        "Place": "Saint Petersburg",
+        "Date": "12/28/2020"
+      },
+      "dog": {
+        "Document_num": 938726,
+        "Name": "Scooby",
+        "Dog_age": 8,
+        "Breed": "Pudel",
+        "Club": "Cornuel",
+        "Owner_name": "Elena"
+      }
+    }
+  }
+]

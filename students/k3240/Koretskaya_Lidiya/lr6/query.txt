@@ -1,0 +1,93 @@
+1.  Выбор всех значений из таблицы студенты и сортировка по успеваемость 
+
+db.college.find(null, {_id:0, group:0, timetable:0}).sort({academic_performance:1});
+
+{ "surname" : "Tess", "year_of_receipt" : 2010, "attendance" : 45, "academic_performance" : 30 }
+{ "surname" : "Kravets", "year_of_receipt" : 2005, "attendance" : 98, "academic_performance" : 64 }
+{ "surname" : "Hitman", "year_of_receipt" : 2004, "attendance" : 87, "academic_performance" : 75 }
+{ "surname" : "Ivanov", "year_of_receipt" : 1998, "attendance" : 65, "academic_performance" : 78 }
+{ "surname" : "Berg", "year_of_receipt" : 1999, "attendance" : 70, "academic_performance" : 90 }
+
+2.  Выбор всех значений из таблицы группы и сортировка по специализации 
+
+db.college.find(null, {group:1, _id:0}).sort({"group.specialization":1});
+
+{ "group" : { "number_of_students" : 19, "course" : 2, "specialization" : "art", "faculty" : "OKL", "average_performance" : 75 } }
+{ "group" : { "number_of_students" : 30, "course" : 3, "specialization" : "bio", "faculty" : "ICT", "average_performance" : 65 } }
+{ "group" : { "number_of_students" : 25, "course" : 4, "specialization" : "pharmacy", "faculty" : "THR", "average_performance" : 57 } }
+{ "group" : { "number_of_students" : 15, "course" : 3, "specialization" : "proga", "faculty" : "ICT", "average_performance" : 50 } }
+{ "group" : { "number_of_students" : 14, "course" : 1, "specialization" : "sport", "faculty" : "UFC", "average_performance" : 75 } }
+
+3.Выбрать все фамилии студентов, у которых успеваемость больше 50 и год поступления до 2000 
+
+db.college.find(
+{$or : [{academic_performance:{$gt:50}}, {year_of_receipt: {$lt:2000} }]},
+{surname:1, _id:0}
+);
+
+{ "surname" : "Ivanov" }
+{ "surname" : "Berg" }
+{ "surname" : "Kravets" }
+{ "surname" : "Hitman" }
+
+4.  Вывести объединение строк таблицы студенты, 
+в которых выполняется какое-либо из условий: 
+фамилия студента Иванов, год выпуска студента больше 2000 
+
+db.college.find(
+{$or : [{surname:"Ivanov"}, {year_of_receipt: {$gt:2000} }]},
+{surname:1, year_of_receipt:1, _id:0}
+);
+
+{ "surname" : "Ivanov", "year_of_receipt" : 1998 }
+{ "surname" : "Kravets", "year_of_receipt" : 2005 }
+{ "surname" : "Hitman", "year_of_receipt" : 2004 }
+{ "surname" : "Tess", "year_of_receipt" : 2010 }
+
+5.  Вывести даты занятий и кто их ведет 
+
+db.college.find( null,
+{"timetable.class_data":1, "timetable.teacher.surname":1, _id:0}
+);
+
+{ "timetable" : { "class_data" : ISODate("2020-12-15T00:00:00Z"), "teacher" : { "surname" : "Ivanova" } } }
+{ "timetable" : { "class_data" : ISODate("2020-08-26T00:00:00Z"), "teacher" : { "surname" : "Filipov" } } }
+{ "timetable" : { "class_data" : ISODate("2020-07-14T00:00:00Z"), "teacher" : { "surname" : "Utkina" } } }
+{ "timetable" : { "class_data" : ISODate("2020-09-10T00:00:00Z"), "teacher" : { "surname" : "Lapina" } } }
+{ "timetable" : { "class_data" : ISODate("2020-12-17T00:00:00Z"), "teacher" : { "surname" : "Larin" } } }
+
+6.  Выбрать все из таблицы расписания, 
+где у групп средняя успеваемость больше 70 
+
+db.college.find(
+{"group.average_performance": {$gt : 70}},
+{timetable:1, _id:0}
+);
+
+{ "timetable" : { "class_data" : ISODate("2020-09-10T00:00:00Z"), "number_of_discipline" : 4, "class_time" : ISODate("2000-01-01T07:30:00Z"), "classroom" : 120, "teacher" : { "surname" : "Lapina", "work_experience" : "5 months", "education" : "Gertsena" }, "discipline" : { "title" : "proga", "credit_units" : 6, "academic_plan" : "09.06.60" } } }
+{ "timetable" : { "class_data" : ISODate("2020-12-17T00:00:00Z"), "number_of_discipline" : 1, "class_time" : ISODate("2000-01-01T08:30:00Z"), "classroom" : 456, "teacher" : { "surname" : "Larin", "work_experience" : "1 month", "education" : "ITMO" }, "discipline" : { "title" : "russian", "credit_units" : 3, "academic_plan" : "09.06.80" } } }
+
+7. Выбрать те пары, которые начинаются позже 7, но раньше 12 
+
+db.college.find(
+{ "timetable.class_time": { $gt: ISODate("2000-01-01T07:00:00Z"), $lt: ISODate("2000-01-01T12:00:00Z") } 
+},
+{"timetable.discipline.title":1, _id:0}
+);
+
+{ "timetable" : { "discipline" : { "title" : "db" } } }
+{ "timetable" : { "discipline" : { "title" : "proga" } } }
+{ "timetable" : { "discipline" : { "title" : "russian" } } }
+
+8.  Выбрать фамилию преподавателя, 
+у которого опыт работы не 1 месяц и образование в мгу или итмо 
+
+db.college.find(
+{$and: [
+{"timetable.teacher.work_experience": { $ne : "1 month"} },
+{$or: [ {"timetable.teacher.education" : "MGU"}, {"timetable.teacher.education" : "ITMO"} ]}
+]},
+{"timetable.teacher.surname":1, _id:0}
+);
+
+{ "timetable" : { "teacher" : { "surname" : "Ivanova" } } }

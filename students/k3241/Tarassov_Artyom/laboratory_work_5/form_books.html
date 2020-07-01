@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+
+
+<?php
+
+$data = null;
+$status = "";
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $dbuser = 'postgres';
+        $dbpassword = 'admin';
+        $host = 'localhost';
+        $dbname = 'library';
+        try {
+            $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $dbuser , $dbpassword );
+            if (isset($_POST["find"])) {
+                $sql = 'SELECT * from public."Books" where id = :id';
+                $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                $sth->execute(array(':id' => $_POST["id"]));
+                $data = $sth->fetchAll();
+                    if(count($data) > 0){
+                    $status = "Запись найдена";
+                }else{
+                    $status = "Запись не найдена";
+                }
+
+
+            }
+
+            if (isset($_POST["delete"])) {
+                $sql = 'delete from public."Books" where id = :id';
+                $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                $sth->execute(array(':id' => $_POST["id"]));
+                $data = $sth->fetchAll();
+                print_r ($sth->errorInfo()[2]);
+                $status = "Запись удалена";
+                $data = null;
+            }
+
+            if (isset($_POST["edit"])) {
+                if($_POST["id"] != ""){
+                    $sql = 'SELECT * from public."Books" where id = :id';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(':id' => intval($_POST["id"])));
+                    $data = $sth->fetchAll();
+                }
+                if($_POST["id"] != "" && count($data) > 0){
+                    $sql = 'UPDATE public."Books" SET author= :author, name= :name, year_of_pub = :year_of_pub,
+                    section = :section,
+                    pressmark = :pressmark,
+                    debit_date = :debit_date
+                    where id = :id';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(
+                    ':id' => $_POST["id"],
+                    ':author' => $_POST["author"],
+                    ':name' => $_POST["name"],
+                    ':year_of_pub' => $_POST["year_of_pub"],
+                    ':section' => $_POST["section"],
+                    ':pressmark' => $_POST["pressmark"],
+                    ':debit_date' => $_POST["debit_date"]
+                    ));
+                    $data = $sth->fetchAll();
+                    print_r ($sth->errorInfo()[2]);
+                    $status = "Запись изменина";
+                    $data = null;
+
+                }else{
+                    $sql = 'INSERT INTO public."Books"(author, name, year_of_pub, section, pressmark, debit_date)
+                    VALUES
+                    (:author, :name, :year_of_pub, :section, :pressmark, :debit_date)';
+                    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+                    $sth->execute(array(':author' => $_POST["author"],
+                                        ':name' => $_POST["name"],
+                                        ':year_of_pub' => $_POST["year_of_pub"],
+                                        ':section' => $_POST["section"],
+                                        ':pressmark' => $_POST["pressmark"],
+                                        ':debit_date' => $_POST["debit_date"]
+                                        ));
+                    $data = $sth->fetchAll();
+                    print_r ($sth->errorInfo()[2]);
+                    $status = "Запись добавлена";
+                    $data = null;
+                }
+            }
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+        }
+
+}
+?>
+
+
+
+<body>
+<form action="" method="post">
+    <input name="id" placeholder="id..." value="<?php echo '' ?>">
+    <button type="submit" name="find">Найти</button>
+    <button type="submit" name="delete">Удалить</button>
+</form>
+<?php echo $status ?>
+</br>
+<form action="" method="post">
+    <input name="id" size="40" placeholder="id..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['id']?>"> - id</br>
+    <input name="author" size="40" placeholder="author..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['author']?>"> - Автор</br>
+    <input name="name" size="40" placeholder="name..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['name']?>"> - Название книги</br>
+    <input name="year_of_pub" size="40" placeholder="year_of_pub..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['year_of_pub']?>"> - Дата публикации </br>
+    <input name="section" size="40" placeholder="section..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['section']?>"> - Секция</br>
+    <input name="pressmark" size="40" placeholder="pressmark..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['pressmark']?>"> - Шифр</br>
+    <input name="debit_date" size="40" placeholder="debit_date..." value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $data) echo $data[0]['debit_date']?>"> - Дата списания</br>
+    <button type="submit" name="edit">Добавить/Редактировать</button>
+</form>
+</body>
+</html>
+
+
