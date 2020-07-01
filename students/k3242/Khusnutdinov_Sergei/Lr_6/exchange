@@ -64,7 +64,6 @@ db.Deal.insert({
 	},
 	deal_date: "2020-06-20"
 });
-
 db.Deal.insert({
 	ID_deal: 5,
 
@@ -102,3 +101,11 @@ db.Deal.find({"Broker.Office":{$ne:"Hesoyam"}, "Lot.Price":{$gt:1000}})
 
 5) Вывод ID брокера, его суммы продаж, количество сделок которого больше 2, но меньше 10
 db.Deal.find({"Broker.Amount_of_deals":{$gt:2, $lt:10}}, {"Broker.ID_broker":1,"Broker.Sales_price":1,"Broker.Amount_of_deals":1})
+
+6) Агрегирование результатов при помощи MapReduce
+db.Deal.mapReduce(
+	function() { emit(this.Broker.Office, this.Broker.Office); },
+	function(values) { return values + " The Best"; },
+	{ out: "mapreduce_call" }
+);
+db.mapreduce_call.find()
