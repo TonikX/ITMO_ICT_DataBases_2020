@@ -133,3 +133,33 @@ db.enrollee.aggregate([{$group:{_id:"$school.name", graduates:{$push:"$name"}}}]
 
 6. Вывести количество заявок на поступление для каждого факультета
 db.enrollee.aggregate([{$unwind:"$faculties"}, {$group:{_id:"$faculties", count:{$sum:1}}}])
+
+7. MapReduce
+
+var map_function = function(){
+	emit(this.school.name, this.certificate.math);
+};
+
+var reduce_function = function(name, math){
+	return Array.sum(math);
+};
+
+db.enrollee.mapReduce(map_function, reduce_function, {out:"MapReduceRes"})
+
+db.enrollee.mapReduce(map_function, reduce_function, {out:"MapReduceRes"})
+{
+        "result" : "MapReduceRes",
+        "timeMillis" : 120,
+        "counts" : {
+                "input" : 5,
+                "emit" : 5,
+                "reduce" : 2,
+                "output" : 3
+        },
+        "ok" : 1
+}
+
+ db.MapReduceRes.find({})
+{ "_id" : "School #45", "value" : "4" }
+{ "_id" : "School #77", "value" : "52" }
+{ "_id" : "School #777", "value" : "55" }
