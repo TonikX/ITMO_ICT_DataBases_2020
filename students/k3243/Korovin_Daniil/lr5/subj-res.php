@@ -27,7 +27,13 @@ echo "<title>Результаты по дисциплинам</title>";
          }
 
          if (isset($_POST["Update"])) {
-             $query = "Update $table set \"ID\"='$_POST[ID]', \"Name\"='$_POST[Name]', \"Grade\"='$_POST[Grade]', \"isProfile\"='$_POST[isProfile]', \"School_sertificate_ID\"='$_POST[School_sertificate_ID]', \"EGE_sertificate_ID\"='$_POST[EGE_sertificate_ID]'";
+             $query = "Update $table set 
+             \"Name\"='$_POST[Name]', 
+             \"Grade\"='$_POST[Grade]', 
+             \"isProfile\"='$_POST[isProfile]', 
+             \"School_sertificate_ID\"='$_POST[School_sertificate_ID]', 
+             \"EGE_sertificate_ID\"='$_POST[EGE_sertificate_ID]'
+             WHERE \"ID\"='$_POST[ID]'";
              $status = "Updated";
          }
          pg_query($query);

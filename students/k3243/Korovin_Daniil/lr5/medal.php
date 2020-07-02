@@ -21,13 +21,17 @@ echo "<title>Аттестаты</title>";
          }
 
          if (isset($_POST["Add"])) {
-             $query = "insert into $table values ('$_POST[ID]', '$_POST[Type]'";
+             $query = "insert into $table values 
+             ('$_POST[ID]', 
+             '$_POST[Type]'";
              echo $query;
              $status = "Added";
          }
 
          if (isset($_POST["Update"])) {
-             $query = "Update $table set \"ID\"='$_POST[ID]', \"Type\"='$_POST[Type]'";
+             $query = "Update $table set 
+             \"Type\"='$_POST[Type]'
+             WHERE \"ID\"='$_POST[ID]'";
              $status = "Updated";
          }
          pg_query($query);

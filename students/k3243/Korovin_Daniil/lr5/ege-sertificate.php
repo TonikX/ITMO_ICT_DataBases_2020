@@ -21,13 +21,17 @@ echo "<title>Сертификаты ЕГЭ</title>";
          }
 
          if (isset($_POST["Add"])) {
-             $query = "insert into $table values ('$_POST[ID]', '$_POST[Issue_date]')";
+             $query = "insert into $table values 
+             ('$_POST[ID]',
+             '$_POST[Issue_date]')";
              echo $query;
              $status = "Added";
          }
 
          if (isset($_POST["Update"])) {
-             $query = "Update $table set \"ID\"='$_POST[ID]', \"Issue_date\"='$_POST[Issue_date]'";
+             $query = "Update $table set 
+             \"Issue_date\"='$_POST[Issue_date]'
+             WHERE \"ID\"='$_POST[ID]'";
              $status = "Updated";
          }
          pg_query($query);

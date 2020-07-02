@@ -21,13 +21,19 @@ echo "<title>Школы</title>";
          }
 
          if (isset($_POST["Add"])) {
-             $query = "insert into $table values ('$_POST[Name]', '$_POST[Graduation_date]', '$_POST[School_location]')";
+             $query = "insert into $table values 
+             ('$_POST[Name]', 
+             '$_POST[Graduation_date]', 
+             '$_POST[School_location]')";
              echo $query;
              $status = "Added";
          }
 
          if (isset($_POST["Update"])) {
-             $query = "Update $table set \"Name\"='$_POST[Name]', \"Graduation_date\"='$_POST[Graduation_date]', \"School_location\"='$_POST[School_location]'";
+             $query = "Update $table set 
+             \"Graduation_date\"='$_POST[Graduation_date]', 
+             \"School_location\"='$_POST[School_location]'
+             WHERE \"Name\"='$_POST[Name]'";
              $status = "Updated";
          }
          pg_query($query);

@@ -31,11 +31,12 @@ echo "<title>Заявки</title>";
          }
 
          if (isset($_POST["Update"])) {
-             $query = "Update $table set \"ID\"='$_POST[ID]',
-              \"Enrolee_ID\"='$_POST[Enrolee_ID]',
-              \"Course_ID\"='$_POST[Course_ID]',
-              \"Application_date\"='$_POST[Application_date]',
-              \"Status\"='$_POST[Status]'";
+             $query = "Update $table set 
+                \"Enrolee_ID\"='$_POST[Enrolee_ID]',
+                \"Course_ID\"='$_POST[Course_ID]',
+                \"Application_date\"='$_POST[Application_date]',
+                \"Status\"='$_POST[Status]' 
+              WHERE \"ID\"='$_POST[ID]'";
              $status = "Updated";
          }
          pg_query($query);

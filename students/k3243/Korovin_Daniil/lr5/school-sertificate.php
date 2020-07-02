@@ -21,13 +21,19 @@ echo "<title>Аттестаты</title>";
          }
 
          if (isset($_POST["Add"])) {
-             $query = "insert into $table values ('$_POST[ID]', '$_POST[Issue_date]', '$_POST[Avg_grade]')";
+             $query = "insert into $table values 
+             ('$_POST[ID]', 
+             '$_POST[Issue_date]', 
+             '$_POST[Avg_grade]')";
              echo $query;
              $status = "Added";
          }
 
          if (isset($_POST["Update"])) {
-             $query = "Update $table set \"ID\"='$_POST[ID]', \"Issue_date\"='$_POST[Issue_date]', \"Avg_grade\"='$_POST[Avg_grade]'";
+             $query = "Update $table set 
+             \"Issue_date\"='$_POST[Issue_date]', 
+             \"Avg_grade\"='$_POST[Avg_grade]'
+             WHERE \"ID\"='$_POST[ID]'";
              $status = "Updated";
          }
          pg_query($query);

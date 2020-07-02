@@ -27,7 +27,16 @@ echo "<title>Абитуриенты</title>";
          }
 
          if (isset($_POST["Update"])) {
-             $query = "Update $table set \"ID\"='$_POST[ID]', \"Name\"='$_POST[Name]', \"Passport_ID\"=$_POST[Passport_ID]', \"Budget\"='$_POST[Budget]', \"Privileges\"='$_POST[Privileges]', \"Target\"='$_POST[Target]', \"School_name\"='$_POST[School_name]', \"School_sertificate_ID\"='$_POST[School_sertificate_ID]', \"EGE_sertificate_ID\"='$_POST[EGE_sertificate_ID]', \"Medal_ID\"='$_POST[Medal_ID]'";
+             $query = "Update $table set \"Name\"='$_POST[Name]',
+             \"Passport_ID\"=$_POST[Passport_ID]',
+             \"Budget\"='$_POST[Budget]',
+             \"Privileges\"='$_POST[Privileges]',
+             \"Target\"='$_POST[Target]',
+             \"School_name\"='$_POST[School_name]',
+             \"School_sertificate_ID\"='$_POST[School_sertificate_ID]',
+             \"EGE_sertificate_ID\"='$_POST[EGE_sertificate_ID]',
+             \"Medal_ID\"='$_POST[Medal_ID]'
+             WHERE \"ID\"='$_POST[ID]'";
              $status = "Updated";
          }
          pg_query($query);
