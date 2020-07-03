@@ -1,0 +1,48 @@
+body {
+    background-color: #f8fafb;
+}
+
+.news {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.new {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 2px solid #dfdfdf; 
+    border-radius: 6px; border-collapse: 
+    separate; border-spacing: 0px;
+
+}
+table thead tr {
+    color: #ffffff; 
+    font-weight: bold; 
+    background: #c83240;
+
+}
+table tr td {
+    border-right: 1px solid #dfdfdf;
+}
+
+table tr td:last-child {
+    border-right: 0px;
+}
+
+table tbody tr:nth-child(1n) {
+    background: #f6f6f6;
+}
+
+table tbody tr:nth-child(2n) {
+    background: #e6e6e6;
+}
+
+table tbody tr:hover {
+    background: #ffe8e8; transition-duration: 0.6s;
+}
