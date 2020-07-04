@@ -1,0 +1,478 @@
+2020-07-03T14:49:07.642+0200 I CONTROL  [main] Hotfix KB2731284 or later update
+is not installed, will zero-out data files
+MongoDB shell version: 3.2.22
+connecting to: test
+Server has startup warnings:
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten]
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] ** WARNING: This 32-bit
+MongoDB binary is deprecated
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten]
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten]
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] ** NOTE: This is a 32 bi
+t MongoDB binary.
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] **       32 bit builds a
+re limited to less than 2GB of data (or less with --journal).
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] **       Note that journ
+aling defaults to off for 32 bit and is currently off.
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] **       See http://doch
+ub.mongodb.org/core/32bit
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten]
+-- устанавливаем логирование работы базы
+> db.setLogLevel(1)
+{
+        "was" : {
+                "verbosity" : 0,
+                "accessControl" : {
+                        "verbosity" : -1
+                },
+                "command" : {
+                        "verbosity" : -1
+                },
+                "control" : {
+                        "verbosity" : -1
+                },
+                "executor" : {
+                        "verbosity" : -1
+                },
+                "geo" : {
+                        "verbosity" : -1
+                },
+                "index" : {
+                        "verbosity" : -1
+                },
+                "network" : {
+                        "verbosity" : -1,
+                        "asio" : {
+                                "verbosity" : -1
+                        },
+                        "bridge" : {
+                                "verbosity" : -1
+                        }
+                },
+                "query" : {
+                        "verbosity" : -1
+                },
+                "replication" : {
+                        "verbosity" : -1
+                },
+                "sharding" : {
+                        "verbosity" : -1
+                },
+                "storage" : {
+                        "verbosity" : -1,
+                        "journal" : {
+                                "verbosity" : -1
+                        }
+                },
+                "write" : {
+                        "verbosity" : -1
+                },
+                "ftdc" : {
+                        "verbosity" : -1
+                }
+        },
+        "ok" : 1
+}
+> db.setProfilingLevel(2)
+{ "was" : 0, "slowms" : 100, "ok" : 1 }
+-- выбираем нашу базу
+> use alpclub
+switched to db alpclub
+-- добавляем и одновременно создаем коллекцию страна
+> db.strany.insert({name:'Россия'})
+WriteResult({ "nInserted" : 1 })
+> db.strany.insert({name:'США'})
+WriteResult({ "nInserted" : 1 })
+> db.strany.insert({name:'Украина'})
+WriteResult({ "nInserted" : 1 })
+> db.strany.insert({name:'Германия'})
+WriteResult({ "nInserted" : 1 })
+> db.strany.insert({name:'Бразилия'})
+WriteResult({ "nInserted" : 1 })
+--смотрим что теперь коллекция содержит
+> db.strany.find()
+{ "_id" : ObjectId("5eff49a73dab91c3ab96ab66"), "name" : "Россия" }
+{ "_id" : ObjectId("5eff4a3c3dab91c3ab96ab67"), "name" : "США" }
+{ "_id" : ObjectId("5eff4a4a3dab91c3ab96ab68"), "name" : "Украина" }
+{ "_id" : ObjectId("5eff4a5c3dab91c3ab96ab69"), "name" : "Германия" }
+{ "_id" : ObjectId("5eff4a673dab91c3ab96ab6a"), "name" : "Бразилия" }
+-- добавляем и одновременно создаем коллекцию нештатные ситуации
+> db.nesht_situacii.insert({name:'травма'})
+WriteResult({ "nInserted" : 1 })
+> db.nesht_situacii.insert({name:'пропал без вести'})
+WriteResult({ "nInserted" : 1 })
+> db.nesht_situacii.insert({name:'летальный исход'})
+WriteResult({ "nInserted" : 1 })
+> db.nesht_situacii.insert({name:'остался жить в горах'})
+WriteResult({ "nInserted" : 1 })
+> db.nesht_situacii.insert({name:'псих. травма'})
+WriteResult({ "nInserted" : 1 })
+> db.nesht_situacii.insert({name:'без проишествий'})
+WriteResult({ "nInserted" : 1 })
+> db.nesht_situacii.find()
+{ "_id" : ObjectId("5eff4c893dab91c3ab96ab6b"), "name" : "травма" }
+{ "_id" : ObjectId("5eff4c9a3dab91c3ab96ab6c"), "name" : "пропал без вести" }
+{ "_id" : ObjectId("5eff4cb63dab91c3ab96ab6d"), "name" : "летальный исход" }
+{ "_id" : ObjectId("5eff4cde3dab91c3ab96ab6e"), "name" : "остался жить в горах"
+}
+{ "_id" : ObjectId("5eff4cfd3dab91c3ab96ab6f"), "name" : "псих. травма" }
+{ "_id" : ObjectId("5eff4d263dab91c3ab96ab70"), "name" : "без проишествий" }
+-- добавляем и одновременно создаем коллекцию горные районы
+> db.rayon.insert({name:'Большой Кавказ'})
+WriteResult({ "nInserted" : 1 })
+> db.rayon.insert({name:'Уральские горы'})
+WriteResult({ "nInserted" : 1 })
+> db.rayon.insert({name:'Алтай'})
+WriteResult({ "nInserted" : 1 })
+> db.rayon.insert({name:'Западные Саяны'})
+WriteResult({ "nInserted" : 1 })
+> db.rayon.insert({name:'Восточные Саяны'})
+WriteResult({ "nInserted" : 1 })
+> db.rayon.find()
+{ "_id" : ObjectId("5eff4e1e3dab91c3ab96ab71"), "name" : "Большой Кавказ" }
+{ "_id" : ObjectId("5eff4e2d3dab91c3ab96ab72"), "name" : "Уральские горы" }
+{ "_id" : ObjectId("5eff4e403dab91c3ab96ab73"), "name" : "Алтай" }
+{ "_id" : ObjectId("5eff4e573dab91c3ab96ab74"), "name" : "Западные Саяны" }
+{ "_id" : ObjectId("5eff4e6c3dab91c3ab96ab75"), "name" : "Восточные Саяны" }
+-- добавляем документы и одновременно создаем коллекцию маршруты
+> db.marshruty.insert({opisanie:'Восхождение на Белуху',prodolgitelnost:45,gora:
+{name:'Белуха',vysota:4509,rayon:ObjectId("5eff4e403dab91c3ab96ab73")}})
+WriteResult({ "nInserted" : 1 })
+> db.marshruty.insert({opisanie:'Алтайская сказка',prodolgitelnost:46,gora:{name
+:'Маашей-Баш',vysota:4173,rayon:ObjectId("5eff4e403dab91c3ab96ab73")}})
+WriteResult({ "nInserted" : 1 })
+> db.marshruty.insert({opisanie:'Облегченный маршрут на Алтае',prodolgitelnost:4
+6,gora:{name:'Беркутаул',vysota:3738,rayon:ObjectId("5eff4e403dab91c3ab96ab73")}
+})
+WriteResult({ "nInserted" : 1 })
+> db.marshruty.insert({opisanie:'Восхождение на Джангу',prodolgitelnost:49,gora:
+{name:'Джанга',vysota:5058,rayon:ObjectId("5eff4e1e3dab91c3ab96ab71")}})
+WriteResult({ "nInserted" : 1 })
+> db.marshruty.insert({opisanie:'Сказки Эльбруса',prodolgitelnost:46,gora:{name:
+'Эльбрус',vysota:5642,rayon:ObjectId("5eff4e1e3dab91c3ab96ab71")}})
+WriteResult({ "nInserted" : 1 })
+> db.marshruty.find()
+{ "_id" : ObjectId("5eff51733dab91c3ab96ab76"), "opisanie" : "Восхождение на Бел
+уху", "prodolgitelnost" : 45, "gora" : { "name" : "Белуха", "vysota" : 4509, "ra
+yon" : ObjectId("5eff4e403dab91c3ab96ab73") } }
+{ "_id" : ObjectId("5eff52453dab91c3ab96ab77"), "opisanie" : "Алтайская сказка",
+ "prodolgitelnost" : 46, "gora" : { "name" : "Маашей-Баш", "vysota" : 4173, "ray
+on" : ObjectId("5eff4e403dab91c3ab96ab73") } }
+{ "_id" : ObjectId("5eff53233dab91c3ab96ab78"), "opisanie" : "Облегченный маршру
+т на Алтае", "prodolgitelnost" : 46, "gora" : { "name" : "Беркутаул", "vysota" :
+ 3738, "rayon" : ObjectId("5eff4e403dab91c3ab96ab73") } }
+{ "_id" : ObjectId("5eff53953dab91c3ab96ab79"), "opisanie" : "Восхождение на Джа
+нгу", "prodolgitelnost" : 49, "gora" : { "name" : "Джанга", "vysota" : 5058, "ra
+yon" : ObjectId("5eff4e1e3dab91c3ab96ab71") } }
+{ "_id" : ObjectId("5eff53e43dab91c3ab96ab7a"), "opisanie" : "Сказки Эльбруса",
+"prodolgitelnost" : 46, "gora" : { "name" : "Эльбрус", "vysota" : 5642, "rayon"
+: ObjectId("5eff4e1e3dab91c3ab96ab71") } }
+> db.alpinisty.insert({name:{ima:'Алексей',otchestvo:'Петрович',familia:'Рубинин
+'},vozrast:39,contacts{adres:'Санкт-петербург,ул Бабушкина 11 кв 12',tel:'895012
+312312',email:'rubinin@mail.ru'},club:{name_club:'Альпклуб ЛЭТИ',adres_club:'Сан
+кт-Петербург',tel_club:'898190912345',email_club:'alpclubleti@gmail.com',strana_
+club:ObjectId("5eff49a73dab91c3ab96ab66"),lico_club:'Дмитрий Евгеньевич Царегоро
+дцев'}})
+2020-07-03T18:07:31.679+0200 E QUERY    [thread1] SyntaxError: missing : after p
+roperty id @(shell):1:100
+-- добавляем и одновременно создаем коллекцию альпинисты
+> db.alpinisty.insert({name:{ima:'Алексей',otchestvo:'Петрович',familia:'Рубинин
+'},vozrast:39,contacts{adres:'Санкт-петербург,ул Бабушкина 11 кв 12',tel:'895012
+312312',email:'rubinin@mail.ru'},club:{name_club:'Альпклуб ЛЭТИ',adres_club:'Сан
+кт-Петербург',tel_club:'898190912345',email_club:'alpclubleti@gmail.com',strana_
+club:ObjectId("5eff49a73dab91c3ab96ab66"),lico_club:'Дмитрий Евгеньевич Царегоро
+дцев'}})
+2020-07-03T18:12:43.863+0200 E QUERY    [thread1] SyntaxError: missing : after p
+roperty id @(shell):1:100
+
+> db.alpinisty.insert({name:{ima:'Алексей',otchestvo:'Петрович',familia:'Рубинин
+'},vozrast:39,contacts:{adres:'Санкт-петербург,ул Бабушкина 11 кв 12',tel:'89501
+2312312',email:'rubinin@mail.ru'},club:{name_club:'Альпклуб ЛЭТИ',adres_club:'Са
+нкт-Петербург',tel_club:'898190912345',email_club:'alpclubleti@gmail.com',strana
+_club:ObjectId("5eff49a73dab91c3ab96ab66"),lico_club:'Дмитрий Евгеньевич Царегор
+одцев'}})
+WriteResult({ "nInserted" : 1 })
+> db.alpinisty.insert({name:{ima:'Петр',otchestvo:'Иванович',familia:'Самопалов'
+},vozrast:49,contacts:{adres:'Санкт-петербург,ул Академика Павлова 1 кв 12',tel:
+'8950325235235',email:'samopal@mail.ru'},club:{name_club:'Альпклуб ЛЭТИ',adres_c
+lub:'Санкт-Петербург',tel_club:'898190912345',email_club:'alpclubleti@gmail.com'
+,strana_club:ObjectId("5eff49a73dab91c3ab96ab66"),lico_club:'Дмитрий Евгеньевич
+Царегородцев'}})
+WriteResult({ "nInserted" : 1 })
+> db.alpinisty.insert({name:{ima:'Алексей',otchestvo:'Исхакович',familia:'Рубинш
+тейн'},vozrast:19,contacts:{adres:'Санкт-петербург,ул Академика Павлова 1 кв 10'
+,tel:'8955235252325',email:'rubin@mail.ru'},club:{name_club:'Альпклуб ЛЭТИ',adre
+s_club:'Санкт-Петербург',tel_club:'898190912345',email_club:'alpclubleti@gmail.c
+om',strana_club:ObjectId("5eff49a73dab91c3ab96ab66"),lico_club:'Дмитрий Евгеньев
+ич Царегородцев'}})
+WriteResult({ "nInserted" : 1 })
+> db.alpinisty.insert({name:{ima:'Виталий',otchestvo:'Романович',familia:'Иванов
+'},vozrast:29,contacts:{adres:'Санкт-петербург,ул Александра Невского 10 кв 140'
+,tel:'8956868656844',email:'ivanov@mail.ru'},club:{name_club:'Альпклуб ЛЭТИ',adr
+es_club:'Санкт-Петербург',tel_club:'898190912345',email_club:'alpclubleti@gmail.
+com',strana_club:ObjectId("5eff49a73dab91c3ab96ab66"),lico_club:'Дмитрий Евгенье
+вич Царегородцев'}})
+WriteResult({ "nInserted" : 1 })
+> db.alpinisty.insert({name:{ima:'Николай',otchestvo:'Семенович',familia:'Заикин
+'},vozrast:20,contacts:{adres:'Санкт-петербург,ул Балканская 17 кв 10',tel:'8955
+32523525',email:'zaikin@mail.ru'},club:{name_club:'Альпклуб ЛЭТИ',adres_club:'Са
+нкт-Петербург',tel_club:'898190912345',email_club:'alpclubleti@gmail.com',strana
+_club:ObjectId("5eff49a73dab91c3ab96ab66"),lico_club:'Дмитрий Евгеньевич Царегор
+одцев'}})
+WriteResult({ "nInserted" : 1 })
+> db.alpinisty.find()
+{ "_id" : ObjectId("5eff59403dab91c3ab96ab7b"), "name" : { "ima" : "Алексей", "o
+tchestvo" : "Петрович", "familia" : "Рубинин" }, "vozrast" : 39, "contacts" : {
+"adres" : "Санкт-петербург,ул Бабушкина 11 кв 12", "tel" : "895012312312", "emai
+l" : "rubinin@mail.ru" }, "club" : { "name_club" : "Альпклуб ЛЭТИ", "adres_club"
+ : "Санкт-Петербург", "tel_club" : "898190912345", "email_club" : "alpclubleti@g
+mail.com", "strana_club" : ObjectId("5eff49a73dab91c3ab96ab66"), "lico_club" : "
+Дмитрий Евгеньевич Царегородцев" } }
+{ "_id" : ObjectId("5eff6b0b3dab91c3ab96ab7c"), "name" : { "ima" : "Петр", "otch
+estvo" : "Иванович", "familia" : "Самопалов" }, "vozrast" : 49, "contacts" : { "
+adres" : "Санкт-петербург,ул Академика Павлова 1 кв 12", "tel" : "8950325235235"
+, "email" : "samopal@mail.ru" }, "club" : { "name_club" : "Альпклуб ЛЭТИ", "adre
+s_club" : "Санкт-Петербург", "tel_club" : "898190912345", "email_club" : "alpclu
+bleti@gmail.com", "strana_club" : ObjectId("5eff49a73dab91c3ab96ab66"), "lico_cl
+ub" : "Дмитрий Евгеньевич Царегородцев" } }
+{ "_id" : ObjectId("5eff6bb03dab91c3ab96ab7d"), "name" : { "ima" : "Алексей", "o
+tchestvo" : "Исхакович", "familia" : "Рубинштейн" }, "vozrast" : 19, "contacts"
+: { "adres" : "Санкт-петербург,ул Академика Павлова 1 кв 10", "tel" : "895523525
+2325", "email" : "rubin@mail.ru" }, "club" : { "name_club" : "Альпклуб ЛЭТИ", "a
+dres_club" : "Санкт-Петербург", "tel_club" : "898190912345", "email_club" : "alp
+clubleti@gmail.com", "strana_club" : ObjectId("5eff49a73dab91c3ab96ab66"), "lico
+_club" : "Дмитрий Евгеньевич Царегородцев" } }
+{ "_id" : ObjectId("5eff6c5b3dab91c3ab96ab7e"), "name" : { "ima" : "Виталий", "o
+tchestvo" : "Романович", "familia" : "Иванов" }, "vozrast" : 29, "contacts" : {
+"adres" : "Санкт-петербург,ул Александра Невского 10 кв 140", "tel" : "895686865
+6844", "email" : "ivanov@mail.ru" }, "club" : { "name_club" : "Альпклуб ЛЭТИ", "
+adres_club" : "Санкт-Петербург", "tel_club" : "898190912345", "email_club" : "al
+pclubleti@gmail.com", "strana_club" : ObjectId("5eff49a73dab91c3ab96ab66"), "lic
+o_club" : "Дмитрий Евгеньевич Царегородцев" } }
+{ "_id" : ObjectId("5eff6d1b3dab91c3ab96ab7f"), "name" : { "ima" : "Николай", "o
+tchestvo" : "Семенович", "familia" : "Заикин" }, "vozrast" : 20, "contacts" : {
+"adres" : "Санкт-петербург,ул Балканская 17 кв 10", "tel" : "895532523525", "ema
+il" : "zaikin@mail.ru" }, "club" : { "name_club" : "Альпклуб ЛЭТИ", "adres_club"
+ : "Санкт-Петербург", "tel_club" : "898190912345", "email_club" : "alpclubleti@g
+mail.com", "strana_club" : ObjectId("5eff49a73dab91c3ab96ab66"), "lico_club" : "
+Дмитрий Евгеньевич Царегородцев" } }
+
+--перезапуск клиента монго дб
+2020-07-03T20:34:21.095+0200 I CONTROL  [main] Hotfix KB2731284 or later update
+is not installed, will zero-out data files
+MongoDB shell version: 3.2.22
+connecting to: test
+Server has startup warnings:
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten]
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] ** WARNING: This 32-bit
+MongoDB binary is deprecated
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten]
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten]
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] ** NOTE: This is a 32 bi
+t MongoDB binary.
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] **       32 bit builds a
+re limited to less than 2GB of data (or less with --journal).
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] **       Note that journ
+aling defaults to off for 32 bit and is currently off.
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] **       See http://doch
+ub.mongodb.org/core/32bit
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten]
+> use alpclub
+switched to db alpclub
+-- добавляем документы и одновременно создаем коллекцию групп (восхождений) в нее включаем дополнительно список участников
+> db.alp_gruppa.insert({commentariy:'все хорошо',rezult:'успешно',data_otpravlen
+ia:new Date(2019,10,19,10,23),data_vozrachenia:new Date(2019,10,24,10,23),marshr
+ut:idObject("5eff52453dab91c3ab96ab77"),nach_voshog_plan:new Date(2019,10,20,11,
+23),zaver_voshog_plan:new Date(2019,10,22,10,24),nach_voshog_fact:new Date(2019,
+10,20,11,23),zaver_voshog_fact:new Date(2019,10,22,10,24),uchastniki:[[alpinist:
+idObject("5eff59403dab91c3ab96ab7b"),rezult_alpinista:'успешно',nesht_situacii:i
+dObject("5eff4d263dab91c3ab96ab70")],[alpinist:idObject("5eff6b0b3dab91c3ab96ab7
+c"),rezult_alpinista:'успешно',nesht_situacii:idObject("5eff4d263dab91c3ab96ab70
+")]]})
+2020-07-03T20:36:36.849+0200 E QUERY    [thread1] SyntaxError: missing ] after e
+lement list @(shell):1:397
+
+> db.alp_gruppa.insert({commentariy:'все хорошо',rezult:'успешно',data_otpravlen
+ia:new Date(2019,10,19,10,23),data_vozrachenia:new Date(2019,10,24,10,23),marshr
+ut:idObject("5eff52453dab91c3ab96ab77"),nach_voshog_plan:new Date(2019,10,20,11,
+23),zaver_voshog_plan:new Date(2019,10,22,10,24),nach_voshog_fact:new Date(2019,
+10,20,11,23),zaver_voshog_fact:new Date(2019,10,22,10,24),uchastniki:[{alpinist:
+idObject("5eff59403dab91c3ab96ab7b"),rezult_alpinista:'успешно',nesht_situacii:i
+dObject("5eff4d263dab91c3ab96ab70")},{alpinist:idObject("5eff6b0b3dab91c3ab96ab7
+c"),rezult_alpinista:'успешно',nesht_situacii:idObject("5eff4d263dab91c3ab96ab70
+")}]})
+2020-07-03T20:41:38.500+0200 E QUERY    [thread1] ReferenceError: idObject is no
+t defined :
+@(shell):1:153
+
+> db.alp_gruppa.insert({commentariy:'все хорошо',rezult:'успешно',data_otpravlen
+ia:new Date(2019,10,19,10,23),data_vozrachenia:new Date(2019,10,24,10,23),marshr
+ut:idObject("5eff51733dab91c3ab96ab76"),nach_voshog_plan:new Date(2019,10,20,11,
+23),zaver_voshog_plan:new Date(2019,10,22,10,24),nach_voshog_fact:new Date(2019,
+10,20,11,23),zaver_voshog_fact:new Date(2019,10,22,10,24),uchastniki:[{alpinist:
+idObject("5eff59403dab91c3ab96ab7b"),rezult_alpinista:'успешно',nesht_situacii:i
+dObject("5eff4d263dab91c3ab96ab70")},{alpinist:idObject("5eff6b0b3dab91c3ab96ab7
+c"),rezult_alpinista:'успешно',nesht_situacii:idObject("5eff4d263dab91c3ab96ab70
+")}]})
+2020-07-03T20:47:18.141+0200 E QUERY    [thread1] ReferenceError: idObject is no
+t defined :
+@(shell):1:153
+
+> db.alp_gruppa.insert({commentariy:'все хорошо',rezult:'успешно',data_otpravlen
+ia:new Date(2019,10,19,10,23),data_vozrachenia:new Date(2019,10,24,10,23),marshr
+ut:ObjectId("5eff51733dab91c3ab96ab76"),nach_voshog_plan:new Date(2019,10,20,11,
+23),zaver_voshog_plan:new Date(2019,10,22,10,24),nach_voshog_fact:new Date(2019,
+10,20,11,23),zaver_voshog_fact:new Date(2019,10,22,10,24),uchastniki:[{alpinist:
+ObjectId("5eff59403dab91c3ab96ab7b"),rezult_alpinista:'успешно',nesht_situacii:O
+bjectId("5eff4d263dab91c3ab96ab70")},{alpinist:ObjectId("5eff6b0b3dab91c3ab96ab7
+c"),rezult_alpinista:'успешно',nesht_situacii:ObjectId("5eff4d263dab91c3ab96ab70
+")}]})
+WriteResult({ "nInserted" : 1 })
+> db.alp_gruppa.find()
+{ "_id" : ObjectId("5eff7dfbbc53b9c3687b3e0a"), "commentariy" : "все хорошо", "r
+ezult" : "успешно", "data_otpravlenia" : ISODate("2019-11-19T08:23:00Z"), "data_
+vozrachenia" : ISODate("2019-11-24T08:23:00Z"), "marshrut" : ObjectId("5eff51733
+dab91c3ab96ab76"), "nach_voshog_plan" : ISODate("2019-11-20T09:23:00Z"), "zaver_
+voshog_plan" : ISODate("2019-11-22T08:24:00Z"), "nach_voshog_fact" : ISODate("20
+19-11-20T09:23:00Z"), "zaver_voshog_fact" : ISODate("2019-11-22T08:24:00Z"), "uc
+hastniki" : [ { "alpinist" : ObjectId("5eff59403dab91c3ab96ab7b"), "rezult_alpin
+ista" : "успешно", "nesht_situacii" : ObjectId("5eff4d263dab91c3ab96ab70") }, {
+"alpinist" : ObjectId("5eff6b0b3dab91c3ab96ab7c"), "rezult_alpinista" : "успешно
+", "nesht_situacii" : ObjectId("5eff4d263dab91c3ab96ab70") } ] }
+> db.alp_gruppa.insert({commentariy:'все хорошо',rezult:'успешно',data_otpravlen
+ia:new Date(2019,1,19,10,23),data_vozrachenia:new Date(2019,1,24,10,23),marshrut
+:ObjectId("5eff52453dab91c3ab96ab77"),nach_voshog_plan:new Date(2019,01,20,11,23
+),zaver_voshog_plan:new Date(2019,01,22,10,24),nach_voshog_fact:new Date(2019,1,
+20,11,23),zaver_voshog_fact:new Date(2019,1,22,10,24),uchastniki:[{alpinist:Obje
+ctId("5eff59403dab91c3ab96ab7b"),rezult_alpinista:'успешно',nesht_situacii:Objec
+tId("5eff4d263dab91c3ab96ab70")},{alpinist:ObjectId("5eff6b0b3dab91c3ab96ab7c"),
+rezult_alpinista:'успешно',nesht_situacii:ObjectId("5eff4d263dab91c3ab96ab70")},
+{alpinist:ObjectId("5eff6bb03dab91c3ab96ab7d"),rezult_alpinista:'успешно',nesht_
+situacii:idObject("5eff4d263dab91c3ab96ab70")},{alpinist:ObjectId("5eff6c5b3dab9
+1c3ab96ab7e"),rezult_alpinista:'успешно',nesht_situacii:idObject("5eff4d263dab91
+c3ab96ab70")}]})
+2020-07-03T21:54:52.629+0200 E QUERY    [thread1] ReferenceError: idObject is no
+t defined :
+@(shell):1:713
+
+> db.alp_gruppa.insert({commentariy:'все хорошо',rezult:'успешно',data_otpravlen
+ia:new Date(2019,1,19,10,23),data_vozrachenia:new Date(2019,1,24,10,23),marshrut
+:ObjectId("5eff52453dab91c3ab96ab77"),nach_voshog_plan:new Date(2019,01,20,11,23
+),zaver_voshog_plan:new Date(2019,01,22,10,24),nach_voshog_fact:new Date(2019,1,
+20,11,23),zaver_voshog_fact:new Date(2019,1,22,10,24),uchastniki:[{alpinist:Obje
+ctId("5eff59403dab91c3ab96ab7b"),rezult_alpinista:'успешно',nesht_situacii:Objec
+tId("5eff4d263dab91c3ab96ab70")},{alpinist:ObjectId("5eff6b0b3dab91c3ab96ab7c"),
+rezult_alpinista:'успешно',nesht_situacii:ObjectId("5eff4d263dab91c3ab96ab70")},
+{alpinist:ObjectId("5eff6bb03dab91c3ab96ab7d"),rezult_alpinista:'успешно',nesht_
+situacii:ObjectId("5eff4d263dab91c3ab96ab70")},{alpinist:ObjectId("5eff6c5b3dab9
+1c3ab96ab7e"),rezult_alpinista:'успешно',nesht_situacii:ObjectId("5eff4d263dab91
+c3ab96ab70")}]})
+WriteResult({ "nInserted" : 1 })
+> db.alp_gruppa.insert({commentariy:'потеряли палатку',rezult:'успешно',data_otp
+ravlenia:new Date(2019,11,19,10,23),data_vozrachenia:new Date(2019,11,24,10,23),
+marshrut:ObjectId("5eff52453dab91c3ab96ab77"),nach_voshog_plan:new Date(2019,11,
+20,11,23),zaver_voshog_plan:new Date(2019,11,22,10,24),nach_voshog_fact:new Date
+(2019,11,20,11,23),zaver_voshog_fact:new Date(2019,11,22,10,24),uchastniki:[{alp
+inist:ObjectId("5eff59403dab91c3ab96ab7b"),rezult_alpinista:'успешно',nesht_situ
+acii:ObjectId("5eff4d263dab91c3ab96ab70")},{alpinist:ObjectId("5eff6b0b3dab91c3a
+b96ab7c"),rezult_alpinista:'успешно',nesht_situacii:ObjectId("5eff4d263dab91c3ab
+96ab70")},{alpinist:ObjectId("5eff6bb03dab91c3ab96ab7d"),rezult_alpinista:'успеш
+но',nesht_situacii:ObjectId("5eff4d263dab91c3ab96ab70")},{alpinist:ObjectId("5ef
+f6c5b3dab91c3ab96ab7e"),rezult_alpinista:'удовлетворительно',nesht_situacii:Obje
+ctId("5eff4d263dab91c3ab96ab70")}]})
+WriteResult({ "nInserted" : 1 })
+> db.alp_gruppa.insert({commentariy:'травма у одного из участников',rezult:'удов
+летворительно',data_otpravlenia:new Date(2019,2,19,10,23),data_vozrachenia:new D
+ate(2019,2,24,10,23),marshrut:ObjectId("5eff52453dab91c3ab96ab77"),nach_voshog_p
+lan:new Date(2019,2,20,11,23),zaver_voshog_plan:new Date(2019,2,22,10,24),nach_v
+oshog_fact:new Date(2019,2,20,11,23),zaver_voshog_fact:new Date(2019,2,22,10,24)
+,uchastniki:[{alpinist:ObjectId("5eff59403dab91c3ab96ab7b"),rezult_alpinista:'ус
+пешно',nesht_situacii:ObjectId("5eff4d263dab91c3ab96ab70")},{alpinist:ObjectId("
+5eff6b0b3dab91c3ab96ab7c"),rezult_alpinista:'успешно',nesht_situacii:ObjectId("5
+eff4d263dab91c3ab96ab70")},{alpinist:ObjectId("5eff6bb03dab91c3ab96ab7d"),rezult
+_alpinista:'успешно',nesht_situacii:ObjectId("5eff4d263dab91c3ab96ab70")},{alpin
+ist:ObjectId("5eff6c5b3dab91c3ab96ab7e"),rezult_alpinista:'удовлетворительно',ne
+sht_situacii:ObjectId("5eff4c893dab91c3ab96ab6b")}]})
+WriteResult({ "nInserted" : 1 })
+> db.alp_gruppa.insert({commentariy:'все хорошо',rezult:'успешно',data_otpravlen
+ia:new Date(2019,3,19,10,23),data_vozrachenia:new Date(2019,3,24,10,23),marshrut
+:ObjectId("5eff53233dab91c3ab96ab78"),nach_voshog_plan:new Date(2019,3,20,11,23)
+,zaver_voshog_plan:new Date(2019,3,22,10,24),nach_voshog_fact:new Date(2019,3,20
+,11,23),zaver_voshog_fact:new Date(2019,3,22,10,24),uchastniki:[{alpinist:Object
+Id("5eff59403dab91c3ab96ab7b"),rezult_alpinista:'успешно',nesht_situacii:ObjectI
+d("5eff4d263dab91c3ab96ab70")},{alpinist:ObjectId("5eff6b0b3dab91c3ab96ab7c"),re
+zult_alpinista:'успешно',nesht_situacii:ObjectId("5eff4d263dab91c3ab96ab70")},{a
+lpinist:ObjectId("5eff6bb03dab91c3ab96ab7d"),rezult_alpinista:'успешно',nesht_si
+tuacii:ObjectId("5eff4d263dab91c3ab96ab70")},{alpinist:ObjectId("5eff6d1b3dab91c
+3ab96ab7f"),rezult_alpinista:'успешно',nesht_situacii:ObjectId("5eff4d263dab91c3
+ab96ab70")}]})
+WriteResult({ "nInserted" : 1 })
+-- просматриваем коллекцию групп(восхождений)
+> db.alp_gruppa.find()
+{ "_id" : ObjectId("5eff7dfbbc53b9c3687b3e0a"), "commentariy" : "все хорошо", "r
+ezult" : "успешно", "data_otpravlenia" : ISODate("2019-11-19T08:23:00Z"), "data_
+vozrachenia" : ISODate("2019-11-24T08:23:00Z"), "marshrut" : ObjectId("5eff51733
+dab91c3ab96ab76"), "nach_voshog_plan" : ISODate("2019-11-20T09:23:00Z"), "zaver_
+voshog_plan" : ISODate("2019-11-22T08:24:00Z"), "nach_voshog_fact" : ISODate("20
+19-11-20T09:23:00Z"), "zaver_voshog_fact" : ISODate("2019-11-22T08:24:00Z"), "uc
+hastniki" : [ { "alpinist" : ObjectId("5eff59403dab91c3ab96ab7b"), "rezult_alpin
+ista" : "успешно", "nesht_situacii" : ObjectId("5eff4d263dab91c3ab96ab70") }, {
+"alpinist" : ObjectId("5eff6b0b3dab91c3ab96ab7c"), "rezult_alpinista" : "успешно
+", "nesht_situacii" : ObjectId("5eff4d263dab91c3ab96ab70") } ] }
+{ "_id" : ObjectId("5eff8d46bc53b9c3687b3e0b"), "commentariy" : "все хорошо", "r
+ezult" : "успешно", "data_otpravlenia" : ISODate("2019-02-19T08:23:00Z"), "data_
+vozrachenia" : ISODate("2019-02-24T08:23:00Z"), "marshrut" : ObjectId("5eff52453
+dab91c3ab96ab77"), "nach_voshog_plan" : ISODate("2019-02-20T09:23:00Z"), "zaver_
+voshog_plan" : ISODate("2019-02-22T08:24:00Z"), "nach_voshog_fact" : ISODate("20
+19-02-20T09:23:00Z"), "zaver_voshog_fact" : ISODate("2019-02-22T08:24:00Z"), "uc
+hastniki" : [ { "alpinist" : ObjectId("5eff59403dab91c3ab96ab7b"), "rezult_alpin
+ista" : "успешно", "nesht_situacii" : ObjectId("5eff4d263dab91c3ab96ab70") }, {
+"alpinist" : ObjectId("5eff6b0b3dab91c3ab96ab7c"), "rezult_alpinista" : "успешно
+", "nesht_situacii" : ObjectId("5eff4d263dab91c3ab96ab70") }, { "alpinist" : Obj
+ectId("5eff6bb03dab91c3ab96ab7d"), "rezult_alpinista" : "успешно", "nesht_situac
+ii" : ObjectId("5eff4d263dab91c3ab96ab70") }, { "alpinist" : ObjectId("5eff6c5b3
+dab91c3ab96ab7e"), "rezult_alpinista" : "успешно", "nesht_situacii" : ObjectId("
+5eff4d263dab91c3ab96ab70") } ] }
+{ "_id" : ObjectId("5eff8e78bc53b9c3687b3e0c"), "commentariy" : "потеряли палатк
+у", "rezult" : "успешно", "data_otpravlenia" : ISODate("2019-12-19T08:23:00Z"),
+"data_vozrachenia" : ISODate("2019-12-24T08:23:00Z"), "marshrut" : ObjectId("5ef
+f52453dab91c3ab96ab77"), "nach_voshog_plan" : ISODate("2019-12-20T09:23:00Z"), "
+zaver_voshog_plan" : ISODate("2019-12-22T08:24:00Z"), "nach_voshog_fact" : ISODa
+te("2019-12-20T09:23:00Z"), "zaver_voshog_fact" : ISODate("2019-12-22T08:24:00Z"
+), "uchastniki" : [ { "alpinist" : ObjectId("5eff59403dab91c3ab96ab7b"), "rezult
+_alpinista" : "успешно", "nesht_situacii" : ObjectId("5eff4d263dab91c3ab96ab70")
+ }, { "alpinist" : ObjectId("5eff6b0b3dab91c3ab96ab7c"), "rezult_alpinista" : "у
+спешно", "nesht_situacii" : ObjectId("5eff4d263dab91c3ab96ab70") }, { "alpinist"
+ : ObjectId("5eff6bb03dab91c3ab96ab7d"), "rezult_alpinista" : "успешно", "nesht_
+situacii" : ObjectId("5eff4d263dab91c3ab96ab70") }, { "alpinist" : ObjectId("5ef
+f6c5b3dab91c3ab96ab7e"), "rezult_alpinista" : "удовлетворительно", "nesht_situac
+ii" : ObjectId("5eff4d263dab91c3ab96ab70") } ] }
+{ "_id" : ObjectId("5eff913bbc53b9c3687b3e0d"), "commentariy" : "травма у одного
+ из участников", "rezult" : "удовлетворительно", "data_otpravlenia" : ISODate("2
+019-03-19T08:23:00Z"), "data_vozrachenia" : ISODate("2019-03-24T08:23:00Z"), "ma
+rshrut" : ObjectId("5eff52453dab91c3ab96ab77"), "nach_voshog_plan" : ISODate("20
+19-03-20T09:23:00Z"), "zaver_voshog_plan" : ISODate("2019-03-22T08:24:00Z"), "na
+ch_voshog_fact" : ISODate("2019-03-20T09:23:00Z"), "zaver_voshog_fact" : ISODate
+("2019-03-22T08:24:00Z"), "uchastniki" : [ { "alpinist" : ObjectId("5eff59403dab
+91c3ab96ab7b"), "rezult_alpinista" : "успешно", "nesht_situacii" : ObjectId("5ef
+f4d263dab91c3ab96ab70") }, { "alpinist" : ObjectId("5eff6b0b3dab91c3ab96ab7c"),
+"rezult_alpinista" : "успешно", "nesht_situacii" : ObjectId("5eff4d263dab91c3ab9
+6ab70") }, { "alpinist" : ObjectId("5eff6bb03dab91c3ab96ab7d"), "rezult_alpinist
+a" : "успешно", "nesht_situacii" : ObjectId("5eff4d263dab91c3ab96ab70") }, { "al
+pinist" : ObjectId("5eff6c5b3dab91c3ab96ab7e"), "rezult_alpinista" : "удовлетвор
+ительно", "nesht_situacii" : ObjectId("5eff4c893dab91c3ab96ab6b") } ] }
+{ "_id" : ObjectId("5eff92fbbc53b9c3687b3e0e"), "commentariy" : "все хорошо", "r
+ezult" : "успешно", "data_otpravlenia" : ISODate("2019-04-19T08:23:00Z"), "data_
+vozrachenia" : ISODate("2019-04-24T08:23:00Z"), "marshrut" : ObjectId("5eff53233
+dab91c3ab96ab78"), "nach_voshog_plan" : ISODate("2019-04-20T09:23:00Z"), "zaver_
+voshog_plan" : ISODate("2019-04-22T08:24:00Z"), "nach_voshog_fact" : ISODate("20
+19-04-20T09:23:00Z"), "zaver_voshog_fact" : ISODate("2019-04-22T08:24:00Z"), "uc
+hastniki" : [ { "alpinist" : ObjectId("5eff59403dab91c3ab96ab7b"), "rezult_alpin
+ista" : "успешно", "nesht_situacii" : ObjectId("5eff4d263dab91c3ab96ab70") }, {
+"alpinist" : ObjectId("5eff6b0b3dab91c3ab96ab7c"), "rezult_alpinista" : "успешно
+", "nesht_situacii" : ObjectId("5eff4d263dab91c3ab96ab70") }, { "alpinist" : Obj
+ectId("5eff6bb03dab91c3ab96ab7d"), "rezult_alpinista" : "успешно", "nesht_situac
+ii" : ObjectId("5eff4d263dab91c3ab96ab70") }, { "alpinist" : ObjectId("5eff6d1b3
+dab91c3ab96ab7f"), "rezult_alpinista" : "успешно", "nesht_situacii" : ObjectId("
+5eff4d263dab91c3ab96ab70") } ] }
+
