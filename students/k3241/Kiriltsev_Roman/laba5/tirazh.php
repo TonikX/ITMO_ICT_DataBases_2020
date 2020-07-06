@@ -38,21 +38,21 @@ if (isset($_POST['gazeta_title'])){
 <body>
 
 
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="index.php">Газета</a>
+    <ul class="bar-my">
+      <li class="my-item">
+        <a class="my-link" href="index.php">Газета</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="tirazh.php">Тираж</a>
+      <li class="my-item active">
+        <a class="my-link" href="tirazh.php">Тираж</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pochtovoe_otdelenie.php">Почтовое отделение</a>
+      <li class="my-item">
+        <a class="my-link" href="pochtovoe_otdelenie.php">Почтовое отделение</a>
       </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="dostavka.php">Доставка</a>
+	  <li class="my-item">
+        <a class="my-link" href="dostavka.php">Доставка</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="tipografia.php">Типография</a>
+      <li class="my-item">
+        <a class="my-link" href="tipografia.php">Типография</a>
       </li>
     </ul>
 
