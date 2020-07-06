@@ -1,0 +1,142 @@
+db.Doctors.insertMany([{
+	_id: ObjectId(),
+	"name": "Vasilisa Pupkina",
+	"contacts": "emaildoctora@inbox.ru",
+	"spec": "eye doctor",
+	"dates": [{"date": new ISODate("2020-03-18T00:00:00Z"), "office": 17}]
+},
+{
+	_id: ObjectId(),
+	"name": "Stepanida Petrova",
+	"contacts": "+78275193628",
+	"spec": "Surgeon",
+	"dates": [{"date": new ISODate("2020-03-18T00:00:00Z"), "office": 10}]
+},
+{
+	_id: ObjectId(),
+	"name": "Victor Shvabrin",
+	"contacts": "+79272638888",
+	"spec": "otolaryngologist",
+	"dates": [{"date": new ISODate("2020-03-16T00:00:00Z"), "office": 12}, {"date": new Date("<2020-03-17>"), "office": 12}]
+},
+{
+	_id: ObjectId(),
+	"name": "Roman Kefirov",
+	"contacts": "+79210231313",
+	"spec": "gastroenterologist",
+	"dates": [{"date": new ISODate("2020-03-19T00:00:00Z"), "office": 23}]
+},
+{
+	_id: ObjectId(),
+	"name": "Angus Dotin",
+	"contacts": "+79524812234",
+	"spec": "germatologist",
+	"dates": [{"date": new ISODate("2020-03-20T00:00:00Z"), "office": 6}]}])
+
+db.MedFiles.insertMany([{
+	_id: ObjectId(),
+	"info": {
+		"name": "Vasiliy Pupkin",
+		"sex": "male",
+		"bd": new ISODate("2000-04-19T00:00:00Z")
+	},
+	"diagnoses": [{"name": "dermatitis", "status": "cured"}]
+},
+{
+	_id: ObjectId(),
+	"info": {
+		"name": "Stepan Petrov",
+		"sex": "male",
+		"bd": new ISODate("1974-03-20T00:00:00Z")
+	},
+	"diagnoses": [{"name": "gastritis", "status": "chronic"}]
+},
+{
+	_id: ObjectId(),
+	"info": {
+		"name": "Roman Ochakov",
+		"sex": "male",
+		"bd": new ISODate("1996-09-14T00:00:00Z")
+	},
+	"diagnoses": [{"name": "pharyngitis", "status": "active"}]
+},
+{
+	_id: ObjectId(),
+	"info": {
+		"name": "Vika Shvabrina",
+		"sex": "female",
+		"bd": new ISODate("1985-06-03T00:00:00Z")
+	},
+	"diagnoses": [{"name": "sprained ankle", "status": "cured"}]
+},
+{
+	_id: ObjectId(),
+	"info": {
+		"name": "Anna Dotina",
+		"sex": "female",
+		"bd": new ISODate("1994-08-30T00:00:00Z")
+	},
+	"diagnoses": [{"name": "myopia", "status": "chronic"}]
+}
+])
+
+db.Cons.insertMany([{
+	_id: ObjectId(),
+	"patient": "Roman Ochakov",
+	"doctor": "Viktor Shvabrin",
+	"date": new ISODate("2020-03-16T00:00:00Z"),
+	"payment": true,
+	"service": [{"name": "visit", "price": 1000}, {"name": "blood sampling", "price": 700}]
+},
+{
+	_id: ObjectId(),
+	"patient": "Roman Ochakov",
+	"doctor": "Viktor Shvabrin",
+	"date": new ISODate("2020-03-17T00:00:00Z"),
+	"payment": false,
+	"service": [{"name": "repeated visit", "price": 700}]
+},
+{
+	_id: ObjectId(),
+	"patient": "Anna Dotina",
+	"doctor": "Vasilisa Pupkina",
+	"date": new ISODate("2020-03-18T00:00:00Z"),
+	"payment": true,
+	"service": [{"name": "visit", "price": 1000}]
+},
+{
+	_id: ObjectId(),
+	"patient": "Vasiliy Pupkin",
+	"doctor": "Stepanida Petrova",
+	"date": new ISODate("2020-03-18T00:00:00Z"),
+	"payment": false,
+	"service": [{"name": "visit", "price": 1000}]
+},
+{
+	_id: ObjectId(),
+	"patient": "Vika Shvabrina",
+	"doctor": "Roman Kefirov",
+	"date": new ISODate("2020-03-19T00:00:00Z"),
+	"payment": true,
+	"service": [{"name": "visit", "price": 1000}, {"name": "x-ray", "price": 500}]
+}])
+
+// Женщины с миопей 
+db.Doctors.find({"info.sex": "female", "diagnoses.name": "myopia"})
+// Окулисты
+db.Doctors.find({"spec": "eye doctor"})
+// Оплаченные консультации 18 марта
+db.Cons.find({"payment": true, "date": ISODate("2020-03-18T00:00:00Z")})
+// Количество оплаченных консультаций
+db.Cons.count({"payment": true})
+// Кабинеты в доступном расписании
+db.Doctors.find({}, {"dates.office": 1})
+// Имя доктора и кабинет, в котором он работал 18 марта
+db.Doctors.find({"dates.date": ISODate("2020-03-18T00:00:00Z")}, {"name": 1, "dates.office": 1})
+// MapReduce
+db.Doctors.mapReduce(
+ function() { emit(this.name, this.spec); },
+ function(values) { return values; },
+ { out: "mapreduce_call" }
+);
+db.mapreduce_call.find() 
