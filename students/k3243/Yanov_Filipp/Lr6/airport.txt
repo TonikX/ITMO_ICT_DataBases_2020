@@ -1,0 +1,36 @@
+db.samolet.insert({"tip": "Boeing", "nomer_modeli": 738,"chislo_mest": 190, "skorost_poleta": 850, "aviacompany": "S7"})
+db.samolet.insert({"tip": "Airbus", "nomer_modeli": 320,"chislo_mest": 146, "skorost_poleta": 830, "aviacompany": "Aeroflot"})
+db.samolet.insert({"tip": "Boeing", "nomer_modeli": 773,"chislo_mest": 550, "skorost_poleta": 950, "aviacompany": "British_airways"})
+db.samolet.insert({"tip": "Airbus", "nomer_modeli": 359,"chislo_mest": 314, "skorost_poleta": 945, "aviacompany": "Lufthansa"})
+db.samolet.insert({"tip": "Boeing", "nomer_modeli": 737,"chislo_mest": 178, "skorost_poleta": 840, "aviacompany": "Aeroflot"})
+
+db.reys.insert({"rasstoyanie_do_punkta_naznachenia": 725, "punkt_vyleta": "Pulkovo","punkt_priletat": "Sheremetievo"})
+db.reys.insert({"rasstoyanie_do_punkta_naznachenia": 409, "punkt_vyleta": "Vnukovo","punkt_priletat": "Strigino"})
+db.reys.insert({"rasstoyanie_do_punkta_naznachenia": 34, "punkt_vyleta": "Domodedovo","punkt_priletat": "Vnukovo"})
+db.reys.insert({"rasstoyanie_do_punkta_naznachenia": 5330, "punkt_vyleta": "Pulkovo","punkt_priletat": "Lisboa"})
+db.reys.insert({"rasstoyanie_do_punkta_naznachenia": 305, "punkt_vyleta": "Frankfurt_I_A","punkt_priletat": "Zurich_m_a"})
+
+
+db.remont.insert({id_samolet: ObjectId("5eff4b7ad82b8666975964d3"), "polomka" : "Nasos"})
+db.remont.insert({id_samolet: ObjectId("5eff4f65d82b8666975964d4"), "polomka" : "Dvertsa_tualeta"})
+db.remont.insert({id_samolet: ObjectId("5eff4f6bd82b8666975964d5"), "polomka" : "Zadniya_dver"})
+db.remont.insert({id_samolet: ObjectId("5eff4f70d82b8666975964d6"), "polomka" : "Chvostovoe_operenie"})
+db.remont.insert({id_samolet: ObjectId("5eff4f70d82b8666975964d7"), "polomka" : "Shassi"})
+
+
+db.polet.insert({id_samolet: ObjectId("5eff4b7ad82b8666975964d3"), id_reys: ObjectId("5eff58a5d82b8666975964d8"), "data_vyleta" : "2020-03-14", "vremya_vyleta" : "10:42:57", "data_prileta" : "2020-03-14", "vremya_prileta" : "12:06:17", "kolichestvo_prodannych_biletov" : 167, "kolichestvo_soverchennych_reysov" : 104})
+db.polet.insert({id_samolet: ObjectId("5eff4f65d82b8666975964d4"), id_reys: ObjectId("5eff58bdd82b8666975964d9"), "data_vyleta" : "2020-03-15", "vremya_vyleta" : "15:56:41", "data_prileta" : "2020-03-15", "vremya_prileta" : "16:56:13", "kolichestvo_prodannych_biletov" : 137, "kolichestvo_soverchennych_reysov" : 18})
+db.polet.insert({id_samolet: ObjectId("5eff4f6bd82b8666975964d5"), id_reys: ObjectId("5eff58c4d82b8666975964da"), "data_vyleta" : "2020-03-16", "vremya_vyleta" : "23:18:18", "data_prileta" : "2020-03-17", "vremya_prileta" : "00:16:29", "kolichestvo_prodannych_biletov" : 124, "kolichestvo_soverchennych_reysov" : 19})
+db.polet.insert({id_samolet: ObjectId("5eff4f70d82b8666975964d6"), id_reys: ObjectId("5eff58c9d82b8666975964db"), "data_vyleta" : "2020-03-21", "vremya_vyleta" : "23:56:37", "data_prileta" : "2020-03-23", "vremya_prileta" : "01:45:27", "kolichestvo_prodannych_biletov" : 144, "kolichestvo_soverchennych_reysov" : 27})
+db.polet.insert({id_samolet: ObjectId("5eff4f70d82b8666975964d7"), id_reys: ObjectId("5eff58cfd82b8666975964dc"), "data_vyleta" : "2020-03-19", "vremya_vyleta" : "19:00:01", "data_prileta" : "2020-03-19", "vremya_prileta" : "19:13:38", "kolichestvo_prodannych_biletov" : 132, "kolichestvo_soverchennych_reysov" : 98})
+
+
+
+
+
+
+
+
+
+
+
