@@ -1,0 +1,40 @@
+1.Все взятые книги и их автор.
+
+db.customers.find(null, {"taken_books.name":1, "taken_books.author":1, _id:0})
+
+{ "taken_books" : [ { "name" : "War and Peace", "author" : "Tolstoy" }, { "name" : "Bible", "author" : "Sombody" } ] }
+{ "taken_books" : [ { "name" : "Suge", "author" : "Jeremian" }, { "name" : "Bible", "author" : "Sombody" } ] }  { "taken_books" : [ { "name" : "2014 Forest Hill Drive", "author" : "Jeremian Cole" } ] }                       { "taken_books" : [ { "name" : "Star Shopping", "author" : "Gustav" }, { "name" : "Bible", "author" : "Sombody" } ] }
+
+2. Имена и паспорт всех читателей.
+
+db.customers.find({}, {"name":1, "passport":1})
+
+{ "_id" : ObjectId("5f0471319526457a890b54df"), "name" : "Jesus", "passport" : 3312324569 }                     { "_id" : ObjectId("5f0471319526457a890b54e0"), "name" : "DaBaby", "passport" : 1212324569 }                    { "_id" : ObjectId("5f0471319526457a890b54e1"), "name" : "J.Cole", "passport" : 1212325469 }                    { "_id" : ObjectId("5f0471319526457a890b54e2"), "name" : "Lil Peep", "passport" : 1212111569 }
+
+3.Залы вместимость которых больше или равна 10
+
+db.customers.find({"hall.capacity": {$gte: 10}}, {"hall.name":1});
+
+{ "_id" : ObjectId("5f0471319526457a890b54df"), "hall" : { "name" : "Kids" } }                                  { "_id" : ObjectId("5f0471319526457a890b54e0"), "hall" : { "name" : "Olders" } }
+
+4.MapReduce - Сумма паспортов людей в каждом зале
+
+var map_function = function(){
+	emit(this.hall.name, this.passport);
+};
+
+var reduce_function = function(name, passport){
+	return Array.sum(passport);
+};
+
+db.customers.mapReduce(map_function, reduce_function, {out:"MapReduceRes"}) 
+{                                                                                                                   "result" : "MapReduceRes",                                                                                       "timeMillis" : 57,                                                                                              "counts" : {                                                                                                                "input" : 4,                                                                                                    "emit" : 4,                                                                                                     "reduce" : 1,                                                                                                   "output" : 3                                                                                                    },                                                                                                  "ok" : 1
+}  
+db.MapReduceRes.find({})
+{ "_id" : "Geniuses", "value" : 2424437038 }                                                                    { "_id" : "Kids", "value" : 3312324569 }                                                                        { "_id" : "Olders", "value" : 1212324569 }
+
+5. Список клиентов для каждого зала
+db.customers.aggregate([{$group:{_id:"$hall.name", customers: {$push:"$name"}}}])
+{ "_id" : "Kids", "customers" : [ "Jesus" ] } 
+{ "_id" : "Olders", "customers" : [ "DaBaby" ] }
+{ "_id" : "Geniuses", "customers" : [ "J.Cole", "Lil Peep" ] }           
