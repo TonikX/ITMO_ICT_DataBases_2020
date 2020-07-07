@@ -1,0 +1,5 @@
+{"_id":{"$oid":"5f01fa355d6f9aa11d241deb"},"diet_number":1.0,"diet_content":"Первая диета","breed":[{"$oid":"5f01efe25d6f9aa11d241dd3"},{"$oid":"5f01f0225d6f9aa11d241dd5"}]}
+{"_id":{"$oid":"5f01fa475d6f9aa11d241dec"},"diet_number":2.0,"diet_content":"Вторая диета","breed":[{"$oid":"5f01f0125d6f9aa11d241dd4"}]}
+{"_id":{"$oid":"5f01fa4e5d6f9aa11d241ded"},"diet_number":3.0,"diet_content":"Третья диета","breed":[{"$oid":"5f01f0305d6f9aa11d241dd6"},{"$oid":"5f01f03f5d6f9aa11d241dd7"}]}
+{"_id":{"$oid":"5f01facb5d6f9aa11d241dee"},"diet_number":4.0,"diet_content":"Четвертая диета","breed":[{"$oid":"5f01efe25d6f9aa11d241dd3"}]}
+{"_id":{"$oid":"5f01fad75d6f9aa11d241def"},"diet_number":5.0,"diet_content":"Пятая диета"}
