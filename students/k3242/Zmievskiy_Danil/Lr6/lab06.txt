@@ -1,0 +1,456 @@
+> use library
+switched to db library
+
+--------------Читатель---------------
+> document=([{"name" : "Змиевский Данил Александрович", "passport_number" : 122334, "reading_card_number" : 10, "date_of_birth" : ISODate("2000-12-21T21:00:00Z"), "address" : "СПБ", "phone_number" : 455466, "education" : "Неоконченное высшее", "academic_degree" : "Нет" }, {"name": "Тойвонен Полина Денисовна", "passport_number": 112233, "reading_card_number": 11, "date_of_birth": new Date('Jul 13, 2000'), "address": "СПБ", "phone_number": 122334, "education": "Неоконченное высшее", "academic_degree": "Нет"}, {"name": "Кузьмичев Кирилл Максимович", "passport_number": 036478, "reading_card_number": 12, "date_of_birth": new Date('Apr 11, 2000'), "address": "СПБ", "phone_number": 283764, "education": "Неоконченное высшее", "academic_degree": "Нет"}, {"name": "Курашова Светлана Александровна", "passport_number": 276340, "reading_card_number": 13, "date_of_birth": new Date('May 21, 1965'), "address": "СПБ", "phone_number": 937485, "education": "Высшее", "academic_degree": "Есть"}, {"name": "Бабушкина Наталья Пантелемоновна", "passport_number": 309485, "reading_card_number": 14, "date_of_birth": new Date('Nov 03, 2000'), "address": "СПБ", "phone_number": 374859, "education": "Неоконченное высшее", "academic_degree": "Нет"}])
+[
+	{
+		"name" : "Змиевский Данил Александрович",
+		"passport_number" : 122334,
+		"reading_card_number" : 10,
+		"date_of_birth" : ISODate("2000-12-21T21:00:00Z"),
+		"address" : "СПБ",
+		"phone_number" : 455466,
+		"education" : "Неоконченное высшее",
+		"academic_degree" : "Нет"
+	},
+	{
+		"name" : "Тойвонен Полина Денисовна",
+		"passport_number" : 112233,
+		"reading_card_number" : 11,
+		"date_of_birth" : ISODate("2000-07-12T20:00:00Z"),
+		"address" : "СПБ",
+		"phone_number" : 122334,
+		"education" : "Неоконченное высшее",
+		"academic_degree" : "Нет"
+	},
+	{
+		"name" : "Кузьмичев Кирилл Максимович",
+		"passport_number" : 36478,
+		"reading_card_number" : 12,
+		"date_of_birth" : ISODate("2000-04-10T20:00:00Z"),
+		"address" : "СПБ",
+		"phone_number" : 283764,
+		"education" : "Неоконченное высшее",
+		"academic_degree" : "Нет"
+	},
+	{
+		"name" : "Курашова Светлана Александровна",
+		"passport_number" : 276340,
+		"reading_card_number" : 13,
+		"date_of_birth" : ISODate("1965-05-20T21:00:00Z"),
+		"address" : "СПБ",
+		"phone_number" : 937485,
+		"education" : "Высшее",
+		"academic_degree" : "Есть"
+	},
+	{
+		"name" : "Бабушкина Наталья Пантелемоновна",
+		"passport_number" : 309485,
+		"reading_card_number" : 14,
+		"date_of_birth" : ISODate("2000-11-02T21:00:00Z"),
+		"address" : "СПБ",
+		"phone_number" : 374859,
+		"education" : "Неоконченное высшее",
+		"academic_degree" : "Нет"
+	}
+]
+> db.reader.insert(document)
+BulkWriteResult({
+	"writeErrors" : [ ],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 5,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+
+> db.reader.find()
+{ "_id" : ObjectId("5f02b008ef8908d32640a1dc"), "name" : "Змиевский Данил Александрович", "passport_number" : 122334, "reading_card_number" : 10, "date_of_birth" : ISODate("2000-12-21T21:00:00Z"), "address" : "СПБ", "phone_number" : 455466, "education" : "Неоконченное высшее", "academic_degree" : "Нет" }
+{ "_id" : ObjectId("5f02b008ef8908d32640a1dd"), "name" : "Тойвонен Полина Денисовна", "passport_number" : 112233, "reading_card_number" : 11, "date_of_birth" : ISODate("2000-07-12T20:00:00Z"), "address" : "СПБ", "phone_number" : 122334, "education" : "Неоконченное высшее", "academic_degree" : "Нет" }
+{ "_id" : ObjectId("5f02b008ef8908d32640a1de"), "name" : "Кузьмичев Кирилл Максимович", "passport_number" : 36478, "reading_card_number" : 12, "date_of_birth" : ISODate("2000-04-10T20:00:00Z"), "address" : "СПБ", "phone_number" : 283764, "education" : "Неоконченное высшее", "academic_degree" : "Нет" }
+{ "_id" : ObjectId("5f02b008ef8908d32640a1df"), "name" : "Курашова Светлана Александровна", "passport_number" : 276340, "reading_card_number" : 13, "date_of_birth" : ISODate("1965-05-20T21:00:00Z"), "address" : "СПБ", "phone_number" : 937485, "education" : "Высшее", "academic_degree" : "Есть" }
+{ "_id" : ObjectId("5f02b008ef8908d32640a1e0"), "name" : "Бабушкина Наталья Пантелемоновна", "passport_number" : 309485, "reading_card_number" : 14, "date_of_birth" : ISODate("2000-11-02T21:00:00Z"), "address" : "СПБ", "phone_number" : 374859, "education" : "Неоконченное высшее", "academic_degree" : "Нет" }
+
+---------------------Книга-----------------------
+> document=([{"name": "Гарри Поттер", "author": "Д.К. Роулинг", "publishing_house": "Росмэн", "date_of_publish": new Date('Oct 12, 2007'), "section": "Фэнтази", "number_of_instances_in_r/r": {room_3: 20, room_5: 1}}, {"name": "Анна Каренина", "author": "Л.Н. Толстой", "publishing_house": "АСТ", "date_of_publish": new Date('May 02, 2015'), "section": "Русская классика", "number_of_instances_in_r/r": {room_1: 10}}, {"name": "Война и мир", "author": "Л.Н. Толстой", "publishing_house": "Эксмо", "date_of_publish": new Date('Jun 03, 2018'), "section": "Русская классика", "number_of_instances_in_r/r": {room_2: 17}}, {"name": "Мертвые души", "author": "Н.В. Гоголь", "publishing_house": "АСТ", "date_of_publish": new Date('Jul 04, 2015'), "section": "Русская классика", "number_of_instances_in_r/r": {room_3: 20}}, {"name": "Гордость и предубеждение", "author": "Джейн Остин", "publishing_house": "АСТ", "date_of_publish": new Date('Aug 05, 2015'), "section": "Зарубежная классика", "number_of_instances_in_r/r": {room_2: 5}}])
+[
+	{
+		"name" : "Гарри Поттер",
+		"author" : "Д.К. Роулинг",
+		"publishing_house" : "Росмэн",
+		"date_of_publish" : ISODate("2007-10-11T20:00:00Z"),
+		"section" : "Фэнтази",
+		"number_of_instances_in_r/r" : {
+			"room_3" : 20,
+			"room_5" : 1
+		}
+	},
+	{
+		"name" : "Анна Каренина",
+		"author" : "Л.Н. Толстой",
+		"publishing_house" : "АСТ",
+		"date_of_publish" : ISODate("2015-05-01T21:00:00Z"),
+		"section" : "Русская классика",
+		"number_of_instances_in_r/r" : {
+			"room_1" : 10
+		}
+	},
+	{
+		"name" : "Война и мир",
+		"author" : "Л.Н. Толстой",
+		"publishing_house" : "Эксмо",
+		"date_of_publish" : ISODate("2018-06-02T21:00:00Z"),
+		"section" : "Русская классика",
+		"number_of_instances_in_r/r" : {
+			"room_2" : 17
+		}
+	},
+	{
+		"name" : "Мертвые души",
+		"author" : "Н.В. Гоголь",
+		"publishing_house" : "АСТ",
+		"date_of_publish" : ISODate("2015-07-03T21:00:00Z"),
+		"section" : "Русская классика",
+		"number_of_instances_in_r/r" : {
+			"room_3" : 20
+		}
+	},
+	{
+		"name" : "Гордость и предубеждение",
+		"author" : "Джейн Остин",
+		"publishing_house" : "АСТ",
+		"date_of_publish" : ISODate("2015-08-04T21:00:00Z"),
+		"section" : "Зарубежная классика",
+		"number_of_instances_in_r/r" : {
+			"room_2" : 5
+		}
+	}
+]
+> db.book.insert(document)
+BulkWriteResult({
+	"writeErrors" : [ ],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 5,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+> db.book.find()
+{ "_id" : ObjectId("5f02b096ef8908d32640a1e1"), "name" : "Гарри Поттер", "author" : "Д.К. Роулинг", "publishing_house" : "Росмэн", "date_of_publish" : ISODate("2007-10-11T20:00:00Z"), "section" : "Фэнтази", "number_of_instances_in_r/r" : { "room_3" : 20, "room_5" : 1 } }
+{ "_id" : ObjectId("5f02b096ef8908d32640a1e2"), "name" : "Анна Каренина", "author" : "Л.Н. Толстой", "publishing_house" : "АСТ", "date_of_publish" : ISODate("2015-05-01T21:00:00Z"), "section" : "Русская классика", "number_of_instances_in_r/r" : { "room_1" : 10 } }
+{ "_id" : ObjectId("5f02b096ef8908d32640a1e3"), "name" : "Война и мир", "author" : "Л.Н. Толстой", "publishing_house" : "Эксмо", "date_of_publish" : ISODate("2018-06-02T21:00:00Z"), "section" : "Русская классика", "number_of_instances_in_r/r" : { "room_2" : 17 } }
+{ "_id" : ObjectId("5f02b096ef8908d32640a1e4"), "name" : "Мертвые души", "author" : "Н.В. Гоголь", "publishing_house" : "АСТ", "date_of_publish" : ISODate("2015-07-03T21:00:00Z"), "section" : "Русская классика", "number_of_instances_in_r/r" : { "room_3" : 20 } }
+{ "_id" : ObjectId("5f02b096ef8908d32640a1e5"), "name" : "Гордость и предубеждение", "author" : "Джейн Остин", "publishing_house" : "АСТ", "date_of_publish" : ISODate("2015-08-04T21:00:00Z"), "section" : "Зарубежная классика", "number_of_instances_in_r/r" : { "room_2" : 5 } }
+
+
+------------------------Экземпляр--------------------
+> document=([{"book_id": ObjectId("5f02b096ef8908d32640a1e4")}, {"book_id": ObjectId("5f02b096ef8908d32640a1e2")}, {"book_id": ObjectId("5f02b096ef8908d32640a1e2")}, {"book_id": ObjectId("5f02b096ef8908d32640a1e3")}, {"book_id": ObjectId("5f02b096ef8908d32640a1e3")}])
+[
+	{
+		"book_id" : ObjectId("5f02b096ef8908d32640a1e4")
+	},
+	{
+		"book_id" : ObjectId("5f02b096ef8908d32640a1e2")
+	},
+	{
+		"book_id" : ObjectId("5f02b096ef8908d32640a1e2")
+	},
+	{
+		"book_id" : ObjectId("5f02b096ef8908d32640a1e3")
+	},
+	{
+		"book_id" : ObjectId("5f02b096ef8908d32640a1e3")
+	}
+]
+> db.instance.insert(document)
+BulkWriteResult({
+	"writeErrors" : [ ],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 5,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+> db.instance.find()
+{ "_id" : ObjectId("5f03ebdef4ace68db77b05e7"), "book_id" : ObjectId("5f02b096ef8908d32640a1e4") }
+{ "_id" : ObjectId("5f03ebdef4ace68db77b05e8"), "book_id" : ObjectId("5f02b096ef8908d32640a1e2") }
+{ "_id" : ObjectId("5f03ebdef4ace68db77b05e9"), "book_id" : ObjectId("5f02b096ef8908d32640a1e2") }
+{ "_id" : ObjectId("5f03ebdef4ace68db77b05ea"), "book_id" : ObjectId("5f02b096ef8908d32640a1e3") }
+{ "_id" : ObjectId("5f03ebdef4ace68db77b05eb"), "book_id" : ObjectId("5f02b096ef8908d32640a1e3") }
+
+--------------------------------Выдача книг--------------------------
+> document=([{"reader_id": ObjectId("5ef3ab8730421401532b3fcf"), "instance_id": ObjectId("5ef3ba583be0b881c8c10ba5"), "date_of_receiving": new Date('Mar 04, 2018'), "date_of_return": null}, {"reader_id": ObjectId("5ef3aeecfbdc9b429733398b"), "instance_id": ObjectId("5ef3ba583be0b881c8c10ba6"), "date_of_receiving": new Date('Apr 05, 2017'), "date_of_return": null}, {"reader_id": ObjectId("5ef3aeecfbdc9b429733398c"), "instance_id": ObjectId("5ef3ba583be0b881c8c10ba7"), "date_of_receiving": new Date('May 06, 2016'), "date_of_return": null}, {"reader_id": ObjectId("5ef3aeecfbdc9b429733398d"), "instance_id": ObjectId("5ef3ba583be0b881c8c10ba8"), "date_of_receiving": new Date('Jun 07, 2018'), "date_of_return": null}, {"reader_id": ObjectId("5ef3aeecfbdc9b429733398e"), "instance_id": ObjectId("5ef3ba583be0b881c8c10ba9"), "date_of_receiving": new Date('Jul 08, 2018'), "date_of_return": null}])
+[
+	{
+		"reader_id" : ObjectId("5f02b008ef8908d32640a1dc"),
+		"instance_id" : ObjectId("5f03ebdef4ace68db77b05e7"),
+		"date_of_receiving" : ISODate("2018-03-03T21:00:00Z"),
+		"date_of_return" : null
+	},
+	{
+		"reader_id" : ObjectId("5f02b008ef8908d32640a1dd"),
+		"instance_id" : ObjectId("5f03ebdef4ace68db77b05e8"),
+		"date_of_receiving" : ISODate("2017-04-04T21:00:00Z"),
+		"date_of_return" : null
+	},
+	{
+		"reader_id" : ObjectId("5f02b008ef8908d32640a1de"),
+		"instance_id" : ObjectId("5f03ebdef4ace68db77b05e9"),
+		"date_of_receiving" : ISODate("2016-05-05T21:00:00Z"),
+		"date_of_return" : null
+	},
+	{
+		"reader_id" : ObjectId("5f02b008ef8908d32640a1df"),
+		"instance_id" : ObjectId("5f03ebdef4ace68db77b05ea"),
+		"date_of_receiving" : ISODate("2018-06-06T21:00:00Z"),
+		"date_of_return" : null
+	},
+	{
+		"reader_id" : ObjectId("5f02b008ef8908d32640a1e0"),
+		"instance_id" : ObjectId("5f03ebdef4ace68db77b05eb"),
+		"date_of_receiving" : ISODate("2018-07-07T21:00:00Z"),
+		"date_of_return" : null
+	}
+]
+
+> db.getting_book.insert(document)
+BulkWriteResult({
+	"writeErrors" : [ ],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 5,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+> db.getting_book.find()
+{ "_id" : ObjectId("5f03f1a6f4ace68db77b05ec"), "reader_id" : ObjectId("5f02b008ef8908d32640a1dc"), "instance_id" : ObjectId("5f03ebdef4ace68db77b05e7"), "date_of_receiving" : ISODate("2018-03-03T21:00:00Z"), "date_of_return" : null }
+{ "_id" : ObjectId("5f03f1a6f4ace68db77b05ed"), "reader_id" : ObjectId("5f02b008ef8908d32640a1dd"), "instance_id" : ObjectId("5f03ebdef4ace68db77b05e8"), "date_of_receiving" : ISODate("2017-04-04T21:00:00Z"), "date_of_return" : null }
+{ "_id" : ObjectId("5f03f1a6f4ace68db77b05ee"), "reader_id" : ObjectId("5f02b008ef8908d32640a1de"), "instance_id" : ObjectId("5f03ebdef4ace68db77b05e9"), "date_of_receiving" : ISODate("2016-05-05T21:00:00Z"), "date_of_return" : null }
+{ "_id" : ObjectId("5f03f1a6f4ace68db77b05ef"), "reader_id" : ObjectId("5f02b008ef8908d32640a1df"), "instance_id" : ObjectId("5f03ebdef4ace68db77b05ea"), "date_of_receiving" : ISODate("2018-06-06T21:00:00Z"), "date_of_return" : null }
+{ "_id" : ObjectId("5f03f1a6f4ace68db77b05f0"), "reader_id" : ObjectId("5f02b008ef8908d32640a1e0"), "instance_id" : ObjectId("5f03ebdef4ace68db77b05eb"), "date_of_receiving" : ISODate("2018-07-07T21:00:00Z"), "date_of_return" : null }
+
+
+----------------------------Запросы--------------------------
+1) Какие книги закреплены за определенным читателем? (id: ObjectId("5f02b008ef8908d32640a1dc"))
+
+db.reader.aggregate([
+    {
+        $match: { _id: ObjectId("5f02b008ef8908d32640a1dc")}
+    },
+    {
+        $lookup:
+        {
+            from: "getting_book",
+            localField: "_id",
+            foreignField: "reader_id",
+            as: "getting"
+        }
+    },
+    {
+        $unwind: "$getting"
+    },
+    {
+        $lookup:
+        {
+            from: "instance",
+            localField: "getting.instance_id",
+            foreignField: "_id",
+            as: "instance"
+        }
+    },
+    {
+        $unwind: "$instance"
+    },
+    {
+        $lookup:
+        {
+            from: "book",
+            localField: "instance.book_id",
+            foreignField: "_id",
+            as: "book"
+        }
+    },
+    {
+        $unwind: "$book"
+    },
+
+  {   
+    $project: { name: "$book.name"}
+ }
+
+]).pretty();
+
+{ "_id" : ObjectId("5f02b008ef8908d32640a1dc"), "name" : "Мертвые души" }
+
+2) Кто из читателей взял книгу более месяца тому назад?
+
+db.getting_book.aggregate([
+    {
+        $lookup:
+        {
+            from: "reader",
+            localField: "reader_id",
+            foreignField: "_id",
+            as: "reader"
+        }
+    },
+    {
+        $unwind: "$reader"
+    },
+    { "$redact": {
+        "$cond": {
+            "if": {
+                "$gt": [
+                    { "$subtract": [ new Date('Feb 03, 2018'), "$date_of_receiving" ] },
+                    1000 * 60 * 60 * 24
+                ]
+            },
+            "then": "$$KEEP",
+            "else": "$$PRUNE"
+        }
+    }},
+
+  {   
+    $project: { name: "$reader.name"}
+ }
+
+]).pretty();
+ 
+{
+	"_id" : ObjectId("5f03f1a6f4ace68db77b05ec"),
+	"name" : "Змиевский Данил Александрович"
+}
+{
+	"_id" : ObjectId("5f03f1a6f4ace68db77b05ed"),
+	"name" : "Тойвонен Полина Денисовна"
+}
+{
+	"_id" : ObjectId("5f03f1a6f4ace68db77b05ee"),
+	"name" : "Кузьмичев Кирилл Максимович"
+}
+{
+	"_id" : ObjectId("5f03f1a6f4ace68db77b05ef"),
+	"name" : "Курашова Светлана Александровна"
+}
+{
+	"_id" : ObjectId("5f03f1a6f4ace68db77b05f0"),
+	"name" : "Бабушкина Наталья Пантелемоновна"
+}
+
+3) За кем из читателей закреплены книги, количество экземпляров которых в зале 3 более 10?
+
+db.reader.aggregate([
+    {
+        $lookup:
+        {
+            from: "getting_book",
+            localField: "_id",
+            foreignField: "reader_id",
+            as: "getting"
+        }
+    },
+    {
+        $unwind: "$getting"
+    },
+    {
+        $lookup:
+        {
+            from: "instance",
+            localField: "getting.instance_id",
+            foreignField: "_id",
+            as: "instance"
+        }
+    },
+    {
+        $unwind: "$instance"
+    },
+    {
+        $lookup:
+        {
+            from: "book",
+            localField: "instance.book_id",
+            foreignField: "_id",
+            as: "book"
+        }
+    },
+    {
+        $unwind: "$book"
+    },
+    { "$redact": {
+        "$cond": {
+            "if": {
+                "$gt": [
+                    "$book.number_of_instances_in_r/r.room_3", 10
+                ]
+            },
+            "then": "$$KEEP",
+            "else": "$$PRUNE"
+        }
+    }},
+
+  {   
+    $project: { name: "$name"}
+ }
+]).pretty();
+
+{
+	"_id" : ObjectId("5f02b008ef8908d32640a1dc"),
+	"name" : "Змиевский Данил Александрович"
+}
+
+4) Вывести читателей старше 30 лет?  
+
+db.reader.aggregate([
+    { "$redact": {
+        "$cond": {
+            "if": {
+                "$gt": [
+                    { "$subtract": [ new Date('Feb 03, 2018'), "$date_of_birth" ] },
+                    1000 * 60 * 60 * 24 * 365 * 30
+                ]
+            },
+            "then": "$$KEEP",
+            "else": "$$PRUNE"
+        }
+    }},
+
+  {   
+    $project: { name: "$name"}
+ }
+
+]).pretty();
+
+{
+	"_id" : ObjectId("5f02b008ef8908d32640a1df"),
+	"name" : "Курашова Светлана Александровна"
+}
+
+5) Вывести количество в залах книг, начинающиеся на “Гарри...”
+
+db.book.aggregate([
+    {
+        $match: { name: { $regex: /^Гарри/i }}
+    },
+  {   
+    $project: { count: "$number_of_instances_in_r/r"}
+ }
+
+]).pretty();
+
+{
+	"_id" : ObjectId("5f02b096ef8908d32640a1e1"),
+	"count" : {
+		"room_3" : 20,
+		"room_5" : 1
+	}
+}
+
