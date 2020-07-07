@@ -1,0 +1,329 @@
+[{ "name":"Жучка",
+   "breed":"овчарка",
+   "owner":{
+      "name":"Василий",
+      "id":12345123
+   },
+   "document":{
+      "id":999991,
+      "parent1":"Волк",
+      "parent2":"Голодный Волк"
+   },
+   "club":"Котики",
+   "age":5,
+   "class":5,
+   "vacine_date":"10.10.2019",
+   "exhibitions":[
+      {
+         "name":"Собаки 2020",
+         "date":"01.01.2020",
+         "payment":true,
+         "medicine":true,
+         "sponsor":"Газпром",
+         "description":"Ежегодная выставка",
+         "excersises":[
+            {
+               "number":1,
+               "points":10,
+               "expert":{
+                  "name":"Иван",
+                  "club":"Персики"
+               }
+            },
+	    {
+               "number":2,
+               "points":8,
+               "expert":{
+                  "name":"Илья",
+                  "club":"Котики"
+               }
+            }
+         ]
+      },
+{
+         "name":"Собаки 2019",
+         "date":"01.01.2019",
+         "payment":true,
+         "medicine":true,
+         "sponsor":"Газпром",
+         "description":"Ежегодная выставка",
+         "excersises":[
+            {
+               "number":1,
+               "points":9,
+               "expert":{
+                  "name":"Илья",
+                  "club":"Котики"
+               }
+            },
+	    {
+               "number":2,
+               "points":7,
+               "expert":{
+                  "name":"Мария",
+                  "club":"Котики"
+               }
+            }
+         ]
+      }
+   ]
+},
+{
+   "name":"Очпочмак",
+   "breed":"овчарка",
+   "owner":{
+      "name":"ИИИИгор",
+      "id":12399999
+   },
+   "document":{
+      "id":999992,
+      "parent1":"Волк",
+      "parent2":"Парковка"
+   },
+   "club":"Котики",
+   "age":2,
+   "class":2,
+   "vacine_date":"01.02.2020",
+   "exhibitions":[
+            {
+         "name":"Собаки 2020",
+         "date":"01.01.2020",
+         "payment":true,
+         "medicine":true,
+         "sponsor":"Газпром",
+         "description":"Ежегодная выставка",
+         "excersises":[
+            {
+               "number":1,
+               "points":5,
+               "expert":{
+                  "name":"Иван",
+                  "club":"Персики"
+               }
+            },
+	    {
+               "number":2,
+               "points":10,
+               "expert":{
+                  "name":"Илья",
+                  "club":"Котики"
+               }
+            }
+         ]
+      },
+{
+         "name":"Собаки 2019",
+         "date":"01.01.2019",
+         "payment":true,
+         "medicine":true,
+         "sponsor":"Газпром",
+         "description":"Ежегодная выставка",
+         "excersises":[
+            {
+               "number":1,
+               "points":4,
+               "expert":{
+                  "name":"Илья",
+                  "club":"Котики"
+               }
+            },
+	    {
+               "number":2,
+               "points":10,
+               "expert":{
+                  "name":"Мария",
+                  "club":"Котики"
+               }
+            }
+         ]
+      }
+   ]
+},
+{
+   "name":"Крошка булки",
+   "breed":"пудель",
+   "owner":{
+      "name":"Анна",
+      "id":12344321
+   },
+   "document":{
+      "id":999993,
+      "parent1":"Крошка",
+      "parent2":"Булка"
+   },
+   "club":"Персики",
+   "age": 15,
+   "class": 15,
+   "vacine_date":"05.06.2017",
+   "exhibitions":[
+      {
+         "name":"Древняя выставка",
+         "date":"06.06.2016",
+         "payment":true,
+         "medicine":true,
+         "sponsor":"Динозавр",
+         "description":"Очень древняя",
+         "excersises":[
+            {
+               "number":1,
+               "points":1,
+               "expert":{
+                  "name":"Илья",
+                  "club":"Котики"
+               }
+            },
+	    {	
+               "number":2,
+               "points":1,
+               "expert":{
+                  "name":"Илья",
+                  "club":"Котики"
+               }
+            }
+         ]
+      },
+      {
+         "name":"Собаки 2019",
+         "date":"01.01.2019",
+         "payment":true,
+         "medicine":true,
+         "sponsor":"Газпром",
+         "description":"Ежегодная выставка",
+         "excersises":[
+            {
+               "number":1,
+               "points":2,
+               "expert":{
+                  "name":"Илья",
+                  "club":"Котики"
+               }
+            },
+	    {
+               "number":2,
+               "points":2,
+               "expert":{
+                  "name":"Мария",
+                  "club":"Котики"
+               }
+            }
+         ]
+      }
+   ]
+},
+{
+   "name":"Не кот",
+   "breed":"пудель",
+   "owner":{
+      "name":"Анна",
+      "id":12344321
+   },
+   "document":{
+      "id":999994,
+      "parent1":"Кот",
+      "parent2":"Другой кот"
+   },
+   "club":"Персики",
+   "age": 3,
+   "class": 3,
+   "vacine_date":"07.06.2019",
+   "exhibitions":[
+      {
+         "name":"Древняя выставка",
+         "date":"06.06.2016",
+         "payment":true,
+         "medicine":true,
+         "sponsor":"Динозавр",
+         "description":"Очень древняя",
+         "excersises":[
+            {
+               "number":1,
+               "points":7,
+               "expert":{
+                  "name":"Мария",
+                  "club":"Котики"
+               }
+            },
+	    {	
+               "number":2,
+               "points":5,
+               "expert":{
+                  "name":"Илья",
+                  "club":"Котики"
+               }
+            }
+         ]
+      },
+          {
+         "name":"Собаки 2020",
+         "date":"01.01.2020",
+         "payment":true,
+         "medicine":true,
+         "sponsor":"Газпром",
+         "description":"Ежегодная выставка",
+         "excersises":[
+            {
+               "number":1,
+               "points":6,
+               "expert":{
+                  "name":"Иван",
+                  "club":"Персики"
+               }
+            },
+	    {
+               "number":2,
+               "points":10,
+               "expert":{
+                  "name":"Иван",
+                  "club":"Персики"
+               }
+            }
+         ]
+      }
+  ]
+},
+{
+   "name":"СЫН",
+   "breed":"овчарка",
+   "owner":{
+      "name":"Олег",
+      "id":12344444
+   },
+   "document":{
+      "id":999995,
+      "parent1":"ПАПА",
+      "parent2":"МАМА"
+   },
+   "club":"Персики",
+   "age":1,
+   "class":1,
+   "vacine_date":"02.01.2020",
+   "exhibitions":[
+      {
+         "name":"Собаки 2020",
+         "date":"01.01.2020",
+         "payment":true,
+         "medicine":true,
+         "sponsor":"Газпром",
+         "description":"Ежегодная выставка",
+         "excersises":[
+            {
+               "number":1,
+               "points":4,
+               "expert":{
+                  "name":"Иван",
+                  "club":"Персики"
+               }
+            },
+	    {
+               "number":2,
+               "points":5,
+               "expert":{
+                  "name":"Иван",
+                  "club":"Персики"
+               }
+            }
+         ]
+      }
+   ]
+}
+]
