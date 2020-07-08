@@ -1,3 +1,0 @@
-{"_id":{"$oid":"5f04aaedf843742c8ab61812"},"name":"mobilki","max_stud":197.0,"min_grade":78.0,"faculty":{"id":1.0,"name":"IKT"}}
-{"_id":{"$oid":"5f04aaedf843742c8ab61813"},"name":"gum_sys","max_stud":222.0,"min_grade":87.0,"faculty":{"id":1.0,"name":"IKT"}}
-{"_id":{"$oid":"5f04aaedf843742c8ab61814"},"name":"protect","max_stud":145.0,"min_grade":89.0,"faculty":{"id":2.0,"name":"ITIP"}}
