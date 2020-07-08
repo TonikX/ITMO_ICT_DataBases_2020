@@ -454,3 +454,27 @@ db.book.aggregate([
 	}
 }
 
+6) Количество книг разных издательств в библиотеке (MapReduce)
+
+db.book.mapReduce( function() { emit( this.publishing_house, 1); }, function(key, values) { return Array.sum( values ) }, { out: "count_by_pub_house"}) 
+{
+	"result" : "count_by_pub_house",
+	"timeMillis" : 283,
+	"counts" : {
+		"input" : 5,
+		"emit" : 5,
+		"reduce" : 1,
+		"output" : 3
+	},
+	"ok" : 1
+}
+
+> db.count_by_pub_house.find()
+{ "_id" : "АСТ", "value" : 3 }
+{ "_id" : "Росмэн", "value" : 1 }
+{ "_id" : "Эксмо", "value" : 1 }
+
+
+
+
+
