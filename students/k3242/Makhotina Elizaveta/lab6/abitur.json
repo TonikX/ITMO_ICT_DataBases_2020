@@ -1,6 +1,0 @@
-{"_id":{"$oid":"5f04b102f843742c8ab61816"},"fio":"Gasanov T.K.","age":19.0,"speciality":{"$oid":"5f04aaedf843742c8ab61813"},"EGE":{"discipline_1":90.0,"discipline_2":86.0,"discipline_3":93.0}}
-{"_id":{"$oid":"5f04b1e4f843742c8ab61817"},"fio":"Tarasov R.A.","age":20.0,"speciality":{"$oid":"5f04aaedf843742c8ab61813"},"EGE":{"discipline_1":91.0,"discipline_2":89.0,"discipline_3":92.0}}
-{"_id":{"$oid":"5f04b31bf843742c8ab61818"},"fio":"Hipov T.K.","age":19.0,"speciality":{"$oid":"5f04aaedf843742c8ab61813"},"EGE":{"discipline_1":68.0,"discipline_2":77.0,"discipline_3":92.0}}
-{"_id":{"$oid":"5f04b367f843742c8ab61819"},"fio":"Tipov R.A.","age":18.0,"speciality":{"$oid":"5f04aaedf843742c8ab61813"},"EGE":{"discipline_1":90.0,"discipline_2":89.0,"discipline_3":69.0}}
-{"_id":{"$oid":"5f04f911f843742c8ab6181a"},"fio":"Abramov K.K.","age":20.0,"gold_medal":1.0,"speciality":{"$oid":"5f04aaedf843742c8ab61814"},"EGE":{"discipline_1":90.0,"discipline_2":97.0,"discipline_3":99.0}}
-{"_id":{"$oid":"5f04fa51f843742c8ab6181b"},"fio":"Kirilin T.L.","age":19.0,"gold_medal":1.0,"speciality":{"$oid":"5f04aaedf843742c8ab61814"},"EGE":{"discipline_1":78.0,"discipline_2":98.0,"discipline_3":69.0}}
