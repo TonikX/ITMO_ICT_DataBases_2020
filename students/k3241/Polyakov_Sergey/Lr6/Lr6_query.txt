@@ -29,3 +29,20 @@ db.flight.aggregate( [ {$unwind: "$staff"}, {$unwind: "$staff.full_name"}, {$mat
 { "_id" : "Иванов Олег Иванович" }
 { "_id" : "Иванов Иван Иванович" }
 { "_id" : "Иванова Анна Ивановна" }
+
+var mapFoo = function() {
+  emit(this.route.airport_start, this.route.airport_start.name);
+  emit(this.route.airport_finish, this.route.airport_finish.name);
+};
+var reduceFoo = function(keys, values) {
+  var result = '';
+  values.forEach(function(value) {
+      result += value + '  ';
+  });
+  return result;
+};
+db.flight.mapReduce(mapFoo, reduceFoo, {out: "mp_example"});
+db.mp_example.find({}, {"_id": 0})
+{ "value" : "Международный аэропорт Дубай" }
+{ "value" : "Международный аэропорт Пекин Столичный  Международный аэропорт Пекин Столичный  " }
+{ "value" : "Международный аэропорт Хартсфилд-Джексон Атланта" }
