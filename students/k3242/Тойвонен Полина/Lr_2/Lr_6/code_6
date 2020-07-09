@@ -1,0 +1,124 @@
+use medclinic
+
+db.Appointment.insert({
+    date: "12-09-2019",
+    time: "11.00",
+    pacient: {
+    fio: "Borisova Veronika Vitalevna",
+    contacts: "967893",
+    birthday: "23-10-1995",
+    },
+    doctor: {
+    fio: "Potashev Pavel Aleksandrovich",
+    birthday: "30-12-1979",
+    specialization: "endocrinologist",
+    education: "St.Petersburg State Paediatric Medical University",
+    employment: "documents",
+    },
+    current state: "rapid weight loss, increased fatigue and general weakness",
+    diagnosis: "diabetes",
+    doctors recommendations: "optimal compensation for diabetes, blood pressure control, kidney function, normal blood chlolesterol, smoking cessation",
+    payment: "no",
+})
+ 
+db.Appointment.insert({
+    date: "26-10-2019",
+    time: "10.00",
+    pacient: {
+    fio: "Evgrafova Margarita Dmitrievna",
+    contacts: "507129",
+    birthday: "01-05-1972",
+    },
+    doctor: {
+    fio: "Semenova Nadezhda Konstantinovna",
+    birthday: "08-06-1965",
+    specialization: "cardiologist",
+    education: "North-Western state Medical University named after I.I.Mechnikov",
+    employment: "documents",
+    },
+    current state: "heart pain, dizziness",
+    diagnosis: "rhuematic heart disease",
+    doctors recommendations: "diclofenac(oral 100 mg/day in tablets and retard capsules of 100 mg rectally-100 mg/day in candles",
+    payment: "yes",
+})
+
+db.Appointment.insert({
+    date: "18-11-2019",
+    time: "10.30",
+    pacient: {
+    fio: "Kuzmichov Kirill Maksimovich",
+    contacts: "967893",
+    birthday: "11-04-2000",
+    },
+    doctor: {
+    fio: "Sergeeva Anna Vladimirovna",
+    birthday: "18-09-1982",
+    specialization: "gastroenterologist",
+    education: "Saint-Petersburg Medico-Social Institute",
+    employment: "documents",
+    },
+    current state: "pain in the upper abdomen",
+    diagnosis: "gastritis",
+    doctors recommendations: "make the aluminium phosphate gel, Trihopol",
+    payment: "yes",
+})
+
+db.Appointment.insert({
+    date: "15-08-2019",
+    time: "10.00",
+    pacient: {
+    fio: "Zmievskiy Danil Aleksandrovich",
+    contacts: "367821",
+    birthday: "22-12-2000",
+    },
+    doctor: {
+    fio: "Chernikov Nikolay Olegovich",
+    birthday: "26-12-1978",
+    specialization: "surgeon",
+    education: "Pavlov University",
+    employment: "documents",
+    },
+    current state: "the cut is still healing",
+    diagnosis: "acute traumatic wound",
+    doctors recommendations: "washing the wound every day, smear the wound with Levomekol",
+    payment: "no",
+})
+
+db.Appointment.insert({
+    date: "04-08-2019",
+    time: "13.00",
+    pacient: {
+    fio: "Miroshnichenko Vladimir Nikolaevich",
+    contacts: "789121",
+    birthday: "03-09-2005",
+    },
+    doctor: {
+    fio: "Gonchar Dmitriy Valentinovich",
+    birthday: "10-02-1979",
+    specialization: "ophthalmologict",
+    education: "North-Western state Medical University named after I.I.Mechnikov",
+    employment: "documents",
+    },
+    current state: "the appearance of a new benign formation on the upper eyelid",
+    diagnosis: "papilloma",
+    doctors recommendations: "you should do the dressing once a day(if necessary). For some time after the operation, you can not take a bath, go to the bath or sauna, or stay in the open sun",
+    payment: "yes",
+})
+
+//Вывод id и fio всех врачей, которые учились в Медико-социальном институте
+db.Appointment.find({"doctor.education": "Saint-Petersburg Medico-Social Institute"}, {_id: 0, "doctor.fio": 1})
+
+//Вывод информации об оплаченных приёмах
+db.Appointment.find({payment: "no"}, {_id: 0, "pacient.fio": 1, "doctor.fio": 1, date: 1, time: 1, current state: 1, diagnosis: 1, doctors recommendations: 1},)
+
+//Количество оплаченных приёмов
+db.Appointment.count({"payment": "yes"})
+
+//Вывод информации опациентах, которые были на приёме 15 августа
+db.Appointment.find({date: ("15-08-2019")}, {_id: 0, "pacient.fio": 1, "pacient.contacts": 1, "pacient.birthday": 1})
+
+//Вывод выборочной информации о приёме у кардиолога
+db.Appointment.find({"doctor.specialization": "cardiologist"}, {_id: 0, date: 1, time: 1, diagnosis: 1})
+
+//MapReduce
+db.Appointment.mapReduce( function() {emit(this.doctor.fio, this.doctor.specialization); }, function(values) {return values;}, {out: "mapreduce_Appointment"});
