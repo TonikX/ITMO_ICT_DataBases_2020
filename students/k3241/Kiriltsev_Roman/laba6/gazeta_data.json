@@ -1,0 +1,24 @@
+{ "_id" : ObjectId("5f04e8c496e00a5aee915573"), 
+"Imya_redactora" : "Имя1", "gazeta_title" : "Название1", "tirazh" : { "dostavka" : { "dostavka_id" : 1, "pochtovoe_otdelenie" : 
+{ "pochtovoe_otdelenie_id" : 1, "adress" : "Адрес1" }, "amount" : 100 } }, "stoimost" : 1000, "tipografia" : 
+{ "tipographia_id" : 1, "adress" : "Адрес11" } }
+
+{ "_id" : ObjectId("5f04e90a96e00a5aee915574"), 
+"Imya_redactora" : "Имя2", "gazeta_title" : "Название2", "tirazh" : { "dostavka" : { "dostavka_id" : 2, "pochtovoe_otdelenie" : 
+{ "pochtovoe_otdelenie_id" : 2, "adress" : "Адрес2" }, "amount" : 200 } }, "stoimost" : 2000, "tipografia" : 
+{ "tipographia_id" : 2, "adress" : "Адрес22" } }
+
+{ "_id" : ObjectId("5f04e92496e00a5aee915575"), 
+"Imya_redactora" : "Имя3", "gazeta_title" : "Название3", "tirazh" : { "dostavka" : { "dostavka_id" : 3, "pochtovoe_otdelenie" : 
+{ "pochtovoe_otdelenie_id" : 3, "adress" : "Адрес3" }, "amount" : 300 } }, "stoimost" : 3000, "tipografia" : 
+{ "tipographia_id" : 3, "adress" : "Адрес33" } }
+
+{ "_id" : ObjectId("5f04e93496e00a5aee915576"), 
+"Imya_redactora" : "Имя4", "gazeta_title" : "Название4", "tirazh" : { "dostavka" : { "dostavka_id" : 4, "pochtovoe_otdelenie" : 
+{ "pochtovoe_otdelenie_id" : 4, "adress" : "Адрес4" }, "amount" : 400 } }, "stoimost" : 4000, "tipografia" : 
+{ "tipographia_id" : 4, "adress" : "Адрес44" } }
+
+{ "_id" : ObjectId("5f04e9c396e00a5aee915579"), 
+"Imya_redactora" : "Имя5", "gazeta_title" : "Название5", "tirazh" : { "dostavka" : { "dostavka_id" : 5, "pochtovoe_otdelenie" : 
+{ "pochtovoe_otdelenie_id" : 5, "adress" : "Адрес5" }, "amount" : 500 } }, "stoimost" : 5000, "tipografia" : 
+{ "tipographia_id" : 5, "adress" : "Адрес55" } }
