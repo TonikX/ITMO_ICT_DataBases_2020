@@ -1,0 +1,93 @@
+[
+	{
+		"reserv":{
+			"client":{
+				"full_name":"Ivan Ivanov", 
+				"city":"Moscow", 
+				"passport": 1243
+			},
+			"date_in": "01.06.2019", 
+			"date_out": "14.06.2019",
+			"room": {
+				"type_room":{
+					"cost":34522
+					},
+				"telephon":11111111,
+				"floor": 10
+			}
+		}
+	},
+{
+		"reserv":{
+			"client":{
+				"full_name":"Anna Kirt", 
+				"city":"Riga", 
+				"passport": 4243
+			},
+			"date_in": "11.06.2019", 
+			"date_out": "24.06.2019",
+			"room": {
+				"type_room":{
+					"cost":37722
+					},
+				"telephon":505505505,
+				"floor": 5
+			}
+		}
+	},
+{
+		"reserv":{
+			"client":{
+				"full_name":"Kostya Klimov", 
+				"city":"Omsk", 
+				"passport": 9843
+			},
+			"date_in": "08.06.2019", 
+			"date_out": "22.06.2019",
+			"room": {
+				"type_room":{
+					"cost":46728
+					},
+				"telephon":89003355,
+				"floor": 5
+			}
+		}
+	},
+{
+		"reserv":{
+			"client":{
+				"full_name":"Valery Ushkov", 
+				"city":"Moscow", 
+				"passport": 7093
+			},
+			"date_in": "03.06.2019", 
+			"date_out": "15.07.2019",
+			"room": {
+				"type_room":{
+					"cost":40008
+					},
+				"telephon":355355,
+				"floor": 1
+			}
+		}
+	},
+{
+		"reserv":{
+			"client":{
+				"full_name":"Alex Scopot", 
+				"city":"Moscow", 
+				"passport": 3523
+			},
+			"date_in": "23.06.2019", 
+			"date_out": "12.07.2019",
+			"room": {
+				"type_room":{
+					"cost":12300
+					},
+				"telephon":101102103,
+				"floor": 12
+			}
+		}
+	}
+
+]
