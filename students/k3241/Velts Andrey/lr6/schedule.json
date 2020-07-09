@@ -1,0 +1,83 @@
+[[
+    {
+        "_id":
+        {
+            "$oid": "5efb86f5ad34b55be4c9968f"
+        },
+        "date": "2020-04-20",
+        "order_class": 1,
+        "class_name": "5A",
+        "teacher_name": "Anastasia Vyacheslavovna",
+        "subject": "math",
+        "class_number": 10,
+        "students_id":
+        [
+            {
+                "$oid": "5efb84ddad34b55be4c99683"
+            },
+            {
+                "$oid": "5efb84ddad34b55be4c99684"
+            },
+            {
+                "$oid": "5efb84ddad34b55be4c99685"
+            },
+            {
+                "$oid": "5efb84ddad34b55be4c99686"
+            }
+        ]
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb8742ad34b55be4c99690"
+        },
+        "date": "2020-04-20",
+        "order_class": 2,
+        "class_name": "7B",
+        "teacher_name": "Natalya Andreevna",
+        "subject": "english",
+        "class_number": 12,
+        "students_id":
+        [
+            {
+                "$oid": "5efb84ddad34b55be4c99687"
+            },
+            {
+                "$oid": "5efb84ddad34b55be4c99688"
+            },
+            {
+                "$oid": "5efb84ddad34b55be4c99689"
+            },
+            {
+                "$oid": "5efb84ddad34b55be4c9968a"
+            }
+        ]
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb8769ad34b55be4c99691"
+        },
+        "date": "2020-04-21",
+        "order_class": 3,
+        "class_name": "11A",
+        "teacher_name": "Sergei Pavlovich",
+        "subject": "pe",
+        "class_number": 20,
+        "students_id":
+        [
+            {
+                "$oid": "5efb84ddad34b55be4c9968b"
+            },
+            {
+                "$oid": "5efb84ddad34b55be4c9968c"
+            },
+            {
+                "$oid": "5efb84ddad34b55be4c9968d"
+            },
+            {
+                "$oid": "5efb84ddad34b55be4c9968e"
+            }
+        ]
+    }
+]]
