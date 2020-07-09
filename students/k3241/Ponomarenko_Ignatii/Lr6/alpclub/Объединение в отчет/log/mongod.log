@@ -1,0 +1,606 @@
+2020-07-03T14:47:50.907+0200 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, will zero-out data files
+2020-07-03T14:47:50.913+0200 I CONTROL  [initandlisten] MongoDB starting : pid=4332 port=27017 dbpath=c:\mongodb\data\db 32-bit host=Obormot
+2020-07-03T14:47:50.914+0200 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2020-07-03T14:47:50.914+0200 I CONTROL  [initandlisten] db version v3.2.22
+2020-07-03T14:47:50.914+0200 I CONTROL  [initandlisten] git version: 105acca0d443f9a47c1a5bd608fd7133840a58dd
+2020-07-03T14:47:50.914+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2020-07-03T14:47:50.915+0200 I CONTROL  [initandlisten] modules: none
+2020-07-03T14:47:50.915+0200 I CONTROL  [initandlisten] build environment:
+2020-07-03T14:47:50.915+0200 I CONTROL  [initandlisten]     distarch: i386
+2020-07-03T14:47:50.915+0200 I CONTROL  [initandlisten]     target_arch: i386
+2020-07-03T14:47:50.915+0200 I CONTROL  [initandlisten] options: { storage: { dbPath: "c:\mongodb\data\db", engine: "mmapv1" }, systemLog: { destination: "file", path: "c:\mongodb\log\mongod.log" } }
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] 
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] ** WARNING: This 32-bit MongoDB binary is deprecated
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] 
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] 
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] ** NOTE: This is a 32 bit MongoDB binary.
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] **       32 bit builds are limited to less than 2GB of data (or less with --journal).
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] **       Note that journaling defaults to off for 32 bit and is currently off.
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] **       See http://dochub.mongodb.org/core/32bit
+2020-07-03T14:47:50.998+0200 I CONTROL  [initandlisten] 
+2020-07-03T14:47:51.015+0200 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2020-07-03T14:47:51.376+0200 W FTDC     [initandlisten] Failed to initialize Performance Counters for FTDC: WindowsPdhError: PdhExpandCounterPathW failed with 'Указанные объекты не найдены на этом компьютере.' for counter '\Processor(_Total)\% Idle Time'
+2020-07-03T14:47:51.376+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'c:/mongodb/data/db/diagnostic.data'
+2020-07-03T14:47:51.376+0200 I NETWORK  [initandlisten] waiting for connections on port 27017
+2020-07-03T14:49:07.744+0200 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:51338 #1 (1 connection now open)
+2020-07-03T14:52:49.731+0200 I COMMAND  [conn1] command learn.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T14:52:51.003+0200 I STORAGE  [DataFileSync] flushing mmaps took 62ms  for 4 files
+2020-07-03T14:53:07.029+0200 I COMMAND  [conn1] command learn.$cmd command: profile { profile: 2.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:43 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 1 } }, Database: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T14:53:07.031+0200 I COMMAND  [conn1] command learn.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T14:53:16.240+0200 I COMMAND  [conn1] command learn.unicorns command: insert { insert: "unicorns", documents: [ { _id: ObjectId('5eff2a3c3dab91c3ab96ab65'), name: "Pavel1" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T14:53:16.248+0200 I COMMAND  [conn1] command learn.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T14:53:51.011+0200 I STORAGE  [DataFileSync] flushing mmaps took 70ms  for 4 files
+2020-07-03T14:54:51.001+0200 I STORAGE  [DataFileSync] flushing mmaps took 59ms  for 4 files
+2020-07-03T14:55:50.948+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 4 files
+2020-07-03T14:56:51.060+0200 I STORAGE  [DataFileSync] flushing mmaps took 117ms  for 4 files
+2020-07-03T14:57:51.004+0200 I STORAGE  [DataFileSync] flushing mmaps took 60ms  for 4 files
+2020-07-03T14:58:50.950+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T14:59:51.008+0200 I STORAGE  [DataFileSync] flushing mmaps took 62ms  for 4 files
+2020-07-03T15:00:50.951+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:01:50.952+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:02:50.952+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:03:50.953+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:04:50.953+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:05:50.953+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:06:50.954+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:07:50.954+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:08:50.955+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:09:51.066+0200 I STORAGE  [DataFileSync] flushing mmaps took 116ms  for 4 files
+2020-07-03T15:10:50.957+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:11:50.957+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:12:50.957+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:13:50.958+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:14:50.958+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T15:15:50.989+0200 I STORAGE  [DataFileSync] flushing mmaps took 34ms  for 4 files
+2020-07-03T15:16:50.997+0200 I STORAGE  [DataFileSync] flushing mmaps took 42ms  for 4 files
+2020-07-03T15:17:51.153+0200 I STORAGE  [DataFileSync] flushing mmaps took 197ms  for 4 files
+2020-07-03T15:18:50.973+0200 I STORAGE  [DataFileSync] flushing mmaps took 17ms  for 4 files
+2020-07-03T15:19:50.980+0200 I STORAGE  [DataFileSync] flushing mmaps took 24ms  for 4 files
+2020-07-03T15:20:50.972+0200 I STORAGE  [DataFileSync] flushing mmaps took 15ms  for 4 files
+2020-07-03T15:21:50.991+0200 I STORAGE  [DataFileSync] flushing mmaps took 34ms  for 4 files
+2020-07-03T15:22:50.963+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T15:23:51.012+0200 I STORAGE  [DataFileSync] flushing mmaps took 54ms  for 4 files
+2020-07-03T15:24:50.963+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T15:25:51.064+0200 I STORAGE  [DataFileSync] flushing mmaps took 105ms  for 4 files
+2020-07-03T15:26:51.059+0200 I STORAGE  [DataFileSync] flushing mmaps took 100ms  for 4 files
+2020-07-03T15:27:50.967+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 4 files
+2020-07-03T15:28:51.217+0200 I STORAGE  [DataFileSync] flushing mmaps took 257ms  for 4 files
+2020-07-03T15:29:51.061+0200 I STORAGE  [DataFileSync] flushing mmaps took 100ms  for 4 files
+2020-07-03T15:30:50.965+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T15:31:51.317+0200 I STORAGE  [DataFileSync] flushing mmaps took 355ms  for 4 files
+2020-07-03T16:03:19.730+0200 I STORAGE  [DataFileSync] flushing mmaps took 103ms  for 4 files
+2020-07-03T16:04:19.632+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T16:05:19.635+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 4 files
+2020-07-03T16:06:19.680+0200 I STORAGE  [DataFileSync] flushing mmaps took 51ms  for 4 files
+2020-07-03T16:07:19.685+0200 I STORAGE  [DataFileSync] flushing mmaps took 56ms  for 4 files
+2020-07-03T16:08:19.694+0200 I STORAGE  [DataFileSync] flushing mmaps took 64ms  for 4 files
+2020-07-03T16:09:19.757+0200 I STORAGE  [DataFileSync] flushing mmaps took 127ms  for 4 files
+2020-07-03T16:10:19.757+0200 I STORAGE  [DataFileSync] flushing mmaps took 126ms  for 4 files
+2020-07-03T16:11:19.711+0200 I STORAGE  [DataFileSync] flushing mmaps took 79ms  for 4 files
+2020-07-03T16:12:19.660+0200 I STORAGE  [DataFileSync] flushing mmaps took 27ms  for 4 files
+2020-07-03T16:13:19.755+0200 I STORAGE  [DataFileSync] flushing mmaps took 122ms  for 4 files
+2020-07-03T16:14:19.694+0200 I STORAGE  [DataFileSync] flushing mmaps took 60ms  for 4 files
+2020-07-03T16:15:19.644+0200 I STORAGE  [DataFileSync] flushing mmaps took 9ms  for 4 files
+2020-07-03T16:16:19.643+0200 I STORAGE  [DataFileSync] flushing mmaps took 8ms  for 4 files
+2020-07-03T16:17:19.785+0200 I STORAGE  [DataFileSync] flushing mmaps took 149ms  for 4 files
+2020-07-03T16:18:19.694+0200 I STORAGE  [DataFileSync] flushing mmaps took 58ms  for 4 files
+2020-07-03T16:19:19.701+0200 I STORAGE  [DataFileSync] flushing mmaps took 64ms  for 4 files
+2020-07-03T16:20:19.745+0200 I STORAGE  [DataFileSync] flushing mmaps took 108ms  for 4 files
+2020-07-03T16:21:19.689+0200 I STORAGE  [DataFileSync] flushing mmaps took 51ms  for 4 files
+2020-07-03T16:22:19.684+0200 I STORAGE  [DataFileSync] flushing mmaps took 45ms  for 4 files
+2020-07-03T16:23:19.644+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T16:24:19.707+0200 I STORAGE  [DataFileSync] flushing mmaps took 67ms  for 4 files
+2020-07-03T16:25:19.645+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T16:26:19.685+0200 I STORAGE  [DataFileSync] flushing mmaps took 44ms  for 4 files
+2020-07-03T16:27:19.749+0200 I STORAGE  [DataFileSync] flushing mmaps took 108ms  for 4 files
+2020-07-03T16:28:19.745+0200 I STORAGE  [DataFileSync] flushing mmaps took 103ms  for 4 files
+2020-07-03T16:29:19.786+0200 I STORAGE  [DataFileSync] flushing mmaps took 144ms  for 4 files
+2020-07-03T16:30:19.723+0200 I STORAGE  [DataFileSync] flushing mmaps took 80ms  for 4 files
+2020-07-03T16:31:19.709+0200 I STORAGE  [DataFileSync] flushing mmaps took 64ms  for 4 files
+2020-07-03T16:32:19.650+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T16:33:19.651+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T16:34:19.671+0200 I STORAGE  [DataFileSync] flushing mmaps took 23ms  for 4 files
+2020-07-03T16:35:19.653+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T16:36:19.654+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T16:37:19.656+0200 I STORAGE  [DataFileSync] flushing mmaps took 5ms  for 4 files
+2020-07-03T16:38:19.724+0200 I STORAGE  [DataFileSync] flushing mmaps took 72ms  for 4 files
+2020-07-03T16:39:19.718+0200 I STORAGE  [DataFileSync] flushing mmaps took 66ms  for 4 files
+2020-07-03T16:40:19.657+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T16:41:19.658+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T16:42:19.663+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 4 files
+2020-07-03T16:43:19.661+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T16:44:19.713+0200 I STORAGE  [DataFileSync] flushing mmaps took 55ms  for 4 files
+2020-07-03T16:45:19.664+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T16:46:19.725+0200 I STORAGE  [DataFileSync] flushing mmaps took 64ms  for 4 files
+2020-07-03T16:47:19.668+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 4 files
+2020-07-03T16:48:19.666+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T16:49:19.721+0200 I STORAGE  [DataFileSync] flushing mmaps took 57ms  for 4 files
+2020-07-03T16:50:19.730+0200 I STORAGE  [DataFileSync] flushing mmaps took 65ms  for 4 files
+2020-07-03T16:51:19.669+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T16:52:19.671+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T16:53:19.734+0200 I STORAGE  [DataFileSync] flushing mmaps took 66ms  for 4 files
+2020-07-03T16:54:19.754+0200 I STORAGE  [DataFileSync] flushing mmaps took 85ms  for 4 files
+2020-07-03T16:55:19.723+0200 I STORAGE  [DataFileSync] flushing mmaps took 54ms  for 4 files
+2020-07-03T16:56:19.853+0200 I STORAGE  [DataFileSync] flushing mmaps took 183ms  for 4 files
+2020-07-03T16:57:19.938+0200 I STORAGE  [DataFileSync] flushing mmaps took 220ms  for 4 files
+2020-07-03T16:58:19.775+0200 I STORAGE  [DataFileSync] flushing mmaps took 56ms  for 4 files
+2020-07-03T16:59:19.775+0200 I STORAGE  [DataFileSync] flushing mmaps took 55ms  for 4 files
+2020-07-03T17:00:19.763+0200 I STORAGE  [DataFileSync] flushing mmaps took 43ms  for 4 files
+2020-07-03T17:01:02.939+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:01:19.773+0200 I STORAGE  [DataFileSync] flushing mmaps took 51ms  for 4 files
+2020-07-03T17:02:19.726+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T17:03:19.782+0200 I STORAGE  [DataFileSync] flushing mmaps took 58ms  for 4 files
+2020-07-03T17:04:19.784+0200 I STORAGE  [DataFileSync] flushing mmaps took 60ms  for 4 files
+2020-07-03T17:05:19.729+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T17:06:19.747+0200 I STORAGE  [DataFileSync] flushing mmaps took 21ms  for 4 files
+2020-07-03T17:07:19.730+0200 I STORAGE  [DataFileSync] flushing mmaps took 4ms  for 4 files
+2020-07-03T17:07:19.962+0200 I INDEX    [conn1] allocating new ns file c:\mongodb\data\db\alpclub.ns, filling with zeroes...
+2020-07-03T17:07:20.506+0200 I STORAGE  [FileAllocator] allocating new datafile c:\mongodb\data\db\alpclub.0, filling with zeroes...
+2020-07-03T17:07:20.506+0200 I STORAGE  [FileAllocator] creating directory c:\mongodb\data\db\_tmp
+2020-07-03T17:07:20.929+0200 I STORAGE  [FileAllocator] done allocating datafile c:\mongodb\data\db\alpclub.0, size: 64MB,  took 0.421 secs
+2020-07-03T17:07:21.006+0200 D STORAGE  [conn1] allocating new extent
+2020-07-03T17:07:21.010+0200 D STORAGE  [conn1] MmapV1ExtentManager::allocateExtent desiredSize:4096 fromFreeList: 0 eloc: 0:4000
+2020-07-03T17:07:21.013+0200 D STORAGE  [conn1] alpclub.system.namespaces: clearing plan cache - collection info cache reset
+2020-07-03T17:07:21.014+0200 D STORAGE  [conn1] alpclub.system.indexes: clearing plan cache - collection info cache reset
+2020-07-03T17:07:21.014+0200 D STORAGE  [conn1] MmapV1ExtentManager::allocateExtent desiredSize:8192 fromFreeList: 0 eloc: 0:5000
+2020-07-03T17:07:21.014+0200 D STORAGE  [conn1] alpclub.strany: clearing plan cache - collection info cache reset
+2020-07-03T17:07:21.014+0200 D STORAGE  [conn1] allocating new extent
+2020-07-03T17:07:21.014+0200 D STORAGE  [conn1] MmapV1ExtentManager::allocateExtent desiredSize:8192 fromFreeList: 0 eloc: 0:7000
+2020-07-03T17:07:21.014+0200 D STORAGE  [conn1] alpclub.strany: clearing plan cache - collection info cache reset
+2020-07-03T17:07:21.014+0200 D STORAGE  [conn1] allocating new extent
+2020-07-03T17:07:21.015+0200 D STORAGE  [conn1] MmapV1ExtentManager::allocateExtent desiredSize:131072 fromFreeList: 0 eloc: 0:9000
+2020-07-03T17:07:21.015+0200 I COMMAND  [conn1] command alpclub.strany command: insert { insert: "strany", documents: [ { _id: ObjectId('5eff49a73dab91c3ab96ab66'), name: "Россия" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, MMAPV1Journal: { acquireCount: { w: 6 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 1 } }, Metadata: { acquireCount: { W: 4 } } } protocol:op_command 1102ms
+2020-07-03T17:07:21.024+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:08:19.841+0200 I STORAGE  [DataFileSync] flushing mmaps took 113ms  for 6 files
+2020-07-03T17:09:19.798+0200 I STORAGE  [DataFileSync] flushing mmaps took 70ms  for 6 files
+2020-07-03T17:09:48.959+0200 I COMMAND  [conn1] command alpclub.strany command: insert { insert: "strany", documents: [ { _id: ObjectId('5eff4a3c3dab91c3ab96ab67'), name: "США" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:09:48.966+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:10:02.949+0200 I COMMAND  [conn1] command alpclub.strany command: insert { insert: "strany", documents: [ { _id: ObjectId('5eff4a4a3dab91c3ab96ab68'), name: "Украина" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:10:02.956+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:10:19.797+0200 I STORAGE  [DataFileSync] flushing mmaps took 68ms  for 6 files
+2020-07-03T17:10:20.745+0200 I COMMAND  [conn1] command alpclub.strany command: insert { insert: "strany", documents: [ { _id: ObjectId('5eff4a5c3dab91c3ab96ab69'), name: "Германия" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:10:20.753+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:10:31.560+0200 I COMMAND  [conn1] command alpclub.strany command: insert { insert: "strany", documents: [ { _id: ObjectId('5eff4a673dab91c3ab96ab6a'), name: "Бразилия" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:10:31.567+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:11:19.892+0200 I STORAGE  [DataFileSync] flushing mmaps took 163ms  for 6 files
+2020-07-03T17:11:47.122+0200 I COMMAND  [conn1] command alpclub.strany command: find { find: "strany", filter: {} } planSummary: COLLSCAN keysExamined:0 docsExamined:5 cursorExhausted:1 keyUpdates:0 writeConflicts:0 numYields:0 nreturned:5 reslen:349 locks:{ Global: { acquireCount: { r: 2 } }, MMAPV1Journal: { acquireCount: { r: 1 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { R: 1 } } } protocol:op_command 42ms
+2020-07-03T17:11:47.134+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:12:19.827+0200 I STORAGE  [DataFileSync] flushing mmaps took 97ms  for 6 files
+2020-07-03T17:13:19.746+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:14:19.794+0200 I STORAGE  [DataFileSync] flushing mmaps took 64ms  for 6 files
+2020-07-03T17:15:19.747+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:16:19.747+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:17:19.748+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:18:19.812+0200 I STORAGE  [DataFileSync] flushing mmaps took 80ms  for 6 files
+2020-07-03T17:19:19.749+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:19:37.659+0200 D STORAGE  [conn1] MmapV1ExtentManager::allocateExtent desiredSize:8192 fromFreeList: 0 eloc: 0:29000
+2020-07-03T17:19:37.659+0200 D STORAGE  [conn1] alpclub.nesht_situacii: clearing plan cache - collection info cache reset
+2020-07-03T17:19:37.659+0200 D STORAGE  [conn1] alpclub.nesht_situacii: clearing plan cache - collection info cache reset
+2020-07-03T17:19:37.660+0200 D STORAGE  [conn1] allocating new extent
+2020-07-03T17:19:37.660+0200 D STORAGE  [conn1] MmapV1ExtentManager::allocateExtent desiredSize:131072 fromFreeList: 0 eloc: 0:2b000
+2020-07-03T17:19:37.660+0200 I COMMAND  [conn1] command alpclub.nesht_situacii command: insert { insert: "nesht_situacii", documents: [ { _id: ObjectId('5eff4c893dab91c3ab96ab6b'), name: "травма" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, MMAPV1Journal: { acquireCount: { w: 4 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 2 } }, Metadata: { acquireCount: { W: 2 } } } protocol:op_command 1ms
+2020-07-03T17:19:37.668+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:19:54.306+0200 I COMMAND  [conn1] command alpclub.nesht_situacii command: insert { insert: "nesht_situacii", documents: [ { _id: ObjectId('5eff4c9a3dab91c3ab96ab6c'), name: "пропал без вести" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:19:54.313+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:20:19.847+0200 I STORAGE  [DataFileSync] flushing mmaps took 114ms  for 6 files
+2020-07-03T17:20:22.631+0200 I COMMAND  [conn1] command alpclub.nesht_situacii command: insert { insert: "nesht_situacii", documents: [ { _id: ObjectId('5eff4cb63dab91c3ab96ab6d'), name: "летальный исход" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:20:22.639+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:21:02.225+0200 I COMMAND  [conn1] command alpclub.nesht_situacii command: insert { insert: "nesht_situacii", documents: [ { _id: ObjectId('5eff4cde3dab91c3ab96ab6e'), name: "остался жить в горах" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:21:02.233+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:21:19.800+0200 I STORAGE  [DataFileSync] flushing mmaps took 67ms  for 6 files
+2020-07-03T17:21:33.563+0200 I COMMAND  [conn1] command alpclub.nesht_situacii command: insert { insert: "nesht_situacii", documents: [ { _id: ObjectId('5eff4cfd3dab91c3ab96ab6f'), name: "псих. травма" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:21:33.571+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:22:14.673+0200 I COMMAND  [conn1] command alpclub.nesht_situacii command: insert { insert: "nesht_situacii", documents: [ { _id: ObjectId('5eff4d263dab91c3ab96ab70'), name: "без проишествий" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:22:14.680+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:22:19.839+0200 I STORAGE  [DataFileSync] flushing mmaps took 105ms  for 6 files
+2020-07-03T17:23:00.926+0200 I COMMAND  [conn1] command alpclub.nesht_situacii command: find { find: "nesht_situacii", filter: {} } planSummary: COLLSCAN keysExamined:0 docsExamined:6 cursorExhausted:1 keyUpdates:0 writeConflicts:0 numYields:0 nreturned:6 reslen:488 locks:{ Global: { acquireCount: { r: 2 } }, MMAPV1Journal: { acquireCount: { r: 1 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { R: 1 } } } protocol:op_command 0ms
+2020-07-03T17:23:00.941+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:23:19.751+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:24:19.752+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:25:19.752+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:26:19.753+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:26:22.144+0200 D STORAGE  [conn1] MmapV1ExtentManager::allocateExtent desiredSize:8192 fromFreeList: 0 eloc: 0:4b000
+2020-07-03T17:26:22.144+0200 D STORAGE  [conn1] alpclub.rayon: clearing plan cache - collection info cache reset
+2020-07-03T17:26:22.144+0200 D STORAGE  [conn1] alpclub.rayon: clearing plan cache - collection info cache reset
+2020-07-03T17:26:22.144+0200 D STORAGE  [conn1] allocating new extent
+2020-07-03T17:26:22.145+0200 D STORAGE  [conn1] MmapV1ExtentManager::allocateExtent desiredSize:131072 fromFreeList: 0 eloc: 0:4d000
+2020-07-03T17:26:22.145+0200 I COMMAND  [conn1] command alpclub.rayon command: insert { insert: "rayon", documents: [ { _id: ObjectId('5eff4e1e3dab91c3ab96ab71'), name: "Большой Кавказ" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, MMAPV1Journal: { acquireCount: { w: 4 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 2 } }, Metadata: { acquireCount: { W: 2 } } } protocol:op_command 1ms
+2020-07-03T17:26:22.151+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:26:37.235+0200 I COMMAND  [conn1] command alpclub.rayon command: insert { insert: "rayon", documents: [ { _id: ObjectId('5eff4e2d3dab91c3ab96ab72'), name: "Уральские горы" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:26:37.243+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:26:56.220+0200 I COMMAND  [conn1] command alpclub.rayon command: insert { insert: "rayon", documents: [ { _id: ObjectId('5eff4e403dab91c3ab96ab73'), name: "Алтай" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:26:56.228+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:27:19.061+0200 I COMMAND  [conn1] command alpclub.rayon command: insert { insert: "rayon", documents: [ { _id: ObjectId('5eff4e573dab91c3ab96ab74'), name: "Западные Саяны" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:27:19.068+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:27:19.844+0200 I STORAGE  [DataFileSync] flushing mmaps took 107ms  for 6 files
+2020-07-03T17:27:40.677+0200 I COMMAND  [conn1] command alpclub.rayon command: insert { insert: "rayon", documents: [ { _id: ObjectId('5eff4e6c3dab91c3ab96ab75'), name: "Восточные Саяны" } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:27:40.684+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:27:56.929+0200 I COMMAND  [conn1] command alpclub.rayon command: find { find: "rayon", filter: {} } planSummary: COLLSCAN keysExamined:0 docsExamined:5 cursorExhausted:1 keyUpdates:0 writeConflicts:0 numYields:0 nreturned:5 reslen:404 locks:{ Global: { acquireCount: { r: 2 } }, MMAPV1Journal: { acquireCount: { r: 1 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { R: 1 } } } protocol:op_command 0ms
+2020-07-03T17:27:56.940+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:28:19.867+0200 I STORAGE  [DataFileSync] flushing mmaps took 129ms  for 6 files
+2020-07-03T17:29:19.755+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:30:19.755+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:31:19.756+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:32:19.756+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:33:19.805+0200 I STORAGE  [DataFileSync] flushing mmaps took 64ms  for 6 files
+2020-07-03T17:34:19.758+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:35:19.823+0200 I STORAGE  [DataFileSync] flushing mmaps took 80ms  for 6 files
+2020-07-03T17:36:19.760+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:37:19.761+0200 I STORAGE  [DataFileSync] flushing mmaps took 17ms  for 6 files
+2020-07-03T17:38:19.805+0200 I STORAGE  [DataFileSync] flushing mmaps took 60ms  for 6 files
+2020-07-03T17:39:19.761+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:40:19.762+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:40:35.515+0200 D STORAGE  [conn1] MmapV1ExtentManager::allocateExtent desiredSize:8192 fromFreeList: 0 eloc: 0:6d000
+2020-07-03T17:40:35.515+0200 D STORAGE  [conn1] alpclub.marshruty: clearing plan cache - collection info cache reset
+2020-07-03T17:40:35.515+0200 D STORAGE  [conn1] alpclub.marshruty: clearing plan cache - collection info cache reset
+2020-07-03T17:40:35.515+0200 D STORAGE  [conn1] allocating new extent
+2020-07-03T17:40:35.515+0200 D STORAGE  [conn1] MmapV1ExtentManager::allocateExtent desiredSize:131072 fromFreeList: 0 eloc: 0:6f000
+2020-07-03T17:40:35.516+0200 I COMMAND  [conn1] command alpclub.marshruty command: insert { insert: "marshruty", documents: [ { _id: ObjectId('5eff51733dab91c3ab96ab76'), opisanie: "Восхождение на Белуху", prodolgitelnost: 45.0, gora: { name: "Белуха", vysota: 4509.0, rayon: ObjectId('5eff4e403dab91c3ab96ab73') } } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, MMAPV1Journal: { acquireCount: { w: 4 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 2 } }, Metadata: { acquireCount: { W: 2 } } } protocol:op_command 1ms
+2020-07-03T17:40:35.523+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:41:19.845+0200 I STORAGE  [DataFileSync] flushing mmaps took 99ms  for 6 files
+2020-07-03T17:42:19.763+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:43:19.763+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:44:05.591+0200 I COMMAND  [conn1] command alpclub.marshruty command: insert { insert: "marshruty", documents: [ { _id: ObjectId('5eff52453dab91c3ab96ab77'), opisanie: "Алтайская сказка", prodolgitelnost: 46.0, gora: { name: "Маашей-Баш", vysota: 4173.0, rayon: ObjectId('5eff4e403dab91c3ab96ab73') } } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:44:05.598+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:44:19.830+0200 I STORAGE  [DataFileSync] flushing mmaps took 83ms  for 6 files
+2020-07-03T17:45:19.764+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:46:19.864+0200 I STORAGE  [DataFileSync] flushing mmaps took 116ms  for 6 files
+2020-07-03T17:47:19.765+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:47:47.915+0200 I COMMAND  [conn1] command alpclub.marshruty command: insert { insert: "marshruty", documents: [ { _id: ObjectId('5eff53233dab91c3ab96ab78'), opisanie: "Облегченный маршрут на Алтае", prodolgitelnost: 46.0, gora: { name: "Беркутаул", vysota: 3738.0, rayon: ObjectId('5eff4e403dab91c3ab96ab73') } } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:47:47.922+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:48:19.831+0200 I STORAGE  [DataFileSync] flushing mmaps took 81ms  for 6 files
+2020-07-03T17:49:19.768+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:49:41.452+0200 I COMMAND  [conn1] command alpclub.marshruty command: insert { insert: "marshruty", documents: [ { _id: ObjectId('5eff53953dab91c3ab96ab79'), opisanie: "Восхождение на Джангу", prodolgitelnost: 49.0, gora: { name: "Джанга", vysota: 5058.0, rayon: ObjectId('5eff4e1e3dab91c3ab96ab71') } } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:49:41.460+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:50:19.821+0200 I STORAGE  [DataFileSync] flushing mmaps took 69ms  for 6 files
+2020-07-03T17:51:00.958+0200 I COMMAND  [conn1] command alpclub.marshruty command: insert { insert: "marshruty", documents: [ { _id: ObjectId('5eff53e43dab91c3ab96ab7a'), opisanie: "Сказки Эльбруса", prodolgitelnost: 46.0, gora: { name: "Эльбрус", vysota: 5642.0, rayon: ObjectId('5eff4e1e3dab91c3ab96ab71') } } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T17:51:00.966+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:51:19.816+0200 I STORAGE  [DataFileSync] flushing mmaps took 64ms  for 6 files
+2020-07-03T17:51:22.302+0200 I COMMAND  [conn1] command alpclub.marshruty command: find { find: "marshruty", filter: {} } planSummary: COLLSCAN keysExamined:0 docsExamined:5 cursorExhausted:1 keyUpdates:0 writeConflicts:0 numYields:0 nreturned:5 reslen:986 locks:{ Global: { acquireCount: { r: 2 } }, MMAPV1Journal: { acquireCount: { r: 1 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { R: 1 } } } protocol:op_command 0ms
+2020-07-03T17:51:22.410+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T17:52:19.926+0200 I STORAGE  [DataFileSync] flushing mmaps took 173ms  for 6 files
+2020-07-03T17:53:19.769+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:54:19.820+0200 I STORAGE  [DataFileSync] flushing mmaps took 66ms  for 6 files
+2020-07-03T17:55:19.770+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:56:19.771+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:57:19.815+0200 I STORAGE  [DataFileSync] flushing mmaps took 60ms  for 6 files
+2020-07-03T17:58:19.771+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T17:59:19.818+0200 I STORAGE  [DataFileSync] flushing mmaps took 62ms  for 6 files
+2020-07-03T18:00:19.772+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T18:01:19.773+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T18:02:19.789+0200 I STORAGE  [DataFileSync] flushing mmaps took 32ms  for 6 files
+2020-07-03T18:03:19.828+0200 I STORAGE  [DataFileSync] flushing mmaps took 70ms  for 6 files
+2020-07-03T18:04:19.775+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T18:05:19.775+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T18:06:19.776+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T18:07:19.776+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T18:07:31.683+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T18:08:19.777+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T18:09:19.777+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T18:10:19.778+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T18:11:19.778+0200 I STORAGE  [DataFileSync] flushing mmaps took 16ms  for 6 files
+2020-07-03T18:12:19.825+0200 I STORAGE  [DataFileSync] flushing mmaps took 63ms  for 6 files
+2020-07-03T18:12:43.864+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T18:13:19.780+0200 I STORAGE  [DataFileSync] flushing mmaps took 17ms  for 6 files
+2020-07-03T18:13:52.780+0200 D STORAGE  [conn1] MmapV1ExtentManager::allocateExtent desiredSize:8192 fromFreeList: 0 eloc: 0:8f000
+2020-07-03T18:13:52.781+0200 D STORAGE  [conn1] alpclub.alpinisty: clearing plan cache - collection info cache reset
+2020-07-03T18:13:52.781+0200 D STORAGE  [conn1] alpclub.alpinisty: clearing plan cache - collection info cache reset
+2020-07-03T18:13:52.781+0200 D STORAGE  [conn1] allocating new extent
+2020-07-03T18:13:52.781+0200 D STORAGE  [conn1] MmapV1ExtentManager::allocateExtent desiredSize:131072 fromFreeList: 0 eloc: 0:91000
+2020-07-03T18:13:52.781+0200 I COMMAND  [conn1] command alpclub.alpinisty command: insert { insert: "alpinisty", documents: [ { _id: ObjectId('5eff59403dab91c3ab96ab7b'), name: { ima: "Алексей", otchestvo: "Петрович", familia: "Рубинин" }, vozrast: 39.0, contacts: { adres: "Санкт-петербург,ул Бабушкина 11 кв 12", tel: "895012312312", email: "rubinin@mail.ru" }, club: { name_club: "Альпклуб ЛЭТИ", adres_club: "Санкт-Петербург", tel_club: "898190912345", email_club: "alpclubleti@gmail.com", strana_club: ObjectId('5eff49a73dab91c3ab96ab66'), lico_club: "Дмитрий Евгеньевич Царегородцев" } } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, MMAPV1Journal: { acquireCount: { w: 4 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 2 } }, Metadata: { acquireCount: { W: 2 } } } protocol:op_command 1ms
+2020-07-03T18:13:52.787+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T18:14:20.115+0200 I STORAGE  [DataFileSync] flushing mmaps took 319ms  for 6 files
+2020-07-03T18:15:19.814+0200 I STORAGE  [DataFileSync] flushing mmaps took 17ms  for 6 files
+2020-07-03T18:16:19.805+0200 I STORAGE  [DataFileSync] flushing mmaps took 8ms  for 6 files
+2020-07-03T18:17:19.806+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T18:18:19.808+0200 I STORAGE  [DataFileSync] flushing mmaps took 9ms  for 6 files
+2020-07-03T18:19:19.821+0200 I STORAGE  [DataFileSync] flushing mmaps took 21ms  for 6 files
+2020-07-03T18:20:19.808+0200 I STORAGE  [DataFileSync] flushing mmaps took 8ms  for 6 files
+2020-07-03T18:21:19.882+0200 I STORAGE  [DataFileSync] flushing mmaps took 81ms  for 6 files
+2020-07-03T18:22:19.900+0200 I STORAGE  [DataFileSync] flushing mmaps took 98ms  for 6 files
+2020-07-03T18:23:19.809+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T18:24:19.858+0200 I STORAGE  [DataFileSync] flushing mmaps took 55ms  for 6 files
+2020-07-03T18:25:19.889+0200 I STORAGE  [DataFileSync] flushing mmaps took 86ms  for 6 files
+2020-07-03T18:26:19.897+0200 I STORAGE  [DataFileSync] flushing mmaps took 93ms  for 6 files
+2020-07-03T18:27:19.815+0200 I STORAGE  [DataFileSync] flushing mmaps took 11ms  for 6 files
+2020-07-03T18:28:19.851+0200 I STORAGE  [DataFileSync] flushing mmaps took 44ms  for 6 files
+2020-07-03T18:29:19.944+0200 I STORAGE  [DataFileSync] flushing mmaps took 136ms  for 6 files
+2020-07-03T18:30:19.872+0200 I STORAGE  [DataFileSync] flushing mmaps took 64ms  for 6 files
+2020-07-03T18:31:19.875+0200 I STORAGE  [DataFileSync] flushing mmaps took 66ms  for 6 files
+2020-07-03T18:32:19.818+0200 I STORAGE  [DataFileSync] flushing mmaps took 8ms  for 6 files
+2020-07-03T18:33:19.879+0200 I STORAGE  [DataFileSync] flushing mmaps took 68ms  for 6 files
+2020-07-03T18:34:19.818+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T18:35:19.823+0200 I STORAGE  [DataFileSync] flushing mmaps took 11ms  for 6 files
+2020-07-03T18:36:19.875+0200 I STORAGE  [DataFileSync] flushing mmaps took 62ms  for 6 files
+2020-07-03T18:37:19.904+0200 I STORAGE  [DataFileSync] flushing mmaps took 91ms  for 6 files
+2020-07-03T18:38:19.822+0200 I STORAGE  [DataFileSync] flushing mmaps took 8ms  for 6 files
+2020-07-03T18:39:19.822+0200 I STORAGE  [DataFileSync] flushing mmaps took 8ms  for 6 files
+2020-07-03T18:40:19.850+0200 I STORAGE  [DataFileSync] flushing mmaps took 35ms  for 6 files
+2020-07-03T18:41:19.825+0200 I STORAGE  [DataFileSync] flushing mmaps took 10ms  for 6 files
+2020-07-03T18:42:19.826+0200 I STORAGE  [DataFileSync] flushing mmaps took 10ms  for 6 files
+2020-07-03T18:43:19.866+0200 I STORAGE  [DataFileSync] flushing mmaps took 48ms  for 6 files
+2020-07-03T18:44:19.875+0200 I STORAGE  [DataFileSync] flushing mmaps took 56ms  for 6 files
+2020-07-03T18:45:19.875+0200 I STORAGE  [DataFileSync] flushing mmaps took 55ms  for 6 files
+2020-07-03T18:46:19.880+0200 I STORAGE  [DataFileSync] flushing mmaps took 60ms  for 6 files
+2020-07-03T18:47:19.880+0200 I STORAGE  [DataFileSync] flushing mmaps took 59ms  for 6 files
+2020-07-03T18:48:19.828+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T18:49:19.881+0200 I STORAGE  [DataFileSync] flushing mmaps took 60ms  for 6 files
+2020-07-03T18:50:19.940+0200 I STORAGE  [DataFileSync] flushing mmaps took 117ms  for 6 files
+2020-07-03T18:51:19.894+0200 I STORAGE  [DataFileSync] flushing mmaps took 71ms  for 6 files
+2020-07-03T18:52:19.888+0200 I STORAGE  [DataFileSync] flushing mmaps took 64ms  for 6 files
+2020-07-03T18:53:19.949+0200 I STORAGE  [DataFileSync] flushing mmaps took 125ms  for 6 files
+2020-07-03T18:54:19.877+0200 I STORAGE  [DataFileSync] flushing mmaps took 51ms  for 6 files
+2020-07-03T18:55:19.900+0200 I STORAGE  [DataFileSync] flushing mmaps took 73ms  for 6 files
+2020-07-03T18:56:19.891+0200 I STORAGE  [DataFileSync] flushing mmaps took 64ms  for 6 files
+2020-07-03T18:57:20.009+0200 I STORAGE  [DataFileSync] flushing mmaps took 181ms  for 6 files
+2020-07-03T18:58:19.892+0200 I STORAGE  [DataFileSync] flushing mmaps took 64ms  for 6 files
+2020-07-03T18:59:19.939+0200 I STORAGE  [DataFileSync] flushing mmaps took 110ms  for 6 files
+2020-07-03T19:00:19.856+0200 I STORAGE  [DataFileSync] flushing mmaps took 25ms  for 6 files
+2020-07-03T19:01:19.884+0200 I STORAGE  [DataFileSync] flushing mmaps took 52ms  for 6 files
+2020-07-03T19:02:19.903+0200 I STORAGE  [DataFileSync] flushing mmaps took 69ms  for 6 files
+2020-07-03T19:03:19.986+0200 I STORAGE  [DataFileSync] flushing mmaps took 148ms  for 6 files
+2020-07-03T19:04:19.845+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:05:19.845+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:06:19.904+0200 I STORAGE  [DataFileSync] flushing mmaps took 65ms  for 6 files
+2020-07-03T19:07:19.885+0200 I STORAGE  [DataFileSync] flushing mmaps took 46ms  for 6 files
+2020-07-03T19:08:19.850+0200 I STORAGE  [DataFileSync] flushing mmaps took 9ms  for 6 files
+2020-07-03T19:09:19.972+0200 I STORAGE  [DataFileSync] flushing mmaps took 131ms  for 6 files
+2020-07-03T19:10:19.993+0200 I STORAGE  [DataFileSync] flushing mmaps took 150ms  for 6 files
+2020-07-03T19:11:19.920+0200 I STORAGE  [DataFileSync] flushing mmaps took 74ms  for 6 files
+2020-07-03T19:12:19.909+0200 I STORAGE  [DataFileSync] flushing mmaps took 62ms  for 6 files
+2020-07-03T19:13:19.907+0200 I STORAGE  [DataFileSync] flushing mmaps took 59ms  for 6 files
+2020-07-03T19:14:19.917+0200 I STORAGE  [DataFileSync] flushing mmaps took 69ms  for 6 files
+2020-07-03T19:15:19.912+0200 I STORAGE  [DataFileSync] flushing mmaps took 63ms  for 6 files
+2020-07-03T19:16:19.857+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:17:19.934+0200 I STORAGE  [DataFileSync] flushing mmaps took 83ms  for 6 files
+2020-07-03T19:18:19.921+0200 I STORAGE  [DataFileSync] flushing mmaps took 68ms  for 6 files
+2020-07-03T19:19:19.889+0200 I STORAGE  [DataFileSync] flushing mmaps took 36ms  for 6 files
+2020-07-03T19:20:20.138+0200 I STORAGE  [DataFileSync] flushing mmaps took 284ms  for 6 files
+2020-07-03T19:21:19.863+0200 I STORAGE  [DataFileSync] flushing mmaps took 9ms  for 6 files
+2020-07-03T19:22:19.862+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:23:19.862+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:24:19.863+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:25:19.870+0200 I STORAGE  [DataFileSync] flushing mmaps took 11ms  for 6 files
+2020-07-03T19:26:19.866+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:27:19.911+0200 I STORAGE  [DataFileSync] flushing mmaps took 51ms  for 6 files
+2020-07-03T19:28:19.867+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:29:19.868+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:29:47.897+0200 I COMMAND  [conn1] command alpclub.alpinisty command: insert { insert: "alpinisty", documents: [ { _id: ObjectId('5eff6b0b3dab91c3ab96ab7c'), name: { ima: "Петр", otchestvo: "Иванович", familia: "Самопалов" }, vozrast: 49.0, contacts: { adres: "Санкт-петербург,ул Академика Павлова 1 кв 12", tel: "8950325235235", email: "samopal@mail.ru" }, club: { name_club: "Альпклуб ЛЭТИ", adres_club: "Санкт-Петербург", tel_club: "898190912345", email_club: "alpclubleti@gmail.com", strana_club: ObjectId('5eff49a73dab91c3ab96ab66'), lico_club: "Дмитрий Евгеньевич Царегородцев" } } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T19:29:47.905+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T19:30:19.909+0200 I STORAGE  [DataFileSync] flushing mmaps took 48ms  for 6 files
+2020-07-03T19:31:19.869+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:32:19.869+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:32:32.603+0200 I COMMAND  [conn1] command alpclub.alpinisty command: insert { insert: "alpinisty", documents: [ { _id: ObjectId('5eff6bb03dab91c3ab96ab7d'), name: { ima: "Алексей", otchestvo: "Исхакович", familia: "Рубинштейн" }, vozrast: 19.0, contacts: { adres: "Санкт-петербург,ул Академика Павлова 1 кв 10", tel: "8955235252325", email: "rubin@mail.ru" }, club: { name_club: "Альпклуб ЛЭТИ", adres_club: "Санкт-Петербург", tel_club: "898190912345", email_club: "alpclubleti@gmail.com", strana_club: ObjectId('5eff49a73dab91c3ab96ab66'), lico_club: "Дмитрий Евгеньевич Царегородцев" } } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T19:32:32.611+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T19:33:19.927+0200 I STORAGE  [DataFileSync] flushing mmaps took 64ms  for 6 files
+2020-07-03T19:34:19.920+0200 I STORAGE  [DataFileSync] flushing mmaps took 56ms  for 6 files
+2020-07-03T19:35:19.871+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:35:23.077+0200 I COMMAND  [conn1] command alpclub.alpinisty command: insert { insert: "alpinisty", documents: [ { _id: ObjectId('5eff6c5b3dab91c3ab96ab7e'), name: { ima: "Виталий", otchestvo: "Романович", familia: "Иванов" }, vozrast: 29.0, contacts: { adres: "Санкт-петербург,ул Александра Невского 10 кв 140", tel: "8956868656844", email: "ivanov@mail.ru" }, club: { name_club: "Альпклуб ЛЭТИ", adres_club: "Санкт-Петербург", tel_club: "898190912345", email_club: "alpclubleti@gmail.com", strana_club: ObjectId('5eff49a73dab91c3ab96ab66'), lico_club: "Дмитрий Евгеньевич Царегородцев" } } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T19:35:23.086+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T19:36:19.934+0200 I STORAGE  [DataFileSync] flushing mmaps took 69ms  for 6 files
+2020-07-03T19:37:19.909+0200 I STORAGE  [DataFileSync] flushing mmaps took 44ms  for 6 files
+2020-07-03T19:38:19.874+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:38:35.986+0200 I COMMAND  [conn1] command alpclub.alpinisty command: insert { insert: "alpinisty", documents: [ { _id: ObjectId('5eff6d1b3dab91c3ab96ab7f'), name: { ima: "Николай", otchestvo: "Семенович", familia: "Заикин" }, vozrast: 20.0, contacts: { adres: "Санкт-петербург,ул Балканская 17 кв 10", tel: "895532523525", email: "zaikin@mail.ru" }, club: { name_club: "Альпклуб ЛЭТИ", adres_club: "Санкт-Петербург", tel_club: "898190912345", email_club: "alpclubleti@gmail.com", strana_club: ObjectId('5eff49a73dab91c3ab96ab66'), lico_club: "Дмитрий Евгеньевич Царегородцев" } } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T19:38:35.994+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T19:39:04.957+0200 I COMMAND  [conn1] command alpclub.alpinisty command: find { find: "alpinisty", filter: {} } planSummary: COLLSCAN keysExamined:0 docsExamined:5 cursorExhausted:1 keyUpdates:0 writeConflicts:0 numYields:0 nreturned:5 reslen:2868 locks:{ Global: { acquireCount: { r: 2 } }, MMAPV1Journal: { acquireCount: { r: 1 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { R: 1 } } } protocol:op_command 0ms
+2020-07-03T19:39:05.048+0200 I COMMAND  [conn1] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T19:39:19.940+0200 I STORAGE  [DataFileSync] flushing mmaps took 73ms  for 6 files
+2020-07-03T19:40:19.874+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:41:19.875+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:42:19.875+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:43:19.876+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:44:19.918+0200 I STORAGE  [DataFileSync] flushing mmaps took 49ms  for 6 files
+2020-07-03T19:45:19.955+0200 I STORAGE  [DataFileSync] flushing mmaps took 85ms  for 6 files
+2020-07-03T19:46:19.877+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:47:19.878+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:48:19.928+0200 I STORAGE  [DataFileSync] flushing mmaps took 57ms  for 6 files
+2020-07-03T19:49:19.878+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:50:19.879+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:51:19.879+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:52:19.942+0200 I STORAGE  [DataFileSync] flushing mmaps took 69ms  for 6 files
+2020-07-03T19:53:19.925+0200 I STORAGE  [DataFileSync] flushing mmaps took 52ms  for 6 files
+2020-07-03T19:54:19.904+0200 I STORAGE  [DataFileSync] flushing mmaps took 30ms  for 6 files
+2020-07-03T19:55:19.939+0200 I STORAGE  [DataFileSync] flushing mmaps took 65ms  for 6 files
+2020-07-03T19:56:19.881+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:57:19.882+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T19:58:19.944+0200 I STORAGE  [DataFileSync] flushing mmaps took 66ms  for 6 files
+2020-07-03T19:59:19.927+0200 I STORAGE  [DataFileSync] flushing mmaps took 48ms  for 6 files
+2020-07-03T20:00:19.886+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:01:19.984+0200 I STORAGE  [DataFileSync] flushing mmaps took 104ms  for 6 files
+2020-07-03T20:02:19.903+0200 I STORAGE  [DataFileSync] flushing mmaps took 22ms  for 6 files
+2020-07-03T20:03:19.888+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:04:19.889+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:05:19.973+0200 I STORAGE  [DataFileSync] flushing mmaps took 91ms  for 6 files
+2020-07-03T20:06:19.890+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:07:19.890+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:08:20.023+0200 I STORAGE  [DataFileSync] flushing mmaps took 139ms  for 6 files
+2020-07-03T20:09:19.892+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:10:19.892+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:11:19.942+0200 I STORAGE  [DataFileSync] flushing mmaps took 56ms  for 6 files
+2020-07-03T20:12:19.893+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:13:19.894+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:14:19.894+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:15:19.895+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:16:19.895+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:17:19.895+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:18:19.896+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:19:19.896+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:20:19.897+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:21:19.897+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:22:19.898+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:23:19.898+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:24:19.898+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:25:19.969+0200 I STORAGE  [DataFileSync] flushing mmaps took 77ms  for 6 files
+2020-07-03T20:26:19.922+0200 I STORAGE  [DataFileSync] flushing mmaps took 29ms  for 6 files
+2020-07-03T20:27:19.902+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:28:19.902+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:28:21.919+0200 D NETWORK  [conn1] Socket recv() errno:10054 Удаленный хост принудительно разорвал существующее подключение. 127.0.0.1:51338
+2020-07-03T20:28:22.201+0200 D NETWORK  [conn1] SocketException: remote: 127.0.0.1:51338 error: 9001 socket exception [RECV_ERROR] server [127.0.0.1:51338] 
+2020-07-03T20:28:22.201+0200 I NETWORK  [conn1] end connection 127.0.0.1:51338 (0 connections now open)
+2020-07-03T20:28:43.443+0200 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53454 #2 (1 connection now open)
+2020-07-03T20:28:43.662+0200 I COMMAND  [conn2] command admin.$cmd command: isMaster { isMaster: 1 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:178 locks:{} protocol:op_query 0ms
+2020-07-03T20:28:43.662+0200 I COMMAND  [conn2] command admin.$cmd command: whatsmyuri { whatsmyuri: 1 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:47 locks:{} protocol:op_command 0ms
+2020-07-03T20:28:43.702+0200 I COMMAND  [conn2] command admin.$cmd command: getLog { getLog: "startupWarnings" } keyUpdates:0 writeConflicts:0 numYields:0 reslen:945 locks:{} protocol:op_command 4ms
+2020-07-03T20:28:43.836+0200 I COMMAND  [conn2] command test.$cmd command: buildInfo { buildInfo: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:980 locks:{} protocol:op_command 57ms
+2020-07-03T20:28:43.879+0200 I COMMAND  [conn2] command admin.$cmd command: replSetGetStatus { replSetGetStatus: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:71 locks:{} protocol:op_command 23ms
+2020-07-03T20:28:43.879+0200 I COMMAND  [conn2] command test.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T20:29:19.903+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:29:29.353+0200 I COMMAND  [conn2] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T20:30:09.789+0200 I COMMAND  [conn2] command alpclub.alp_gruppa command: find { find: "alp_gruppa", filter: {} } planSummary: EOF keysExamined:0 docsExamined:0 cursorExhausted:1 keyUpdates:0 writeConflicts:0 numYields:0 nreturned:0 reslen:109 locks:{ Global: { acquireCount: { r: 2 } }, MMAPV1Journal: { acquireCount: { r: 1 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { R: 1 } } } protocol:op_command 73ms
+2020-07-03T20:30:09.791+0200 I COMMAND  [conn2] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T20:30:19.903+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:30:30.936+0200 I COMMAND  [conn2] command alpclub.alpinisty command: find { find: "alpinisty", filter: {} } planSummary: COLLSCAN keysExamined:0 docsExamined:5 cursorExhausted:1 keyUpdates:0 writeConflicts:0 numYields:0 nreturned:5 reslen:2868 locks:{ Global: { acquireCount: { r: 2 } }, MMAPV1Journal: { acquireCount: { r: 1 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { R: 1 } } } protocol:op_command 0ms
+2020-07-03T20:30:30.960+0200 I COMMAND  [conn2] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T20:31:19.904+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:32:19.904+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:33:19.904+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:34:07.839+0200 D NETWORK  [conn2] Socket recv() errno:10054 Удаленный хост принудительно разорвал существующее подключение. 127.0.0.1:53454
+2020-07-03T20:34:07.839+0200 D NETWORK  [conn2] SocketException: remote: 127.0.0.1:53454 error: 9001 socket exception [RECV_ERROR] server [127.0.0.1:53454] 
+2020-07-03T20:34:07.839+0200 I NETWORK  [conn2] end connection 127.0.0.1:53454 (0 connections now open)
+2020-07-03T20:34:19.905+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:34:21.198+0200 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53457 #3 (1 connection now open)
+2020-07-03T20:34:21.199+0200 I COMMAND  [conn3] command admin.$cmd command: isMaster { isMaster: 1 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:178 locks:{} protocol:op_query 0ms
+2020-07-03T20:34:21.199+0200 I COMMAND  [conn3] command admin.$cmd command: whatsmyuri { whatsmyuri: 1 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:47 locks:{} protocol:op_command 0ms
+2020-07-03T20:34:21.203+0200 I COMMAND  [conn3] command admin.$cmd command: getLog { getLog: "startupWarnings" } keyUpdates:0 writeConflicts:0 numYields:0 reslen:945 locks:{} protocol:op_command 0ms
+2020-07-03T20:34:21.207+0200 I COMMAND  [conn3] command test.$cmd command: buildInfo { buildInfo: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:980 locks:{} protocol:op_command 0ms
+2020-07-03T20:34:21.209+0200 I COMMAND  [conn3] command admin.$cmd command: replSetGetStatus { replSetGetStatus: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:71 locks:{} protocol:op_command 0ms
+2020-07-03T20:34:21.209+0200 I COMMAND  [conn3] command test.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T20:34:31.274+0200 I COMMAND  [conn3] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T20:35:19.905+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:36:19.906+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:36:36.850+0200 I COMMAND  [conn3] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T20:37:19.953+0200 I STORAGE  [DataFileSync] flushing mmaps took 52ms  for 6 files
+2020-07-03T20:38:19.909+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:39:19.915+0200 I STORAGE  [DataFileSync] flushing mmaps took 13ms  for 6 files
+2020-07-03T20:40:19.958+0200 I STORAGE  [DataFileSync] flushing mmaps took 56ms  for 6 files
+2020-07-03T20:41:19.910+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:41:38.501+0200 I COMMAND  [conn3] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T20:42:20.019+0200 I STORAGE  [DataFileSync] flushing mmaps took 116ms  for 6 files
+2020-07-03T20:43:19.911+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:44:19.911+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:45:19.912+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:46:19.912+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:47:18.150+0200 I COMMAND  [conn3] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T20:47:19.955+0200 I STORAGE  [DataFileSync] flushing mmaps took 50ms  for 6 files
+2020-07-03T20:48:19.913+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:49:19.978+0200 I STORAGE  [DataFileSync] flushing mmaps took 72ms  for 6 files
+2020-07-03T20:50:19.914+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:50:35.360+0200 D STORAGE  [conn3] MmapV1ExtentManager::allocateExtent desiredSize:8192 fromFreeList: 0 eloc: 0:b1000
+2020-07-03T20:50:35.361+0200 D STORAGE  [conn3] alpclub.alp_gruppa: clearing plan cache - collection info cache reset
+2020-07-03T20:50:35.361+0200 D STORAGE  [conn3] alpclub.alp_gruppa: clearing plan cache - collection info cache reset
+2020-07-03T20:50:35.361+0200 D STORAGE  [conn3] allocating new extent
+2020-07-03T20:50:35.361+0200 D STORAGE  [conn3] MmapV1ExtentManager::allocateExtent desiredSize:131072 fromFreeList: 0 eloc: 0:b3000
+2020-07-03T20:50:35.361+0200 I COMMAND  [conn3] command alpclub.alp_gruppa command: insert { insert: "alp_gruppa", documents: [ { _id: ObjectId('5eff7dfbbc53b9c3687b3e0a'), commentariy: "все хорошо", rezult: "успешно", data_otpravlenia: new Date(1574151780000), data_vozrachenia: new Date(1574583780000), marshrut: ObjectId('5eff51733dab91c3ab96ab76'), nach_voshog_plan: new Date(1574241780000), zaver_voshog_plan: new Date(1574411040000), nach_voshog_fact: new Date(1574241780000), zaver_voshog_fact: new Date(1574411040000), uchastniki: [ { alpinist: ObjectId('5eff59403dab91c3ab96ab7b'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6b0b3dab91c3ab96ab7c'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') } ] } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, MMAPV1Journal: { acquireCount: { w: 4 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 2 } }, Metadata: { acquireCount: { W: 2 } } } protocol:op_command 50ms
+2020-07-03T20:50:35.370+0200 I COMMAND  [conn3] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T20:51:20.004+0200 I STORAGE  [DataFileSync] flushing mmaps took 97ms  for 6 files
+2020-07-03T20:51:34.180+0200 I COMMAND  [conn3] command alpclub.alp_gruppa command: find { find: "alp_gruppa", filter: {} } planSummary: COLLSCAN keysExamined:0 docsExamined:1 cursorExhausted:1 keyUpdates:0 writeConflicts:0 numYields:0 nreturned:1 reslen:585 locks:{ Global: { acquireCount: { r: 2 } }, MMAPV1Journal: { acquireCount: { r: 1 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { R: 1 } } } protocol:op_command 0ms
+2020-07-03T20:51:34.205+0200 I COMMAND  [conn3] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T20:52:19.915+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:53:19.915+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:54:19.974+0200 I STORAGE  [DataFileSync] flushing mmaps took 66ms  for 6 files
+2020-07-03T20:55:19.917+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:56:19.917+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:57:19.918+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:58:19.918+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T20:59:20.029+0200 I STORAGE  [DataFileSync] flushing mmaps took 117ms  for 6 files
+2020-07-03T21:00:19.919+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T21:01:20.287+0200 I STORAGE  [DataFileSync] flushing mmaps took 375ms  for 6 files
+2020-07-03T21:02:19.920+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T21:03:19.973+0200 I STORAGE  [DataFileSync] flushing mmaps took 60ms  for 6 files
+2020-07-03T21:04:19.968+0200 I STORAGE  [DataFileSync] flushing mmaps took 54ms  for 6 files
+2020-07-03T21:05:19.920+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 6 files
+2020-07-03T21:06:19.922+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 6 files
+2020-07-03T21:07:19.924+0200 I STORAGE  [DataFileSync] flushing mmaps took 8ms  for 6 files
+2020-07-03T21:08:19.923+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 6 files
+2020-07-03T21:09:19.925+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 6 files
+2020-07-03T21:10:19.928+0200 I STORAGE  [DataFileSync] flushing mmaps took 8ms  for 6 files
+2020-07-03T21:11:20.645+0200 I STORAGE  [DataFileSync] flushing mmaps took 724ms  for 6 files
+2020-07-03T21:12:19.963+0200 I STORAGE  [DataFileSync] flushing mmaps took 42ms  for 6 files
+2020-07-03T21:13:19.957+0200 I STORAGE  [DataFileSync] flushing mmaps took 35ms  for 6 files
+2020-07-03T21:14:19.958+0200 I STORAGE  [DataFileSync] flushing mmaps took 36ms  for 6 files
+2020-07-03T21:15:19.946+0200 I STORAGE  [DataFileSync] flushing mmaps took 23ms  for 6 files
+2020-07-03T21:16:19.946+0200 I STORAGE  [DataFileSync] flushing mmaps took 8ms  for 6 files
+2020-07-03T21:17:19.948+0200 I STORAGE  [DataFileSync] flushing mmaps took 10ms  for 6 files
+2020-07-03T21:18:20.084+0200 I STORAGE  [DataFileSync] flushing mmaps took 143ms  for 6 files
+2020-07-03T21:19:20.167+0200 I STORAGE  [DataFileSync] flushing mmaps took 226ms  for 6 files
+2020-07-03T21:20:20.308+0200 I STORAGE  [DataFileSync] flushing mmaps took 366ms  for 6 files
+2020-07-03T21:21:20.201+0200 I STORAGE  [DataFileSync] flushing mmaps took 259ms  for 6 files
+2020-07-03T21:22:20.230+0200 I STORAGE  [DataFileSync] flushing mmaps took 287ms  for 6 files
+2020-07-03T21:23:20.237+0200 I STORAGE  [DataFileSync] flushing mmaps took 294ms  for 6 files
+2020-07-03T21:24:19.949+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 6 files
+2020-07-03T21:25:20.018+0200 I STORAGE  [DataFileSync] flushing mmaps took 74ms  for 6 files
+2020-07-03T21:43:09.257+0200 I STORAGE  [DataFileSync] flushing mmaps took 71ms  for 6 files
+2020-07-03T21:44:09.260+0200 I STORAGE  [DataFileSync] flushing mmaps took 73ms  for 6 files
+2020-07-03T21:45:09.194+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T21:46:09.194+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T21:47:09.195+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T21:48:09.195+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T21:49:09.200+0200 I STORAGE  [DataFileSync] flushing mmaps took 10ms  for 6 files
+2020-07-03T21:50:09.196+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 6 files
+2020-07-03T21:51:09.198+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 6 files
+2020-07-03T21:52:09.200+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T21:53:09.201+0200 I STORAGE  [DataFileSync] flushing mmaps took 8ms  for 6 files
+2020-07-03T21:54:09.266+0200 I STORAGE  [DataFileSync] flushing mmaps took 72ms  for 6 files
+2020-07-03T21:54:52.630+0200 I COMMAND  [conn3] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T21:55:09.202+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T21:55:50.908+0200 I COMMAND  [conn3] command alpclub.alp_gruppa command: insert { insert: "alp_gruppa", documents: [ { _id: ObjectId('5eff8d46bc53b9c3687b3e0b'), commentariy: "все хорошо", rezult: "успешно", data_otpravlenia: new Date(1550564580000), data_vozrachenia: new Date(1550996580000), marshrut: ObjectId('5eff52453dab91c3ab96ab77'), nach_voshog_plan: new Date(1550654580000), zaver_voshog_plan: new Date(1550823840000), nach_voshog_fact: new Date(1550654580000), zaver_voshog_fact: new Date(1550823840000), uchastniki: [ { alpinist: ObjectId('5eff59403dab91c3ab96ab7b'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6b0b3dab91c3ab96ab7c'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6bb03dab91c3ab96ab7d'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6c5b3dab91c3ab96ab7e'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') } ] } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 55ms
+2020-07-03T21:55:50.917+0200 I COMMAND  [conn3] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T21:56:09.259+0200 I STORAGE  [DataFileSync] flushing mmaps took 63ms  for 6 files
+2020-07-03T21:57:09.203+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 6 files
+2020-07-03T21:58:09.261+0200 I STORAGE  [DataFileSync] flushing mmaps took 63ms  for 6 files
+2020-07-03T21:59:09.205+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T22:00:09.206+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T22:00:56.205+0200 I COMMAND  [conn3] command alpclub.alp_gruppa command: insert { insert: "alp_gruppa", documents: [ { _id: ObjectId('5eff8e78bc53b9c3687b3e0c'), commentariy: "потеряли палатку", rezult: "успешно", data_otpravlenia: new Date(1576743780000), data_vozrachenia: new Date(1577175780000), marshrut: ObjectId('5eff52453dab91c3ab96ab77'), nach_voshog_plan: new Date(1576833780000), zaver_voshog_plan: new Date(1577003040000), nach_voshog_fact: new Date(1576833780000), zaver_voshog_fact: new Date(1577003040000), uchastniki: [ { alpinist: ObjectId('5eff59403dab91c3ab96ab7b'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6b0b3dab91c3ab96ab7c'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6bb03dab91c3ab96ab7d'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6c5b3dab91c3ab96ab7e'), rezult_alpinista: "удовлетворительно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') } ] } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 0ms
+2020-07-03T22:00:56.214+0200 I COMMAND  [conn3] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T22:01:09.299+0200 I STORAGE  [DataFileSync] flushing mmaps took 100ms  for 6 files
+2020-07-03T22:02:09.261+0200 I STORAGE  [DataFileSync] flushing mmaps took 62ms  for 6 files
+2020-07-03T22:03:09.257+0200 I STORAGE  [DataFileSync] flushing mmaps took 57ms  for 6 files
+2020-07-03T22:04:09.461+0200 I STORAGE  [DataFileSync] flushing mmaps took 261ms  for 6 files
+2020-07-03T22:05:09.257+0200 I STORAGE  [DataFileSync] flushing mmaps took 56ms  for 6 files
+2020-07-03T22:06:09.208+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T22:07:09.208+0200 I STORAGE  [DataFileSync] flushing mmaps took 6ms  for 6 files
+2020-07-03T22:08:09.210+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T22:09:09.210+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T22:10:09.264+0200 I STORAGE  [DataFileSync] flushing mmaps took 60ms  for 6 files
+2020-07-03T22:11:09.242+0200 I STORAGE  [DataFileSync] flushing mmaps took 38ms  for 6 files
+2020-07-03T22:12:09.265+0200 I STORAGE  [DataFileSync] flushing mmaps took 60ms  for 6 files
+2020-07-03T22:12:43.948+0200 I COMMAND  [conn3] command alpclub.alp_gruppa command: insert { insert: "alp_gruppa", documents: [ { _id: ObjectId('5eff913bbc53b9c3687b3e0d'), commentariy: "травма у одного из участников", rezult: "удовлетворительно", data_otpravlenia: new Date(1552983780000), data_vozrachenia: new Date(1553415780000), marshrut: ObjectId('5eff52453dab91c3ab96ab77'), nach_voshog_plan: new Date(1553073780000), zaver_voshog_plan: new Date(1553243040000), nach_voshog_fact: new Date(1553073780000), zaver_voshog_fact: new Date(1553243040000), uchastniki: [ { alpinist: ObjectId('5eff59403dab91c3ab96ab7b'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6b0b3dab91c3ab96ab7c'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6bb03dab91c3ab96ab7d'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6c5b3dab91c3ab96ab7e'), rezult_alpinista: "удовлетворительно", nesht_situacii: ObjectId('5eff4c893dab91c3ab96ab6b') } ] } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 42ms
+2020-07-03T22:12:43.955+0200 I COMMAND  [conn3] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T22:13:09.270+0200 I STORAGE  [DataFileSync] flushing mmaps took 65ms  for 6 files
+2020-07-03T22:14:09.226+0200 I STORAGE  [DataFileSync] flushing mmaps took 20ms  for 6 files
+2020-07-03T22:15:09.260+0200 I STORAGE  [DataFileSync] flushing mmaps took 53ms  for 6 files
+2020-07-03T22:16:09.214+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T22:17:09.215+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T22:18:09.228+0200 I STORAGE  [DataFileSync] flushing mmaps took 19ms  for 6 files
+2020-07-03T22:19:09.218+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T22:20:09.218+0200 I STORAGE  [DataFileSync] flushing mmaps took 7ms  for 6 files
+2020-07-03T22:20:11.857+0200 I COMMAND  [conn3] command alpclub.alp_gruppa command: insert { insert: "alp_gruppa", documents: [ { _id: ObjectId('5eff92fbbc53b9c3687b3e0e'), commentariy: "все хорошо", rezult: "успешно", data_otpravlenia: new Date(1555662180000), data_vozrachenia: new Date(1556094180000), marshrut: ObjectId('5eff53233dab91c3ab96ab78'), nach_voshog_plan: new Date(1555752180000), zaver_voshog_plan: new Date(1555921440000), nach_voshog_fact: new Date(1555752180000), zaver_voshog_fact: new Date(1555921440000), uchastniki: [ { alpinist: ObjectId('5eff59403dab91c3ab96ab7b'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6b0b3dab91c3ab96ab7c'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6bb03dab91c3ab96ab7d'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') }, { alpinist: ObjectId('5eff6d1b3dab91c3ab96ab7f'), rezult_alpinista: "успешно", nesht_situacii: ObjectId('5eff4d263dab91c3ab96ab70') } ] } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 2 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 9ms
+2020-07-03T22:20:11.865+0200 I COMMAND  [conn3] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T22:20:59.604+0200 I COMMAND  [conn3] command alpclub.alp_gruppa command: find { find: "alp_gruppa", filter: {} } planSummary: COLLSCAN keysExamined:0 docsExamined:5 cursorExhausted:1 keyUpdates:0 writeConflicts:0 numYields:0 nreturned:5 reslen:3356 locks:{ Global: { acquireCount: { r: 2 } }, MMAPV1Journal: { acquireCount: { r: 1 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { R: 1 } } } protocol:op_command 0ms
+2020-07-03T22:20:59.766+0200 I COMMAND  [conn3] command alpclub.$cmd command: isMaster { isMaster: 1.0, forShell: 1.0 } keyUpdates:0 writeConflicts:0 numYields:0 reslen:163 locks:{} protocol:op_command 0ms
+2020-07-03T22:21:09.329+0200 I STORAGE  [DataFileSync] flushing mmaps took 117ms  for 6 files
+2020-07-03T22:22:09.220+0200 I STORAGE  [DataFileSync] flushing mmaps took 8ms  for 6 files
+2020-07-03T22:23:09.268+0200 I STORAGE  [DataFileSync] flushing mmaps took 56ms  for 6 files
+2020-07-03T22:24:09.222+0200 I STORAGE  [DataFileSync] flushing mmaps took 8ms  for 6 files
+2020-07-03T22:25:09.268+0200 I STORAGE  [DataFileSync] flushing mmaps took 54ms  for 6 files
+2020-07-03T22:26:09.270+0200 I STORAGE  [DataFileSync] flushing mmaps took 55ms  for 6 files
+2020-07-03T22:27:09.281+0200 I STORAGE  [DataFileSync] flushing mmaps took 66ms  for 6 files
+2020-07-03T22:28:09.271+0200 I STORAGE  [DataFileSync] flushing mmaps took 55ms  for 6 files
+2020-07-03T22:29:09.281+0200 I STORAGE  [DataFileSync] flushing mmaps took 65ms  for 6 files
+2020-07-03T22:30:09.225+0200 I STORAGE  [DataFileSync] flushing mmaps took 9ms  for 6 files
+2020-07-03T22:31:09.299+0200 I STORAGE  [DataFileSync] flushing mmaps took 82ms  for 6 files
+2020-07-03T22:32:09.314+0200 I STORAGE  [DataFileSync] flushing mmaps took 97ms  for 6 files
+2020-07-03T22:32:49.492+0200 I NETWORK  [conn3] end connection 127.0.0.1:53457 (0 connections now open)
+2020-07-03T22:32:54.540+0200 I CONTROL  [thread1] CTRL_CLOSE_EVENT signal
+2020-07-03T22:32:54.553+0200 I CONTROL  [consoleTerminate] got CTRL_CLOSE_EVENT, will terminate after current cmd ends
+2020-07-03T22:32:54.600+0200 I FTDC     [consoleTerminate] Shutting down full-time diagnostic data capture
+2020-07-03T22:32:54.745+0200 I CONTROL  [consoleTerminate] now exiting
+2020-07-03T22:32:54.745+0200 I NETWORK  [consoleTerminate] shutdown: going to close listening sockets...
+2020-07-03T22:32:54.745+0200 I NETWORK  [consoleTerminate] closing listening socket: 400
+2020-07-03T22:32:54.745+0200 I NETWORK  [consoleTerminate] shutdown: going to flush diaglog...
+2020-07-03T22:32:54.745+0200 I NETWORK  [consoleTerminate] shutdown: going to close sockets...
+2020-07-03T22:32:54.745+0200 I STORAGE  [consoleTerminate] shutdown: waiting for fs preallocator...
+2020-07-03T22:32:54.746+0200 I STORAGE  [consoleTerminate] shutdown: closing all files...
+2020-07-03T22:32:54.810+0200 I STORAGE  [consoleTerminate] closeAllFiles() finished
+2020-07-03T22:32:54.852+0200 I STORAGE  [consoleTerminate] shutdown: removing fs lock...
+2020-07-03T22:32:54.853+0200 I CONTROL  [consoleTerminate] dbexit:  rc: 12
