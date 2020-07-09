@@ -1,0 +1,5 @@
+{"_id":{"$oid":"5f01f20b5d6f9aa11d241dde"},"row_number":1.0,"number_in_row":1.0,"shop":{"$oid":"5f01f11c5d6f9aa11d241dd9"}}
+{"_id":{"$oid":"5f01f2c05d6f9aa11d241ddf"},"row_number":1.0,"number_in_row":2.0,"shop":{"$oid":"5f01f11c5d6f9aa11d241dd9"}}
+{"_id":{"$oid":"5f01f3595d6f9aa11d241de0"},"row_number":1.0,"number_in_row":2.0,"shop":{"$oid":"5f01f1255d6f9aa11d241ddb"}}
+{"_id":{"$oid":"5f01f3725d6f9aa11d241de1"},"row_number":1.0,"number_in_row":4.0,"shop":{"$oid":"5f01f1255d6f9aa11d241ddb"}}
+{"_id":{"$oid":"5f01f3895d6f9aa11d241de2"},"row_number":1.0,"number_in_row":4.0,"shop":{"$oid":"5f01f12a5d6f9aa11d241ddd"}}

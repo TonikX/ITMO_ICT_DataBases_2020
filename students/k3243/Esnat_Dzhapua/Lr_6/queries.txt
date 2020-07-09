@@ -1,0 +1,33 @@
+---Создаем базу данных labwork
+use labwork
+
+---Создаем и заполняем таблицу students
+db.students.insert({"name": "Jorje", "surname": "Masvidal", "sex": "male","ex_pas":"Yes", "grades": {"databases": 5, "dataviz": 4, "cplusplus": 4, "english": 3}})
+db.students.insert({"name": "Ben", "surname": "Askren", "sex": "male","ex_pas":"Yes", "grades": {"databases": 2, "dataviz": 2, "cplusplus": 5, "english": 5}})
+db.students.insert({"name": "Ronda", "surname": "Rousey", "sex": "female","ex_pas":"No", "grades": {"databases": 5, "dataviz": 5, "cplusplus": 2, "english": 2}})
+db.students.insert({"name": "Amanda", "surname": "Nunes", "sex": "female","ex_pas":"No", "grades": {"databases": 3, "dataviz": 3, "cplusplus": 3, "english": 5}})
+db.students.insert({"name": "Canelo", "surname": "Alvarez", "sex": "male","ex_pas":"Yes", "grades": {"databases": 5, "dataviz": 5, "cplusplus": 5, "english": 5}})
+
+---Создаем и заполняем таблицу class
+db.class.insert({"class_num": 234, "class_floor": 2,"lesson":"databases", "class_curator": "Deontay Wilder", "student_id": [ObjectId("5f031da32f4d97aceb18d049"),ObjectId("5f031db62f4d97aceb18d04a")]})
+db.class.insert({"class_num": 116, "class_floor": 1,"lesson":"databases", "class_curator": "Anthony Joshua", "student_id": ObjectId("5f031dbb2f4d97aceb18d04b")})
+db.class.insert({"class_num": 201, "class_floor": 2,"lesson":"math", "class_curator": "Tyson Fury", "student_id": ObjectId("5f031dc12f4d97aceb18d04c")})
+db.class.insert({"class_num": 274, "class_floor": 2,"lesson":"physics", "class_curator": "Tyson Fury", "student_id": ObjectId("5f031dc62f4d97aceb18d04d")})
+
+
+---Выводим номера всех классов на втором этаже, в которых преподает выбранный учитель:
+db.class.find({"class_floor":2, "class_curator":"Tyson Fury"},{"class_num": 1, _id: 0})
+
+---Выводим имена всех учителей, которые преподают выбранный предмет:
+db.class.find({"lesson":"databases"},{"class_curator":1, _id:0})
+
+---Выводим имена и фамилии учеников, у которых высший балл по выбранным предметам:
+db.students.find({"grades.dataviz":5, "grades.databases":5},{"name":1,"surname":2,_id:0})
+
+---Считаем количество учеников, которые сдали и не сдали экзамены:
+db.students.aggregate([{$unwind:"$ex_pas"},{$group:{_id: "$ex_pas", count:{$sum:1}}}]);
+
+---Считаем количество девочек среди учеников, используя mapReduce:
+map = function() {emit(1,1);}
+reduce = function(key,values) {var count = 0; values.forEach(function(v) {count += v;}); return count;}
+db.students.mapReduce(map, reduce, {out:"query_1", query:{sex:"female"}});
