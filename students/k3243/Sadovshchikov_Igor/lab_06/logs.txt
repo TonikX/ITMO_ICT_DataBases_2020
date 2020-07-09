@@ -1,0 +1,227 @@
+use bus_park
+
+
+db.schedule.insertMany([{ 
+    "smena_start" : "04:00:00", 
+    "smena_end" : "12:00:00"
+},
+{ 
+    "smena_start" : "08:00:00", 
+    "smena_end" : "16:00:00"
+},
+{ 
+    "smena_start" : "10:00:00", 
+    "smena_end" : "18:00:00"
+},
+{ 
+    "smena_start" : "12:00:00", 
+    "smena_end" : "20:00:00"
+},
+{ 
+    "smena_start" : "14:00:00", 
+    "smena_end" : "22:00:00"
+},
+{ 
+    "smena_start" : "16:00:00", 
+    "smena_end" : "00:00:00"
+},
+{ 
+    "smena_start" : "18:00:00", 
+    "smena_end" : "02:00:00"
+}])
+
+
+db.driver.insertMany([{
+    "driver_id" : "0901482765",
+	"first_name" : "Вася", 
+	"last_name" : "Пупкин", 
+	"birthday": "1978-01-22",
+    "schedule_num" : 2, 
+    "experience" : 11, 
+    "category" : "1 сорт", 
+    "salary" : 100000
+},
+{ 
+    "driver_id": "0505865371", 
+	"first_name" : "Анатолий", 
+	"last_name" : "Старых",
+	"birthday": "1985-05-15",
+    "schedule_num" : 3, 
+    "experience" : 2, 
+    "category" : "2 сорт", 
+    "salary" : 10000
+},
+{ 
+	"driver_id": "0209756142", 
+	"first_name" : "Владимир", 
+	"last_name" : "Новых",
+	"birthday": "1982-03-10",
+    "schedule_num" : 3, 
+    "experience" : 3, 
+    "category" : "2 сорт", 
+    "salary" : 10000
+},
+{ 
+    "driver_id" : "0503875463", 
+	"first_name" : "Дмитрий", 
+	"last_name" : "Пучков",
+	"birthday": "1965-06-02",
+    "schedule_num" : 2, 
+    "experience" : 6, 
+    "category" : "2 сорт", 
+    "salary" : 10000
+},
+{ 
+	"driver_id" : "0703564365", 
+	"first_name" : "Ашот", 
+	"last_name" : "Иванов", 
+	"birthday":"1975-08-11",
+    "schedule_num" : 7, 
+    "experience" : 20, 
+    "category" : "1 сорт", 
+    "salary" : 100000
+}])
+
+
+db.route.insertMany([{
+    "route_num" : 18, 
+    "start_point" : "ул. Стойкости", 
+    "end_point" : "ул. Корабельная", 
+    "start_time" : "06:00:00", 
+    "end_time" : "22:00:00", 
+    "time_between" : 17, 
+    "route_length" : 55
+},
+{ 
+    "route_num" : 176, 
+    "start_point" : "Светлановский", 
+    "end_point" : "ст. Ручьи", 
+    "start_time" : "05:50:00", 
+    "end_time" : "23:00:00", 
+    "time_between" : 14, 
+    "route_length" : 50
+},
+{ 
+    "route_num" : 476, 
+    "start_point" : "м. Ломоносовская", 
+    "end_point" : "пос. имени Свердлова", 
+    "start_time" : "08:00:00", 
+    "end_time" : "20:00:00", 
+    "time_between" : 17, 
+    "route_length" : 80
+},
+{ 
+    "route_num" : 101, 
+    "start_point" : "м. Старая Деревня", 
+    "end_point" : "Кронштадт", 
+    "start_time" : "08:00:00", 
+    "end_time" : "20:00:00", 
+    "time_between" : 20, 
+    "route_length" : 70
+},
+{ 
+    "route_num" : 39, 
+    "start_point" : "ул. Костюшко", 
+    "end_point" : "Аэропорт Пулково", 
+    "start_time" : "06:00:00", 
+    "end_time" : "23:00:00", 
+    "time_between" : 10, 
+    "route_length" : 80
+}])
+
+
+db.bus.insertMany([{  
+    "gos_nomer" : "А777АА78", 
+    "model_name": "НефАЗ-5299",
+    "fuel_type" : "бензин", 
+    "color" : "белый", 
+    "status" : "в эксплуатации"
+},
+{ 
+    "gos_nomer" : "А228УЕ78", 
+    "model_name": "ПАЗ-3204",
+    "fuel_type" : "дизель", 
+    "color" : "белый", 
+    "status" : "в ремонте"
+},
+{ 
+    "gos_nomer" : "А329ВТ78", 
+    "model_name": "ПАЗ-3204",
+    "fuel_type" : "бензин", 
+    "color" : "белый", 
+    "status" : "в эксплуатации"
+},
+{ 
+    "gos_nomer" : "М482НВ78", 
+    "model_name": "ПАЗ-3205",
+    "fuel_type" : "дизель", 
+    "color" : "белый", 
+    "status" : "в эксплуатации"
+},
+{ 
+    "gos_nomer" : "А983УВ78", 
+    "model_name": "ПАЗ-3205",
+    "fuel_type" : "дизель", 
+    "color" : "белый", 
+    "status" : "в ремонте"
+}])
+
+
+db.departure.insertMany([{ 
+    "driver_id" : "0901482765",
+    "route_num" : 101,
+    "gos_nomer" : "А329ВТ78",
+    "departure_date" : "2020-02-12", 
+    "status" : "завершен", 
+    "tariff" : 50
+},
+{ 
+    "driver_id" : "0703564365",
+    "route_num" : 18,
+    "gos_nomer" : "М482НВ78", 
+    "departure_date" : "2020-03-22", 
+    "status" : "завершен", 
+    "tariff" : 50
+},
+{ 
+    "driver_id" : "0505865371",
+    "route_num" : 176, 
+    "gos_nomer" : "А228УЕ78",
+    "departure_date" : "2020-05-07", 
+    "status" : "завершен", 
+    "tariff" : 50
+},
+{ 
+    "driver_id" : "0209756142",
+    "route_num" : 39,
+    "gos_nomer" : "А777АА78",
+    "departure_date" : "2020-06-11", 
+    "status" : "совершается", 
+    "tariff" : 50
+},
+{ 
+    "driver_id" : "0901482765",
+    "route_num" : 101, 
+    "gos_nomer" : "А329ВТ78",
+    "departure_date" : "2020-06-11", 
+    "status" : "совершается", 
+    "tariff" : 50
+}])
+
+
+db.driver.find({}).sort({"experience":1})
+
+
+db.bus.find({"status":"в эксплуатации", "fuel_type":"дизель"})
+
+
+db.driver.find({"birthday":{$gte:"1980-01-01"}}).sort({"birthday":1})
+
+
+db.route.aggregate([{$match: {"start_point":{ $in: [/м.*/, /ст. м.*/, /метро*/,]}}}, {"$group": {"_id": null, "route_avg": { "$avg": "$route_length" }}}])
+
+
+db.route.aggregate([{$match: {"start_point":{ $in: [/м.*/, /ст. м.*/, /метро*/,]}}}, {"$group": {"_id": null, "route_avg": { "$avg": "$route_length" }}}])
+
+
+db.bus.aggregate([{$lookup: { from: "departure", localField: "gos_nomer", foreignField: "gos_nomer", as: "used_buses" }}, { $match: { used_buses: { $size: 0 } } }])
