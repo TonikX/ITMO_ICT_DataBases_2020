@@ -1,0 +1,143 @@
+ //создание
+ db.enrolee.insert({
+  "name": "Ivanov Ivan Ivanovich",
+  "passport": {
+  "number": "4112123456",
+  "issue_date": "2016-01-01",
+  "issued_by": "MVD RF"
+  },
+  "school": {
+  "name": "School #359",
+  "location": "Moscow"
+  },
+  "certificate": {
+  "math": "2",
+  "english": "2",
+  "history": "2"
+  },
+  "medal_type": "none",
+  "budget": "false",
+  "privileges": "true",
+  "target": "false",
+  "programs": ["Culturology"],
+  "faculties": ["Gender studies"]
+  })
+
+   db.enrolee.insert({
+  "name": "Dugin Alexander Gelevich",
+  "passport": {
+  "number": "4113654321",
+  "issue_date": "2016-01-01",
+  "issued_by": "MVD RF"
+  },
+  "school": {
+  "name": "School #123",
+  "location": "Moscow"
+  },
+  "certificate": {
+  "math": "5",
+  "english": "5",
+  "history": "5"
+  },
+  "medal_type": "golden",
+  "budget": "false",
+  "privileges": "true",
+  "target": "false",
+  "programs": ["Political science"],
+  "faculties": ["Faculty of law"]
+  })
+
+db.enrolee.insert({
+  "name": "Sorokin Vladimir Georgievich",
+  "passport": {
+  "number": "4114098765",
+  "issue_date": "2016-01-01",
+  "issued_by": "MVD RF"
+  },
+  "school": {
+  "name": "School #222",
+  "location": "Moscow"
+  },
+  "certificate": {
+  "math": "4",
+  "english": "5",
+  "history": "4"
+  },
+  "medal_type": "silver",
+  "budget": "false",
+  "privileges": "true",
+  "target": "false",
+  "programs": ["Literature"],
+  "faculties": ["Faculty of norms"]
+  })
+
+  db.enrolee.insert({
+  "name": "Limonov Eduard Veniaminovich",
+  "passport": {
+  "number": "4115228359",
+  "issue_date": "2016-01-01",
+  "issued_by": "MVD RF"
+  },
+  "school": {
+  "name": "School #222",
+  "location": "Omsk"
+  },
+  "certificate": {
+  "math": "3",
+  "english": "4",
+  "history": "5"
+  },
+  "medal_type": "silver",
+  "budget": "false",
+  "privileges": "true",
+  "target": "false",
+  "programs": ["Literature"],
+  "faculties": ["Faculty of norms"]
+  })
+
+  db.enrolee.insert({
+  "name": "Bayan Pervitinovich Shiryanov",
+  "passport": {
+  "number": "4116114488",
+  "issue_date": "2016-01-01",
+  "issued_by": "MVD RF"
+  },
+  "school": {
+  "name": "School #321",
+  "location": "Perm"
+  },
+  "certificate": {
+  "math": "3",
+  "english": "4",
+  "history": "4"
+  },
+  "medal_type": "golden",
+  "budget": "false",
+  "privileges": "true",
+  "target": "false",
+  "programs": ["Literature"],
+  "faculties": ["Faculty of norms"]
+  })
+
+//Вывод ФИО, паспортных данных и информации о школе всех абитуриентов:
+db.enrolee.find({}, {name: 1, passport: 1, school: 1}).sort({"passport.number":-1})
+//Вывод ФИО и паспортных данных абитуриентов, сортировка по ФИО в алфавитном порядке:
+db.enrolee.find({}, {name: 1, passport: 1}).sort({"name": 1})
+//Вывод абитуриентов, имеющих медаль, их номера паспорта и вида медали:
+db.enrolee.find({medal_type:{$ne:"none"}},{"name":1, "passport.number": 1})
+//Сумма заявок, поданных на каждый факультет:
+db.enrolee.aggregate([{$unwind:"$faculties"},{$group:{_id:"$faculties", count:{$sum: 1}}}])
+
+//mapReduce:
+var map_function = function(){
+  emit(this.school.name, this.certificate.math);
+};
+
+var reduce_function = function(name, math){
+  return Array.sum(math);
+};
+  db.enrolee.mapReduce(map_function, reduce_function, {out:"MapReduceRes"})
+
+  db.enrolee.mapReduce(map_function, reduce_function, {out:"MapReduceRes"})
+
+  db.MapReduceRes.find({})
