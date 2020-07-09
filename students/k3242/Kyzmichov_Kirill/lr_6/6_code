@@ -1,0 +1,272 @@
+use students
+
+db.Enrollee.insert({
+  name: "Kirill",
+  passport: "468432",
+  school: "667",
+  type: "Basic",
+  grade: {
+  base: "11",
+  point_1: 80,
+  point_2: 62
+  },
+  form: "Extramural",
+  specialty: {
+  name: "AI",
+  faculty: "Computer_Science",
+  basis: "Contract",
+  num_pl: 15
+  },
+  date: "2018-07-08"
+  })
+
+db.Enrollee.insert({
+  name: "Polina",
+  passport: "434567",
+  school: "84",
+  type: "Basic",
+  grade: {
+  base: "11",
+  point_1: 86,
+  point_2: 60
+  },
+  form: "Full-time",
+  specialty: {
+  name: "Banking",
+  faculty: "Economics",
+  basis: "Budget",
+  num_pl: 5
+  },
+  date: "2018-07-10"
+  })
+  
+db.Enrollee.insert({
+  name: "Danil",
+  passport: "493400",
+  school: "586",
+  type: "Basic",
+  grade: {
+  base: "11",
+  point_1: 88,
+  point_2: 76
+  },
+  form: "Part-time",
+  specialty: {
+  name: "Finance",
+  faculty: "Economics",
+  basis: "Budget",
+  num_pl: 15
+  },
+  date: "2018-07-12"
+  })
+  
+db.Enrollee.insert({
+  name: "Lana",
+  passport: "589342",
+  school: "231",
+  type: "Invalid",
+  grade: {
+  base: "9",
+  point_1: 98,
+  point_2: 90,
+  point_2: 88,
+  point_2: 96,
+  avg_p: 93
+  },
+  form: "Extramural",
+  specialty: {
+  name: "Finance",
+  faculty: "Economics",
+  basis: "Contract",
+  num_pl: 15
+  },
+  date: "2018-07-13"
+  })
+  
+db.Enrollee.insert({
+  name: "Allie",
+  passport: "468432",
+  school: "666",
+  type: "Tselovik",
+  grade: {
+  base: "9",
+  point_1: 97,
+  point_2: 94,
+  point_2: 87,
+  point_2: 98,
+  avg_p: 94
+  },
+  form: "Full-time",
+  specialty: {
+  name: "AI",
+  faculty: "Computer_Science",
+  basis: "Budget",
+  num_pl: 15
+  },
+  date: "2018-07-15"
+  })
+  
+db.Enrollee.insert({
+  name: "Dony",
+  passport: "468445",
+  school: "523",
+  type: "Invalid",
+  grade: {
+  base: "11",
+  point_1: 90,
+  point_2: 78
+  },
+  form: "Part-time",
+  specialty: {
+  name: "Banking",
+  faculty: "Economics",
+  basis: "Contract",
+  num_pl: 10
+  },
+  date: "2018-07-15"
+  })
+  
+db.Enrollee.insert({
+  name: "Alex",
+  passport: "452525",
+  school: "234",
+  type: "Basic",
+  grade: {
+  base: "11",
+  point_1: 90,
+  point_2: 80
+  },
+  form: "Extramural",
+  specialty: {
+  name: "Translator",
+  faculty: "Linguistics",
+  basis: "Contract",
+  num_pl: 20
+  },
+  date: "2018-07-16"
+  })
+  
+db.Enrollee.insert({
+  name: "Anna",
+  passport: "495234",
+  school: "586",
+  type: "Basic",
+  grade: {
+  base: "9",
+  point_1: 78,
+  point_2: 64,
+  point_2: 86,
+  point_2: 91,
+  avg_p: 80
+  },
+  form: "Full-time",
+  specialty: {
+  name: "Translator",
+  faculty: "Linguistics",
+  basis: "Budget",
+  num_pl: 10
+  },
+  date: "2018-07-17"
+  })
+  
+db.Enrollee.insert({
+  name: "Rick",
+  passport: "590424",
+  school: "7",
+  type: "Basic",
+  grade: {
+  base: "9",
+  point_1: 77,
+  point_2: 62,
+  point_2: 85,
+  point_2: 89,
+  avg_p: 78
+  },
+  form: "Part-time",
+  specialty: {
+  name: "Finance",
+  faculty: "Economics",
+  basis: "Contract",
+  num_pl: 15
+  },
+  date: "2018-07-18"
+  })
+  
+db.Enrollee.insert({
+  name: "Richard",
+  passport: "515530",
+  school: "674",
+  type: "Basic",
+  grade: {
+  base: "9",
+  point_1: 97,
+  point_2: 89,
+  point_2: 86,
+  point_2: 95,
+  avg_p: 92
+  },
+  form: "Extramural",
+  specialty: {
+  name: "Banking",
+  faculty: "Economics",
+  basis: "Budget",
+  num_pl: 5
+  },
+  date: "2018-07-20"
+  })
+  
+1.Список абитуриентов подавших документы на заданную специальность (Finance специальность в данном случае): 
+db.Enrollee.find(
+	{"specialty.name": "Finance"},
+	{_id: 0, name: 1, "specialty.name": 1, "specialty.basis": 1}
+)
+
+2.Количество абитуриентов, подавших заявления на каждую специальность по каждой форме обучения на контракт:
+db.Enrollee.aggregate(
+	{ $match: {
+		"specialty.basis": "Contract"
+	}},
+	{ $group: {
+		_id: {spec : "$specialty.name", form: "$form"},
+		count: {$sum: 1}
+	}}
+)
+
+3.Кол-во абитуриентов на базе 9 и 11 классов, поступающих на бюджет (с сортировкой):
+db.Enrollee.aggregate(
+	{ $match: {
+		"specialty.basis": "Budget"
+	}},
+	{ $group: {
+		_id: "$grade.base",
+		count: {$sum: 1},
+	}},
+	{$sort: {_id: -1}}
+)
+
+4.Общее кол-во поданных заявлений ежедневно:
+db.Enrollee.aggregate(
+	{ $group: {
+		_id: "$date",
+		count: {$sum: 1},
+	}},
+	{$sort: {_id: 1}}
+)
+
+5. Общее кол-во поданных заявлений ежедневно: (MapReduce)
+var map = function(){ emit(this.date, 1)};
+var reduce = function(date, val){ return Array.sum(val) };
+db.Enrollee.mapReduce( map, reduce, "Result" )
+db.Result.find().sort( { _id: 1 } )
+
+6.Вывод среднего балла по каждой специальности на базе 11 классов:
+db.Enrollee.aggregate(
+	{ $match: {
+		"grade.base": "11"
+	}},
+	{ $group: {
+		_id: {spec : "$specialty.name"},
+		average: { $avg: { $sum: [ "$grade.point_1", "$grade.point_2" ] } }
+	}},
+	{$sort: {_id: 1}}
+)
