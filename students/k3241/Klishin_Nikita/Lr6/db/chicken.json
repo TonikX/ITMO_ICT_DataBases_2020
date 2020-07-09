@@ -1,0 +1,5 @@
+{"_id":{"$oid":"5f01f4865d6f9aa11d241de3"},"chicken_weight":4.0,"number_of_eggs":25.0,"breed":{"$oid":"5f01efe25d6f9aa11d241dd3"},"cell":{"$oid":"5f01f2c05d6f9aa11d241ddf"}}
+{"_id":{"$oid":"5f01f4d15d6f9aa11d241de4"},"chicken_weight":5.0,"number_of_eggs":27.0,"breed":{"$oid":"5f01f0305d6f9aa11d241dd6"},"cell":{"$oid":"5f01f2c05d6f9aa11d241ddf"}}
+{"_id":{"$oid":"5f01f4fa5d6f9aa11d241de5"},"chicken_weight":3.0,"number_of_eggs":27.0,"breed":{"$oid":"5f01f0305d6f9aa11d241dd6"},"cell":{"$oid":"5f01f3895d6f9aa11d241de2"}}
+{"_id":{"$oid":"5f01f5335d6f9aa11d241de6"},"chicken_weight":7.0,"number_of_eggs":14.0,"breed":{"$oid":"5f01efe25d6f9aa11d241dd3"},"cell":{"$oid":"5f01f3595d6f9aa11d241de0"}}
+{"_id":{"$oid":"5f01f58c5d6f9aa11d241de7"},"chicken_weight":7.0,"number_of_eggs":16.0,"breed":{"$oid":"5f01efe25d6f9aa11d241dd3"},"cell":{"$oid":"5f01f3595d6f9aa11d241de0"}}

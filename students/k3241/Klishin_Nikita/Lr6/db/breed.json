@@ -1,0 +1,5 @@
+{"_id":{"$oid":"5f01efe25d6f9aa11d241dd3"},"breed_title":"Первая порода","performance":14.0,"diet":[{"$oid":"5f01fa355d6f9aa11d241deb"},{"$oid":"5f01facb5d6f9aa11d241dee"}]}
+{"_id":{"$oid":"5f01f0125d6f9aa11d241dd4"},"breed_title":"Вторая порода","performance":16.0,"diet":[{"$oid":"5f01fa475d6f9aa11d241dec"}]}
+{"_id":{"$oid":"5f01f0225d6f9aa11d241dd5"},"breed_title":"Третья порода","performance":21.0,"diet":[{"$oid":"5f01fa355d6f9aa11d241deb"}]}
+{"_id":{"$oid":"5f01f0305d6f9aa11d241dd6"},"breed_title":"Четвертая порода","performance":23.0,"diet":[{"$oid":"5f01fa4e5d6f9aa11d241ded"}]}
+{"_id":{"$oid":"5f01f03f5d6f9aa11d241dd7"},"breed_title":"Пятая порода","performance":25.0,"diet":[{"$oid":"5f01fa4e5d6f9aa11d241ded"}]}
