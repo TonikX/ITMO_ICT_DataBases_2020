@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5f05bf9eb4900e3315bf9d00"},"weight":4.0,"breed":{"name":"hohotushka","diet":"moloko, sir","capacity":50.0,"avg_weight":14.0},"age":6.0,"eggs_results":{"last_mounth":69.0,"this_mounth":48.0},"cage":{"id":1.0,"capacity":25.0}}
+{"_id":{"$oid":"5f05bf9eb4900e3315bf9d01"},"weight":9.0,"breed":{"name":"chikirka","diet":"voda, zerno","capacity":50.0,"avg_weight":9.0},"age":7.0,"eggs_results":{"last_mounth":73.0,"this_mounth":50.0},"eggs_amount":68.0,"cage":{"id":1.0,"capacity":25.0}}
+{"_id":{"$oid":"5f05c376b4900e3315bf9d02"},"weight":7.0,"breed":{"name":"chistula","diet":"voda, myaso","capacity":85.0,"avg_weight":13.0},"age":8.0,"eggs_results":{"last_mounth":47.0,"this_mounth":48.0},"cage":{"id":2.0,"capacity":62.0}}
+{"_id":{"$oid":"5f05c3b4b4900e3315bf9d03"},"weight":7.0,"breed":{"name":"buka","diet":"rise, myaso","capacity":85.0,"avg_weight":13.0},"age":6.0,"eggs_results":{"last_mounth":89.0,"this_mounth":77.0},"cage":{"id":2.0,"capacity":62.0}}
