@@ -1,0 +1,116 @@
+db.client.insertMany([{
+	_id: ObjectId(),
+	"name": "Daniil Korovin",
+	"rank": "flexer"
+},
+{
+	_id: ObjectId(),
+	"name": "Alexey Samocshenkov",
+	"rank": "worker"
+},
+{
+	_id: ObjectId(),
+	"name": "Esnat Djapua",
+	"rank": "flexer"
+},
+{
+	_id: ObjectId(),
+	"name": "Ilya Shakhnazarov",
+	"rank": "flexer"
+},
+{
+	_id: ObjectId(),
+	"name": "Igor Sadovschikov",
+	"rank": "worker"
+}])
+
+
+db.broker.insertMany([{
+	_id: ObjectId(),
+	"salary": 60000,
+	"bureau_name": "JojoTrade"
+},
+{
+	_id: ObjectId(),
+	"salary": 100000,
+	"bureau_name": "McDonalds"
+},
+{
+	_id: ObjectId(),
+	"salary": 30000,
+	"bureau_name": "Who?"
+},
+{
+	_id: ObjectId(),
+	"salary": 500000,
+	"bureau_name": "HelloMyBoy"
+},
+{
+	_id: ObjectId(),
+	"salary": 10000,
+	"bureau_name": "KFC"
+}])
+
+
+db.buy_contract.insertMany([{
+	_id: ObjectId(),
+	"date": new Date('2020-02-25'),
+	"price": 228322,
+	"payTerms": true
+},
+{
+	_id: ObjectId(),
+	"date": new Date('2019-03-18'),
+	"price": 1000000,
+	"payTerms": true
+},
+{
+	_id: ObjectId(),
+	"date": new Date('2020-01-30'),
+	"price": 14870,
+	"payTerms": false
+},
+{
+	_id: ObjectId(),
+	"date": new Date('2019-12-30'),
+	"price": 30000,
+	"payTerms": true
+},
+{
+	_id: ObjectId(),
+	"date": new Date('2020-05-31'),
+	"price": 1200,
+	"payTerms": false
+}])
+
+
+db.sale_contract.insertMany([{
+	_id: ObjectId(),
+	"date": new Date('2020-02-28'),
+	"price": 123433,
+	"saleTerms": false
+},
+{
+	_id: ObjectId(),
+	"date": new Date('2019-04-19'),
+	"price": 50450,
+	"saleTerms": true
+},
+{
+	_id: ObjectId(),
+	"date": new Date('2020-03-08'),
+	"price": 32300,
+	"saleTerms": false
+},
+{
+	_id: ObjectId(),
+	"date": new Date('2019-12-30'),
+	"price": 20080,
+	"saleTerms": false
+},
+{
+	_id: ObjectId(),
+	"date": new Date('2020-06-01'),
+	"price": 2280,
+	"saleTerms": false
+}])

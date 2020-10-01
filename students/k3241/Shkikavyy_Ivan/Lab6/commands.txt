@@ -1,0 +1,22 @@
+//первыйзапрос
+db.distribution.find({$or:[{"postoffice.postadress":{$regex:"д.34"}},{"postoffice.branch_number":{$gt:10}}]},{"_id":0,"edition_id":0,"finalquantity":0})
+{ "postoffice" : { "branch_number" : 7, "postadress" : "пр-т Калинина, д.34" } }
+{ "postoffice" : { "branch_number" : 17, "postadress" : "ул.Жукова, д.22" } }
+
+//второйзапрос
+db.edition.find().sort({"publication_number":1})
+{ "_id" : ObjectId("5edb77ee7989d2679630159a"), "newspaper" : { "name" : "Аргументы и факты", "index" : "Э32545", "reductor" : "Сергей Васильков" }, "publicnumber" : 2, "newsamount" : 40, "price" : "75р." }
+{ "_id" : ObjectId("5edb782e7989d2679630159b"), "newspaper" : { "name" : "Мир Сказок", "index" : "Э25678", "reductor" : "Никита Михалков" }, "publicnumber" : 7, "newsamount" : 30, "price" : "50р." }
+{ "_id" : ObjectId("5edb78727989d2679630159c"), "newspaper" : { "name" : "Спас", "index" : "Э77784", "reductor" : "Виктор Маленьков" }, "publicnumber" : 9, "newsamount" : 25, "price" : "65р." }
+
+//третийзапрос
+db.print.distinct("tipography.tiponame",{edition_id:ObjectId("5edb77ee7989d2679630159a")}).length
+2
+
+//четвертыйзапрос
+db.distribution.find({"finalquantity":{$exists:true,$nin:[25,30]}},{"postoffice.branch_number":1,"postoffice.postadress":1,"_id":0})
+{ "postoffice" : { "branch_number" : 1, "postadress" : "ул.Энгельса, д.17" } }
+
+//пятыйзапрос
+db.edition.aggregate({$match:{"newspaper.reductor":"Никита Михалков"}},{$group:{_id:"$_id"}},{$lookup:{from: "print", localField:"_id", foreignField:"edition_id", as: "editions"}})
+{ "_id" : ObjectId("5edb782e7989d2679630159b"), "editions" : [ { "_id" : ObjectId("5edbefc9f4e89ff04746059a"), "edition_id" : ObjectId("5edb782e7989d2679630159b"), "tipography" : { "tiponame" : "ООО Ленинпринт", "tipoadress" : "ул.Троцкого, д.23" }, "printed_quantity" : 30 } ] }

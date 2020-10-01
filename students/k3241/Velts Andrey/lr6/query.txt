@@ -1,0 +1,78 @@
+1. Какой предмет будет на 3 уроке в заданном классе 21 апреля 2020 года?
+db.schedule.find({"class_name":"11A", "order_class":3, "date":"2020-04-21"}, {_id:0, "subject":1})
+
+> { "subject" : "pe" }
+
+
+2. Кто из преподователей преподает предмет "Физическая культура"?
+db.schedule.find({"subject": "pe"}, {_id:0, "teacher_name":1})
+
+> { "teacher_name" : "Sergei Pavlovich" } 
+
+
+3. Какие занятия будут в заданный день для указаного номера кабинета?
+db.schedule.find({"date": "2020-04-20", "class_number": 10}, {_id:0, "students_id":0})
+
+> { "date" : "2020-04-20", "order_class" : 1, "class_name" : "5A", "teacher_name" : "Anastasia Vyacheslavovna", "subject" : "math", "class_number" : 10 }
+
+
+4. Количество учениц обучающихся в школе?
+db.students.find( { sex: "female" } ).count()
+
+> 6 
+
+
+5. Сколько учеников в классе получили оценку выше "4" по предмету "Математика"?
+db.schedule.aggregate([
+    { $project: {
+        _id: 0,
+        students_id: 1
+    } },
+    {
+        $lookup:
+           {
+              from: "students",
+              localField: "students_id",
+              foreignField: "_id",
+              as: "students"
+          }
+     },
+    {
+      $project: {
+         students: {
+            $filter: {
+               input: "$students",
+               as: "student",
+               cond: { $gte: [ "$$student.journal.math", 4 ] }
+            }
+         }
+      }
+   },
+   { $group: { _id: 0, total: { $sum: 1 } } }
+])
+
+> { "_id" : 0, "total" : 3 } 
+
+6. Какие ученики школы сдали все предметы на отлично?
+
+db.students.mapReduce(
+   function() {
+        var sum = 0;
+        var map = this.journal;
+        for (var key in map) {
+            if (map[key] === 5) {
+               sum += 1;
+            }
+        }
+        if (sum === Object.keys(map).length) {
+            emit(this, 1); 
+        }
+   },
+   function(key, values) { 
+      return Array.sum(values) 
+   },
+   {
+      out: "excellent"
+   }
+)
+>> { "students" : [ { "_id" : ObjectId("5efb84ddad34b55be4c99683"), "first_name" : "Aleksandr", "last_name" : "Yakushev", "sex" : "female", "journal" : { "math" : 5, "english" : 3, "russian" : 4, "physics" : 5, "pe" : 2 } }, { "_id" : ObjectId("5efb84ddad34b55be4c99685"), "first_name" : "Olesya", "last_name" : "Privorieva", "sex" : "female", "journal" : { "math" : 5, "english" : 3, "russian" : 4, "physics" : 4, "pe" : 5 } } ] }                                                    { "students" : [ { "_id" : ObjectId("5efb84ddad34b55be4c99687"), "first_name" : "Oleg", "last_name" : "Nikiforov", "sex" : "male", "journal" : { "math" : 5, "english" : 5, "russian" : 5, "physics" : 4, "pe" : 5 } }, { "_id" : ObjectId("5efb84ddad34b55be4c99688"), "first_name" : "Anastasia", "last_name" : "Tokareva", "sex" : "female", "journal" : { "math" : 5, "english" : 5, "russian" : 5, "physics" : 5, "pe" : 5 } }, { "_id" : ObjectId("5efb84ddad34b55be4c9968a"), "first_name" : "Natalya", "last_name" : "Moroz", "sex" : "female", "journal" : { "math" : 5, "english" : 4, "russian" : 5, "physics" : 5, "pe" : 4 } } ] }                                                                                                 { "students" : [ { "_id" : ObjectId("5efb84ddad34b55be4c9968d"), "first_name" : "Dmiriy", "last_name" : "Nosov", "sex" : "male", "journal" : { "math" : 5, "english" : 5, "russian" : 5, "physics" : 5, "pe" : 5 } } ] }  

@@ -1,0 +1,70 @@
+[
+ {
+  “state”:”оформлена”,
+  “advertiser”: {
+   “contact_person”:”Петров И.И.”,
+   “email”:”petrov@mail.com”,
+   “number”:89112457645
+   },
+  “service”: {
+    “name”:”монтаж”,
+    “cost”:7000,
+    “work”: {
+     “cost”:”20000”,
+     “volume”:”месяц”,
+     “materials”:”студия, машина”
+   }
+  } 
+ },
+ {
+  “state”:”в ожидании”,
+  “advertiser”: {
+   “contact_person”:”Иванов П.С.”,
+   “email”:”ivanov@mail.com”,
+   “number”:89112456423
+   },
+  “service”: {
+    “name”:”съемка”,
+    “cost”:20000,
+    “work”: {
+     “cost”:”47000”,
+     “volume”:”4 дня”,
+     “materials”:”трактор, 11 человек”
+   }
+  } 
+ },
+{
+  “state”:”отменена”,
+  “advertiser”: {
+   “contact_person”:”Сидоров А.И.”,
+   “email”:”sidorov@mail.com”,
+   “number”:89345987645
+   },
+  “service”: {
+    “name”:”дополнительная подсъемка”,
+    “cost”:13000,
+    “work”: {
+     “cost”:”25000”,
+     “volume”:”2 недели”,
+     “materials”:”букет роз, семейная пара”
+   }
+  } 
+ },
+{
+  “state”:”в ожидании”,
+  “advertiser”: {
+   “contact_person”:”Стопов Г.Л.”,
+   “email”:”stopov@mail.com”,
+   “number”:89115677098
+   },
+  “service”: {
+    “name”:”написание сценария”,
+    “cost”:17000,
+    “work”: {
+     “cost”:”21000”,
+     “volume”:”2 недели”,
+     “materials”:”33 далматинца, бумажные полотенца”
+   }
+  } 
+ }
+]

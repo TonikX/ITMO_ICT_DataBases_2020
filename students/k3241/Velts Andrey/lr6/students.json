@@ -1,0 +1,206 @@
+[[
+    {
+        "_id":
+        {
+            "$oid": "5efb84ddad34b55be4c99683"
+        },
+        "first_name": "Aleksandr",
+        "last_name": "Yakushev",
+        "sex": "female",
+        "journal":
+        {
+            "math": 5,
+            "english": 3,
+            "russian": 4,
+            "physics": 5,
+            "pe": 2
+        }
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb84ddad34b55be4c99684"
+        },
+        "first_name": "Andrey",
+        "last_name": "Nikitin",
+        "sex": "male",
+        "journal":
+        {
+            "math": 4,
+            "english": 4,
+            "russian": 4,
+            "physics": 3,
+            "pe": 4
+        }
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb84ddad34b55be4c99685"
+        },
+        "first_name": "Olesya",
+        "last_name": "Privorieva",
+        "sex": "female",
+        "journal":
+        {
+            "math": 5,
+            "english": 3,
+            "russian": 4,
+            "physics": 4,
+            "pe": 5
+        }
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb84ddad34b55be4c99686"
+        },
+        "first_name": "Ruslan",
+        "last_name": "Zaycev",
+        "sex": "male",
+        "journal":
+        {
+            "math": 3,
+            "english": 3,
+            "russian": 3,
+            "physics": 4,
+            "pe": 5
+        }
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb84ddad34b55be4c99687"
+        },
+        "first_name": "Oleg",
+        "last_name": "Nikiforov",
+        "sex": "male",
+        "journal":
+        {
+            "math": 5,
+            "english": 5,
+            "russian": 5,
+            "physics": 4,
+            "pe": 5
+        }
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb84ddad34b55be4c99688"
+        },
+        "first_name": "Anastasia",
+        "last_name": "Tokareva",
+        "sex": "female",
+        "journal":
+        {
+            "math": 5,
+            "english": 5,
+            "russian": 5,
+            "physics": 5,
+            "pe": 5
+        }
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb84ddad34b55be4c99689"
+        },
+        "first_name": "Kristina",
+        "last_name": "Varnova",
+        "sex": "female",
+        "journal":
+        {
+            "math": 3,
+            "english": 4,
+            "russian": 4,
+            "physics": 3,
+            "pe": 5
+        }
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb84ddad34b55be4c9968a"
+        },
+        "first_name": "Natalya",
+        "last_name": "Moroz",
+        "sex": "female",
+        "journal":
+        {
+            "math": 5,
+            "english": 4,
+            "russian": 5,
+            "physics": 5,
+            "pe": 4
+        }
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb84ddad34b55be4c9968b"
+        },
+        "first_name": "Nikita",
+        "last_name": "Dolmatov",
+        "sex": "male",
+        "journal":
+        {
+            "math": 3,
+            "english": 3,
+            "russian": 3,
+            "physics": 3,
+            "pe": 5
+        }
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb84ddad34b55be4c9968c"
+        },
+        "first_name": "Nikolai",
+        "last_name": "Kurnashenko",
+        "sex": "male",
+        "journal":
+        {
+            "math": 3,
+            "english": 3,
+            "russian": 3,
+            "physics": 3,
+            "pe": 5
+        }
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb84ddad34b55be4c9968d"
+        },
+        "first_name": "Dmiriy",
+        "last_name": "Nosov",
+        "sex": "male",
+        "journal":
+        {
+            "math": 5,
+            "english": 5,
+            "russian": 5,
+            "physics": 5,
+            "pe": 5
+        }
+    },
+    {
+        "_id":
+        {
+            "$oid": "5efb84ddad34b55be4c9968e"
+        },
+        "first_name": "Maria",
+        "last_name": "Lukova",
+        "sex": "female",
+        "journal":
+        {
+            "math": 4,
+            "english": 3,
+            "russian": 5,
+            "physics": 3,
+            "pe": 5
+        }
+    }
+]]

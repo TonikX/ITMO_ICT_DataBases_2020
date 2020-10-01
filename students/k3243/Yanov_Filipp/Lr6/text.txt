@@ -1,0 +1,43 @@
+> db.polet.find({data_vyleta: '2020-03-14'}, {_id: 0});
+{ "id_samolet" : ObjectId("5eff4b7ad82b8666975964d3"), "id_reys" : ObjectId("5eff58a5d82b8666975964d8"), "data_vyleta" : "2020-03-14", "vremya_vyleta" : "10:42:57", "data_prileta" : "2020-03-14", "vremya_prileta" : "12:06:17", "kolichestvo_prodannych_biletov" : 167, "kolichestvo_soverchennych_reysov" : 104 }
+
+> db.samolet.find({tip: "Boeing"}, {_id: 1});
+{ "_id" : ObjectId("5eff4b7ad82b8666975964d3") }
+{ "_id" : ObjectId("5eff4f6bd82b8666975964d5") }
+{ "_id" : ObjectId("5eff4f74d82b8666975964d7") }
+
+> db.remont.count({polomka : 'Shassi'})
+1
+
+> db.polet.find({kolichestvo_soverchennych_reysov: {$gt : 20}}, {kolichestvo_prodannych_biletov: 1}).sort({kolichestvo_prodannych_biletov: 1})
+{ "_id" : ObjectId("5eff7cd27d954ddb96164bb1"), "kolichestvo_prodannych_biletov" : 132 }
+{ "_id" : ObjectId("5eff7cc77d954ddb96164bb0"), "kolichestvo_prodannych_biletov" : 144 }
+{ "_id" : ObjectId("5eff7c997d954ddb96164bad"), "kolichestvo_prodannych_biletov" : 167 }
+
+> db.polet.find({kolichestvo_soverchennych_reysov: {$gt : 50}, kolichestvo_prodannych_biletov:  {$gt : 120}}, {_id: 1, id_samolet: 1});
+{ "_id" : ObjectId("5eff7c997d954ddb96164bad"), "id_samolet" : ObjectId("5eff4b7ad82b8666975964d3") }
+{ "_id" : ObjectId("5eff7cd27d954ddb96164bb1"), "id_samolet" : ObjectId("5eff4f70d82b8666975964d7") }
+
+> db.samolet.find({tip: "Boeing"}).count()
+3
+
+> db.samolet.aggregate( [ { $project: { "tip": 1, "length": { $strLenCP: "$tip" } } } ] )
+{ "_id" : ObjectId("5eff4b7ad82b8666975964d3"), "tip" : "Boeing", "length" : 6 }
+{ "_id" : ObjectId("5eff4f65d82b8666975964d4"), "tip" : "Airbus", "length" : 6 }
+{ "_id" : ObjectId("5eff4f6bd82b8666975964d5"), "tip" : "Boeing", "length" : 6 }
+{ "_id" : ObjectId("5eff4f70d82b8666975964d6"), "tip" : "Airbus", "length" : 6 }
+{ "_id" : ObjectId("5eff4f74d82b8666975964d7"), "tip" : "Boeing", "length" : 6 }
+
+> function map(){ emit(this.tip, 1); }
+> function reduce(key, values) { var sum = 0; for(var i in values) { sum += values[i]; } return sum; }
+> db.samolet.mapReduce(map, reduce,{out:"tip"})
+{
+        "result" : "tip",
+        "timeMillis" : 65,
+        "counts" : {
+                "input" : 5,
+                "emit" : 5,
+                "reduce" : 2,
+                "output" : 2
+        },
+        "ok" : 1

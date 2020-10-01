@@ -1,0 +1,88 @@
+[//edition
+{
+ "_id" : ObjectId("5edb77ee7989d2679630159a"), 
+"newspaper" : { "name" : "Аргументы и факты",
+ 		"index" : "Э32545",
+ 		"reductor" : "Сергей Васильков"
+	       }, 
+"publicnumber" : 2, 
+"newsamount" : 40, 
+"price" : "75р." 
+},
+{ "_id" : ObjectId("5edb782e7989d2679630159b"),
+ "newspaper" : { "name" : "Мир Сказок",
+		 "index" : "Э25678",
+		 "reductor" : "Никита Михалков"
+		 },
+ "publicnumber" : 7,
+ "newsamount" : 30,
+ "price" : "50р." 
+},
+{ "_id" : ObjectId("5edb78727989d2679630159c"),
+ "newspaper" : { "name" : "Спас",
+		 "index" : "Э77784",
+		 "reductor" : "Виктор Маленьков"
+		 },
+ "publicnumber" : 9,
+ "newsamount" : 25,
+ "price" : "65р."
+ },
+//print
+{ "_id" : ObjectId("5edbeee0f4e89ff047460598"),
+ "edition_id" : ObjectId("5edb77ee7989d2679630159a"),
+ "tipography" : { "tiponame" : "ООО Моя Оборона",
+		  "tipoadress" : "ул.Летняя, д.73/100" 
+		},
+ "printed_quantity" : 30 
+},
+{ "_id" : ObjectId("5edbef39f4e89ff047460599"),
+ "edition_id" : ObjectId("5edb77ee7989d2679630159a"),
+ "tipography" : { "tiponame" : "ООО Циферблат",
+		  "tipoadress" : "ул.Ленина, д.26" 
+		},
+ "printed_quantity" : 10
+ },
+{ "_id" : ObjectId("5edbefc9f4e89ff04746059a"),
+ "edition_id" : ObjectId("5edb782e7989d2679630159b"),
+ "tipography" : { "tiponame" : "ООО Ленинпринт",
+		  "tipoadress" : "ул.Троцкого, д.23" 
+		},
+ "printed_quantity" : 30 
+},
+{ "_id" : ObjectId("5edbf00ef4e89ff04746059b"),
+ "edition_id" : ObjectId("5edb78727989d2679630159c"),
+ "tipography" : { "tiponame" : "ООО Циферблат",
+		  "tipoadress" : "ул.Ленина, д.26" 
+		},
+ "printed_quantity" : 25
+ },
+//distribution
+{ "_id" : ObjectId("5edbe9bd606621979ed287c4"),
+ "edition_id" : ObjectId("5edb77ee7989d2679630159a"),
+ "postoffice" : { "branch_number" : 1,
+		  "postadress" : "ул.Энгельса, д.17" 
+		},
+ "finalquantity" : 40 
+},
+{ "_id" : ObjectId("5edbece0f4e89ff047460596"),
+ "edition_id" : ObjectId("5edb782e7989d2679630159b"),
+ "postoffice" : { "branch_number" : 7,
+		  "postadress" : "пр-т Калинина, д.34" 
+		},
+ "finalquantity" : 30 
+},
+{ "_id" : ObjectId("5edbed76f4e89ff047460597"),
+ "edition_id" : ObjectId("5edb61bb3c6ead074492b8cc"),
+ "postoffice" : { "branch_number" : 17,
+		  "postadress" : "ул.Жукова, д.22" 
+		},
+ "finalquantity" : 25 
+}
+]
+
+
+
+
+
+
+

@@ -1,0 +1,639 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.2
+-- Dumped by pg_dump version 12.2
+
+-- Started on 2020-05-04 19:58:57
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 205 (class 1259 OID 16414)
+-- Name: Club; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Club" (
+    "Club_name" character varying(256) NOT NULL,
+    "Club_place" character varying(256) NOT NULL
+);
+
+
+ALTER TABLE public."Club" OWNER TO postgres;
+
+--
+-- TOC entry 2901 (class 0 OID 0)
+-- Dependencies: 205
+-- Name: TABLE "Club"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Club" IS 'Данные о клубе';
+
+
+--
+-- TOC entry 203 (class 1259 OID 16404)
+-- Name: Dog; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Dog" (
+    "Participant_id" integer NOT NULL,
+    "Name" character varying(256) NOT NULL,
+    "Type" character varying(256) NOT NULL,
+    "Age" integer NOT NULL,
+    "Class" character varying(256) NOT NULL,
+    "Last_inoculation" date NOT NULL,
+    "Medical_results" character varying(256) NOT NULL,
+    "Total_dog_score" integer NOT NULL,
+    "Participant_pass_id" integer NOT NULL,
+    "Dog_club_name" character varying(256) NOT NULL,
+    "Dog_exhibition_id" integer NOT NULL,
+    "Dog_exhibition_name" character varying(256) NOT NULL,
+    "Owner_pass_id" integer NOT NULL
+);
+
+
+ALTER TABLE public."Dog" OWNER TO postgres;
+
+--
+-- TOC entry 2902 (class 0 OID 0)
+-- Dependencies: 203
+-- Name: TABLE "Dog"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Dog" IS 'Данные о собаке-участнике';
+
+
+--
+-- TOC entry 204 (class 1259 OID 16409)
+-- Name: Exhibition; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Exhibition" (
+    "Exhibition_id" integer NOT NULL,
+    "Exhibition_name" character varying(256) NOT NULL,
+    "Exhibition_type" character varying(256) NOT NULL,
+    "Exhibition_date" date NOT NULL,
+    "Exhibition_place" character varying(256) NOT NULL,
+    "Exhibition_sponsor_name" character varying(256) NOT NULL
+);
+
+
+ALTER TABLE public."Exhibition" OWNER TO postgres;
+
+--
+-- TOC entry 2903 (class 0 OID 0)
+-- Dependencies: 204
+-- Name: TABLE "Exhibition"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Exhibition" IS 'Данные о выставке';
+
+
+--
+-- TOC entry 208 (class 1259 OID 16434)
+-- Name: Expert; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Expert" (
+    "Expert_id" integer NOT NULL,
+    "Expert_name" character varying(256) NOT NULL,
+    "Expert_club_name" character varying(256) NOT NULL
+);
+
+
+ALTER TABLE public."Expert" OWNER TO postgres;
+
+--
+-- TOC entry 2904 (class 0 OID 0)
+-- Dependencies: 208
+-- Name: TABLE "Expert"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Expert" IS 'Данные о судье-эксперте';
+
+
+--
+-- TOC entry 209 (class 1259 OID 16439)
+-- Name: Expert_score; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Expert_score" (
+    "First_exercise" integer NOT NULL,
+    "Second_exercise" integer NOT NULL,
+    "Third_exercise" integer NOT NULL,
+    "Expert_id_score" integer NOT NULL
+);
+
+
+ALTER TABLE public."Expert_score" OWNER TO postgres;
+
+--
+-- TOC entry 2905 (class 0 OID 0)
+-- Dependencies: 209
+-- Name: TABLE "Expert_score"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Expert_score" IS 'Данные о баллах эксперта';
+
+
+--
+-- TOC entry 206 (class 1259 OID 16424)
+-- Name: Family_tree; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Family_tree" (
+    "Dog_pass_id" integer NOT NULL,
+    "Mother" character varying(256) NOT NULL,
+    "Father" character varying(256) NOT NULL
+);
+
+
+ALTER TABLE public."Family_tree" OWNER TO postgres;
+
+--
+-- TOC entry 2906 (class 0 OID 0)
+-- Dependencies: 206
+-- Name: TABLE "Family_tree"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Family_tree" IS 'Данные о родословной собаки-участника';
+
+
+--
+-- TOC entry 210 (class 1259 OID 16442)
+-- Name: Final_score; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Final_score" (
+    "Total_score" integer NOT NULL,
+    "Expert_id_total" integer NOT NULL
+);
+
+
+ALTER TABLE public."Final_score" OWNER TO postgres;
+
+--
+-- TOC entry 2907 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: TABLE "Final_score"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Final_score" IS 'Данные об итоговом рейтинге';
+
+
+--
+-- TOC entry 211 (class 1259 OID 16450)
+-- Name: Owner; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Owner" (
+    "Owner_id" integer NOT NULL,
+    "Owner_name" character varying(256) NOT NULL
+);
+
+
+ALTER TABLE public."Owner" OWNER TO postgres;
+
+--
+-- TOC entry 2908 (class 0 OID 0)
+-- Dependencies: 211
+-- Name: TABLE "Owner"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Owner" IS 'Данные о владельце собаки-участника';
+
+
+--
+-- TOC entry 207 (class 1259 OID 16429)
+-- Name: Ring; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Ring" (
+    "Ring_id" integer NOT NULL,
+    "Current_dog_type" character varying(256) NOT NULL,
+    "Expert_id_ring" integer NOT NULL,
+    "Total_score_ring" integer NOT NULL,
+    "Participant_dog_id" integer NOT NULL,
+    "Participant_dog_pass_id" integer NOT NULL,
+    "Dog_owner_pass_id" integer NOT NULL
+);
+
+
+ALTER TABLE public."Ring" OWNER TO postgres;
+
+--
+-- TOC entry 2909 (class 0 OID 0)
+-- Dependencies: 207
+-- Name: TABLE "Ring"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Ring" IS 'Данные о ринге';
+
+
+--
+-- TOC entry 202 (class 1259 OID 16399)
+-- Name: Sponsor; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Sponsor" (
+    "Sponsor_name" character varying(256) NOT NULL,
+    "Bill" integer NOT NULL
+);
+
+
+ALTER TABLE public."Sponsor" OWNER TO postgres;
+
+--
+-- TOC entry 2910 (class 0 OID 0)
+-- Dependencies: 202
+-- Name: TABLE "Sponsor"; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON TABLE public."Sponsor" IS 'Данные о спонсорах выставки';
+
+
+--
+-- TOC entry 2889 (class 0 OID 16414)
+-- Dependencies: 205
+-- Data for Name: Club; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Club" ("Club_name", "Club_place") FROM stdin;
+GreenCats	Moscow
+RedDogs	Omsk
+YellowPigs	Saint Petersburg
+PinkFlamingo	Kazan
+PurplePanda	Chelyabinsk
+\.
+
+
+--
+-- TOC entry 2887 (class 0 OID 16404)
+-- Dependencies: 203
+-- Data for Name: Dog; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Dog" ("Participant_id", "Name", "Type", "Age", "Class", "Last_inoculation", "Medical_results", "Total_dog_score", "Participant_pass_id", "Dog_club_name", "Dog_exhibition_id", "Dog_exhibition_name", "Owner_pass_id") FROM stdin;
+546	Maui	Aid	3	3	2018-10-10	Passed	52	4568966	GreenCats	448574	Internationale RasseHundeAusstellung Rostock	458763
+214	Blaze	Greyhound	12	2	2019-12-22	Passed	68	7896412	RedDogs	124596	12th National and the International Pedigree Dog Exhibition\n	364578
+121	Pippin	German Hound	7	2	2019-03-25	Passed	55	3845123	YellowPigs	115566	17th National and the International Pedigree Dog Exhibition\n	548632
+123	Serena	Patterdale Terrier	5	1	2019-08-10	Passed	65	3964478	PurplePanda	355896	International Dog Exhibition Russia	102545
+56	Kyte	Border Collie	4	1	2018-11-14	Passed	51	1220354	YellowPigs	220145	7th National and the International Pedigree Dog Exhibition\n	478533
+\.
+
+
+--
+-- TOC entry 2888 (class 0 OID 16409)
+-- Dependencies: 204
+-- Data for Name: Exhibition; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Exhibition" ("Exhibition_id", "Exhibition_name", "Exhibition_type", "Exhibition_date", "Exhibition_place", "Exhibition_sponsor_name") FROM stdin;
+115566	17th National and the International Pedigree Dog Exhibition\n	Multi puppies 	2012-11-14	Moscow	ParaMed
+448574	Internationale RasseHundeAusstellung Rostock	Single	2015-09-05	Tomsk	Veva
+124596	12th National and the International Pedigree Dog Exhibition\n	Multi novice 	2015-12-29	Kursk	Gasprom
+355896	International Dog Exhibition Russia	Single mature male dogs	2015-11-01	Moscow	UniKot
+220145	7th National and the International Pedigree Dog Exhibition\n	Multi	2019-12-04	Saint Petersburg	ParaMed
+\.
+
+
+--
+-- TOC entry 2892 (class 0 OID 16434)
+-- Dependencies: 208
+-- Data for Name: Expert; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Expert" ("Expert_id", "Expert_name", "Expert_club_name") FROM stdin;
+7982	Cody Nguyen	PinkFlamingo
+1452	Esther Hawkins	YellowPigs
+7844	Guy Pena	RedDogs
+1596	Sara Giraud	PurplePanda
+3255	Fabien Blanc	YellowPigs
+\.
+
+
+--
+-- TOC entry 2893 (class 0 OID 16439)
+-- Dependencies: 209
+-- Data for Name: Expert_score; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Expert_score" ("First_exercise", "Second_exercise", "Third_exercise", "Expert_id_score") FROM stdin;
+11	30	14	7982
+28	12	25	1596
+21	18	13	1452
+16	22	30	7844
+20	5	26	3255
+\.
+
+
+--
+-- TOC entry 2890 (class 0 OID 16424)
+-- Dependencies: 206
+-- Data for Name: Family_tree; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Family_tree" ("Dog_pass_id", "Mother", "Father") FROM stdin;
+3845123	Antis	Bing
+3964478	Bamse	Cairo
+4568966	Chesty	Moustache
+7896412	Philly	Gunner
+1220354	allie Ann Jarrett	Tich
+\.
+
+
+--
+-- TOC entry 2894 (class 0 OID 16442)
+-- Dependencies: 210
+-- Data for Name: Final_score; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Final_score" ("Total_score", "Expert_id_total") FROM stdin;
+55	7982
+65	1596
+52	1452
+68	7844
+51	3255
+\.
+
+
+--
+-- TOC entry 2895 (class 0 OID 16450)
+-- Dependencies: 211
+-- Data for Name: Owner; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Owner" ("Owner_id", "Owner_name") FROM stdin;
+548632	Arlene Richards
+458763	Beth Jones
+364578	Darlene Black
+102545	Theresa Mckinney
+478533	Ted Cooper
+\.
+
+
+--
+-- TOC entry 2891 (class 0 OID 16429)
+-- Dependencies: 207
+-- Data for Name: Ring; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Ring" ("Ring_id", "Current_dog_type", "Expert_id_ring", "Total_score_ring", "Participant_dog_id", "Participant_dog_pass_id", "Dog_owner_pass_id") FROM stdin;
+1	German Hound	7982	55	121	3845123	548632
+2	Aid	1452	52	546	4568966	458763
+3	Greyhound	7844	68	214	7896412	364578
+4	Patterdale Terrier	1596	65	123	3964478	102545
+5	Border Collie	3255	51	56	1220354	478533
+\.
+
+
+--
+-- TOC entry 2886 (class 0 OID 16399)
+-- Dependencies: 202
+-- Data for Name: Sponsor; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Sponsor" ("Sponsor_name", "Bill") FROM stdin;
+Gasprom	100000
+UniKot	52000
+ParaMed	200000
+Pushistik	36000
+Veva	60000
+\.
+
+
+--
+-- TOC entry 2733 (class 2606 OID 16581)
+-- Name: Club Club_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Club"
+    ADD CONSTRAINT "Club_pkey" PRIMARY KEY ("Club_name");
+
+
+--
+-- TOC entry 2729 (class 2606 OID 16408)
+-- Name: Dog Dog_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Dog"
+    ADD CONSTRAINT "Dog_pkey" PRIMARY KEY ("Participant_id");
+
+
+--
+-- TOC entry 2731 (class 2606 OID 16654)
+-- Name: Exhibition Exhibition_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Exhibition"
+    ADD CONSTRAINT "Exhibition_pkey" PRIMARY KEY ("Exhibition_id", "Exhibition_name");
+
+
+--
+-- TOC entry 2740 (class 2606 OID 16438)
+-- Name: Expert Expert_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Expert"
+    ADD CONSTRAINT "Expert_pkey" PRIMARY KEY ("Expert_id");
+
+
+--
+-- TOC entry 2742 (class 2606 OID 16461)
+-- Name: Expert_score Expert_score_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Expert_score"
+    ADD CONSTRAINT "Expert_score_pkey" PRIMARY KEY ("Expert_id_score");
+
+
+--
+-- TOC entry 2735 (class 2606 OID 16428)
+-- Name: Family_tree Family_tree_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Family_tree"
+    ADD CONSTRAINT "Family_tree_pkey" PRIMARY KEY ("Dog_pass_id");
+
+
+--
+-- TOC entry 2744 (class 2606 OID 16446)
+-- Name: Final_score Final_score_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Final_score"
+    ADD CONSTRAINT "Final_score_pkey" PRIMARY KEY ("Total_score");
+
+
+--
+-- TOC entry 2746 (class 2606 OID 16454)
+-- Name: Owner Owner_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Owner"
+    ADD CONSTRAINT "Owner_pkey" PRIMARY KEY ("Owner_id");
+
+
+--
+-- TOC entry 2737 (class 2606 OID 16433)
+-- Name: Ring Ring_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Ring"
+    ADD CONSTRAINT "Ring_pkey" PRIMARY KEY ("Ring_id");
+
+
+--
+-- TOC entry 2727 (class 2606 OID 16570)
+-- Name: Sponsor Sponsor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Sponsor"
+    ADD CONSTRAINT "Sponsor_pkey" PRIMARY KEY ("Sponsor_name");
+
+
+--
+-- TOC entry 2738 (class 1259 OID 16735)
+-- Name: fki_Participant_dog_pass_id; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX "fki_Participant_dog_pass_id" ON public."Ring" USING btree ("Participant_dog_pass_id");
+
+
+--
+-- TOC entry 2747 (class 2606 OID 16634)
+-- Name: Dog Dog_club_name; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Dog"
+    ADD CONSTRAINT "Dog_club_name" FOREIGN KEY ("Dog_club_name") REFERENCES public."Club"("Club_name");
+
+
+--
+-- TOC entry 2752 (class 2606 OID 16547)
+-- Name: Ring Dog_owner_pass_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Ring"
+    ADD CONSTRAINT "Dog_owner_pass_id" FOREIGN KEY ("Dog_owner_pass_id") REFERENCES public."Owner"("Owner_id");
+
+
+--
+-- TOC entry 2751 (class 2606 OID 16676)
+-- Name: Exhibition Exhibition_sponsor_name; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Exhibition"
+    ADD CONSTRAINT "Exhibition_sponsor_name" FOREIGN KEY ("Exhibition_sponsor_name") REFERENCES public."Sponsor"("Sponsor_name");
+
+
+--
+-- TOC entry 2757 (class 2606 OID 16692)
+-- Name: Expert Expert_club_name; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Expert"
+    ADD CONSTRAINT "Expert_club_name" FOREIGN KEY ("Expert_club_name") REFERENCES public."Club"("Club_name");
+
+
+--
+-- TOC entry 2754 (class 2606 OID 16537)
+-- Name: Ring Expert_id_ring; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Ring"
+    ADD CONSTRAINT "Expert_id_ring" FOREIGN KEY ("Expert_id_ring") REFERENCES public."Expert"("Expert_id");
+
+
+--
+-- TOC entry 2758 (class 2606 OID 16462)
+-- Name: Expert_score Expert_id_score; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Expert_score"
+    ADD CONSTRAINT "Expert_id_score" FOREIGN KEY ("Expert_id_score") REFERENCES public."Expert"("Expert_id");
+
+
+--
+-- TOC entry 2759 (class 2606 OID 16522)
+-- Name: Final_score Expert_id_total; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Final_score"
+    ADD CONSTRAINT "Expert_id_total" FOREIGN KEY ("Expert_id_total") REFERENCES public."Expert"("Expert_id");
+
+
+--
+-- TOC entry 2750 (class 2606 OID 16512)
+-- Name: Dog Owner_pass_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Dog"
+    ADD CONSTRAINT "Owner_pass_id" FOREIGN KEY ("Owner_pass_id") REFERENCES public."Owner"("Owner_id");
+
+
+--
+-- TOC entry 2755 (class 2606 OID 16527)
+-- Name: Ring Participant_dog_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Ring"
+    ADD CONSTRAINT "Participant_dog_id" FOREIGN KEY ("Participant_dog_id") REFERENCES public."Dog"("Participant_id");
+
+
+--
+-- TOC entry 2753 (class 2606 OID 16730)
+-- Name: Ring Participant_dog_pass_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Ring"
+    ADD CONSTRAINT "Participant_dog_pass_id" FOREIGN KEY ("Participant_dog_pass_id") REFERENCES public."Family_tree"("Dog_pass_id");
+
+
+--
+-- TOC entry 2748 (class 2606 OID 16502)
+-- Name: Dog Participant_pass_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Dog"
+    ADD CONSTRAINT "Participant_pass_id" FOREIGN KEY ("Participant_pass_id") REFERENCES public."Family_tree"("Dog_pass_id");
+
+
+--
+-- TOC entry 2749 (class 2606 OID 16497)
+-- Name: Dog Total_dog_score; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Dog"
+    ADD CONSTRAINT "Total_dog_score" FOREIGN KEY ("Total_dog_score") REFERENCES public."Final_score"("Total_score");
+
+
+--
+-- TOC entry 2756 (class 2606 OID 16542)
+-- Name: Ring Total_score_ring; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Ring"
+    ADD CONSTRAINT "Total_score_ring" FOREIGN KEY ("Total_score_ring") REFERENCES public."Final_score"("Total_score");
+
+
+-- Completed on 2020-05-04 19:58:57
+
+--
+-- PostgreSQL database dump complete
+--
+

@@ -1,0 +1,31 @@
+------ Создание и заполнение таблицы "med_book"
+db.med_book.insert({"id_med_book": 1, "owner_name": "Alexander Gelevich Dugin", "owner_sex": "male","owner_date_of_birth":"07-01-1962", "reception": {"room": 1, "price": 1000, "status": 1, "date_time": "12:00 19-07-2020"}})
+db.med_book.insert({"id_med_book": 2, "owner_name": "Ivanov Ivan Ivanovich", "owner_sex": "male","owner_date_of_birth":"25-03-1974", "reception": {"room": 2, "price": 1500, "status": 0, "date_time": "19:00 17-07-2020"}})
+db.med_book.insert({"id_med_book": 3, "owner_name": "Ann Ahmatova", "owner_sex": "female","owner_date_of_birth":"23-06-1989", "reception": {"room": 2, "price": 2500, "status": 1, "date_time": "10:00 12-07-2020"}})
+db.med_book.insert({"id_med_book": 4, "owner_name": "Lev Nikolaevich Tolstoy", "owner_sex": "male","owner_date_of_birth":"09-09-1928", "reception": {"room": 3, "price": 500, "status": 1, "date_time": "16:00 15-07-2020"}})
+db.med_book.insert({"id_med_book": 5, "owner_name": "Fedor Mikhailowitch Dostoevskiy", "owner_sex": "male","owner_date_of_birth":"11-11-1921", "reception": {"room": 4, "price": 1000, "status": 1, "date_time": "17:00 19-07-2020"}})
+
+----- Создание и заполнение таблицы "doctor"
+db.doctor.insert({"id_doctor": 101, "doctor_name": "Louis Ferdinand Céline","doctor_sex":"male", "specialization": "Gynecologist", "first_day": "01-09-2005"})
+db.doctor.insert({"id_doctor": 102, "doctor_name": "Anton Pavlovich Chehov","doctor_sex":"male", "specialization": "Neurologist", "first_day": "24-11-1991"})
+db.doctor.insert({"id_doctor": 103, "doctor_name": "Mikhail Afanasyewitch Bulgakov","doctor_sex":"male", "specialization": "Narcologist", "first_day": "15-07-2017"})
+db.doctor.insert({"id_doctor": 104, "doctor_name": "Mechnikov Ilya Ilyich","doctor_sex":"male", "specialization": "Psychiatrist", "first_day": "18-03-1991"})
+db.doctor.insert({"id_doctor": 105, "doctor_name": "William Somerset Maugham","doctor_sex":"male", "specialization": "Urologist", "first_day": "05-01-2000"})
+
+
+----- Сколько приёмов забронировано в кабинетах?
+db.med_book.aggregate([{$unwind:"$reception.room"},{$group:{_id: "$reception.room", count:{$sum:1}}}]);
+
+----- Вывести врачей-гинекологов мужского пола:  
+db.doctor.find({"specialization":"Gynecologist", "doctor_sex":"male"},{"doctor_name":1,_id:0});
+
+----- Вывести всех врачей и их специальности, отсортировав по алфавиту:
+db.doctor.find({}, {"doctor_name":1, "specialization":1}).sort({"doctor_name":1})
+
+----- Сколько врачей каждой специальности есть в клинике?
+db.doctor.aggregate([{$unwind:"$specialization"},{$group:{_id: "$specialization", count:{$sum:1}}}]);
+
+----- Посчитать количество пациентов женского пола, используя mapReduce
+map = function() {emit(1,1);}
+reduce = function(key,values) {var count = 0; values.forEach(function(v) {count += v;}); return count;}
+db.med_book.mapReduce(map, reduce, {out:"query_1", query:{sex:"female"}});
