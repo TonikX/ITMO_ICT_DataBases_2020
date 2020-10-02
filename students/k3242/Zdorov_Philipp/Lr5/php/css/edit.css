@@ -1,0 +1,10 @@
+#tables-selection {
+	display: flex;
+	list-style: none;
+}
+
+#add {
+	margin-top: 0;
+	margin-left: 50px;
+
+}
