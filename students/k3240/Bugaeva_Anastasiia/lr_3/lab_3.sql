@@ -43,6 +43,13 @@ CREATE TABLE "Школа"."Время" (
 ALTER TABLE "Школа"."Время" OWNER TO postgres;
 
 --
+-- Name: TABLE "Время"; Type: COMMENT; Schema: Школа; Owner: postgres
+--
+
+COMMENT ON TABLE "Школа"."Время" IS 'Содержит время в формате День_недели + Номер_урока';
+
+
+--
 -- Name: Кабинет; Type: TABLE; Schema: Школа; Owner: postgres
 --
 
@@ -55,6 +62,13 @@ CREATE TABLE "Школа"."Кабинет" (
 ALTER TABLE "Школа"."Кабинет" OWNER TO postgres;
 
 --
+-- Name: TABLE "Кабинет"; Type: COMMENT; Schema: Школа; Owner: postgres
+--
+
+COMMENT ON TABLE "Школа"."Кабинет" IS 'Содержит номер кабинета и то, является ли он профильным';
+
+
+--
 -- Name: Класс; Type: TABLE; Schema: Школа; Owner: postgres
 --
 
@@ -65,6 +79,13 @@ CREATE TABLE "Школа"."Класс" (
 
 
 ALTER TABLE "Школа"."Класс" OWNER TO postgres;
+
+--
+-- Name: TABLE "Класс"; Type: COMMENT; Schema: Школа; Owner: postgres
+--
+
+COMMENT ON TABLE "Школа"."Класс" IS 'Содержит код класса и информацию о классном руководителе';
+
 
 --
 -- Name: Оценка; Type: TABLE; Schema: Школа; Owner: postgres
@@ -80,6 +101,13 @@ CREATE TABLE "Школа"."Оценка" (
 ALTER TABLE "Школа"."Оценка" OWNER TO postgres;
 
 --
+-- Name: TABLE "Оценка"; Type: COMMENT; Schema: Школа; Owner: postgres
+--
+
+COMMENT ON TABLE "Школа"."Оценка" IS 'Содержит оценку для пары значений ученик-предмет';
+
+
+--
 -- Name: Предмет; Type: TABLE; Schema: Школа; Owner: postgres
 --
 
@@ -89,6 +117,13 @@ CREATE TABLE "Школа"."Предмет" (
 
 
 ALTER TABLE "Школа"."Предмет" OWNER TO postgres;
+
+--
+-- Name: TABLE "Предмет"; Type: COMMENT; Schema: Школа; Owner: postgres
+--
+
+COMMENT ON TABLE "Школа"."Предмет" IS 'Содержит наименование предмета';
+
 
 --
 -- Name: Расписание; Type: TABLE; Schema: Школа; Owner: postgres
@@ -106,6 +141,13 @@ CREATE TABLE "Школа"."Расписание" (
 ALTER TABLE "Школа"."Расписание" OWNER TO postgres;
 
 --
+-- Name: TABLE "Расписание"; Type: COMMENT; Schema: Школа; Owner: postgres
+--
+
+COMMENT ON TABLE "Школа"."Расписание" IS 'Содержит информацию об уроке: в какое время, в каком кабинете, какой учитель, какому классу, что преподаёт';
+
+
+--
 -- Name: Ученик; Type: TABLE; Schema: Школа; Owner: postgres
 --
 
@@ -120,6 +162,13 @@ CREATE TABLE "Школа"."Ученик" (
 ALTER TABLE "Школа"."Ученик" OWNER TO postgres;
 
 --
+-- Name: TABLE "Ученик"; Type: COMMENT; Schema: Школа; Owner: postgres
+--
+
+COMMENT ON TABLE "Школа"."Ученик" IS 'Содержит ФИО и пол ученика, а также в каком классе он числится';
+
+
+--
 -- Name: Учитель; Type: TABLE; Schema: Школа; Owner: postgres
 --
 
@@ -131,6 +180,13 @@ CREATE TABLE "Школа"."Учитель" (
 
 
 ALTER TABLE "Школа"."Учитель" OWNER TO postgres;
+
+--
+-- Name: TABLE "Учитель"; Type: COMMENT; Schema: Школа; Owner: postgres
+--
+
+COMMENT ON TABLE "Школа"."Учитель" IS 'Содержит ФИО учителя и номер закреплённого за ним кабинета, если таковой имеется';
+
 
 --
 -- Data for Name: Время; Type: TABLE DATA; Schema: Школа; Owner: postgres
