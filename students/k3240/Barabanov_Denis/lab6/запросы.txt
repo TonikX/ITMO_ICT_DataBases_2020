@@ -1,0 +1,38 @@
+01. запрос показывает информацию о клиентах отеля, сортировка по имени:
+db.contract.find(null, {"customer": 1, _id: 0}).sort({"customer.name": 1})
+
+{ "customer" : { "name" : "Баранов", "surname" : "Натан", "city" : "Spb", "passport" : 123321412 } }
+{ "customer" : { "name" : "Богатырёв", "surname" : "Максимилиан", "city" : "Vladivostok", "passport" : 934352344 } }
+{ "customer" : { "name" : "Молчанов", "surname" : "Ильяс", "city" : "Spb", "passport" : 546544454 } }
+{ "customer" : { "name" : "Тихомиров", "surname" : "Серафим", "city" : "Spb", "passport" : 156465654 } }
+{ "customer" : { "name" : "Хромов", "surname" : "Амадеус", "city" : "Moscow", "passport" : 753734523 } }
+
+
+
+02. запрос  показывает цену номера выше 2000, сортировка по цене:
+db.contract.find({"room.type_room.price": {$gt:2000}}, {"room.type_room.price": 1, _id: 0}).sort({"room.type_room.price": 1})
+
+{ "room" : { "type_room" : { "price" : 4000 } } }
+{ "room" : { "type_room" : { "price" : 4000 } } }
+{ "room" : { "type_room" : { "price" : 6000 } } }
+
+03. запрос показывает кол-во клиентов прибывших из Spb в 2020 году:
+db.contract.count({"customer.city": "Spb", "datein": {$regex: "2020"}})
+
+3
+
+04. запрос показывает кол-во людей выселившихся в июне:
+db.contract.count({"dateout": {$regex: ".11."}})
+
+2
+
+05.запрос показывает все одноместные и двуместные комнаты на первом этаже:
+db.contract.find({"room.type_room.id": {$in : [1, 2]}, "room.floor":1})
+
+{ "_id" : ObjectId("5f9ed64fe29a152d81bc895b"), "customer" : { "name" : "Баранов", "surname" : "Натан", "city" : "Spb", "passport" : 123321412 }, "datein" : "12.11.2020", "dateout" : "13.11.2020", "room" : { "room" : 101, "type_room" : { "id" : 1, "price" : 2000, "copacity" : "одноместная" }, "phone" : "+79112281488", "floor" : 1 } }
+{ "_id" : ObjectId("5f9ed662e29a152d81bc895e"), "customer" : { "name" : "Хромов", "surname" : "Амадеус", "city" : "Moscow", "passport" : 753734523 }, "datein" : "22.07.2020", "dateout" : "17.08.2020", "room" : { "room" : 102, "type_room" : { "id" : 2, "price" : 4000, "copacity" : "двуместная" }, "phone" : "+79119409919", "floor" : 1 } }
+
+06. запрос показывает цену на самый дорогой номер в отеле:
+db.contract.find(null, {"room.type_room.price": 1, _id:0}).sort({"room.type_room.price":-1}).limit(1)
+
+{ "room" : { "type_room" : { "price" : 6000 } } }
