@@ -1,0 +1,104 @@
+db.contract.insertMany([{
+    "customer":{
+        "name":"Баранов", 
+        "surname":"Натан",
+        "city":"Spb", 
+        "passport": 123321412
+    },
+    "datein": "12.11.2020", 
+    "dateout": "13.11.2020",
+    "room": {
+        "room":101,
+        "type_room":{
+            "id":1,
+            "price":2000,
+            "copacity":"одноместная"
+            },
+        "phone":"+79112281488",
+        "floor": 1
+    }
+}])
+
+db.contract.insertMany([{
+    "customer":{
+        "name":"Молчанов", 
+        "surname":"Ильяс",
+        "city":"Spb", 
+        "passport": 546544454
+    },
+    "datein": "09.08.2020", 
+    "dateout": "09.09.2020",
+    "room": {
+        "room":301,
+        "type_room":{
+            "id":3,
+            "price":6000,
+            "copacity":"трехместная"
+            },
+        "phone":"+71234567899",
+        "floor": 3
+    }
+}])
+
+db.contract.insertMany([{
+    "customer":{
+        "name":"Тихомиров", 
+        "surname":"Серафим",
+        "city":"Spb", 
+        "passport": 156465654
+    },
+    "datein": "10.09.2020", 
+    "dateout": "22.10.2020",
+    "room": {
+        "room":202,
+        "type_room":{
+            "id":2,
+            "price":4000,
+            "copacity":"двуместная"
+            },
+        "phone":"+73214567899",
+        "floor": 2
+    }
+}])
+
+db.contract.insertMany([{
+    "customer":{
+        "name":"Хромов", 
+        "surname":"Амадеус",
+        "city":"Moscow", 
+        "passport": 753734523
+    },
+    "datein": "22.07.2020", 
+    "dateout": "17.08.2020",
+    "room": {
+        "room":102,
+        "type_room":{
+            "id":2,
+            "price":4000,
+            "copacity":"двуместная"
+            },
+        "phone":"+79119409919",
+        "floor": 1
+    }
+}])
+
+db.contract.insertMany([{
+    "customer":{
+        "name":"Богатырёв", 
+        "surname":"Максимилиан",
+        "city":"Vladivostok", 
+        "passport": 934352344
+    },
+    "datein": "31.10.2020", 
+    "dateout": "14.11.2020",
+    "room": {
+        "room":302,
+        "type_room":{
+            "id":1,
+            "price":2000,
+            "copacity":"одноместная"
+            },
+        "phone":"+79111918788",
+        "floor": 3
+    }
+}])
