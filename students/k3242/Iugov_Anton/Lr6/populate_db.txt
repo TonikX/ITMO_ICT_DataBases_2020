@@ -1,0 +1,254 @@
+> db.shipments.insertMany([{
+...     "id": 2,
+...     "broker": {
+...         "id": 1,
+...         "name": "Larry",
+...         "firm": {
+...             "title": "ECO Trade"
+...         }
+...     },
+...     "shipped_at": new Date("2020-10-12 00:04"),
+...     "items": 1000,
+...     "subtotal": 5999900,
+...     "prepayment": true
+... },
+... {
+...     "id": 3,
+...     "broker": {
+...         "id": 2,
+...         "name": "Ludwig",
+...         "firm": {
+...             "title": "Brokers Association Limited"
+...         }
+...     },
+...     "shipped_at": new Date("2020-11-15 01:12"),
+...     "items": 2000,
+...     "subtotal": 5999800,
+...     "prepayment": false
+... },
+... {
+...     "id": 4,
+...     "broker": {
+...         "id": 1,
+...         "name": "Larry",
+...         "firm": {
+...             "title": "ECO Trade"
+...         }
+...     },
+...     "shipped_at": new Date("2020-10-01 10:00"),
+...     "items": 5000,
+...     "subtotal": 649950,
+...     "prepayment": false
+... },
+... {
+...     "id": 6,
+...     "broker": {
+...         "id": 4,
+...         "name": "Anton",
+...         "firm": {
+...             "title": "Brokers Association Limited"
+...         }
+...     },
+...     "shipped_at": new Date("2020-10-10 12:00"),
+...     "items": 4500,
+...     "subtotal": 404955,
+...     "prepayment": false
+... },
+... {
+...     "id": 5,
+...     "broker": {
+...         "id": 3,
+...         "name": "Sandy",
+...         "firm": {
+...             "title": "Kavanaugh Brothers & Co."
+...         }
+...     },
+...     "shipped_at": new Date("2020-12-01 14:00"),
+...     "items": 11000,
+...     "subtotal": 299890,
+...     "prepayment": true
+... },
+... {
+...     "id": 11,
+...     "broker": {
+...         "id": 5,
+...         "name": "Clara",
+...         "firm": {
+...             "title": "West Way United"
+...         }
+...     },
+...     "shipped_at": new Date("2020-11-28 00:00"),
+...     "items": 1000,
+...     "subtotal": 1000000,
+...     "prepayment": true
+... },
+... {
+...     "id": 12,
+...     "broker": {
+...         "id": 3,
+...         "name": "Sandy",
+...         "firm": {
+...             "title": "Kavanaugh Brothers & Co."
+...         }
+...     },
+...     "shipped_at": new Date("2021-11-20 00:00"),
+...     "items": 1000,
+...     "subtotal": 160000,
+...     "prepayment": true
+... },
+... {
+...     "id": 20,
+...     "broker": {
+...         "id": 3,
+...         "name": "Sandy",
+...         "firm": {
+...             "title": "Kavanaugh Brothers & Co."
+...         }
+...     },
+...     "shipped_at": new Date("2020-11-26 00:00"),
+...     "items": 200,
+...     "subtotal": 20000,
+...     "prepayment": true
+... },
+... {
+...     "id": 14,
+...     "broker": {
+...         "id": 3,
+...         "name": "Sandy",
+...         "firm": {
+...             "title": "Kavanaugh Brothers & Co."
+...         }
+...     },
+...     "shipped_at": new Date("2020-11-24 00:00"),
+...     "items": 2000,
+...     "subtotal": 200000,
+...     "prepayment": false
+... }])
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("5f9f751fc8a0b1b18d6fb111"),
+		ObjectId("5f9f751fc8a0b1b18d6fb112"),
+		ObjectId("5f9f751fc8a0b1b18d6fb113"),
+		ObjectId("5f9f751fc8a0b1b18d6fb114"),
+		ObjectId("5f9f751fc8a0b1b18d6fb115"),
+		ObjectId("5f9f751fc8a0b1b18d6fb116"),
+		ObjectId("5f9f751fc8a0b1b18d6fb117"),
+		ObjectId("5f9f751fc8a0b1b18d6fb118"),
+		ObjectId("5f9f751fc8a0b1b18d6fb119")
+	]
+}
+
+> db.batches.insertMany([{
+...     "id": 1,
+...     "manufacturer": {
+...         "id": 1,
+...         "title": "Apple"
+...     },
+...     "product": {
+...         "id": 1,
+...         "title": "iPhone",
+...         "units": "pcs"
+...     },
+...     "shipment_id": 2,
+...     "price": 599.99,
+...     "quantity": 1000,
+...     "produced_at": new Date("2020-01-01 00:00"),
+...     "expires_at": new Date("2030-01-01 00:00")
+... },
+... {
+...     "id": 2,
+...     "manufacturer": {
+...         "id": 2,
+...         "title": "Amazon"
+...     },
+...     "product": {
+...         "id": 1,
+...         "title": "Alexa",
+...         "units": "pcs"
+...     },
+...     "shipment_id": 3,
+...     "price": 299.99,
+...     "quantity": 2000,
+...     "produced_at": new Date("2020-05-09 00:00"),
+...     "expires_at": new Date("2020-09-01 00:00")
+... },
+... {
+...     "id": 3,
+...     "manufacturer": {
+...         "id": 3,
+...         "title": "Samsung"
+...     },
+...     "product": {
+...         "id": 2,
+...         "title": "Galaxy S8",
+...         "units": "pcs"
+...     },
+...     "shipment_id": 4,
+...     "price": 129.99,
+...     "quantity": 5000,
+...     "produced_at": new Date("2020-02-02 15:00"),
+...     "expires_at": new Date("2024-02-02 00:00")
+... },
+... {
+...     "id": 4,
+...     "manufacturer": {
+...         "id": 4,
+...         "title": "Microsoft"
+...     },
+...     "product": {
+...         "id": 6,
+...         "title": "Windows 10 870-AX",
+...         "units": "disc"
+...     },
+...     "shipment_id": 5,
+...     "price": 9.99,
+...     "quantity": 10000,
+...     "produced_at": new Date("2021-04-02 00:00"),
+...     "expires_at": new Date("2031-04-02 00:00")
+... },
+... {
+...     "id": 5,
+...     "manufacturer": {
+...         "id": 5,
+...         "title": "Obi"
+...     },
+...     "product": {
+...         "id": 5,
+...         "title": "Plastic wrapping",
+...         "units": "box"
+...     },
+...     "shipment_id": 6,
+...     "price": 89.99,
+...     "quantity": 4500,
+...     "produced_at": new Date("2018-05-06 00:00"),
+...     "expires_at": new Date("2021-03-30 00:00")
+... },
+... {
+...     "id": 6,
+...     "manufacturer": {
+...         "id": 1,
+...         "title": "Apple"
+...     },
+...     "product": {
+...         "id": 4,
+...         "title": "iPad 12 2005",
+...         "units": "pcs"
+...     },
+...     "shipment_id": 5,
+...     "price": 199.99,
+...     "quantity": 1000,
+...     "produced_at": new Date("2020-01-06 12:00"),
+...     "expires_at": new Date("2023-01-01 12:00")
+... }])
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("5f9f7547c8a0b1b18d6fb11a"),
+		ObjectId("5f9f7547c8a0b1b18d6fb11b"),
+		ObjectId("5f9f7547c8a0b1b18d6fb11c"),
+		ObjectId("5f9f7547c8a0b1b18d6fb11d"),
+		ObjectId("5f9f7547c8a0b1b18d6fb11e"),
+		ObjectId("5f9f7547c8a0b1b18d6fb11f")
+	]
+}

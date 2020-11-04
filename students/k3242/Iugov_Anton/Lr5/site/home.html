@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		<title>Exchange – Home</title>
+		<style>
+            h1 {
+				text-align: center;
+                margin: 40px;
+            }
+        </style>
+    </head>
+    <body>
+		<div class="container">
+			<nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Home</li>
+                </ol>
+            </nav>
+			<h1 class="display-4">Commodities Exchange</h1>
+			<div class="card-deck">
+
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Manufacturers</h5>
+						<p class="card-text">Manufacturers produce products that are avilable on our exchange.</p>
+					</div>
+					<div class="card-footer">
+						<button onclick="location.href='sections/manufacturers/view.php'" type="button" class="btn btn-primary btn-lg btn-block">Open</button>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Products</h5>
+						<p class="card-text">Products are unique "templates" that are produced by manufacturers in batches.</p>
+					</div>
+					<div class="card-footer">
+						<button onclick="location.href='sections/products/view.php'" type="button" class="btn btn-primary btn-lg btn-block">Open</button>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Batches</h5>
+						<p class="card-text">Batches are collections of manufactured products that can be shipped.</p>
+					</div>
+					<div class="card-footer">
+						<button onclick="location.href='sections/batches/view.php'" type="button" class="btn btn-primary btn-lg btn-block">Open</button>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Shipments</h5>
+						<p class="card-text">Shipments are (potentially) collections of batches that are scheduled to be shipped at a certain point in time. They contain broker's credentials and other useful information.</p>
+					</div>
+					<div class="card-footer">
+						<button onclick="location.href='sections/shipments/view.php'" type="button" class="btn btn-primary btn-lg btn-block">Open</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    </body>
+</html>
