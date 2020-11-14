@@ -1,0 +1,34 @@
+use hotel
+
+
+hotel.rooms.insert({'number': 100, 'floor': 9})
+hotel.rooms.insert({'number': 101, 'floor': 9})
+hotel.rooms.insert({'number': 102, 'floor': 9})
+hotel.rooms.insert({'number': 201, 'floor': 8})
+hotel.rooms.insert({'number': 202, 'floor': 8})
+hotel.rooms.insert({'number': 203, 'floor': 8})
+
+
+db.rooms.insert({'number': 204, 'floor': 9})
+db.rooms.insert({'number': 205, 'floor': 9})
+db.rooms.insert({'number': 206, 'floor': 9})
+db.rooms.insert({'number': 207, 'floor': 9})
+db.rooms.insert({'number': 104, 'floor': 8})
+db.rooms.insert({'number': 205, 'floor': 8})
+db.rooms.insert({'number': 206, 'floor': 8})
+db.rooms.insert({'number': 207, 'floor': 8})
+db.rooms.insert({'number': 208, 'floor': 8})
+db.rooms.insert({'number': 210, 'floor': 8})
+
+
+db.guests.insert({'first_name': 'Антон', 'last_name': 'Говоров', 'passport': '777777'})
+db.guests.insert({'first_name': 'Филипп', 'last_name': 'Здоров', 'passport': '111111'})
+db.guests.insert({'first_name': 'Антон', 'last_name': 'Лапенко', 'passport': '000000'})
+
+
+db.livings.insert({'guest_id': ObjectId('5f872a315087dc6755069c6f'), 'from': new Date("2020-10-06"), 'to': new Date("2020-10-14"), 'room': 10})
+db.livings.insert({'guest_id': ObjectId('6f8s2a315087dc6755069c71'), 'from': new Date("2020-12-15"), 'to': new Date("2020-10-14"), 'room': 10})
+db.livings.insert({'guest_id': ObjectId('7f872a315087dc6755069c86'), 'from': new Date("2020-06-13"), 'to': new Date("2020-10-14"), 'room': 10})
+
+
+db.livings.find({'from': {$gt: new ISODate('2020-10-10')}}, {'_id': 0, 'to': 1})
