@@ -1,0 +1,158 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #E5E5E5;
+	color: #095156;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+input {
+	background: #F1FAFA;
+	outline: none;
+	box-shadow: none;
+	border: none;
+}
+
+
+.input-submit {
+	border: 2px solid black;
+	font-size: 1.2em;
+	font-family: 'Roboto', sans-serif;
+	color: #0F6267;
+	border-radius: 6px;
+	padding: 2px 10px 2px 10px;
+	margin: 10px 10px 10px 10px;
+}
+
+.input-submit:hover {
+	background-color: #E4FBFB;
+}
+
+textarea {
+	font-family: 'Roboto', sans-serif;
+	border: 2px solid black;
+	background: #F1FAFA;
+	padding: 10px;
+	font-size: 1.2em;
+	outline:none;
+}
+
+textarea:focus {
+	background: #F2FFFF;
+}
+
+
+h1 {
+	margin: 20px 0 10px 20px; 
+}
+
+h2 {
+	margin: 20px 0 10px 30px; 
+}
+
+
+ul {
+	margin: 10px 0 10px 50px;	
+}
+
+ul li {
+	margin: 5px 0 0 0;
+}
+
+
+
+
+/*---------------------------------*/
+
+
+.result-table {
+	background: #F1FAFA;
+	color: black;
+	margin: 20px 20px 20px 20px;
+}
+
+.result-table td, .result-table th {
+	padding: 10px;
+	text-align: center;
+}
+
+.result-table td:hover {
+	background-color: #E4FBFB;
+}
+
+/*---------------------------------*/
+
+.edit-table {
+	background: #F1FAFA;
+	color: black;
+	margin: 20px 20px 20px 20px;
+}
+
+.edit-table th {
+	padding: 10px;
+	text-align: center;
+}
+
+
+.edit-table td input[type=text] {
+	padding: 10px;
+	outline: none;
+	text-align: center;
+}
+
+.edit-table td input[type=text]:hover {
+	background: #E4FBFB;
+}
+
+.edit-table td input[type=text]:focus {
+	background: #E4FBFB;
+	width: 100%;
+}
+
+.edit-table--delete-td {
+	background-color: #E78686;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.edit-table--delete-td:hover {
+	background-color: #EE3535;
+}
+
+
+.edit-table--delete, .edit-table--save, .edit-table--add {
+	height: 40px;
+	width: 100%;
+	padding: 0 10px 0 10px;
+	margin: 0;
+	cursor: pointer;
+}
+
+.edit-table--delete {
+	background-color: #E96464;
+}
+
+.edit-table--save {
+	background-color: #9CF99A;
+}
+
+.edit-table--add {
+	background-color: #A1F6F1;
+}
+
+.edit-table--delete:hover {
+	background-color: #EE3535;
+}
+
+.edit-table--save:hover {
+	background-color: #46F042;
+}
+
+.edit-table--add:hover {
+	background-color: #45F1E7;
+}
