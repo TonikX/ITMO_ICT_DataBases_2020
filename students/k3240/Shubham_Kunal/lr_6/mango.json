@@ -1,0 +1,90 @@
+{
+  "_id": ObjectId(
+  "5f03b3bc01de594df8710ff2"
+  ),
+  "amount": 100,
+  "price": 3000,
+  "manufacturer": "TitanWorks",
+  "product": {
+    "product_name": "Cobalt",
+    "date_of_manufacture": "20.01.2019",
+    "unit_of_measurement": "tonne"
+  },
+  "deal": {
+    "sum": 4550,
+    "date": "23.12.2019",
+    "exchange": "NYSE"
+  }
+}
+{
+  "_id": ObjectId(
+  "5f03b3bc01de594df8710ff3"
+  ),
+  "amount": 19,
+  "price": 8000,
+  "manufacturer": "Amworks",
+  "product": {
+    "product_name": "Butter",
+    "date_of_manufacture": "21.03.2019",
+    "unit_of_measurement": "tonne"
+  },
+  "deal": {
+    "sum": 9200,
+    "date": "03.04.2020",
+    "exchange": "BSE"
+  }
+}
+{
+  "_id": ObjectId(
+  "5f03b3bc01de594df8710ff4"
+  ),
+  "amount": 111,
+  "price": 90,
+  "manufacturer": "RProducts",
+  "product": {
+    "product_name": "milk",
+    "date_of_manufacture": "07.12.2018",
+    "unit_of_measurement": "tonne"
+  },
+  "deal": {
+    "sum": 80,
+    "date": "23.02.2020",
+    "exchange": "SPb"
+  }
+}
+{
+  "_id": ObjectId(
+  "5f03b3bc01de594df8710ff5"
+  ),
+  "amount": 30,
+  "price": 5500,
+  "manufacturer": "Amworks",
+  "product": {
+    "product_name": "Egg Yolk",
+    "date_of_manufacture": "24.03.2020",
+    "unit_of_measurement": "tonne"
+  },
+  "deal": {
+    "sum": 5000,
+    "date": "06.06.2020",
+    "exchange": "BSE"
+  }
+}
+{
+  "_id": ObjectId(
+  "5f03b3bc01de594df8710ff6"
+  ),
+  "amount": 120,
+  "price": 8000,
+  "manufacturer": "Cadbury's",
+  "product": {
+    "product_name": "Eclairs",
+    "date_of_manufacture": "19.05.2020",
+    "unit_of_measurement": "tonne"
+  },
+  "deal": {
+    "sum": 25000,
+    "date": "23.02.2020",
+    "exchange": "SPb"
+  }
+}
